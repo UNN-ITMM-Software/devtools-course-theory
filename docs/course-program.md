@@ -17,7 +17,7 @@
       - Subversion, Mercurial
       - Git как DVCS и не только
   01. Автоматизация: командная строка и скриптовые языки
-      - Bash
+      - Bash (cron)
       - Python
 
 ???
