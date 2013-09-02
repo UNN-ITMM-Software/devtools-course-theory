@@ -71,13 +71,13 @@
 
   01. Коллективная разработка
       - Трекеры задач (Redmine, Trac, Bugzilla)
+      - Инструменты для peer review
       - GitHub (GitLab), Bitbucket, other (Code Google, SourceForge)
   01. Формирование сообщества
       - Листы рассылки
       - Форумы, Q&A
       - UserEcho
       - Социальные сети
-
 
 # Практика
 
