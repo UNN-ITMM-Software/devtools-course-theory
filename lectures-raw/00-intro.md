@@ -55,6 +55,12 @@
 
 # Программа курса
 
+![](/Users/kirill-kornyakov/Work/GitRepos/devtools-course/lectures-raw/00-intro/developmentprocess.gif)
+
+Software Development Lifecycle
+
+# Программа курса
+
 > 1. Личное мастерство
      - Работа с текстом
      - Автоматизация
