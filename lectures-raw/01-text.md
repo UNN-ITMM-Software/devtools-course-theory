@@ -8,7 +8,8 @@
 # Содержание
 
 - Сравнение бинарного и текстового форматов
-- Примеры использования текстового формата
+- Популярные форматы на основе текстового
+- Текстовые файлы как исходники
 - Современные языки разметки, используемые программистами
 - Примеры использования Markdown
 
@@ -19,10 +20,6 @@
     - GraphVis, PlantUML, latex, Документация (reference manual), scripts
     - Современные языки разметки: Markdown, Textile, MediaWiki
     - Wiki, книги, Slides, Web-publishing (блоггинг с Jekyll?)
-  - Обработка текста / Текстовые редакторы
-    - Редакторы: Sublime, vim, Emacs
-    - Манипуляции (навигация, сортировка, сниппеты и макросы)
-    - Regular expressions
 -->
 
 # Форматы
@@ -92,6 +89,12 @@ met:
     distribution.  
 ```
 
+Примеры:
+
+ * Документация (README, Changelog, TODO)
+ * Логи (отладочная информация, coredump)
+ * Консольный вывод утилит (разнообразные анализаторы)
+
 # Примеры файлов: XML
 
 GoogleTest output
@@ -108,7 +111,14 @@ GoogleTest output
     <testcase name="abs/5" value_param="(1280x720, 8SC4)" status="run" time="0.728" classname="Size_MatType_abs" bytesIn="3686400" bytesOut="3686400" term="0" samples="100" outliers="0" frequency="1000000000" min="5582443" median="6556922" gmean="7039714" gstddev="0.205895" mean="7193720" stddev="1551553" />
     <testcase name="abs/6" value_param="(1280x720, 32SC1)" status="run" time="0.078" classname="Size_MatType_abs" bytesIn="3686400" bytesOut="3686400" term="0" samples="100" outliers="1" frequency="1000000000" min="589331" median="666260" gmean="684319" gstddev="0.110956" mean="688650" stddev="80689" />
     <testcase name="abs/7" value_param="(1280x720, 32FC1)" status="run" time="0.07" classname="Size_MatType_abs" bytesIn="3686400"
+    ...
 ```
+
+Примеры:
+
+ * Сериализация структур данных
+ * Разнообразные конфигурационные файлы (в том числе для построения)
+ * Отчеты о прохождении тестов
 
 # Примеры файлов: YAML
 
@@ -128,9 +138,7 @@ branches:
     - compiler
 notifications:
   recipients:
-    - evan+notify@phx.io
-    - brixen@gmail.com
-    - d.bussink@gmail.com
+    - somebody@gmail.com
   email:
     on_success: change
     on_failure: always
@@ -138,6 +146,45 @@ rvm:
   - 1.8.7
   - 1.9.3
 ```
+
+Основное использование - конфигурационные файлы.
+
+# Примеры файлов: JSON
+
+```
+{
+   "firstName": "Иван",
+   "lastName": "Иванов",
+   "address": {
+       "streetAddress": "Московское ш., 101, кв.101",
+       "city": "Ленинград",
+       "postalCode": 101101
+   },
+   "phoneNumbers": [
+       "812 123-1234",
+       "916 123-4567"
+   ]
+}
+```
+
+Основное использование - сериализация структур, чаще всего в веб-приложениях.
+
+Функционально и синтаксически является подмножеством YAML.
+
+# Текст как исходник
+
+ 1. Все языки программирования используют текстовый формат как исходный. Вплоть
+    до ассемблера. Но исключая машинные коды.
+ 1. А некоторые и как финальный
+    - Скриптовые языки: bash, CMD
+    - Динамические языки: Python, Perl, Ruby
+    - Другие: JavaScript, MATLAB, GLSL, OpenCL (< v1.2?), CMake
+
+Открытость исходника позволяет:
+
+  - Читать
+  - Модифицировать
+  - Генерировать
 
 # Graphviz
 
@@ -207,3 +254,182 @@ rvm:
 |@enduml                             |                                            |
 |```                                 |                                            |
 +------------------------------------+--------------------------------------------+
+
+# LaTeX
+
++-----------------------------------------------------------+-------------------------------------------------+
+|```                                                        |![](./lectures-raw/01-text/LaTeX_Output.svg.png) |
+|\documentclass[12pt]{article}                              |                                                 |
+|\usepackage{amsmath}                                       |                                                 |
+|\title{\LaTeX}                                             |                                                 |
+|\date{}                                                    |                                                 |
+|\begin{document}                                           |                                                 |
+|  \maketitle                                               |                                                 |
+|  \LaTeX{} is a document preparation system for the \TeX{} |                                                 |
+|  typesetting program. It offers programmable desktop      |                                                 |
+|  ...                                                      |                                                 |
+|  much more. \LaTeX{} was originally written in 1984 by    |                                                 |
+|  Leslie Lamport and has become the dominant method for    |                                                 |
+|  using \TeX; few people write in plain \TeX{} anymore.    |                                                 |
+|  The current version is \LaTeXe.                          |                                                 |
+|                                                           |                                                 |
+|  % This is a comment, not shown in final output.          |                                                 |
+|  % The following shows typesetting power of LaTeX:        |                                                 |
+|  \begin{align}                                            |                                                 |
+|    E &= mc^2                              \\              |                                                 |
+|    m &= \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}              |                                                 |
+|  \end{align}                                              |                                                 |
+|\end{document}                                             |                                                 |
+|```                                                        |                                                 |
++-----------------------------------------------------------+-------------------------------------------------+
+
+Идеален для больших научных текстов (статей, книг).
+
+# Doxygen
+
++--------------------------------------------------------+---------------------------------------------+
+|```                                                     |![](./lectures-raw/01-text/Doxygen_ouput.png)|
+|/**                                                     |                                             |
+| * @file                                                |                                             |
+| * @author  John Doe <jdoe@example.com>                 |                                             |
+| * @version 1.0                                         |                                             |
+| *                                                      |                                             |
+| * @section DESCRIPTION                                 |                                             |
+| *                                                      |                                             |
+| * The time class represents a moment of time.          |                                             |
+| */                                                     |                                             |
+|                                                        |                                             |
+|class Time {                                            |                                             |
+| public:                                                |                                             |
+|    /**                                                 |                                             |
+|     * Constructor that sets the time to a given value. |                                             |
+|     *                                                  |                                             |
+|     * @param timemillis Number of milliseconds         |                                             |
+|     *        passed since Jan 1, 1970.                 |                                             |
+|     */                                                 |                                             |
+|    Time (int timemillis);                              |                                             |
+|                                                        |                                             |
+|    /**                                                 |                                             |
+|     * Get the current time.                            |                                             |
+|     *                                                  |                                             |
+|     * @return A time object set to the current time.   |                                             |
+|     */                                                 |                                             |
+|    static Time now ();                                 |                                             |
+|};                                                      |                                             |
+|```                                                     |                                             |
++--------------------------------------------------------+---------------------------------------------+
+
+# Легковесные языки разметки
+
+**Определение**
+
+  - Это языки разметки текстовой информации
+  - Имеют упрощенный синтаксис
+  - Спроектированы для работы из простого текстового редактора
+  - Понятны человеку в своем исходном виде
+
+**Приложения**
+
+  - Wiki страницы
+  - Документация ПО
+  - Веб-публикации (блоги, сайты)
+
+[Каталог на Wikipedia](http://en.wikipedia.org/wiki/Lightweight_markup_language)
+
+# MediaWiki
+
+![](./lectures-raw/01-text/Mediawiki-edit.png)
+
+# reStructuredText
+
+```
+Body Elements
+=============
+Grid table:
+
++--------------------------------+-----------------------------------+
+| Paragraphs are flush-left,     | Literal block, preceded by "::":: |
+| separated by blank lines.      |                                   |
+|                                |     Indented                      |
+|     Block quotes are indented. |                                   |
++--------------------------------+ or::                              |
+| >>> print 'Doctest block'      |                                   |
+| Doctest block                  | > Quoted                          |
++--------------------------------+-----------------------------------+
+| | Line blocks preserve line breaks & indents. [new in 0.3.6]       |
+| |     Useful for addresses, verse, and adornment-free lists; long  |
+|       lines can be wrapped with continuation lines.                |
++--------------------------------------------------------------------+
+
+Simple tables:
+
+================  ============================================================
+List Type         Examples (syntax in the `text source <cheatsheet.txt>`_)
+================  ============================================================
+Bullet list       * items begin with "-", "+", or "*"
+Enumerated list   1. items use any variation of "1.", "A)", and "(i)"
+                  #. also auto-enumerated
+Definition list   Term is flush-left : optional classifier
+                      Definition is indented, no blank line between
+Field list        :field name: field body
+Option list       -o  at least 2 spaces between option & description
+================  ============================================================
+```
+
+From the [cheatsheet](http://docutils.sourceforge.net/docs/user/rst/cheatsheet.txt).
+
+# reStructuredText
+
+Создан при помощи онлайн [рендера](http://www.tele3.cz/jbar/rest/rest.html) от Jiri Barton.
+
+![](./lectures-raw/01-text/rst.png)
+
+# Textile
+
+Этот синтаксис используется например в Redmine.  
+GitHub также позволяет использовать его.
+
+![](./lectures-raw/01-text/textile.png)
+
+# Markdown
+
+ - Вероятно, самый популярный из легковесных языков разметки на сегодняшний день.
+ - Используется на GitHub и StackOverflow в качестве языка для wiki и комментариев.
+ - Поддерживается редакторами, оброс большим количеством инструментов.
+ - Минус: встречаются расхождения в "толковании".
+
+Полезные ссылки:
+
+  1. [Шпаргалка](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+  1. [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown)
+  1. [Оригинальная страница](http://daringfireball.net/projects/markdown/syntax)
+  1. <http://WhatIsMarkdown.com>
+
+# Markdown
+
+_ReText_ client for Linux
+
+![](./lectures-raw/01-text/retext-kde.png)
+
+# Markdown
+
+_Mou_ client for Mac
+
+![](./lectures-raw/01-text/Mou_Screenshot_1.png)
+
+# Примеры использования Markdown
+
+  1. GitHub: wiki and comments using GFM
+  2. StackOverflow: questions and answers [editing](http://stackoverflow.com/editing-help)
+
+# Контрольные вопросы
+
+  1. Преимущества простого текста
+  1. Преимущества бинарного формата
+  1. Примеры ситуаций, когда удобно использовать TXT, XML, YAML, JSON
+  1. Синтаксис Markdown (заголовки, стили, списки, ссылки)
+  1. Примеры использования Markdown
+
+# Спасибо!
+
+Вопросы?
