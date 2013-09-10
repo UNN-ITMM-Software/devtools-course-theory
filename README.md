@@ -5,8 +5,20 @@
 
 Google-группа для общения: <https://groups.google.com/forum/?hl=ru#!forum/devtools-course>
 
-Практическое задание #1
+### Практическое задание #1
 
+ 1. Вступите в группу [devtools-course](https://groups.google.com/forum/?hl=ru#!forum/devtools-course),
+    которую мы будем использовать для общения. По всем вопросам необходимо
+    обращаться туда.
+ 1. Выберите себе тему из [списка](https://docs.google.com/spreadsheet/ccc?key=0AsBBkrQIoSbjdEdTUFRsaUw3LV92eVhwXzYtb0tZNHc#gid=3),
+    вписав свое имя.
  1. Зарегистрироваться на GitHub, предпочтительно использования аккаунта,
     из котого понятно ваше имя (опционально).
- 1. https://docs.google.com/spreadsheet/ccc?key=0AsBBkrQIoSbjdEdTUFRsaUw3LV92eVhwXzYtb0tZNHc#gid=3
+ 1. Создайте форк нашего проекта: <https://github.com/kirill-kornyakov/devtools-course>,
+    клонируйте репозиторий к себе на рабочую машину.
+ 1. В подпапке code заведите папку со своим именем, и поместите туда файл
+    README.md. Это будет ваша wiki страничка в формате Markdown со всеми 
+    деталями о вашем проекте.
+ 1. Заполните свой README.md информацией, чтобы там были заголовки, списки и 
+    стили.
+ 1. Сделать pull-request в центральный репозиторий.
