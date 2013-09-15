@@ -55,7 +55,7 @@
 
 # Программа курса
 
-![](/Users/kirill-kornyakov/Work/GitRepos/devtools-course/lectures-raw/00-intro/developmentprocess.gif)
+![](./00-intro/developmentprocess.gif)
 
 Software Development Lifecycle
 
@@ -96,7 +96,7 @@ Software Development Lifecycle
   1. Может будет иметь Java API в дополнение к С++ (а может и Python)
 
 Каждый шаг засчитывается в момент попадания вашего кода в 
-[центральный репозиторий](https://github.com/kirill-kornyakov/devtools-course).
+[центральный репозиторий](https://github.com/UNN-VMK-Software/devtools-course).
 
 # Отчетность
 
@@ -117,7 +117,7 @@ Software Development Lifecycle
 **Ссылки**
 
   - <https://help.github.com>
-  - <https://github.com/kirill-kornyakov/devtools-course>
+  - <https://github.com/UNN-VMK-Software/devtools-course>
 
 # Спасибо за внимание!
 
