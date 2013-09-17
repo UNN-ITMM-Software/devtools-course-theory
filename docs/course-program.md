@@ -13,11 +13,11 @@
       - Редакторы: vim, Emacs, Sublime
       - Манипуляции (навигация, сортировка, сниппеты и макросы)
       - Regular expressions
-
-  01. Автоматизация: командная строка и скриптовые языки **TBD**
-      - UNIX philosophy
-      - Bash (cron), other shells, настройка под себя, Tilda
       - Утилиты командной строки (find, grep, sed, awk, head/tail/less)
+
+  01. Автоматизация: командная строка и скриптовые языки
+      - UNIX philosophy
+      - Bash (cron, watch), other shells, настройка под себя, Tilda
       - Python (xml, excel, pdf, matplotlib)
       - Анонс: make, unit-testing, CI
 
