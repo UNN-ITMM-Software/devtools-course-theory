@@ -22,6 +22,7 @@
       - Редакторы: vim, Emacs, Sublime
       - Манипуляции (навигация, сортировка, сниппеты и макросы)
       - Regular expressions
+      - Консольные инструменты
 
 TODO
  - мб вставить интересные факты
@@ -37,6 +38,7 @@ TODO
 <li>Возможности современных редакторов (на примере Sublime)</li>
 <li>Регулярные выражения</li>
 <li>Инструменты командной строки</li>
+<li>Краткое упоминание про скриптовые языки</li>
 </ol>
 </div>
 <div class="section slide level1" id="два-совета">
@@ -273,6 +275,94 @@ TODO
 <li>Projects</li>
 </ol>
 </div>
+<div class="section slide level1" id="регулярные-выражения">
+<h1>Регулярные выражения</h1>
+<blockquote>
+<p><strong>Регулярные выражения</strong> (англ. regular expressions) — формальный язык поиска и осуществления манипуляций с подстроками в тексте, основанный на использовании метасимволов (англ. wildcard characters).</p>
+</blockquote>
+<blockquote>
+<p>По сути это строка-образец (англ. pattern, по-русски её часто называют «шаблоном», «маской»), состоящая из символов и метасимволов и задающая правило поиска.</p>
+</blockquote>
+<p>Wikipedia</p>
+<p>Метасимволы: <code>[ ] \ / ^ $ . | ? * + ( ) { }</code></p>
+</div>
+<div class="section slide level1" id="примеры-регулярных-выражений">
+<h1>Примеры регулярных выражений</h1>
+<p>(Даются упрощенные выражения)</p>
+<ul class="incremental">
+<li>Email: <code>[a-z]+@[a-z]+\.com</code></li>
+<li>Visa: <code>4[0-9]{3}(\ [0-9]{4}){3}</code></li>
+<li>IP: <code>\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b</code></li>
+<li>Float: <code>[-+]?[0-9]+\.[0-9]+</code></li>
+<li>Years old:
+<ul class="incremental">
+<li><code>[0-9]{2}(?=\ years)</code></li>
+<li><code>(?&lt;=[0-9]{4}\ \()[0-9]{2}</code></li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level1" id="синтаксис">
+<h1>Синтаксис</h1>
+<ul class="incremental">
+<li>Обычные строки обозначают сами себя</li>
+<li><code>\</code> - экранирует спецсимволы (<code>/</code> иногда используется как разделитель)</li>
+<li><code>.</code> - может быть использована вместо любого символа</li>
+<li><code>( )</code> - группировка, указывает приоритет операций</li>
+<li><code>[ ]</code> - обозначает символьный класс (<code>[abc], [0123456789], [а-я], [0-9]</code>)</li>
+<li><code>^ $</code> - указывают на начало и конец строки</li>
+<li><code>? * + { }</code> - указывают число повторений</li>
+</ul>
+<!-- What is |  -->
+
+</div>
+<div class="section slide level1" id="примеры-регулярных-выражений-1">
+<h1>Примеры регулярных выражений</h1>
+<p>Что ищут эти выражения, и какие они имеют недостатки?</p>
+<ul class="incremental">
+<li><code>[a-z]+@[a-z]+\.com</code></li>
+<li><code>4[0-9]{3}(\ [0-9]{4}){3}</code></li>
+<li><code>\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b</code></li>
+<li><code>[-+]?[0-9]+\.[0-9]+</code></li>
+<li>Lookaround
+<ul class="incremental">
+<li>lookahead: <code>[0-9]{2}(?=\ years)</code></li>
+<li>lookbehind: <code>(?&lt;=[0-9]{4}\ \()[0-9]{2}</code></li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level1" id="инструменты-командной-строки">
+<h1>Инструменты командной строки</h1>
+<ol style="list-style-type: decimal">
+<li>Просмотр
+<ul>
+<li><code>cat</code>, <code>head/tail</code>, <code>less</code></li>
+</ul></li>
+<li>Поиск
+<ul>
+<li><code>grep</code></li>
+</ul></li>
+<li>Обработка
+<ul>
+<li><code>sed</code>, <code>awk</code></li>
+</ul></li>
+</ol>
+</div>
+<div class="section slide level1" id="скриптовые-языки">
+<h1>Скриптовые языки</h1>
+<ul class="incremental">
+<li>Perl
+<ul class="incremental">
+<li>Practical Extraction and Report Language</li>
+<li>Создан Ларри Уоллом, лингвистом по образованию</li>
+<li>Замена для <code>awk</code> и <code>sed</code></li>
+<li>Богатые возможности по работе с текстом,<br /> встроенная в синтаксис поддержка регулярных выражений</li>
+</ul></li>
+<li>Python
+<ul class="incremental">
+<li>Есть мнение, что он все-таки победил как язык общего назначения</li>
+</ul></li>
+</ul>
+</div>
 <div class="section slide level1" id="резюме">
 <h1>Резюме</h1>
 <ol style="list-style-type: decimal">
@@ -287,7 +377,7 @@ TODO
 </ul></li>
 <li>Освойте регулярные выражения
 <ul>
-<li>Используйте их для поиска и замены</li>
+<li>Используйте их для поиска и замены, пакетной обработки файлов</li>
 </ul></li>
 <li>Установите и изучите инструменты командной строки
 <ul>
@@ -298,6 +388,23 @@ TODO
 </div>
 <div class="section slide level1" id="контрольные-вопросы">
 <h1>Контрольные вопросы</h1>
+<ol style="list-style-type: decimal">
+<li>Как будет выглядет команда в Vim для:
+<ul>
+<li>Создания 10 копий текущей строки</li>
+<li>Перевода всей строки в верхний регистр (капитализация)</li>
+</ul></li>
+<li>Предложите регулярное выражение для поиска:
+<ul>
+<li>Имен всех классов в вашем С++ проекте</li>
+<li>Поиска всех дат в формате 2013-09-18 или 14-01-01</li>
+</ul></li>
+<li>Предложите командную строку для:
+<ul>
+<li>Поиска всех вызовов виртуального метода в директории с исходниками</li>
+<li>Печати всех заголовков первого и второго уровня в файле Markdown (#-нотация)</li>
+</ul></li>
+</ol>
 </div>
 <div class="section slide level1" id="спасибо">
 <h1>Спасибо!</h1>
