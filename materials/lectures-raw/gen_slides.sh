@@ -3,10 +3,10 @@ if [ "$rootDir" == "" ]; then
     rootDir="./"
 fi
 
-rawDir="$rootDir/lectures-raw"
+rawDir="$rootDir/materials/lectures-raw"
 cd $rawDir
 
-outDir="../lectures-html"
+outDir="../../../devtools-course-html"
 
 # Generating HTML
 for file in *.md
