@@ -11,6 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   code/kirill-kornyakov/docs/simplecalc.rst
 
 
 Indices and tables
