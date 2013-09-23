@@ -21,9 +21,9 @@
   1. Вступите в группу [devtools-course](https://groups.google.com/forum/?hl=ru#!forum/devtools-course),
      которую мы будем использовать для общения. По всем вопросам необходимо
      обращаться туда. 
-  1. Выберите себе тему из [списка](https://docs.google.com/spreadsheet/
-     ccc?key=0AsBBkrQIoSbjdEdTUFRsaUw3LV92eVhwXzYtb0tZNHc#gid=3), вписав свое
-     имя.
+  1. Выберите себе тему из
+     [списка](https://docs.google.com/spreadsheet/ccc?key=0AsBBkrQIoSbjdEdTUFRsaUw3LV92eVhwXzYtb0tZNHc#gid=3), 
+     вписав свое имя.
   1. Зарегистрируйтесь на GitHub, предпочтительно использования аккаунта, из
      котого понятно ваше имя (опционально).
   1. Создайте форк нашего проекта: <https://github.com/UNN-VMK-Software/devtools-course>,
@@ -42,8 +42,9 @@
      сделать локальный коммит в Git, затем сделать push изменений в ваш форк на 
      GitHub.
   1. Когда ваши коммиты попадут на GitHub, нужно будет сделать pull-request в
-     центральный репозиторий: <https://github.com/UNN-VMK-Software/devtools-
-     course>. Большая просьба в названии указать свою фамилию и номер
+     центральный репозиторий: 
+     <https://github.com/UNN-VMK-Software/devtools-course>. Большая просьба в 
+     названии указать свою фамилию и номер
      лабораторной, например _"Корняков - Лабораторная работа #1"_.
   1. Если будут замечания к вашему коду, вы можете просто добавлять коммиты в
      свою ветку `master`, и пулл-реквест будет автоматически обновляться.
@@ -64,21 +65,21 @@
        в директорию `src`, но ничего больше.
   1. Задокументируйте свой класс в стиле Sphinx, см. заготовку:
      [исходник](https://raw.github.com/UNN-VMK-Software/devtools-course/master/code/kirill-kornyakov/docs/simplecalc.rst),
-     [результат](https://devtools.readthedocs.org/ru/latest/).
+     [результат](https://devtools.readthedocs.org/ru/latest/code/kirill-kornyakov/docs/simplecalc.html).
      - Необходимо создать rst-файл и поместить его в свою директорию `docs`.
      - Необходимо заполнить его, подробно описав (1) назначение класса, (2)
        сигнатуры публичных методов, (3) приведя примеры использования класса
        в пользовательском С++ коде.
-     - Когда файл будет готов, его нужно будет включить в [корневой
-       файл](https://raw.github.com/UNN-VMK-Software/devtools-
-       course/master/docs/source/index.rst) с документацией.
+     - Когда файл будет готов, его нужно будет включить в 
+       [корневой файл](https://raw.github.com/UNN-VMK-Software/devtools-course/master/docs/source/index.rst)
+       с документацией.
   1. Проверить корректность построения документации можно двумя способами:
-     - Локально. Вам нужно будет [установить Sphinx](http://sphinx-
-       doc.org/latest/install.html), после чего построить документацию,
-       пользуясь файлами из директории [docs](https://github.com/UNN-VMK-
-       Software/devtools-course/tree/master/docs).
-     - Онлайн. Вы можете индивидуально [подключить](https://read-the-
-       docs.readthedocs.org/en/latest/getting_started.html#import-your-docs)
+     - Локально. Вам нужно будет [установить Sphinx](http://sphinx-doc.org/latest/install.html),
+       после чего построить документацию,
+       пользуясь файлами из директории 
+       [docs](https://github.com/UNN-VMK-Software/devtools-course/tree/master/docs).
+     - Онлайн. Вы можете индивидуально 
+       [подключить](https://read-the-docs.readthedocs.org/en/latest/getting_started.html#import-your-docs)
        свой репозиторий к сервису ReadTheDocs. Тогда вы сможете увидеть свою
        документацию подобно тому, как это сделано для всего проекта
        [devtools](https://devtools.readthedocs.org).
