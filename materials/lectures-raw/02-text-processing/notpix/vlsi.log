@@ -1,0 +1,1063 @@
+Running itlPlace [http://svn.software.unn.ru/VLSI/CODE/trunk/itlPlace] Revision 2032 (2012/04/25 19:45:30)
+Cfg option changed: params.def = C:\Users\kornyakov.k\Desktop\VLSI\CODE\trunk\Benchmarks\IWLS_GP_r1511\IWLS_GP_004881_des_area.def
+Cfg option changed: plotter.pixDirectory = C:\Users\kornyakov.k\Desktop\VLSI\CODE\trunk\TestingFramework\Reports\Joint_Path_Buffering_JointPlacementBuffering.cfg_2013-03-02_17-19-06\IWLS_GP_004881_des_area\pix
+Cfg option changed: plotter.milestonePixDirectory = C:\Users\kornyakov.k\Desktop\VLSI\CODE\trunk\TestingFramework\Reports\Joint_Path_Buffering_JointPlacementBuffering.cfg_2013-03-02_17-19-06\IWLS_GP_004881_des_area\pix\milestones
+Cfg option changed: LSE.GlobalPlacement.UseBuffering = true
+Cfg option changed: LSE.GlobalPlacement.New_Buffering.TypeNetListBuffering = 1
+Cfg option changed: plotter.enabled = false
+[     0.304] LEF file GSCLib_3.0.lef parsing started...
+[     0.313] LEF parsing finished.
+[     0.313] Lib file GSCLib_3.0.lib parsing started...
+[     0.342] Extracting data from library gsclib
+[     0.357] Lib parsing finished.
+[     0.357] DEF file C:\Users\kornyakov.k\Desktop\VLSI\CODE\trunk\Benchmarks\IWLS_GP_r1511\IWLS_GP_004881_des_area.def parsing started...
+[     0.387] 	Cells parsing started...
+[     0.422] 	Cells parsing finished.
+[     0.422] 	Pins parsing started...
+[     0.424] 	Pins parsing finished.
+[     0.424] 	Nets parsing started...
+[     0.502] ERROR PRINT in netCB (..\src\Parser\DEFparse.cpp:318)
+             Net tie1 has no source.
+[     0.502] ASSERT in Utils::GetDriverWorstPhisics (..\src\Data\Utils\TimingUtils.cpp:86)
+             (design.Get<HPinType::Direction, PinDirection>(driver) == PinDirection_OUTPUT)
+[     0.502] 	Nets parsing finished.
+[     0.503] DEF parsing finished.
+[     0.504] NETS SKIPPING STARTED...
+[     0.504] 	Net "clk" skipped, source PIN.clk
+[     0.504] 	Net "tie1" skipped, source R_reg\[25\].RN
+[     0.504] 	Skipped 2 nets
+[     0.504] NETS SKIPPING FINISHED...
+[     0.504] BROKEN NETS SKIPPING STARTED...
+[     0.504] 	Skipped 0 nets
+[     0.504] BROKEN NETS SKIPPING FINISHED...
+
+Reporting: benchmark statistics
+  Nets count	= 5122
+  Cells count	= 4881
+  Pins count	= 24787
+
+Reporting: placement area report
+  Min placement x: 127.500000
+  Min placement y: 787.500000
+  Max placement x: 508327.500000
+  Max placement y: 507667.500000
+  Placement area width:  508200.000000
+  Placement area height: 506880.000000
+  Placement region area: 257596416000.000000 nm^2
+  Cells area:            159251875200.000000 nm^2
+  Utilization:           61.8222%
+
+Reporting: Number of cells for each known macro function
+  CLKBUF................141
+  REFF..................128
+  UnknownCombinational..127
+  AND...................73
+  AOI...................665
+  OAI...................93
+  NAND..................2075
+  NOR...................392
+  OR....................50
+  XOR...................1
+  INV...................1135
+  BUF...................1
+
+[     0.510] INITIAL STATE
+
+[     0.510] Running STA:
+[     0.526] Reporting: circuit negative slacks
+[     0.526]     TNS: 420.038844
+[     0.526]     WNS: 3.006846
+[     0.526]   AVGNS: 2.187702
+
+[     0.528] ANALYTICAL PLACEMENT STARTED
+
+[     0.528] CLUSTERING STARTED
+[     0.530] Error during opening clustering information import file
+[     0.539] Currently there are 4881 clusters
+[     0.539] CLUSTERING FINISHED
+[     0.539] The number of levels is 0
+[     0.539] SET INITIAL STATE
+[     0.571] Cost terms weights:
+[     0.571]   lseW = 5.44e-003
+[     0.571]   lrW  = 0.00e+000
+[     0.571]   sprW = 3.02e-017
+
+[     0.571] RELAXATION ITERATION STARTED
+[     0.571] Number of clusters: 4881
+[     0.571] Number of nets: 5120
+[     0.571] Bin grid: 69 x 69
+[     0.571] Bin width: 7365.217391	Bin height: 7346.086957
+[     0.571] Potential radius X: 15466.956522	Potential radius Y: 15426.782609
+[     0.657] Better solution found!
+[     0.657] LHPWL best = N/A
+[     0.657] LHPWL gain over best placement is N/A
+[     0.657] ALL_TNS = 91531.250230
+
+[     0.657] TAO iteration 1.1
+[     0.657] Cost terms weights:
+[     0.657]   lseW = 5.44e-003
+[     0.658]   lrW  = 0.00e+000
+[     0.658]   sprW = 3.02e-017
+[     3.759] TAO termination reason = -2 (its > maxits)
+[     3.759] Number of iterations made by TAO = 32
+[     4.380] Better solution found!
+[     4.380] LHPWL curr = 9.63e+008
+[     4.380] LHPWL best = 9.63e+008
+[     4.380] LHPWL improvement is 42.812%
+[     4.380] ALL_TNS = 58584.316503
+[     4.381]   spreading multiplier = 2.45
+
+[     4.381] GPBuffering STARTED
+[     4.386] NewSizeBufferMultiplier = 1.000000
+[     4.402] Reporting: circuit negative slacks
+[     4.402]     TNS: 343.044524
+[     4.402]     WNS: 2.365895
+[     4.402]   AVGNS: 1.786690
+[     4.402] CriticalPaths count = 559
+[     7.563] Buffers inserted: 388
+[     7.563] Minimal TNS: 298.507268
+[     7.563] Minimal WNS: 2.045259
+[     7.563] Percent area compose buffers = 6.367754
+[     8.164] REMOVE NEW BUFFERING STARTED
+[     8.164] Cells before remove = 5269
+[     8.167] Buffer count = 388
+[     8.167] Cells after remove = 4881
+[     8.182] Reporting: circuit negative slacks
+[     8.182]     TNS: 343.044524
+[     8.182]     WNS: 2.365895
+[     8.182]   AVGNS: 1.786690
+[     8.183] REMOVE NEW BUFFERING FINISHED
+[     8.183] GPBuffering FINISHED
+
+
+[     8.183] TAO iteration 1.2
+[     8.184] Cost terms weights:
+[     8.184]   lseW = 5.44e-003
+[     8.184]   lrW  = 0.00e+000
+[     8.184]   sprW = 7.39e-017
+[    11.699] TAO termination reason = -2 (its > maxits)
+[    11.699] Number of iterations made by TAO = 32
+[    12.322] LHPWL curr = 9.68e+008
+[    12.322] LHPWL best = 9.63e+008
+[    12.322] LHPWL improvement is -0.525%
+[    12.322] ALL_TNS = 59642.966833
+[    12.322]   spreading multiplier = 2.45
+
+[    12.322] GPBuffering STARTED
+[    12.327] NewSizeBufferMultiplier = 1.000000
+[    12.342] Reporting: circuit negative slacks
+[    12.342]     TNS: 331.117739
+[    12.342]     WNS: 2.328157
+[    12.342]   AVGNS: 1.724572
+[    12.342] CriticalPaths count = 559
+[    15.351] Buffers inserted: 487
+[    15.351] Minimal TNS: 286.468456
+[    15.351] Minimal WNS: 1.937633
+[    15.351] Percent area compose buffers = 7.992516
+[    15.959] REMOVE NEW BUFFERING STARTED
+[    15.959] Cells before remove = 5368
+[    15.961] Buffer count = 487
+[    15.961] Cells after remove = 4881
+[    15.985] Reporting: circuit negative slacks
+[    15.985]     TNS: 331.117739
+[    15.985]     WNS: 2.328157
+[    15.985]   AVGNS: 1.724572
+[    15.986] REMOVE NEW BUFFERING FINISHED
+[    15.986] GPBuffering FINISHED
+
+
+[    15.986] TAO iteration 1.3
+[    15.986] Cost terms weights:
+[    15.986]   lseW = 5.44e-003
+[    15.986]   lrW  = 0.00e+000
+[    15.986]   sprW = 1.81e-016
+[    19.499] TAO termination reason = -2 (its > maxits)
+[    19.499] Number of iterations made by TAO = 32
+[    20.121] Better solution found!
+[    20.121] LHPWL curr = 8.10e+008
+[    20.121] LHPWL best = 8.10e+008
+[    20.121] LHPWL improvement is 15.911%
+[    20.121] ALL_TNS = 53431.390933
+[    20.121]   spreading multiplier = 2.42
+
+[    20.121] GPBuffering STARTED
+[    20.126] NewSizeBufferMultiplier = 1.000000
+[    20.141] Reporting: circuit negative slacks
+[    20.141]     TNS: 349.130032
+[    20.141]     WNS: 2.480552
+[    20.141]   AVGNS: 1.818386
+[    20.141] CriticalPaths count = 559
+[    23.594] Buffers inserted: 413
+[    23.594] Minimal TNS: 304.286540
+[    23.594] Minimal WNS: 2.118155
+[    23.594] Percent area compose buffers = 6.778048
+[    24.203] REMOVE NEW BUFFERING STARTED
+[    24.203] Cells before remove = 5294
+[    24.205] Buffer count = 413
+[    24.205] Cells after remove = 4881
+[    24.221] Reporting: circuit negative slacks
+[    24.221]     TNS: 349.130032
+[    24.221]     WNS: 2.480552
+[    24.221]   AVGNS: 1.818386
+[    24.221] REMOVE NEW BUFFERING FINISHED
+[    24.221] GPBuffering FINISHED
+
+
+[    24.222] TAO iteration 1.4
+[    24.222] Cost terms weights:
+[    24.222]   lseW = 5.44e-003
+[    24.222]   lrW  = 0.00e+000
+[    24.222]   sprW = 4.37e-016
+[    27.627] TAO termination reason = -2 (its > maxits)
+[    27.627] Number of iterations made by TAO = 32
+[    28.255] LHPWL curr = 8.55e+008
+[    28.255] LHPWL best = 8.10e+008
+[    28.255] LHPWL improvement is -5.554%
+[    28.255] ALL_TNS = 56104.136053
+[    28.255]   spreading multiplier = 2.43
+
+[    28.255] GPBuffering STARTED
+[    28.260] NewSizeBufferMultiplier = 1.000000
+[    28.276] Reporting: circuit negative slacks
+[    28.276]     TNS: 349.745753
+[    28.276]     WNS: 2.505683
+[    28.276]   AVGNS: 1.821592
+[    28.276] CriticalPaths count = 559
+[    31.730] Buffers inserted: 433
+[    31.730] Minimal TNS: 298.842923
+[    31.730] Minimal WNS: 2.211668
+[    31.730] Percent area compose buffers = 7.106282
+[    32.342] REMOVE NEW BUFFERING STARTED
+[    32.342] Cells before remove = 5314
+[    32.344] Buffer count = 433
+[    32.345] Cells after remove = 4881
+[    32.361] Reporting: circuit negative slacks
+[    32.361]     TNS: 349.745753
+[    32.361]     WNS: 2.505683
+[    32.361]   AVGNS: 1.821592
+[    32.361] REMOVE NEW BUFFERING FINISHED
+[    32.361] GPBuffering FINISHED
+
+
+[    32.362] TAO iteration 1.5
+[    32.362] Cost terms weights:
+[    32.362]   lseW = 5.44e-003
+[    32.362]   lrW  = 0.00e+000
+[    32.362]   sprW = 1.06e-015
+[    36.222] TAO termination reason = -2 (its > maxits)
+[    36.222] Number of iterations made by TAO = 32
+[    36.852] LHPWL curr = 8.65e+008
+[    36.852] LHPWL best = 8.10e+008
+[    36.852] LHPWL improvement is -6.850%
+[    36.852] ALL_TNS = 59132.654700
+[    36.853]   spreading multiplier = 2.42
+
+[    36.853] GPBuffering STARTED
+[    36.857] NewSizeBufferMultiplier = 1.000000
+[    36.873] Reporting: circuit negative slacks
+[    36.873]     TNS: 357.413510
+[    36.873]     WNS: 2.554869
+[    36.873]   AVGNS: 1.861529
+[    36.873] CriticalPaths count = 559
+[    40.243] Buffers inserted: 470
+[    40.243] Minimal TNS: 303.656541
+[    40.243] Minimal WNS: 2.120653
+[    40.243] Percent area compose buffers = 7.713517
+[    40.863] REMOVE NEW BUFFERING STARTED
+[    40.863] Cells before remove = 5351
+[    40.866] Buffer count = 470
+[    40.866] Cells after remove = 4881
+[    40.882] Reporting: circuit negative slacks
+[    40.882]     TNS: 357.413510
+[    40.882]     WNS: 2.554869
+[    40.882]   AVGNS: 1.861529
+[    40.882] REMOVE NEW BUFFERING FINISHED
+[    40.882] GPBuffering FINISHED
+
+
+[    40.883] TAO iteration 1.6
+[    40.883] Cost terms weights:
+[    40.883]   lseW = 5.44e-003
+[    40.883]   lrW  = 0.00e+000
+[    40.883]   sprW = 2.56e-015
+[    44.974] TAO termination reason = -2 (its > maxits)
+[    44.974] Number of iterations made by TAO = 32
+[    45.601] Better solution found!
+[    45.601] LHPWL curr = 7.53e+008
+[    45.602] LHPWL best = 7.53e+008
+[    45.602] LHPWL improvement is 6.975%
+[    45.602] ALL_TNS = 53417.074123
+[    45.602]   spreading multiplier = 2.36
+
+[    45.602] GPBuffering STARTED
+[    45.607] NewSizeBufferMultiplier = 1.000000
+[    45.623] Reporting: circuit negative slacks
+[    45.623]     TNS: 370.327352
+[    45.623]     WNS: 2.662139
+[    45.623]   AVGNS: 1.928788
+[    45.623] CriticalPaths count = 559
+[    49.214] Buffers inserted: 439
+[    49.214] Minimal TNS: 313.281227
+[    49.214] Minimal WNS: 2.210059
+[    49.214] Percent area compose buffers = 7.204753
+[    49.834] REMOVE NEW BUFFERING STARTED
+[    49.834] Cells before remove = 5320
+[    49.837] Buffer count = 439
+[    49.837] Cells after remove = 4881
+[    49.853] Reporting: circuit negative slacks
+[    49.853]     TNS: 370.327352
+[    49.853]     WNS: 2.662139
+[    49.853]   AVGNS: 1.928788
+[    49.853] REMOVE NEW BUFFERING FINISHED
+[    49.853] GPBuffering FINISHED
+
+
+[    49.854] TAO iteration 1.7
+[    49.854] Cost terms weights:
+[    49.854]   lseW = 5.44e-003
+[    49.854]   lrW  = 0.00e+000
+[    49.854]   sprW = 6.05e-015
+[    53.444] TAO termination reason = -2 (its > maxits)
+[    53.444] Number of iterations made by TAO = 32
+[    54.068] Better solution found!
+[    54.068] LHPWL curr = 5.99e+008
+[    54.068] LHPWL best = 5.99e+008
+[    54.068] LHPWL improvement is 20.525%
+[    54.068] ALL_TNS = 47534.899830
+[    54.068]   spreading multiplier = 2.24
+
+[    54.068] GPBuffering STARTED
+[    54.073] NewSizeBufferMultiplier = 1.000000
+[    54.088] Reporting: circuit negative slacks
+[    54.088]     TNS: 383.391837
+[    54.088]     WNS: 2.742127
+[    54.088]   AVGNS: 1.996832
+[    54.088] CriticalPaths count = 559
+[    57.468] Buffers inserted: 524
+[    57.468] Minimal TNS: 320.081368
+[    57.468] Minimal WNS: 2.263489
+[    57.468] Percent area compose buffers = 8.599751
+[    58.091] REMOVE NEW BUFFERING STARTED
+[    58.092] Cells before remove = 5405
+[    58.095] Buffer count = 524
+[    58.095] Cells after remove = 4881
+[    58.111] Reporting: circuit negative slacks
+[    58.111]     TNS: 383.391837
+[    58.111]     WNS: 2.742127
+[    58.111]   AVGNS: 1.996832
+[    58.112] REMOVE NEW BUFFERING FINISHED
+[    58.112] GPBuffering FINISHED
+
+
+[    58.112] TAO iteration 1.8
+[    58.112] Cost terms weights:
+[    58.112]   lseW = 5.44e-003
+[    58.112]   lrW  = 0.00e+000
+[    58.112]   sprW = 1.36e-014
+[    61.869] TAO termination reason = -2 (its > maxits)
+[    61.869] Number of iterations made by TAO = 32
+[    62.483] Better solution found!
+[    62.483] LHPWL curr = 5.54e+008
+[    62.483] LHPWL best = 5.54e+008
+[    62.483] LHPWL improvement is 7.528%
+[    62.483] ALL_TNS = 46005.732541
+[    62.483]   spreading multiplier = 2.15
+
+[    62.483] GPBuffering STARTED
+[    62.488] NewSizeBufferMultiplier = 1.000000
+[    62.504] Reporting: circuit negative slacks
+[    62.504]     TNS: 391.143954
+[    62.504]     WNS: 2.767296
+[    62.504]   AVGNS: 2.037208
+[    62.504] CriticalPaths count = 559
+[    65.832] Buffers inserted: 542
+[    65.832] Minimal TNS: 323.617881
+[    65.832] Minimal WNS: 2.255075
+[    65.832] Percent area compose buffers = 8.895162
+[    66.447] REMOVE NEW BUFFERING STARTED
+[    66.448] Cells before remove = 5423
+[    66.450] Buffer count = 542
+[    66.450] Cells after remove = 4881
+[    66.466] Reporting: circuit negative slacks
+[    66.466]     TNS: 391.143954
+[    66.466]     WNS: 2.767296
+[    66.466]   AVGNS: 2.037208
+[    66.467] REMOVE NEW BUFFERING FINISHED
+[    66.467] GPBuffering FINISHED
+
+
+[    66.467] TAO iteration 1.9
+[    66.467] Cost terms weights:
+[    66.467]   lseW = 5.44e-003
+[    66.467]   lrW  = 0.00e+000
+[    66.467]   sprW = 2.92e-014
+[    70.047] TAO termination reason = -2 (its > maxits)
+[    70.047] Number of iterations made by TAO = 32
+[    70.660] Better solution found!
+[    70.660] LHPWL curr = 4.03e+008
+[    70.660] LHPWL best = 4.03e+008
+[    70.660] LHPWL improvement is 27.117%
+[    70.661] ALL_TNS = 40884.480012
+[    70.661]   spreading multiplier = 1.79
+
+[    70.661] GPBuffering STARTED
+[    70.665] NewSizeBufferMultiplier = 1.000000
+[    70.681] Reporting: circuit negative slacks
+[    70.681]     TNS: 406.845748
+[    70.681]     WNS: 2.856532
+[    70.681]   AVGNS: 2.118988
+[    70.681] CriticalPaths count = 559
+[    74.430] Buffers inserted: 644
+[    74.430] Minimal TNS: 331.030500
+[    74.430] Minimal WNS: 2.315153
+[    74.430] Percent area compose buffers = 10.569159
+[    75.069] REMOVE NEW BUFFERING STARTED
+[    75.069] Cells before remove = 5525
+[    75.072] Buffer count = 644
+[    75.072] Cells after remove = 4881
+[    75.088] Reporting: circuit negative slacks
+[    75.088]     TNS: 406.845748
+[    75.088]     WNS: 2.856532
+[    75.088]   AVGNS: 2.118988
+[    75.089] REMOVE NEW BUFFERING FINISHED
+[    75.089] GPBuffering FINISHED
+
+
+[    75.089] TAO iteration 1.10
+[    75.089] Cost terms weights:
+[    75.089]   lseW = 5.44e-003
+[    75.089]   lrW  = 0.00e+000
+[    75.089]   sprW = 5.21e-014
+[    78.765] TAO termination reason = -2 (its > maxits)
+[    78.765] Number of iterations made by TAO = 32
+[    79.379] Better solution found!
+[    79.379] LHPWL curr = 3.10e+008
+[    79.379] LHPWL best = 3.10e+008
+[    79.379] LHPWL improvement is 23.068%
+[    79.379] ALL_TNS = 36913.802667
+[    79.379]   spreading multiplier = 1.34
+
+[    79.379] GPBuffering STARTED
+[    79.384] NewSizeBufferMultiplier = 1.000000
+[    79.400] Reporting: circuit negative slacks
+[    79.400]     TNS: 416.000647
+[    79.400]     WNS: 2.942117
+[    79.400]   AVGNS: 2.166670
+[    79.400] CriticalPaths count = 559
+[    82.909] Buffers inserted: 689
+[    82.909] Minimal TNS: 332.815834
+[    82.909] Minimal WNS: 2.332543
+[    82.909] Percent area compose buffers = 11.307687
+[    83.546] REMOVE NEW BUFFERING STARTED
+[    83.546] Cells before remove = 5570
+[    83.549] Buffer count = 689
+[    83.550] Cells after remove = 4881
+[    83.569] Reporting: circuit negative slacks
+[    83.569]     TNS: 416.000647
+[    83.569]     WNS: 2.942117
+[    83.569]   AVGNS: 2.166670
+[    83.570] REMOVE NEW BUFFERING FINISHED
+[    83.570] GPBuffering FINISHED
+
+
+[    83.570] TAO iteration 1.11
+[    83.570] Cost terms weights:
+[    83.570]   lseW = 5.44e-003
+[    83.570]   lrW  = 0.00e+000
+[    83.570]   sprW = 7.00e-014
+[    87.204] TAO termination reason = -2 (its > maxits)
+[    87.204] Number of iterations made by TAO = 32
+[    87.811] Better solution found!
+[    87.811] LHPWL curr = 2.84e+008
+[    87.811] LHPWL best = 2.84e+008
+[    87.811] LHPWL improvement is 8.598%
+[    87.811] ALL_TNS = 35781.621590
+[    87.811]   spreading multiplier = 1.16
+
+[    87.811] GPBuffering STARTED
+[    87.816] NewSizeBufferMultiplier = 1.000000
+[    87.831] Reporting: circuit negative slacks
+[    87.831]     TNS: 420.939517
+[    87.831]     WNS: 2.956223
+[    87.831]   AVGNS: 2.192393
+[    87.831] CriticalPaths count = 559
+[    91.411] Buffers inserted: 753
+[    91.411] Minimal TNS: 332.754123
+[    91.411] Minimal WNS: 2.363427
+[    91.411] Percent area compose buffers = 12.358038
+[    92.061] REMOVE NEW BUFFERING STARTED
+[    92.061] Cells before remove = 5634
+[    92.064] Buffer count = 753
+[    92.064] Cells after remove = 4881
+[    92.080] Reporting: circuit negative slacks
+[    92.080]     TNS: 420.939517
+[    92.080]     WNS: 2.956223
+[    92.080]   AVGNS: 2.192393
+[    92.081] REMOVE NEW BUFFERING FINISHED
+[    92.081] GPBuffering FINISHED
+
+
+[    92.081] TAO iteration 1.12
+[    92.081] Cost terms weights:
+[    92.081]   lseW = 5.44e-003
+[    92.081]   lrW  = 0.00e+000
+[    92.081]   sprW = 8.11e-014
+[    95.565] TAO termination reason = -2 (its > maxits)
+[    95.565] Number of iterations made by TAO = 32
+[    96.173] Better solution found!
+[    96.173] LHPWL curr = 2.74e+008
+[    96.173] LHPWL best = 2.74e+008
+[    96.173] LHPWL improvement is 3.576%
+[    96.174] ALL_TNS = 35470.626315
+[    96.174]   spreading multiplier = 1.08
+
+[    96.174] GPBuffering STARTED
+[    96.178] NewSizeBufferMultiplier = 1.000000
+[    96.194] Reporting: circuit negative slacks
+[    96.194]     TNS: 423.989151
+[    96.194]     WNS: 2.976407
+[    96.194]   AVGNS: 2.208277
+[    96.194] CriticalPaths count = 559
+[    99.584] Buffers inserted: 733
+[    99.584] Minimal TNS: 338.659565
+[    99.584] Minimal WNS: 2.362441
+[    99.584] Percent area compose buffers = 12.029804
+[   100.229] REMOVE NEW BUFFERING STARTED
+[   100.229] Cells before remove = 5614
+[   100.232] Buffer count = 733
+[   100.233] Cells after remove = 4881
+[   100.249] Reporting: circuit negative slacks
+[   100.249]     TNS: 423.989151
+[   100.249]     WNS: 2.976407
+[   100.249]   AVGNS: 2.208277
+[   100.250] REMOVE NEW BUFFERING FINISHED
+[   100.250] GPBuffering FINISHED
+
+
+[   100.250] TAO iteration 1.13
+[   100.250] Cost terms weights:
+[   100.250]   lseW = 5.44e-003
+[   100.250]   lrW  = 0.00e+000
+[   100.250]   sprW = 8.79e-014
+[   103.771] TAO termination reason = -2 (its > maxits)
+[   103.771] Number of iterations made by TAO = 32
+[   104.379] Better solution found!
+[   104.379] LHPWL curr = 2.69e+008
+[   104.380] LHPWL best = 2.69e+008
+[   104.380] LHPWL improvement is 1.625%
+[   104.380] ALL_TNS = 35350.461838
+[   104.380]   spreading multiplier = 1.04
+
+[   104.380] GPBuffering STARTED
+[   104.384] NewSizeBufferMultiplier = 1.000000
+[   104.400] Reporting: circuit negative slacks
+[   104.400]     TNS: 427.561947
+[   104.400]     WNS: 3.008240
+[   104.400]   AVGNS: 2.226885
+[   104.400] CriticalPaths count = 559
+[   107.910] Buffers inserted: 803
+[   107.910] Minimal TNS: 338.694889
+[   107.910] Minimal WNS: 2.354478
+[   107.910] Percent area compose buffers = 13.178625
+[   108.613] REMOVE NEW BUFFERING STARTED
+[   108.613] Cells before remove = 5684
+[   108.616] Buffer count = 803
+[   108.616] Cells after remove = 4881
+[   108.632] Reporting: circuit negative slacks
+[   108.632]     TNS: 427.561947
+[   108.632]     WNS: 3.008240
+[   108.632]   AVGNS: 2.226885
+[   108.633] REMOVE NEW BUFFERING FINISHED
+[   108.633] GPBuffering FINISHED
+
+
+[   108.633] TAO iteration 1.14
+[   108.633] Cost terms weights:
+[   108.633]   lseW = 5.44e-003
+[   108.633]   lrW  = 0.00e+000
+[   108.633]   sprW = 9.17e-014
+[   112.226] TAO termination reason = -2 (its > maxits)
+[   112.226] Number of iterations made by TAO = 32
+[   112.834] Better solution found!
+[   112.834] LHPWL curr = 2.66e+008
+[   112.834] LHPWL best = 2.66e+008
+[   112.834] LHPWL improvement is 1.122%
+[   112.834] ALL_TNS = 35218.285597
+[   112.834]   spreading multiplier = 1.01
+
+[   112.834] GPBuffering STARTED
+[   112.839] NewSizeBufferMultiplier = 1.000000
+[   112.854] Reporting: circuit negative slacks
+[   112.854]     TNS: 429.046611
+[   112.854]     WNS: 3.030088
+[   112.854]   AVGNS: 2.234618
+[   112.854] CriticalPaths count = 559
+[   116.413] Buffers inserted: 767
+[   116.413] Minimal TNS: 340.407271
+[   116.413] Minimal WNS: 2.367558
+[   116.413] Percent area compose buffers = 12.587803
+[   117.055] REMOVE NEW BUFFERING STARTED
+[   117.055] Cells before remove = 5648
+[   117.058] Buffer count = 767
+[   117.059] Cells after remove = 4881
+[   117.075] Reporting: circuit negative slacks
+[   117.075]     TNS: 429.046611
+[   117.075]     WNS: 3.030088
+[   117.075]   AVGNS: 2.234618
+[   117.075] REMOVE NEW BUFFERING FINISHED
+[   117.075] GPBuffering FINISHED
+
+
+[   117.075] TAO iteration 1.15
+[   117.075] Cost terms weights:
+[   117.075]   lseW = 5.44e-003
+[   117.075]   lrW  = 0.00e+000
+[   117.075]   sprW = 9.29e-014
+[   120.619] TAO termination reason = -2 (its > maxits)
+[   120.619] Number of iterations made by TAO = 32
+[   121.216] Better solution found!
+[   121.216] LHPWL curr = 2.64e+008
+[   121.216] LHPWL best = 2.64e+008
+[   121.216] LHPWL improvement is 0.774%
+[   121.216] ALL_TNS = 35128.810763
+[   121.216]   spreading multiplier = 1.00
+
+[   121.216] GPBuffering STARTED
+[   121.221] NewSizeBufferMultiplier = 1.000000
+[   121.236] Reporting: circuit negative slacks
+[   121.236]     TNS: 427.432325
+[   121.236]     WNS: 3.017317
+[   121.237]   AVGNS: 2.226210
+[   121.237] CriticalPaths count = 559
+[   124.798] Buffers inserted: 774
+[   124.798] Minimal TNS: 343.647150
+[   124.798] Minimal WNS: 2.359716
+[   124.798] Percent area compose buffers = 12.702685
+[   125.440] REMOVE NEW BUFFERING STARTED
+[   125.440] Cells before remove = 5655
+[   125.444] Buffer count = 774
+[   125.444] Cells after remove = 4881
+[   125.460] Reporting: circuit negative slacks
+[   125.460]     TNS: 427.432325
+[   125.460]     WNS: 3.017317
+[   125.460]   AVGNS: 2.226210
+[   125.460] REMOVE NEW BUFFERING FINISHED
+[   125.460] GPBuffering FINISHED
+
+
+[   125.461] TAO iteration 1.16
+[   125.461] Cost terms weights:
+[   125.461]   lseW = 5.44e-003
+[   125.461]   lrW  = 0.00e+000
+[   125.461]   sprW = 9.26e-014
+[   129.090] TAO termination reason = -2 (its > maxits)
+[   129.090] Number of iterations made by TAO = 32
+[   129.696] Better solution found!
+[   129.696] LHPWL curr = 2.62e+008
+[   129.696] LHPWL best = 2.62e+008
+[   129.696] LHPWL improvement is 0.722%
+[   129.697] ALL_TNS = 35018.619423
+[   129.697]   spreading multiplier = 0.99
+
+[   129.697] GPBuffering STARTED
+[   129.701] NewSizeBufferMultiplier = 1.000000
+[   129.717] Reporting: circuit negative slacks
+[   129.717]     TNS: 427.584215
+[   129.717]     WNS: 3.019234
+[   129.717]   AVGNS: 2.227001
+[   129.717] CriticalPaths count = 559
+[   133.463] Buffers inserted: 758
+[   133.463] Minimal TNS: 342.192794
+[   133.463] Minimal WNS: 2.399594
+[   133.463] Percent area compose buffers = 12.440097
+[   134.116] REMOVE NEW BUFFERING STARTED
+[   134.116] Cells before remove = 5639
+[   134.120] Buffer count = 758
+[   134.120] Cells after remove = 4881
+[   134.136] Reporting: circuit negative slacks
+[   134.136]     TNS: 427.584215
+[   134.136]     WNS: 3.019234
+[   134.136]   AVGNS: 2.227001
+[   134.137] REMOVE NEW BUFFERING FINISHED
+[   134.137] GPBuffering FINISHED
+
+
+[   134.137] TAO iteration 1.17
+[   134.137] Cost terms weights:
+[   134.137]   lseW = 5.44e-003
+[   134.137]   lrW  = 0.00e+000
+[   134.137]   sprW = 9.12e-014
+[   137.498] TAO termination reason = -2 (its > maxits)
+[   137.498] Number of iterations made by TAO = 32
+[   138.104] LHPWL curr = 2.62e+008
+[   138.104] LHPWL best = 2.62e+008
+[   138.104] LHPWL improvement is -0.070%
+[   138.104] ALL_TNS = 34960.114704
+[   138.104]   spreading multiplier = 0.98
+
+[   138.104] GPBuffering STARTED
+[   138.109] NewSizeBufferMultiplier = 1.000000
+[   138.125] Reporting: circuit negative slacks
+[   138.125]     TNS: 426.791557
+[   138.125]     WNS: 3.025193
+[   138.125]   AVGNS: 2.222873
+[   138.125] CriticalPaths count = 559
+[   141.769] Buffers inserted: 786
+[   141.769] Minimal TNS: 342.799221
+[   141.769] Minimal WNS: 2.385971
+[   141.769] Percent area compose buffers = 12.899626
+[   142.415] REMOVE NEW BUFFERING STARTED
+[   142.415] Cells before remove = 5667
+[   142.418] Buffer count = 786
+[   142.418] Cells after remove = 4881
+[   142.434] Reporting: circuit negative slacks
+[   142.434]     TNS: 426.791557
+[   142.434]     WNS: 3.025193
+[   142.434]   AVGNS: 2.222873
+[   142.435] REMOVE NEW BUFFERING FINISHED
+[   142.435] GPBuffering FINISHED
+
+
+[   142.435] TAO iteration 1.18
+[   142.435] Cost terms weights:
+[   142.435]   lseW = 5.44e-003
+[   142.435]   lrW  = 0.00e+000
+[   142.435]   sprW = 8.98e-014
+[   145.953] TAO termination reason = -2 (its > maxits)
+[   145.953] Number of iterations made by TAO = 32
+[   146.550] Better solution found!
+[   146.550] LHPWL curr = 2.61e+008
+[   146.550] LHPWL best = 2.61e+008
+[   146.550] LHPWL improvement is 0.600%
+[   146.551] ALL_TNS = 34962.770878
+[   146.551]   spreading multiplier = 0.97
+
+[   146.551] GPBuffering STARTED
+[   146.555] NewSizeBufferMultiplier = 1.000000
+[   146.572] Reporting: circuit negative slacks
+[   146.572]     TNS: 428.771761
+[   146.572]     WNS: 3.025673
+[   146.572]   AVGNS: 2.233186
+[   146.572] CriticalPaths count = 559
+[   150.163] Buffers inserted: 783
+[   150.163] Minimal TNS: 342.719627
+[   150.163] Minimal WNS: 2.371703
+[   150.163] Percent area compose buffers = 12.850391
+[   150.805] REMOVE NEW BUFFERING STARTED
+[   150.805] Cells before remove = 5664
+[   150.809] Buffer count = 783
+[   150.809] Cells after remove = 4881
+[   150.826] Reporting: circuit negative slacks
+[   150.826]     TNS: 428.771761
+[   150.826]     WNS: 3.025673
+[   150.826]   AVGNS: 2.233186
+[   150.827] REMOVE NEW BUFFERING FINISHED
+[   150.827] GPBuffering FINISHED
+
+
+[   150.827] TAO iteration 1.19
+[   150.827] Cost terms weights:
+[   150.827]   lseW = 5.44e-003
+[   150.827]   lrW  = 0.00e+000
+[   150.827]   sprW = 8.75e-014
+[   154.393] TAO termination reason = -2 (its > maxits)
+[   154.393] Number of iterations made by TAO = 32
+[   154.997] Better solution found!
+[   154.997] LHPWL curr = 2.60e+008
+[   154.997] LHPWL best = 2.60e+008
+[   154.997] LHPWL improvement is 0.309%
+[   154.998] ALL_TNS = 35049.656180
+[   154.998]   spreading multiplier = 0.97
+
+[   154.998] GPBuffering STARTED
+[   155.002] NewSizeBufferMultiplier = 1.000000
+[   155.018] Reporting: circuit negative slacks
+[   155.018]     TNS: 428.339731
+[   155.018]     WNS: 3.047077
+[   155.018]   AVGNS: 2.230936
+[   155.018] CriticalPaths count = 559
+[   158.578] Buffers inserted: 824
+[   158.578] Minimal TNS: 341.248473
+[   158.578] Minimal WNS: 2.359880
+[   158.578] Percent area compose buffers = 13.523272
+[   159.235] REMOVE NEW BUFFERING STARTED
+[   159.235] Cells before remove = 5705
+[   159.239] Buffer count = 824
+[   159.239] Cells after remove = 4881
+[   159.255] Reporting: circuit negative slacks
+[   159.255]     TNS: 428.339731
+[   159.255]     WNS: 3.047077
+[   159.255]   AVGNS: 2.230936
+[   159.256] REMOVE NEW BUFFERING FINISHED
+[   159.256] GPBuffering FINISHED
+
+
+[   159.256] TAO iteration 1.20
+[   159.256] Cost terms weights:
+[   159.256]   lseW = 5.44e-003
+[   159.256]   lrW  = 0.00e+000
+[   159.256]   sprW = 8.49e-014
+[   162.895] TAO termination reason = -2 (its > maxits)
+[   162.895] Number of iterations made by TAO = 32
+[   163.510] LHPWL curr = 2.61e+008
+[   163.511] LHPWL best = 2.60e+008
+[   163.511] LHPWL improvement is -0.375%
+[   163.514] ALL_TNS = 35062.633643
+[   163.514]   spreading multiplier = 0.97
+
+[   163.514] GPBuffering STARTED
+[   163.519] NewSizeBufferMultiplier = 1.000000
+[   163.536] Reporting: circuit negative slacks
+[   163.536]     TNS: 430.446102
+[   163.536]     WNS: 3.050314
+[   163.536]   AVGNS: 2.241907
+[   163.536] CriticalPaths count = 559
+[   167.125] Buffers inserted: 778
+[   167.125] Minimal TNS: 345.334927
+[   167.125] Minimal WNS: 2.416820
+[   167.125] Percent area compose buffers = 12.768332
+[   167.770] REMOVE NEW BUFFERING STARTED
+[   167.770] Cells before remove = 5659
+[   167.773] Buffer count = 778
+[   167.773] Cells after remove = 4881
+[   167.789] Reporting: circuit negative slacks
+[   167.790]     TNS: 430.446102
+[   167.790]     WNS: 3.050314
+[   167.790]   AVGNS: 2.241907
+[   167.790] REMOVE NEW BUFFERING FINISHED
+[   167.790] GPBuffering FINISHED
+
+
+[   167.790] TAO iteration 1.21
+[   167.790] Cost terms weights:
+[   167.790]   lseW = 5.44e-003
+[   167.790]   lrW  = 0.00e+000
+[   167.790]   sprW = 8.28e-014
+[   171.444] TAO termination reason = -2 (its > maxits)
+[   171.444] Number of iterations made by TAO = 32
+[   172.042] Better solution found!
+[   172.042] LHPWL curr = 2.59e+008
+[   172.042] LHPWL best = 2.59e+008
+[   172.042] LHPWL improvement is 0.118%
+[   172.042] ALL_TNS = 34979.297645
+[   172.043]   spreading multiplier = 0.97
+
+[   172.043] GPBuffering STARTED
+[   172.047] NewSizeBufferMultiplier = 1.000000
+[   172.063] Reporting: circuit negative slacks
+[   172.063]     TNS: 428.300988
+[   172.063]     WNS: 3.041620
+[   172.063]   AVGNS: 2.230734
+[   172.063] CriticalPaths count = 559
+[   175.771] Buffers inserted: 852
+[   175.771] Minimal TNS: 340.491097
+[   175.771] Minimal WNS: 2.363348
+[   175.771] Percent area compose buffers = 13.982800
+[   176.435] REMOVE NEW BUFFERING STARTED
+[   176.435] Cells before remove = 5733
+[   176.439] Buffer count = 852
+[   176.439] Cells after remove = 4881
+[   176.455] Reporting: circuit negative slacks
+[   176.455]     TNS: 428.300988
+[   176.455]     WNS: 3.041620
+[   176.455]   AVGNS: 2.230734
+[   176.456] REMOVE NEW BUFFERING FINISHED
+[   176.456] GPBuffering FINISHED
+
+
+[   176.456] TAO iteration 1.22
+[   176.456] Cost terms weights:
+[   176.456]   lseW = 5.44e-003
+[   176.456]   lrW  = 0.00e+000
+[   176.456]   sprW = 8.02e-014
+[   180.148] TAO termination reason = -2 (its > maxits)
+[   180.148] Number of iterations made by TAO = 32
+[   180.817] LHPWL curr = 2.61e+008
+[   180.817] LHPWL best = 2.59e+008
+[   180.817] LHPWL improvement is -0.529%
+[   180.817] ALL_TNS = 35053.816511
+[   180.817]   spreading multiplier = 0.98
+
+[   180.817] GPBuffering STARTED
+[   180.822] NewSizeBufferMultiplier = 1.000000
+[   180.838] Reporting: circuit negative slacks
+[   180.838]     TNS: 427.864461
+[   180.838]     WNS: 3.021688
+[   180.838]   AVGNS: 2.228461
+[   180.838] CriticalPaths count = 559
+[   184.310] Buffers inserted: 811
+[   184.310] Minimal TNS: 343.833877
+[   184.310] Minimal WNS: 2.374758
+[   184.310] Percent area compose buffers = 13.309919
+[   184.966] REMOVE NEW BUFFERING STARTED
+[   184.966] Cells before remove = 5692
+[   184.969] Buffer count = 811
+[   184.970] Cells after remove = 4881
+[   184.986] Reporting: circuit negative slacks
+[   184.986]     TNS: 427.864461
+[   184.986]     WNS: 3.021688
+[   184.986]   AVGNS: 2.228461
+[   184.986] REMOVE NEW BUFFERING FINISHED
+[   184.986] GPBuffering FINISHED
+
+
+[   184.986] TAO iteration 1.23
+[   184.987] Cost terms weights:
+[   184.987]   lseW = 5.44e-003
+[   184.987]   lrW  = 0.00e+000
+[   184.987]   sprW = 7.85e-014
+[   188.588] TAO termination reason = -2 (its > maxits)
+[   188.588] Number of iterations made by TAO = 32
+[   189.185] LHPWL curr = 2.61e+008
+[   189.185] LHPWL best = 2.59e+008
+[   189.185] LHPWL improvement is -0.538%
+[   189.186] ALL_TNS = 35017.706431
+[   189.186]   spreading multiplier = 0.98
+
+[   189.186] GPBuffering STARTED
+[   189.190] NewSizeBufferMultiplier = 1.000000
+[   189.206] Reporting: circuit negative slacks
+[   189.206]     TNS: 429.140143
+[   189.206]     WNS: 3.032755
+[   189.206]   AVGNS: 2.235105
+[   189.206] CriticalPaths count = 559
+[   192.804] Buffers inserted: 782
+[   192.804] Minimal TNS: 345.401009
+[   192.804] Minimal WNS: 2.389084
+[   192.804] Percent area compose buffers = 12.833979
+[   193.459] REMOVE NEW BUFFERING STARTED
+[   193.459] Cells before remove = 5663
+[   193.462] Buffer count = 782
+[   193.462] Cells after remove = 4881
+[   193.478] Reporting: circuit negative slacks
+[   193.479]     TNS: 429.140143
+[   193.479]     WNS: 3.032755
+[   193.479]   AVGNS: 2.235105
+[   193.479] REMOVE NEW BUFFERING FINISHED
+[   193.479] GPBuffering FINISHED
+
+
+[   193.479] TAO iteration 1.24
+[   193.479] Cost terms weights:
+[   193.479]   lseW = 5.44e-003
+[   193.479]   lrW  = 0.00e+000
+[   193.479]   sprW = 7.69e-014
+[   195.318] TAO termination reason = -2 (its > maxits)
+[   195.318] Number of iterations made by TAO = 32
+[   195.868] LHPWL curr = 2.62e+008
+[   195.868] LHPWL best = 2.59e+008
+[   195.868] LHPWL improvement is -0.808%
+[   195.868] ALL_TNS = 35019.903675
+[   195.868] Reached maximum tolerant iteration number.
+
+Placement Quality Analysis Table
+ID     ObSpr      HPWL      LHPWL      TNS     LTNS    WNS   LWNS
+-----------------------------------------------------------------
+ 0 100000.00 115687339 1683859433 288.7276 999.9101 2.0530 7.2559
+ 1  14075.60 104848977  962967039 343.0445 614.2764 2.3659 4.7491
+ 2  21485.84 103776831  968019247 331.1177 636.0967 2.3282 5.0138
+ 3  29987.78 106832322  809744826 349.1300 585.8400 2.4806 4.4685
+ 4  55590.13 103610394  854717961 349.7458 596.2087 2.5057 4.9471
+ 5  88169.35 113813004  865210178 357.4135 634.5331 2.5549 5.5511
+ 6 120196.89 128424039  753262060 370.3274 578.7555 2.6621 4.9231
+ 7 151820.79 145210808  598656174 383.3918 514.7965 2.7421 4.5384
+ 8 232273.35 161033506  553586508 391.1440 516.4124 2.7673 4.4993
+ 9 285668.79 182963913  403470051 406.8457 467.8718 2.8565 3.9187
+10 339156.50 199483177  310395797 416.0006 440.3812 2.9421 3.2767
+11 343534.33 208541443  283706617 420.9395 435.9470 2.9562 3.1446
+12 344219.02 212965588  273559966 423.9892 437.8899 2.9764 3.0706
+13 319396.86 216636518  269115236 427.5619 436.6219 3.0082 3.0688
+14 302706.26 219342568  266096714 429.0466 434.5058 3.0301 3.0536
+15 282191.10 220614153  264037633 427.4323 434.0734 3.0173 3.0587
+16 265482.49 221169478  262132158 427.5842 432.6608 3.0192 3.0592
+17 250967.54 221499390  262316876 426.7916 432.0508 3.0252 3.0648
+18 237458.03 221911554  260559560 428.7718 432.7459 3.0257 3.0604
+19 225216.45 221889471  259755245 428.3397 432.6585 3.0471 3.0752
+20 217769.09 221908392  260729764 430.4461 435.0756 3.0503 3.0762
+21 207517.21 221870595  259448495 428.3010 432.7505 3.0416 3.0685
+22 203446.57 221371309  260820646 427.8645 432.8069 3.0217 3.0544
+23 196075.94 221097942  260844253 429.1401 432.2102 3.0328 3.0462
+24 189291.83 220255065  261545318 427.8594 433.5125 3.0201 3.0581
+21 207517.21 221870595  259448495 428.3010 432.7505 3.0416 3.0685
+
+[   195.880] Performance counters:
+[   195.880]   EXP Calc time = 0.801744
+[   195.880]   lseTime = 0.589779
+[   195.880]   lseGradTime = 0.862253
+[   195.880]   calcPotentialsTime = 3.786270
+[   195.880]   quadraticSpreading = 3.796922
+[   195.880]   quadraticSpreadingGradTime = 5.507062
+
+[   195.881] ANALYTICAL PLACEMENT FINISHED
+
+[   195.881] STA after global placement:
+[   195.896] Reporting: circuit negative slacks
+[   195.896]     TNS: 428.300988
+[   195.896]     WNS: 3.041620
+[   195.896]   AVGNS: 2.230734
+
+[   195.897] Running STA:
+[   195.913] Reporting: circuit negative slacks
+[   195.913]     TNS: 428.300988
+[   195.913]     WNS: 3.041620
+[   195.913]   AVGNS: 2.230734
+[   195.913] NEW BUFFERING STARTED
+[   195.913] Path-based buffering
+[   195.918] CriticalPaths count = 559
+[   199.436] Buffers inserted: 852
+[   199.436] Minimal TNS: 340.491097
+[   199.436] Minimal WNS: 2.363348
+[   199.436] Percent area compose buffers = 13.982800
+[   199.453] Reporting: circuit negative slacks
+[   199.453]     TNS: 340.930194
+[   199.453]     WNS: 2.363348
+[   199.453]   AVGNS: 1.775678
+[   199.453] NEW BUFFERING FINISHED
+
+[   200.108] LEGALIZATION STARTED (Abacus)
+[   200.156] Better solution found!
+[   200.156] LHPWL best = N/A
+[   200.157] LHPWL gain over best placement is N/A
+[   200.157] ALL_TNS = 35887.966197
+[   200.208] LHPWL curr = 3.05e+008
+[   200.208] LHPWL best = 3.05e+008
+[   200.208] LHPWL improvement is 0.000%
+[   200.209] ALL_TNS = 35887.966197
+
+Legalization Degradation
+ID      HPWL       TWL      TNS      WNS
+----------------------------------------
+ 0 233818537 248404571 340.9302   2.3633
+ 1 305164094 322075604 361.7693   2.7063
+----------------------------------------
+ 0       100       100 100.0000 100.0000
+ 1       131       130 106.1124 114.5108
+
+[   200.210] LEGALIZATION FINISHED
+
+[   200.210] STA after legalization:
+[   200.227] Reporting: circuit negative slacks
+[   200.227]     TNS: 361.769326
+[   200.227]     WNS: 2.706289
+[   200.227]   AVGNS: 1.884215
+
+[   200.228] Running STA:
+[   200.244] Reporting: circuit negative slacks
+[   200.244]     TNS: 361.769326
+[   200.244]     WNS: 2.706289
+[   200.244]   AVGNS: 1.884215
+
+[   200.299] DEF is written to ./ExportDEF/2013-03-02_17-26-41_des_area.def
+
+Placement Flow Stages Table
+StageName       Tag  Time(sec) Cells  HPWL(nm)   TWL(nm)  TNS(ns) WNS(ns)
+-------------------------------------------------------------------------
+InitialState    INIT     0.527  4881 240020505 266710759 420.0388  3.0068
+GlobalPlacement GP     195.896  4881 221870595 248442236 428.3010  3.0416
+New_Buffering   NBUF   199.453  5733 233818537 248404571 340.9302  2.3633
+Legalization    LEGB   200.227  5733 305164094 322075604 361.7693  2.7063
+-------------------------------------------------------------------------
+
+[   200.299] Thats All!
+[   200.299] Replicated cfg name: C:\Users\kornyakov.k\Desktop\VLSI\CODE\trunk\itlPlace\bin\cfg\Replicated_JointPlacementBuffering.cfg
+[   200.302] Replicated cfg name:Replicated_itlVLSI.cfg
