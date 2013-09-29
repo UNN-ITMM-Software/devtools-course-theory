@@ -11,7 +11,7 @@
    :maxdepth: 2
 
    code/kirill-kornyakov/docs/simplecalc.rst
-
+   code/ilia-udalov/docs/regex.rst
 
 Указатель и таблицы
 -------------------
