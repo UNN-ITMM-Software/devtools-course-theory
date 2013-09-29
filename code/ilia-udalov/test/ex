@@ -1,0 +1,12 @@
+.*
+Any string
+^.*
+Hello?
+^false$
+I can use regular expressions
+bird
+bread
+^c*.*
+re1234
+sed
+sed but true
