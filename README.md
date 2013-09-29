@@ -6,10 +6,19 @@
 **License:** Creative Commons Attribution-Share Alike 3.0 
 ([CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/))
 
-**Ресурсы:**
+## Ресурсы
 
+ - [Таблица успеваемости](https://docs.google.com/spreadsheet/ccc?key=0AsBBkrQIoSbjdEdTUFRsaUw3LV92eVhwXzYtb0tZNHc#gid=5)
  - [Google-группа](<https://groups.google.com/forum/?hl=ru#!forum/devtools-course>)
  - Документация: <https://devtools.readthedocs.org>
+ - Литература:
+  - Дейв Томас, Энди Хант "Программист-прагматик"
+  - Нил Форд "Продуктивный программист" 
+    ([pdf за 30 руб.](http://www.books.ru/books/produktivnyi-programmist-kak-sdelat-slozhnoe-prostym-a-nevozmozhnoe--vozmozhnym-fail-pdf-646592/?show=1))
+  - Гудлиф "Ремесло программиста"
+    ([pdf за 30 руб.](http://www.books.ru/books/remeslo-programmista-praktika-napisaniya-khoroshego-koda-fail-pdf-646106/?show=1))
+  - Стив Макконнелл "Совершенный код"
+  - Kernighan & Pike, The Practice of Programming, Addison-Wesley, 1999, ISBN 020161586X 
 
 ## Описание лабораторных работ
 
