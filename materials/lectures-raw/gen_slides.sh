@@ -16,7 +16,10 @@ do
     filename="${filename%.*}"
     filename="$outDir/$filename.html"
 
-    echo "Writing to $filename"
-    pandoc -t slidy --self-contained -c ./style/slidy.css $file -o $filename
-	# -i incremental lists
+    if [ $file -nt $filename ]; then
+        echo "Writing to $filename"
+        pandoc -t slidy --self-contained -c ./style/slidy.css $file -o $filename
+    else
+        echo "Nothing new to generate..."
+    fi
 done

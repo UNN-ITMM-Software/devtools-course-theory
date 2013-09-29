@@ -18,7 +18,12 @@
   - Гудлиф "Ремесло программиста"
     ([pdf за 30 руб.](http://www.books.ru/books/remeslo-programmista-praktika-napisaniya-khoroshego-koda-fail-pdf-646106/?show=1))
   - Стив Макконнелл "Совершенный код"
-  - Kernighan & Pike, The Practice of Programming, Addison-Wesley, 1999, ISBN 020161586X 
+  - Kernighan & Pike, The Practice of Programming, Addison-Wesley, 1999, ISBN 020161586X
+ - Дополнительная литература:
+   - Джеффри Фридл "Регулярные выражения", 3-е издание
+     ([pdf за 100 руб.](http://www.books.ru/books/regulyarnye-vyrazheniya-3-e-izdanie-fail-pdf-626982/?show=1))
+   - Ян Гойвертс, С. Левитан "Регулярные выражения. Сборник рецептов"
+     ([pdf за 60 руб.](http://www.books.ru/books/regulyarnye-vyrazheniya-sbornik-retseptov-fail-pdf-714878/?show=1)
 
 ## Описание лабораторных работ
 
