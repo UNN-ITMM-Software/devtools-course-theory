@@ -11,6 +11,7 @@
    :maxdepth: 2
 
    code/kirill-kornyakov/docs/simplecalc.rst
+   code/ksenya-kochanova/docs/tempconvert.rst
 
 
 Указатель и таблицы
