@@ -1,11 +1,14 @@
 # Системы контроля версий
 
-<!-- ![](./03-vcs/git-flow.png) -->
+<!-- ![](./pix/git-flow.png) -->
 
 Кирилл Корняков (Itseez, ННГУ)  
 1 Октября 2013
 
 <!-- TODO
+  - патч
+  - git
+  - переделать таблицу, которая сейчас в html
   - Демо?
 -->
 
@@ -70,12 +73,6 @@
 
 Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/history_of_version_control.html)
 
-# Текущий статус
-
-![](./03-vcs/vcs-status.png)
-
-[DevProd Report Revisited: Version Control Systems in 2013](http://zeroturnaround.com/rebellabs/devprod-report-revisited-version-control-systems-in-2013/#!/)
-
 # Основные термины
 
   - Репозиторий
@@ -83,6 +80,12 @@ Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/his
     - Форк, клон, зеркало
     - Локальный
     - Рабочая копия, рабочая папка
+
+# Текущий статус
+
+![](./pix/vcs-status.png)
+
+[DevProd Report Revisited: Version Control Systems in 2013](http://zeroturnaround.com/rebellabs/devprod-report-revisited-version-control-systems-in-2013/#!/)
 
 [Глоссарий](http://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8#.D0.A1.D0.BB.D0.BE.D0.B2.D0.B0.D1.80.D1.8C)
 
@@ -102,15 +105,16 @@ Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/his
      - Однажды помеченные тэгами и выпущенные релизы модификации не подлежат.
      - Промежуточная история не переписывается, потому что будут конфликты.
 
-# Резюме
+# Git
 
-# Контрольные вопросы
-
-  1. Определение СКВ.
-  1. Основные функции/возможности современных СКВ
-  1. 
-  1.
-  1.
++-----------------------+------------------------------------------------------------------------------+
+|![](./pix/git-logo.png)| - Vim - свободный текстовый редактор, созданный на базе vi.                  |
+|                       | - Один из культовых редакторов.                                              |
+|                       | - Один из мощнейших редакторов, с полной свободой настройки и автоматизации. |
+|                       | - Имеет огромное количество расширений (более 3000).                         |
+|                       | - Используется практически в любых проектах.                                 |
+|                       | - Официальный сайт проекта: <http://www.vim.org>.                            |
++-----------------------+------------------------------------------------------------------------------+
 
 # Рабочие процессы
 
@@ -124,19 +128,19 @@ Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/his
 
 # Centralized Workflow
 
-<center> ![](./03-vcs/centralized-workflow.png) </center>
+<center> ![](./pix/centralized-workflow.png) </center>
 
 # Integration Manager Workflow
 
-<center> ![](./03-vcs/integration-manager-workflow.png) </center>
+<center> ![](./pix/integration-manager-workflow.png) </center>
 
 # Dictator and Lieutenants Workflow
 
-<center> ![](./03-vcs/dictator-and-lieutenants-orkflow.png) </center>
+<center> ![](./pix/dictator-and-lieutenants-orkflow.png) </center>
 
 # GitHub Flow
 
-<center> ![](./03-vcs/github-flow.png) </center>
+<center> ![](./pix/github-flow.png) </center>
 
 [GitHub Flow](http://scottchacon.com/2011/08/31/github-flow.html)
 
@@ -156,9 +160,19 @@ Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/his
 
 # Git Flow
 
-<center> ![](./03-vcs/git-flow.png) </center>
+<center> ![](./pix/git-flow.png) </center>
 
 A successful Git branching model ([link](http://nvie.com/posts/a-successful-git-branching-model/))
+
+# Резюме
+
+# Контрольные вопросы
+
+  1. Определение СКВ.
+  1. Основные функции/возможности современных СКВ
+  1. 
+  1.
+  1.
 
 # Ссылки
 

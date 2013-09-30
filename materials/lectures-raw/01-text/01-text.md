@@ -1,6 +1,6 @@
 # Текстовые форматы
 
-![](./01-text/Image_carpenters_1.jpg)
+![](./pix/Image_carpenters_1.jpg)
 
 Кирилл Корняков (Itseez, ННГУ)  
 Сентябрь 2013
@@ -221,131 +221,131 @@ rvm:
 
 # Doxygen
 
-+--------------------------------------------------------+--------------------------------+
-|```                                                     |![](./01-text/Doxygen_ouput.png)|
-|/**                                                     |                                |
-| * @file                                                |                                |
-| * @author  John Doe <jdoe@example.com>                 |                                |
-| * @version 1.0                                         |                                |
-| * @section DESCRIPTION                                 |                                |
-| * The time class represents a moment of time.          |                                |
-| */                                                     |                                |
-|                                                        |                                |
-|class Time {                                            |                                |
-| public:                                                |                                |
-|    /**                                                 |                                |
-|     * Constructor that sets the time to a given value. |                                |
-|     *                                                  |                                |
-|     * @param timemillis Number of milliseconds         |                                |
-|     *        passed since Jan 1, 1970.                 |                                |
-|     */                                                 |                                |
-|    Time (int timemillis);                              |                                |
-|                                                        |                                |
-|    /**                                                 |                                |
-|     * Get the current time.                            |                                |
-|     *                                                  |                                |
-|     * @return A time object set to the current time.   |                                |
-|     */                                                 |                                |
-|    static Time now ();                                 |                                |
-|};                                                      |                                |
-|```                                                     |                                |
-+--------------------------------------------------------+--------------------------------+
++--------------------------------------------------------+----------------------------+
+|```                                                     |![](./pix/Doxygen_ouput.png)|
+|/**                                                     |                            |
+| * @file                                                |                            |
+| * @author  John Doe <jdoe@example.com>                 |                            |
+| * @version 1.0                                         |                            |
+| * @section DESCRIPTION                                 |                            |
+| * The time class represents a moment of time.          |                            |
+| */                                                     |                            |
+|                                                        |                            |
+|class Time {                                            |                            |
+| public:                                                |                            |
+|    /**                                                 |                            |
+|     * Constructor that sets the time to a given value. |                            |
+|     *                                                  |                            |
+|     * @param timemillis Number of milliseconds         |                            |
+|     *        passed since Jan 1, 1970.                 |                            |
+|     */                                                 |                            |
+|    Time (int timemillis);                              |                            |
+|                                                        |                            |
+|    /**                                                 |                            |
+|     * Get the current time.                            |                            |
+|     *                                                  |                            |
+|     * @return A time object set to the current time.   |                            |
+|     */                                                 |                            |
+|    static Time now ();                                 |                            |
+|};                                                      |                            |
+|```                                                     |                            |
++--------------------------------------------------------+----------------------------+
 
 # PlantUML
 
-+------------------------------------+-------------------------------+
-|```                                 |                               |
-|@startuml                           | ![](./01-text/classes_012.png)|
-|                                    |                               |
-|abstract class AbstractList         |                               |
-|abstract AbstractCollection         |                               |
-|interface List                      |                               |
-|interface Collection                |                               |
-|                                    |                               |
-|List <|-- AbstractList              |                               |
-|Collection <|-- AbstractCollection  |                               |
-|                                    |                               |
-|Collection <|- List                 |                               |
-|AbstractCollection <|- AbstractList |                               |
-|AbstractList <|-- ArrayList         |                               |
-|                                    |                               |
-|class ArrayList {                   |                               |
-|  Object[] elementData              |                               |
-|  size()                            |                               |
-|}                                   |                               |
-|                                    |                               |
-|enum TimeUnit {                     |                               |
-|  DAYS                              |                               |
-|  HOURS                             |                               |
-|  MINUTES                           |                               |
-|}                                   |                               |
-|                                    |                               |
-|annotation SuppressWarnings         |                               |
-|                                    |                               |
-|@enduml                             |                               |
-|```                                 |                               |
-+------------------------------------+-------------------------------+
++------------------------------------+---------------------------+
+|```                                 |                           |
+|@startuml                           | ![](./pix/classes_012.png)|
+|                                    |                           |
+|abstract class AbstractList         |                           |
+|abstract AbstractCollection         |                           |
+|interface List                      |                           |
+|interface Collection                |                           |
+|                                    |                           |
+|List <|-- AbstractList              |                           |
+|Collection <|-- AbstractCollection  |                           |
+|                                    |                           |
+|Collection <|- List                 |                           |
+|AbstractCollection <|- AbstractList |                           |
+|AbstractList <|-- ArrayList         |                           |
+|                                    |                           |
+|class ArrayList {                   |                           |
+|  Object[] elementData              |                           |
+|  size()                            |                           |
+|}                                   |                           |
+|                                    |                           |
+|enum TimeUnit {                     |                           |
+|  DAYS                              |                           |
+|  HOURS                             |                           |
+|  MINUTES                           |                           |
+|}                                   |                           |
+|                                    |                           |
+|annotation SuppressWarnings         |                           |
+|                                    |                           |
+|@enduml                             |                           |
+|```                                 |                           |
++------------------------------------+---------------------------+
 
 # Graphviz
 
-+-------------------------------------+---------------------------+
-|```                                  |![](./01-text/cluster.png) |
-|digraph G {                          |                           |
-|                                     |                           |
-|  subgraph cluster_0 {               |                           |
-|    style=filled;                    |                           |
-|    color=lightgrey;                 |                           |
-|    node [style=filled,color=white]; |                           |
-|    a0 -> a1 -> a2 -> a3;            |                           |
-|    label = "process #1";            |                           |
-|  }                                  |                           |
-|                                     |                           |
-|  subgraph cluster_1 {               |                           |
-|    node [style=filled];             |                           |
-|    b0 -> b1 -> b2 -> b3;            |                           |
-|    label = "process #2";            |                           |
-|    color=blue                       |                           |
-|  }                                  |                           |
-|  start -> a0;                       |                           |
-|  start -> b0;                       |                           |
-|  a1 -> b3;                          |                           |
-|  b2 -> a3;                          |                           |
-|  a3 -> a0;                          |                           |
-|  a3 -> end;                         |                           |
-|  b3 -> end;                         |                           |
-|                                     |                           |
-|  start [shape=Mdiamond];            |                           |
-|  end [shape=Msquare];               |                           |
-|}                                    |                           |
-|```                                  |                           |
-+-------------------------------------+---------------------------+
++-------------------------------------+-----------------------+
+|```                                  |![](./pix/cluster.png) |
+|digraph G {                          |                       |
+|                                     |                       |
+|  subgraph cluster_0 {               |                       |
+|    style=filled;                    |                       |
+|    color=lightgrey;                 |                       |
+|    node [style=filled,color=white]; |                       |
+|    a0 -> a1 -> a2 -> a3;            |                       |
+|    label = "process #1";            |                       |
+|  }                                  |                       |
+|                                     |                       |
+|  subgraph cluster_1 {               |                       |
+|    node [style=filled];             |                       |
+|    b0 -> b1 -> b2 -> b3;            |                       |
+|    label = "process #2";            |                       |
+|    color=blue                       |                       |
+|  }                                  |                       |
+|  start -> a0;                       |                       |
+|  start -> b0;                       |                       |
+|  a1 -> b3;                          |                       |
+|  b2 -> a3;                          |                       |
+|  a3 -> a0;                          |                       |
+|  a3 -> end;                         |                       |
+|  b3 -> end;                         |                       |
+|                                     |                       |
+|  start [shape=Mdiamond];            |                       |
+|  end [shape=Msquare];               |                       |
+|}                                    |                       |
+|```                                  |                       |
++-------------------------------------+-----------------------+
 
 # LaTeX
 
-+-----------------------------------------------+------------------------------------+
-|```                                            |![](./01-text/LaTeX_Output.svg.png) |
-|\documentclass[12pt]{article}                  |                                    |
-|\usepackage{amsmath}                           |                                    |
-|\title{\LaTeX}                                 |                                    |
-|\date{}                                        |                                    |
-|\begin{document}                               |                                    |
-|  \maketitle                                   |                                    |
-|  \LaTeX{} is a document preparation system    |                                    |
-|  for the \TeX{} typesetting program. It offers|                                    |
-|  ...                                          |                                    |
-|  using \TeX; few people write in plain \TeX{} |                                    |
-|  anymore. The current version is \LaTeXe.     |                                    |
-|                                               |                                    |
-|  % This is a comment, not shown in final      |                                    |
-|  % output. The following shows typesetting    |                                    |
-|  % power of LaTeX:                            |                                    |
-|  \begin{align}                                |                                    |
-|    E &= mc^2                              \\  |                                    |
-|    m &= \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}  |                                    |
-|  \end{align}                                  |                                    |
-|\end{document}                                 |                                    |
-|```                                            |                                    |
-+-----------------------------------------------+------------------------------------+
++-----------------------------------------------+--------------------------------+
+|```                                            |![](./pix/LaTeX_Output.svg.png) |
+|\documentclass[12pt]{article}                  |                                |
+|\usepackage{amsmath}                           |                                |
+|\title{\LaTeX}                                 |                                |
+|\date{}                                        |                                |
+|\begin{document}                               |                                |
+|  \maketitle                                   |                                |
+|  \LaTeX{} is a document preparation system    |                                |
+|  for the \TeX{} typesetting program. It offers|                                |
+|  ...                                          |                                |
+|  using \TeX; few people write in plain \TeX{} |                                |
+|  anymore. The current version is \LaTeXe.     |                                |
+|                                               |                                |
+|  % This is a comment, not shown in final      |                                |
+|  % output. The following shows typesetting    |                                |
+|  % power of LaTeX:                            |                                |
+|  \begin{align}                                |                                |
+|    E &= mc^2                              \\  |                                |
+|    m &= \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}  |                                |
+|  \end{align}                                  |                                |
+|\end{document}                                 |                                |
+|```                                            |                                |
++-----------------------------------------------+--------------------------------+
 
 Идеален для больших научных текстов (статей, книг).
 
@@ -378,7 +378,7 @@ rvm:
 
 # MediaWiki
 
-![](./01-text/Mediawiki-edit.png)
+![](./pix/Mediawiki-edit.png)
 
 # reStructuredText
 
@@ -422,14 +422,14 @@ From the [cheatsheet](http://docutils.sourceforge.net/docs/user/rst/cheatsheet.t
 
 Создан при помощи онлайн [рендера](http://www.tele3.cz/jbar/rest/rest.html) от Jiri Barton.
 
-![](./01-text/rst.png)
+![](./pix/rst.png)
 
 # Textile
 
 Этот синтаксис используется например в Redmine.  
 GitHub также позволяет использовать его.
 
-![](./01-text/textile.png)
+![](./pix/textile.png)
 
 # Markdown
 
@@ -449,13 +449,13 @@ GitHub также позволяет использовать его.
 
 _ReText_ client for Linux
 
-![](./01-text/retext-kde.png)
+![](./pix/retext-kde.png)
 
 # Markdown
 
 _Mou_ client for Mac
 
-![](./01-text/mou.png)
+![](./pix/mou.png)
 
 # Pandoc
 
@@ -488,20 +488,20 @@ _Mou_ client for Mac
 
 # ProGit book
 
-+----------------------------------------------+-------------------------+
-| - Это одна из лучших книг про Git            |![](./01-text/progit.jpg)|
-|                                              |                         |
-| - Книга свободно                             |                         |
-|   [доступна](http://git-scm.com/book)        |                         |
-|   в различных форматах                       |                         |
-|   (html, pdf, epub, mobi)                    |                         |
-|                                              |                         |
-| - Markdown-исходник размещен на              |                         |
-|   [GitHub](https://github.com/progit/progit) |                         |
-|                                              |                         |
-| - Переведена и улучшена энтузиастами со всего|                         |
-|   мира (9 полных переводов, 12 частичных)    |                         |
-+----------------------------------------------+-------------------------+
++----------------------------------------------+---------------------+
+| - Это одна из лучших книг про Git            |![](./pix/progit.jpg)|
+|                                              |                     |
+| - Книга свободно                             |                     |
+|   [доступна](http://git-scm.com/book)        |                     |
+|   в различных форматах                       |                     |
+|   (html, pdf, epub, mobi)                    |                     |
+|                                              |                     |
+| - Markdown-исходник размещен на              |                     |
+|   [GitHub](https://github.com/progit/progit) |                     |
+|                                              |                     |
+| - Переведена и улучшена энтузиастами со всего|                     |
+|   мира (9 полных переводов, 12 частичных)    |                     |
++----------------------------------------------+---------------------+
 
 # Презентации с Markdown
 
