@@ -1,23 +1,24 @@
-Кочанова Ксения: Конвертор температур
-==================================
+﻿Кочанова Ксения: Конвертор температур
+=====================================
 
 Класс ``TemperatureConvertor`` предназначен для конвертации одной единицы измерения температуры в другую.
-Каждый метод конвертирует любую величину температуры в указанную.
+Каждый метод конвертирует введенную величину температуры в указанную.
 
 .. code-block:: cpp
 
-	class TemperatureСonverter
+struct Temperature
 	{
-	public:
-		TemperatureСonverter();
-		virtual ~TemperatureСonverter();
-
-		double CelsiyToKelvin(double temp);
-		double CelsiyToFarengate(double temp);
-		double CelsiyToNewton(double temp);
-		double KelvinToCelsiy(double temp);
-		double FarengateToCelsiy(double temp);
-		double NewtonToCelsiy(double temp);
+		enum UnitInput {Celsiy, Kelvin, Farengate, Newton};
+		double value;
+	}
+class TemperatureConvert
+	{
+		enum UnitOutput {Celsiy, Kelvin, Farengate, Newton};
+		Temperature fromTemperature;
+public:
+		TemperatureConvert(void);
+		Temperature ConvertTemperature(Temperature fromTemperature, UnitOutput toUnit);
+		virtual ~TemperatureConvert(void);
 	};
 
 
@@ -25,7 +26,10 @@
 
 
 .. code-block:: cpp
-
-    TemperatureСonverter* convertor;
-    double temp = 10;
-    convertor->ToFootCelsiyToKelvin(temp);
+    TemperatureConvert(void);
+    TemperatureСonvert* convertor;
+    Temperature fromT;
+    fromT.UnitInput = 'Celsiy';
+    fromT.value = 10;
+    UnitO = 'Kelvin'
+    convertor->ToFootCelsiyToKelvin(fromT,UnitO);
