@@ -3,6 +3,9 @@
 
 Класс ``Sort`` предназначен для сортировки массива целых чисел. Он содержит методы:
 
+* быстрая сортировка
+* пирамидальная сортировка
+* сортировка слияниями
 
 .. code-block:: cpp
 
@@ -31,13 +34,8 @@
 .. code-block:: cpp
 
 int N = 10;
-
 int *a = new int[N];
-
 Sort massiv;
-
 massiv.quickSort(a, N);
-
 massiv.heapSort(a, N);
-
 massiv.mergeSort(a, N);
