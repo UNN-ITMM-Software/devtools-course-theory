@@ -1,0 +1,85 @@
+﻿Жбанова Анна: Треугольник, расчет основных параметров 
+=====================================================
+
+Класс ``Triangle`` предназначен  для расчета основных параметров треугольника
+Он предоставляет методы:  
+ *  порверки существования треугольника  
+ *  проверки на равнобедренность
+ *  проверки на равносторонность
+
+расчета:  
+ *  длин сторон   
+ *  углов  
+ *  площади  
+ *  периметра   
+
+.. code-block:: cpp
+
+	struct PointXY 
+	{
+		int x;
+		int y; 
+	
+		PointXY (int x_=0, int y_=0)
+		{
+			x = x_;
+			y = y_;
+		}
+	};
+
+	class Triangle
+	{
+	public:
+		Triangle();
+		Triangle(PointXY a_, PointXY b_, PointXY c_);
+		virtual ~Triangle(void);
+		
+		float AB();
+		float BC();
+		float AC();
+
+		float AngleA();
+		float AngleB();
+		float AngleC();
+
+		float Square();
+		float Perimeter();
+
+		bool IsCorrect();
+		bool IsEquilateral();
+		bool IsIsosceles();
+
+		PointXY Get_a();
+		PointXY Get_b();
+		PointXY Get_c();
+
+		void Set_a(PointXY a_);
+		void Set_b(PointXY b_);
+		void Set_c(PointXY c_);
+	private:
+		PointXY a;
+		PointXY b;
+		PointXY c;
+	};
+
+Пример использования:  
+---------------------
+.. code-block:: cpp
+
+	PointXY a(2,6),b(0,5),c(0,0);
+
+	Triangle obj(a,b,c);
+
+	if (obj.IsCorrect())
+	{
+		printf("Длина стороны AB %f\n", obj.AB());
+
+		float AngleA = obj.AngleA();
+					 
+		float Square = obj.Square();
+		
+		bool Equilateral = obj.IsEquilateral();
+		
+	}
+	else
+		printf("Такого треугольника не существует!");
