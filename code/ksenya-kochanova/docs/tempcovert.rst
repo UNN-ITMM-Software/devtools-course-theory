@@ -24,8 +24,6 @@ public:
 
 Примером использования класса в пользовательском C++ коде может служить нижеследующий код:
 
-
-.. code-block:: cpp
     TemperatureConvert(void);
     TemperatureСonvert* convertor;
     Temperature fromT;
