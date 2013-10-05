@@ -11,6 +11,7 @@
    :maxdepth: 2
 
    code/kirill-kornyakov/docs/simplecalc.rst
+   code/vasiliy-kumaev/docs/currencyconvert.rst
 
 
 Указатель и таблицы
