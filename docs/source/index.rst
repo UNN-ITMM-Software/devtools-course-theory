@@ -1,4 +1,4 @@
-Документация проекта DevTools!
+﻿Документация проекта DevTools!
 ==============================
 
 Добро пожаловать! Здесь вы сможете найти всю необходимую информацию о том,
@@ -11,6 +11,7 @@
    :maxdepth: 2
 
    code/kirill-kornyakov/docs/simplecalc.rst
+   code/dmitriy-gorokhov/docs/QuadraticEquation.rst
 
 
 Указатель и таблицы
