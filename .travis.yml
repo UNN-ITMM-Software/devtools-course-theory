@@ -1,0 +1,7 @@
+language: cpp
+compiler:
+  - gcc
+  - clang
+script: (cd ./code/cmake_build && cmake ../ && make && make test)
+notifications:
+  email: false
