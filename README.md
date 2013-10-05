@@ -11,19 +11,20 @@
  - [Таблица успеваемости](https://docs.google.com/spreadsheet/ccc?key=0AsBBkrQIoSbjdEdTUFRsaUw3LV92eVhwXzYtb0tZNHc#gid=5)
  - [Google-группа](<https://groups.google.com/forum/?hl=ru#!forum/devtools-course>)
  - Документация: <https://devtools.readthedocs.org>
+ - Отчеты о построении: <https://travis-ci.org/UNN-VMK-Software/devtools-course>
  - Литература:
   - Дейв Томас, Энди Хант "Программист-прагматик"
   - Нил Форд "Продуктивный программист" 
-    ([pdf за 30 руб.](http://www.books.ru/books/produktivnyi-programmist-kak-sdelat-slozhnoe-prostym-a-nevozmozhnoe--vozmozhnym-fail-pdf-646592/?show=1))
+    ([pdf](http://www.books.ru/books/produktivnyi-programmist-kak-sdelat-slozhnoe-prostym-a-nevozmozhnoe--vozmozhnym-fail-pdf-646592/?show=1))
   - Гудлиф "Ремесло программиста"
-    ([pdf за 30 руб.](http://www.books.ru/books/remeslo-programmista-praktika-napisaniya-khoroshego-koda-fail-pdf-646106/?show=1))
+    ([pdf](http://www.books.ru/books/remeslo-programmista-praktika-napisaniya-khoroshego-koda-fail-pdf-646106/?show=1))
   - Стив Макконнелл "Совершенный код"
   - Kernighan & Pike, The Practice of Programming, Addison-Wesley, 1999, ISBN 020161586X
  - Дополнительная литература:
    - Джеффри Фридл "Регулярные выражения", 3-е издание
-     ([pdf за 100 руб.](http://www.books.ru/books/regulyarnye-vyrazheniya-3-e-izdanie-fail-pdf-626982/?show=1))
+     ([pdf](http://www.books.ru/books/regulyarnye-vyrazheniya-3-e-izdanie-fail-pdf-626982/?show=1))
    - Ян Гойвертс, С. Левитан "Регулярные выражения. Сборник рецептов"
-     ([pdf за 60 руб.](http://www.books.ru/books/regulyarnye-vyrazheniya-sbornik-retseptov-fail-pdf-714878/?show=1)
+     ([pdf](http://www.books.ru/books/regulyarnye-vyrazheniya-sbornik-retseptov-fail-pdf-714878/?show=1))
 
 ## Описание лабораторных работ
 
@@ -41,25 +42,28 @@
   1. Зарегистрируйтесь на GitHub, предпочтительно использования аккаунта, из
      котого понятно ваше имя (опционально).
   1. Создайте форк нашего проекта: <https://github.com/UNN-VMK-Software/devtools-course>,
-     клонируйте репозиторий к себе на рабочую машину.
-  1. В подпапке `code` заведите папку со своим именем, и поместите туда файл
-     `README.md`. Это будет ваша wiki страничка в формате Markdown со всеми 
-     деталями о вашем проекте.
+     клонируйте репозиторий к себе на рабочую машину. Все необходимые инструкции
+     можно найти [здесь](https://help.github.com/articles/fork-a-repo).
+  1. В подпапке `code` заведите папку со своим именем (`name-surname`), и
+     поместите туда файл `README.md`. Это будет ваша wiki страничка в формате
+     Markdown со всеми деталями о вашем проекте.
   1. Заполните свой `README.md` информацией, чтобы там были заголовки, списки и 
      желательно ссылки и стили (жирный, курсив). Стоит написать свое имя,
      тему лабораторной работы, раскрыть постановку задачи (предлагается сделать
-     это самостоятельно).
+     это самостоятельно). Просьба следить за грамматикой, файлы с ошибками
+     будут возвращаться на доработку. Также просьба следить за корректностью 
+     [синтаксиса Markdown](https://help.github.com/articles/github-flavored-markdown).
   1. Когда все будет готово, стоит проверить, правильно ли генерируется html
      на основе вашего Markdown. Для этого можно воспользоваться утилитой pandoc,
      или например текстовым редактором, который умеет рендерить html.
   1. После того как вы убедились, что файл выглядит хорошо, нужно будет
      сделать локальный коммит в Git, затем сделать push изменений в ваш форк на 
      GitHub.
-  1. Когда ваши коммиты попадут на GitHub, нужно будет сделать pull-request в
-     центральный репозиторий: 
-     <https://github.com/UNN-VMK-Software/devtools-course>. Большая просьба в 
-     названии указать свою фамилию и номер
-     лабораторной, например _"Корняков - Лабораторная работа #1"_.
+  1. Когда ваши коммиты попадут на GitHub, нужно будет сделать 
+     [pull-request](https://help.github.com/articles/using-pull-requests) в
+     [центральный репозиторий](https://github.com/UNN-VMK-Software/devtools-course).
+     Большая просьба в названии pull-request указать свою фамилию и номер
+     лабораторной, например _"Корняков - Лабораторная работа #0"_.
   1. Если будут замечания к вашему коду, вы можете просто добавлять коммиты в
      свою ветку `master`, и пулл-реквест будет автоматически обновляться.
 
