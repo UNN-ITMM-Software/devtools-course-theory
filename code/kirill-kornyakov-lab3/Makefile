@@ -1,2 +1,3 @@
 all:
-	g++ ./src/calc.cpp -o ./bin/calc
+	mkdir -p ./build
+	g++ -o ./build/calc ./src/simplecalc.cpp ./samples/calc.cpp -I./include 
