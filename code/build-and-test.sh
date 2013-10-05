@@ -1,3 +1,13 @@
+function test_command {
+    "$@"
+    status=$?
+    if [ $status -ne 0 ]; then
+        echo "ERROR with $1"
+        exit $status
+    fi
+    return $status
+}
+
 for dir in */; 
 do
     echo
@@ -8,7 +18,7 @@ do
     if [ -f Makefile ];
     then
        echo "Makefile exists"
-       make test
+       test_command make test
     else
        echo "No Makefile"
     fi
