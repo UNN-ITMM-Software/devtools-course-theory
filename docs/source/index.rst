@@ -1,4 +1,4 @@
-Документация проекта DevTools!
+﻿Документация проекта DevTools!
 ==============================
 
 Добро пожаловать! Здесь вы сможете найти всю необходимую информацию о том,
@@ -11,7 +11,7 @@
    :maxdepth: 2
 
    code/kirill-kornyakov/docs/simplecalc.rst
-
+   code/aleksey-nesmelov/docs/fractcalc.rst
 
 Указатель и таблицы
 -------------------
