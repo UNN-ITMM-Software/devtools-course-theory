@@ -10,6 +10,8 @@ function try {
     return $status
 }
 
+# export CXX='g++'
+
 # Go through all directories and run 'make test'
 for dir in */; 
 do
