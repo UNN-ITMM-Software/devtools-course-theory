@@ -3,7 +3,7 @@
 
 Класс ``Triangle`` предназначен  для расчета основных параметров треугольника
 Он предоставляет методы:  
- *  порверки существования треугольника  
+ *  проверки существования треугольника  
  *  проверки на равнобедренность
  *  проверки на равносторонность
 
@@ -17,10 +17,10 @@
 
 	struct PointXY 
 	{
-		int x;
-		int y; 
+		float x;
+		float y; 
 	
-		PointXY (int x_=0, int y_=0)
+		PointXY (float x_=0, float y_=0)
 		{
 			x = x_;
 			y = y_;
@@ -49,13 +49,13 @@
 		bool IsEquilateral();
 		bool IsIsosceles();
 
-		PointXY Get_a();
-		PointXY Get_b();
-		PointXY Get_c();
+		PointXY GetA();
+		PointXY GetB();
+		PointXY GetC();
 
-		void Set_a(PointXY a_);
-		void Set_b(PointXY b_);
-		void Set_c(PointXY c_);
+		void SetA(PointXY a_);
+		void SetB(PointXY b_);
+		void SetC(PointXY c_);
 	private:
 		PointXY a;
 		PointXY b;
@@ -68,17 +68,17 @@
 
 	PointXY a(2,6),b(0,5),c(0,0);
 
-	Triangle obj(a,b,c);
+	Triangle triangle_obj(a,b,c);
 
-	if (obj.IsCorrect())
+	if (triangle_obj.IsCorrect())
 	{
-		printf("Длина стороны AB %f\n", obj.AB());
+		printf("Длина стороны AB %f\n", triangle_obj.AB());
 
-		float AngleA = obj.AngleA();
+		float AngleA = triangle_obj.AngleA();
 					 
-		float Square = obj.Square();
+		float Square = triangle_obj.Square();
 		
-		bool Equilateral = obj.IsEquilateral();
+		bool Equilateral = triangle_obj.IsEquilateral();
 		
 	}
 	else

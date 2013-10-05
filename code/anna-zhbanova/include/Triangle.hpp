@@ -23,13 +23,13 @@ public:
 	bool IsEquilateral();
 	bool IsIsosceles();
 
-	PointXY Get_a();
-	PointXY Get_b();
-	PointXY Get_c();
+	PointXY GetA();
+	PointXY GetB();
+	PointXY GetC();
 
-	void Set_a(PointXY a_);
-	void Set_b(PointXY b_);
-	void Set_c(PointXY c_);
+	void SetA(PointXY a_);
+	void SetB(PointXY b_);
+	void SetC(PointXY c_);
 private:
 	PointXY a;
 	PointXY b;

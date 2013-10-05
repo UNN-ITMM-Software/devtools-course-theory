@@ -1,9 +1,9 @@
 ﻿struct PointXY 
 {
-	int x;
-	int y; 
+	float x;
+	float y; 
 
-	PointXY (int x_=0, int y_=0)
+	PointXY (float x_=0, float y_=0)
 	{
 		x = x_;
 		y = y_;
