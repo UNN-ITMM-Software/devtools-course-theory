@@ -11,6 +11,8 @@
    :maxdepth: 2
 
    code/kirill-kornyakov/docs/simplecalc.rst
+   
+   code/andrey-golodyaev/docs/ComplexCalculator.rst
 
 
 Указатель и таблицы
