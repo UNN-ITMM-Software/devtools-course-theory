@@ -1,16 +1,22 @@
-class Temperature—onverter
+
+#pragma once
+
+enum Unit {Celsius, Kelvin, Fahrenheit, Newton};
+
+struct Temperature
 {
 public:
-    Temperature—onverter();
-    virtual ~Temperature—onverter();
+	double myValue;
+	Unit myUnit;
+};
+class TemperatureConverter
+{
 
-    double CelsiyToKelvin(double temp);
-    double CelsiyToFarengate(double temp);
-	double CelsiyToNewton(double temp);
-
-	double KelvinToCelsiy(double temp);
-	double FarengateToCelsiy(double temp);
-	double NewtonToCelsiy(double temp);
-
+public:
+	Temperature t;
+	TemperatureConverter(void);
+	virtual ~TemperatureConverter(void);	
+	Temperature ConvertTemperature(Temperature fromTemperature,Unit toUnit);
 
 };
+
