@@ -1,14 +1,15 @@
+#pragma once
+enum Unit {Dollar, Euro, Ruble, Pound};
 struct Currency
 {
-	enum  {Dollar, Euro, Ruble, Pound};
+	Unit UnitInput;
+	Unit UnitOutput;
 	double value;
 }
 class CurrencyConvert
 {
-	enum Unit {Dollar, Euro, Ruble, Pound};
 public:
 	CurrencyConvert(void);
-	Currency ConvertCurrency(Currency fromCurrency, Unit toUnit);
 	virtual ~CurrencyConvert(void);
+	Currency ConvertCurrency(Currency currency);
 };
-
