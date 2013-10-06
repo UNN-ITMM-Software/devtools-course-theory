@@ -7,25 +7,20 @@
 
 .. code-block:: cpp
 
-    class SimpleCalculator
     #pragma once
-
-    using namespace std;
-
+    enum Unit {Inch, Foot, Yard, Mile, Meter, KMeter, CMeter};
+    struct Length
+    {
+        double num;
+        Unit UnitInput;
+        Unit UnitOutput;
+    };
     class LengthConvertor
     {
     public:
-	    LengthConvertor();
-	    ~LengthConvertor();
-
-	    void help();
-	    double ToInch(double num, char* unit);
-	    double ToFoot(double num, char* unit);
-	    double ToYard(double num, char* unit);
-	    double ToMile(double num, char* unit);
-	    double ToMeter(double num, char* unit);
-	    double ToKMeter(double num, char* unit);
-	    double ToCMeter(double num, char* unit);
+        LengthConvertor();
+        virtual ~LengthConvertor(void);
+        static Length Convertor(Length data);
     };
 
 
@@ -34,7 +29,9 @@
 
 .. code-block:: cpp
 
-    LenghtConvertor* convertor;
-    double num = 30;
-    char* unit = "ML";
-    convertor->ToFoot(num, unit);
+    LengthConvertor convertor;
+    Length lengthconv;
+    lengthconv.num = 10;
+    lengthconv.UnitInput = Inch;
+    lengthconv.UnitOutput = Meter;
+    convertor.Convertor(lengthconv);
