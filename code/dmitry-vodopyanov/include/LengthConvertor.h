@@ -9,7 +9,7 @@ struct Length
 class LengthConvertor
 {
 public:
-	LengthConvertor();
+	LengthConvertor(void);
 	virtual ~LengthConvertor(void);
 	static Length Convertor(Length data);
 };
