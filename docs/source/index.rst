@@ -11,7 +11,7 @@
    :maxdepth: 2
 
    code/kirill-kornyakov/docs/simplecalc.rst
-   code/pavel-korotaev/docs/WeightConvertor.rst
+   code/pavel-korotaev/docs/WeightConvertor.rst	
 
 
 Указатель и таблицы
@@ -20,4 +20,5 @@
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
 

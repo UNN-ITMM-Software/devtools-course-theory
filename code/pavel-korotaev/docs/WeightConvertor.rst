@@ -1,36 +1,35 @@
 ﻿Павел Коротаев: Калькулятор весов
 =================================
 
-Класс ``WeightConvertor`` предназначен для осуществления конвертации в различные меры весов.
+Класс ``WeightConvertor`` предназначен для конвертации одной единицы измерения весов в другую. Каждый метод конвертирует введенную величину весов в указанную.
+
 
 .. code-block:: cpp
 
-    	
-	#pragma once
-
-	using namespace std;
-
+	enum Unit {Ounce, Pound, Stone, Grams, Kilograms, Hundredweight, Ton};
+	struct Weight
+	{
+    		double value;
+    		Unit UnitInput;
+    		Unit UnitOutput;
+	};
 	class WeightConvertor
-
 	{
 	public:
 		WeightConvertor();
-		~WeightConvertor();
-		double ToOunce(double value, char* unit);
-		double ToPound(double value, char* unit);
-		double ToStone(double value, char* unit);
-		double ToGrams(double value, char* unit);
-		double ToKilograms(double value, char* unit);
-		double ToHundredweight(double value, char* unit);
-		double ToTon(double value, char* unit);
+		virtual ~WeightConvertor(void);
+		static Weight Convertor(Weight data);
 	};
 
 
 Пример использования класса
 
+
 .. code-block:: cpp
 
-	WeightConvertor* Converter;
-	double value = 100;
-	char* unit = "Pound";
-	Converter->ToStone(value, unit);
+	WeightConvertor Conv;
+	Weight WeightConv;
+	WeightConv.value = 100;
+	WeightConv.UnitInput = Pound;
+	WeightConv.UnitOutput = Stone;
+	Conv.Convertor(WeightConv);
