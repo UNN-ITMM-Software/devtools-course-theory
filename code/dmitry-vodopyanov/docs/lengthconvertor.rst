@@ -34,4 +34,4 @@
     length.value = 10;
     length.UnitInput = Inch;
     Unit UnitOutput = Meter;
-    convertor.Convert(length, UnitOutput);
+    Length temperatureOutput = convertor.Convert(length, UnitOutput);
