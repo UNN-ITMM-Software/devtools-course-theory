@@ -11,6 +11,8 @@
    :maxdepth: 2
 
    code/kirill-kornyakov/docs/simplecalc.rst
+   code/dmitry-vodopyanov/docs/lengthconvertor.rst
+
 
 
 Указатель и таблицы
