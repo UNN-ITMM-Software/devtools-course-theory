@@ -1,7 +1,7 @@
 ﻿Кумаев Василий: Конвертор валют
 ===============================
 
-Класс ``CurrencyConvert`` и  его метод ``ConvertCurrency`` предназначены для конвертации одной валюты в другую.
+Класс ``CurrencyConvert`` предназначен для осуществления конвертации валют. Он представляет метод ``ConvertCurrency`` для конвертирования одной валюты в другую.
 
 .. code-block:: cpp
 
@@ -9,8 +9,7 @@
 enum Unit {Dollar, Euro, Ruble, Pound};
 struct Currency
 {
-	Unit UnitInput;
-	Unit UnitOutput;
+	Unit unit;
 	double value;
 }
 class CurrencyConvert
@@ -18,14 +17,14 @@ class CurrencyConvert
 public:
 	CurrencyConvert(void);
 	virtual ~CurrencyConvert(void);
-	Currency ConvertCurrency(Currency currency);
+	Currency ConvertCurrency(Currency currency, Unit UnitOutput);
 };
 
 Примером использования класса в пользовательском C++ коде может служить нижеследующий код:
 
     CurrencyConvertor convertor;
-    Currency currencyconv;
-    currencyconv.value = 50;
-    currencyconv.UnitInput = Ruble;
-    currencyconv.UnitOutput = Euro;
-    convertor.ConvertCurrency(currencyconv);
+    Currency CurrencyUnit;
+    CurrencyUnit.value = 50;
+    CurrencyUnit.unit = Ruble;
+    Unit UnitOutput = Euro;
+    Currency CurrencyOutput = convertor.ConvertCurrency(CurrencyUnit, UnitOutput);
