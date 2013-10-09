@@ -1,22 +1,18 @@
 
 #pragma once
 
-enum Unit {Celsius, Kelvin, Fahrenheit, Newton};
+    enum TemperatureUnit {Celsius, Kelvin, Fahrenheit, Newton};
+    struct Temperature
+    {
+        double value;
+        TemperatureUnit unit;
+    };
 
-struct Temperature
-{
-public:
-	double myValue;
-	Unit myUnit;
-};
-class TemperatureConverter
-{
-
-public:
-	Temperature t;
-	TemperatureConverter(void);
-	virtual ~TemperatureConverter(void);	
-	Temperature ConvertTemperature(Temperature fromTemperature,Unit toUnit);
-
-};
+    class TemperatureConvertor
+    {
+    public:
+       TemperatureConvertor(void);
+       virtual ~TemperatureConvertor(void);
+       Temperature ConvertTo(Temperature fromTemperature,TemperatureUnit toUnit);
+    };
 
