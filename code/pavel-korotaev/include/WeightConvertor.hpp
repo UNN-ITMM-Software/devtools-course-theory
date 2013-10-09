@@ -1,14 +1,13 @@
-enum Unit {Ounce, Pound, Stone, Grams, Kilograms, Hundredweight, Ton};
+enum WeightUnit {Ounce, Pound, Stone, Grams, Kilograms, Hundredweight, Ton};
 struct Weight
 {
 	double value;
-	Unit UnitInput;
-	Unit UnitOutput;
+	WeightUnit unit;
 };
 class WeightConvertor
 {
 public:
-	WeightConvertor();
+	WeightConvertor(void);
 	virtual ~WeightConvertor(void);
-	static Weight Convertor(Weight data);
+	Weight ConvertTo(Weight weight, WeightUnit UnitOutput);
 };
