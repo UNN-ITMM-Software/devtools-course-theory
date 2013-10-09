@@ -10,7 +10,9 @@
 
  - [Таблица успеваемости](https://docs.google.com/spreadsheet/ccc?key=0AsBBkrQIoSbjdEdTUFRsaUw3LV92eVhwXzYtb0tZNHc#gid=5)
  - [Google-группа](<https://groups.google.com/forum/?hl=ru#!forum/devtools-course>)
- - Документация: <https://devtools.readthedocs.org>
+ - Документация:
+   - HTML: <https://devtools.readthedocs.org>
+   - PDF: <https://media.readthedocs.org/pdf/devtools/latest/devtools.pdf>
  - Отчеты о построении: <https://travis-ci.org/UNN-VMK-Software/devtools-course>
  - Литература:
   - Дейв Томас, Энди Хант "Программист-прагматик"
