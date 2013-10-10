@@ -8,8 +8,7 @@ using namespace std;
 int main (int argc, char* argv[]) {
 
     ifstream f;
-    string buf;
-    Regex r;
+    string regex, text;
 
     if (argc == 1) {
         cout << "Input error" << endl;
@@ -22,18 +21,16 @@ int main (int argc, char* argv[]) {
     }
 
     while (!f.eof()) {
-        getline(f, buf);
-        cout << "Regex: " << buf << endl;
-        r.setRegex(buf);
+        getline(f, regex);
+        cout << "Regex: " << regex << endl;
         if (f.eof())
         {
             cout << "error: missing text!" << endl;
             return 0;
         }
-        getline(f, buf);
-        cout << "Text: " << buf << endl;
-        r.setText(buf);
-        cout << "Result: " << r.match() << endl;
+        getline(f, text);
+        cout << "Text: " << text << endl;
+        cout << "Result: " << match(regex, text) << endl;
     }
     f.close();
     return 0;
