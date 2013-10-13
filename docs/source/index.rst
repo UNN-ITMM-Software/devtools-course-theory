@@ -1,4 +1,4 @@
-Документация проекта DevTools!
+﻿Документация проекта DevTools!
 ==============================
 
 Добро пожаловать! Здесь вы сможете найти всю необходимую информацию о том,
@@ -13,6 +13,7 @@
    code/kirill-kornyakov-lab2/docs/simplecalc.rst
    code/dmitry-vodopyanov/docs/lengthconvertor.rst
    code/anna-zhbanova/docs/Triangle.rst
+   code/ksenya-kochanova/docs/TempConv.rst
 
 .. These are commented files
 .. code/aleksey-kostrov/docs/QQQQQ.rst
@@ -24,7 +25,6 @@
 .. code/dmitry-vodopyanov/docs/QQQQQ.rst
 .. code/ilia-udalov/docs/QQQQQ.rst
 .. code/kirill-nikolaev/docs/QQQQQ.rst
-.. code/ksenya-kochanova/docs/QQQQQ.rst
 .. code/mihail-kupriyanov/docs/QQQQQ.rst
 .. code/moshkov-yuriy/docs/QQQQQ.rst
 .. code/pavel-korotaev/docs/QQQQQ.rst
