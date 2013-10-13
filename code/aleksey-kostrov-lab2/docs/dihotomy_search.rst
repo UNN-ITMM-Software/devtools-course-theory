@@ -30,11 +30,11 @@
 	INPUT_TYPE Type;
 	int Array_Size, Search_Element;
 	printf("Select the type of input: 0-RANDOM, 1-MANUAL\n);
-	scanf("%d\n",Type);
+	scanf("%d\n",&Type);
 	printf("Enter the size of the array: Array_Size = ");
-	scanf("%d\n",Array_Size);
+	scanf("%d\n",&Array_Size);
 	printf("Enter element to search ");
-        scanf("%d\n",Search_Element);
+        scanf("%d\n",&Search_Element);
 	Dichotomy_Search example_of_use(Type, Array_Size, Search_Element);
 	example_of_use.Count_Sort();
 	printf("Index of search element: %d",example_of_use.Search());
