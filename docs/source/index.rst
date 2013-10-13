@@ -17,6 +17,7 @@
    code/pavel-korotaev/docs/WeightConvertor.rst	
    code/ilia-udalov/docs/regex.rst
    code/vasiliy-kumaev/docs/currencyconvert.rst
+   code/dmitriy-gorokhov/docs/QuadraticEquation.rst
 
 
 Указатель и таблицы
@@ -25,5 +26,3 @@
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-
