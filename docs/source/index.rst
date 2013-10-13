@@ -1,4 +1,4 @@
-﻿Документация проекта DevTools!
+Документация проекта DevTools!
 ==============================
 
 Добро пожаловать! Здесь вы сможете найти всю необходимую информацию о том,
@@ -14,6 +14,7 @@
    code/dmitry-vodopyanov/docs/lengthconvertor.rst
    code/anna-zhbanova/docs/Triangle.rst
    code/ksenya-kochanova/docs/TempConv.rst
+   code/pavel-korotaev/docs/WeightConvertor.rst	
 
 .. These are commented files
 .. code/aleksey-kostrov/docs/QQQQQ.rst
@@ -37,4 +38,5 @@
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
 
