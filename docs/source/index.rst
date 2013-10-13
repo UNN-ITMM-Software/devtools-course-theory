@@ -15,22 +15,7 @@
    code/anna-zhbanova/docs/Triangle.rst
    code/ksenya-kochanova/docs/TempConv.rst
    code/pavel-korotaev/docs/WeightConvertor.rst	
-
-.. These are commented files
-.. code/aleksey-kostrov/docs/QQQQQ.rst
-.. code/aleksey-nesmelov/docs/QQQQQ.rst
-.. code/alexandr-smirnov/docs/QQQQQ.rst
-.. code/andrey-golodyaev/docs/QQQQQ.rst
-.. code/denis-sabanov/docs/QQQQQ.rst
-.. code/dmitriy-gorokhov/docs/QQQQQ.rst
-.. code/dmitry-vodopyanov/docs/QQQQQ.rst
-.. code/ilia-udalov/docs/QQQQQ.rst
-.. code/kirill-nikolaev/docs/QQQQQ.rst
-.. code/mihail-kupriyanov/docs/QQQQQ.rst
-.. code/moshkov-yuriy/docs/QQQQQ.rst
-.. code/pavel-korotaev/docs/QQQQQ.rst
-.. code/shiryaeva-vera/docs/QQQQQ.rst
-.. code/vasiliy-kumaev/docs/QQQQQ.rst
+   code/ilia-udalov/docs/regex.rst
 
 Указатель и таблицы
 -------------------
