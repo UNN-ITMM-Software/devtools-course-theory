@@ -42,4 +42,4 @@
     Fraction fract_1(5,6);
     Fraction fract_2(-10,7);
     Fraction result_fract;
-    result_fract=Fraction::Add(d1,d2);
+    result_fract=Fraction::Add(fract_1,fract_2);
