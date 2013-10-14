@@ -20,7 +20,7 @@
 		bool PutSelection(const std::vector<SelQuan>& in_selection); 
 		std::vector<SelQuan> GetSelection();
 
-		bool GetMathWaiting(double& value);
+		bool GetExpectedValue(double& value);
 		bool GetDispertion(double& value);
 		bool GetPrimaryMoment(double& value, int level);
 		bool GetCentralMoment(double& value, int level);
@@ -28,3 +28,35 @@
 		// проверяет правильность добавленной выборки 
 		bool GetSelectionStatus();
 	};
+
+Пример использования класса:
+
+.. code-block:: cpp
+
+	MathQuanCalc mqCalc;
+
+	MathQuanCalc::SelQuan selQuan;
+	std::vector<SelQuan> vSelQuan; // создание ряда распределения
+	
+	selQuan.value = 1;
+	selQuan.chance = 1/2;
+	vSelQuan.push_bask(selQuan); // добавление значения и вероятности
+
+	selQuan.value = 2;
+	selQuan.chance = 1/2;
+	vSelQuan.push_bask(selQuan); // добавление значения и вероятности
+
+	mqCalc.PutSelection(vSelQuan); // добавление ряда распределения в калькулятор
+
+	if( mqCalc.GetSelectionStatus() == false){
+		// ряд распределения некорректен 
+	}
+
+	double expVal;
+	if(GetExpectedValue(expVal)){
+		// получено мат.ожидание
+	}
+	double dispertion;
+	if(GetDispertion(dispertion)){
+		// получена дисперсия
+	}
