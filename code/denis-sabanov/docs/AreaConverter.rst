@@ -32,7 +32,7 @@
 
  AreaConverter Converter;
  Converter.SetAreaType(sMeter);
- Converter.ConvertToAcre(100,Converter.GetAreaType());
+ Converter.Convert(100,Converter.GetAreaType());
  
  
  
