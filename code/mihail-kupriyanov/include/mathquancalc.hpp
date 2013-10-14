@@ -17,7 +17,7 @@ public:
 	bool PutSelection(const std::vector<SelQuan>& in_selection);
 	std::vector<SelQuan> GetSelection();
 
-	bool GetMathWaiting(double& value);
+	bool GetExpectedValue(double& value);
 	bool GetDispertion(double& value);
 	bool GetPrimaryMoment(double& value, int level);
 	bool GetCentralMoment(double& value, int level);
