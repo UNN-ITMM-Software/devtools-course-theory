@@ -6,18 +6,18 @@
 
 
 .. code-block:: cpp
-class AreaConverter
-{
-private:
+ class AreaConverter
+ {
+ private:
 	double value;
-	AreaType curType;		
-public:
+ 	AreaType curType;		
+ public:
 	double ConvertToAll(double value,AreaType type);
 	double GetValue();
 	AreaType GetAreaType();
 	void SetValue(double value);
 	void SetAreaType(AreaType type);	
-};
+ };
 	
 Пример использования:
 ---------------------
