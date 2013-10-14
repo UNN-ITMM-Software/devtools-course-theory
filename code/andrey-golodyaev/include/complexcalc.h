@@ -13,8 +13,8 @@ public:
 	void SetImaginary(double _imaginary);
 	friend istream& operator >>(istream& cin, ComplexCalculator &second);
 	friend ostream& operator <<(ostream& cout, ComplexCalculator &second);
-	ComplexCalculator Add(ComplexCalculator first, ComplexCalculator second);
-	ComplexCalculator Sub(ComplexCalculator first, ComplexCalculator second);
-	ComplexCalculator Multi(ComplexCalculator first, ComplexCalculator second);
-	ComplexCalculator Div(ComplexCalculator first, ComplexCalculator second);
+	static ComplexCalculator Add(ComplexCalculator first, ComplexCalculator second);
+	static ComplexCalculator Sub(ComplexCalculator first, ComplexCalculator second);
+	static ComplexCalculator Multi(ComplexCalculator first, ComplexCalculator second);
+	static ComplexCalculator Div(ComplexCalculator first, ComplexCalculator second);
 };

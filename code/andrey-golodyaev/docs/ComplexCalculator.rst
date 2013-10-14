@@ -21,10 +21,10 @@
 			void SetImaginary(double _imaginary);
 			friend istream& operator >>(istream& cin, ComplexCalculator &second);
 			friend ostream& operator <<(ostream& cout, ComplexCalculator &second);
-			ComplexCalculator Add(ComplexCalculator first, ComplexCalculator second);
-			ComplexCalculator Sub(ComplexCalculator first, ComplexCalculator second);
-			ComplexCalculator Multi(ComplexCalculator first, ComplexCalculator second);
-			ComplexCalculator Div(ComplexCalculator first, ComplexCalculator second);
+			static ComplexCalculator Add(ComplexCalculator first, ComplexCalculator second);
+			static ComplexCalculator Sub(ComplexCalculator first, ComplexCalculator second);
+			static ComplexCalculator Multi(ComplexCalculator first, ComplexCalculator second);
+			static ComplexCalculator Div(ComplexCalculator first, ComplexCalculator second);
 		};
 		
 Пример использования класса ``ComplexCalculator`` в пользовательском C++ коде:
@@ -34,11 +34,11 @@
 		ComplexCalculator a(5,1);
 		ComplexCalculator b(1,2);
 		ComplexCalculator c;
-		c.Add(a,b);
+		c=ComplexCalculator::Add(a,b);
 		cout<<"A+B="<<c<<endl;
-		c.Sub(a,b);
+		c=ComplexCalculator::Sub(a,b);
 		cout<<"A-B="<<c<<endl;
-		c.Multi(a,b);
+		c=ComplexCalculator::Multi(a,b);
 		cout<<"A*B="<<c<<endl;
-		c.Div(a,b);
+		c=ComplexCalculator::Div(a,b);
 		cout<<"A/B="<<c<<endl;
