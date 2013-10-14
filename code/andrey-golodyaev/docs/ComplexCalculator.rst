@@ -19,8 +19,8 @@
 			double GetImaginary();
 			void SetReal(double _real);
 			void SetImaginary(double _imaginary);
-			friend istream& operator >>(istream& cin, compl &second);
-			friend ostream& operator <<(ostream& cout, compl &second);
+			friend istream& operator >>(istream& cin, ComplexCalculator &second);
+			friend ostream& operator <<(ostream& cout, ComplexCalculator &second);
 			ComplexCalculator Add(ComplexCalculator first, ComplexCalculator second);
 			ComplexCalculator Sub(ComplexCalculator first, ComplexCalculator second);
 			ComplexCalculator Multi(ComplexCalculator first, ComplexCalculator second);
