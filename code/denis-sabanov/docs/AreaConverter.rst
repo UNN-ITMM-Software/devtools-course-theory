@@ -7,7 +7,6 @@
 
 
 .. code-block:: cpp
-
 class AreaConverter
 {
 private:
