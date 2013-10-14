@@ -1,34 +1,33 @@
-Кирилл Николаев: Конвертор чисел
+РљРёСЂРёР»Р» РќРёРєРѕР»Р°РµРІ: РљРѕРЅРІРµСЂС‚РѕСЂ С‡РёСЃРµР»
 ================================
-Класс ``NumConverter`` предназначен для представления чисел, записанных в различных позиционных системах счисления (двоичной, восьмеричной, десятичной, шестнадцатеричной). Класс позволяет переводить числа в другие системы счисления из заявленных выше.
-
+РљР»Р°СЃСЃ ``NumConverter`` РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅ РґР»СЏ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ С‡РёСЃРµР», Р·Р°РїРёСЃР°РЅРЅС‹С… РІ СЂР°Р·Р»РёС‡РЅС‹С… РїРѕР·РёС†РёРѕРЅРЅС‹С… СЃРёСЃС‚РµРјР°С… СЃС‡РёСЃР»РµРЅРёСЏ (РґРІРѕРёС‡РЅРѕР№, РІРѕСЃСЊРјРµСЂРёС‡РЅРѕР№, РґРµСЃСЏС‚РёС‡РЅРѕР№, С€РµСЃС‚РЅР°РґС†Р°С‚РµСЂРёС‡РЅРѕР№). РљР»Р°СЃСЃ РїРѕР·РІРѕР»СЏРµС‚ РїРµСЂРµРІРѕРґРёС‚СЊ С‡РёСЃР»Р° РІ РґСЂСѓРіРёРµ СЃРёСЃС‚РµРјС‹ СЃС‡РёСЃР»РµРЅРёСЏ РёР· Р·Р°СЏРІР»РµРЅРЅС‹С… РІС‹С€Рµ.
 
 .. code-block:: cpp
 
-   enum NumSystem
-    {
-	hex,octal,decimal,binary
-    };
-    std::string dec_to_bin(int dec_number);
-    class NumConverter
-    {
-    private:
-	NumSystem NumSys;
-	std::string Value;
-    public:
-	NumConverter(NumSystem myNumSys, std::string myValue);
-	~NumConverter();
-	std::string GetValue();
-	int ToHex();
-	int ToOctal();
-	int ToDecimal();
-	int ToBinary();
-     };
+	enum NumSystem
+	{
+		hex,octal,decimal,binary
+	};
+	std::string dec_to_bin(int dec_number);
+	class NumConverter
+	{
+	private:
+		NumSystem NumSys;
+		std::string Value;
+	public:
+		NumConverter(NumSystem myNumSys, std::string myValue);
+		~NumConverter();
+		std::string GetValue();
+		int ToHex();
+		int ToOctal();
+		int ToDecimal();
+		int ToBinary();
+	};
 
-Пример использования:
+РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ:
 ---------------------
 .. code-block:: cpp
 
-    NumConverter a(decimal,"100");
-    a.ToBinary();
-    std::cout<<a.GetValue()<<std::endl;
+	NumConverter a(decimal,"100");
+	a.ToBinary();
+	std::cout<<a.GetValue()<<std::endl;
