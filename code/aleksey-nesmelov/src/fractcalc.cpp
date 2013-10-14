@@ -80,25 +80,26 @@ void SetDenominator(int new_denominator)
  }
 
 
-Fraction operator +(Fraction a)
+
+static Fraction Add(Fraction a,Fraction b)
 {
- Fraction res(this->numenator*a.denominator+denominator*a.numenator,this->denominator*a.denominator);
+ Fraction res(a.numenator*b.denominator+a.denominator*b.numenator,a.denominator*b.denominator);
  res.Cut_Fraction();
  return res;
 
 }
 
-Fraction operator -(Fraction a)
+static Fraction Subtract(Fraction a,Fraction b)
 {
- Fraction res(this->numenator*a.denominator-denominator*a.numenator,this->denominator*a.denominator);
+ Fraction res(a.numenator*b.denominator-a.denominator*b.numenator,a.denominator*b.denominator);
  res.Cut_Fraction();
  return res;
 }
 
 
-Fraction operator *(Fraction a)
+static Fraction Multiply(Fraction a,Fraction b)
 {
- Fraction res(this->numenator*a.numenator,this->denominator*a.denominator);
+ Fraction res(a.numenator*b.numenator,a.denominator*b.denominator);
  res.Cut_Fraction();
  if(res.denominator<0)
  {res.numenator=-res.numenator;
@@ -106,9 +107,9 @@ Fraction operator *(Fraction a)
  return res;
 }
 
-Fraction operator /(Fraction a)
+static Fraction Divide(Fraction a,Fraction b)
 {
-Fraction res(this->numenator*a.denominator,this->denominator*a.numenator);
+Fraction res(a.numenator*b.denominator,a.denominator*b.numenator);
 res.Cut_Fraction();
 if(res.denominator<0)
 {res.numenator=-res.numenator;

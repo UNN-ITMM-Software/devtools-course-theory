@@ -26,10 +26,11 @@
        void SetNumenator(int new_numenator);
        void SetDenominator(int new_denominator);
 
-       Fraction operator +(Fraction a);
-       Fraction operator -(Fraction a);
-       Fraction operator *(Fraction a);
-       Fraction operator /(Fraction a);    
+       static Fraction Add(Fraction a,Fraction b);
+       static Fraction Subtract(Fraction a,Fraction b);
+       static Fraction Multiply(Fraction a,Fraction b);
+       static Fraction Divide(Fraction a,Fraction b);
+   
     };
 
 
@@ -41,4 +42,4 @@
     Fraction fract_1(5,6);
     Fraction fract_2(-10,7);
     Fraction result_fract;
-    result_fract=d1+d2;
+    result_fract=Fraction::Add(d1,d2);
