@@ -10,7 +10,14 @@
 .. toctree::
    :maxdepth: 2
 
-   code/kirill-kornyakov/docs/simplecalc.rst
+   code/kirill-kornyakov-lab2/docs/simplecalc.rst
+   code/dmitry-vodopyanov/docs/lengthconvertor.rst
+   code/anna-zhbanova/docs/Triangle.rst
+   code/ksenya-kochanova/docs/TempConv.rst
+   code/pavel-korotaev/docs/WeightConvertor.rst	
+   code/ilia-udalov/docs/regex.rst
+   code/vasiliy-kumaev/docs/currencyconvert.rst
+   code/dmitriy-gorokhov/docs/QuadraticEquation.rst
 
 
 Указатель и таблицы
@@ -19,4 +26,3 @@
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-

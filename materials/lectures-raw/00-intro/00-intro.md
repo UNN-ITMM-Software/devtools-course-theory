@@ -55,7 +55,7 @@
 
 # Программа курса
 
-![](./00-intro/developmentprocess.gif)
+![](./pix/developmentprocess.gif)
 
 Software Development Lifecycle
 
