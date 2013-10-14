@@ -48,15 +48,14 @@
 
 	mqCalc.PutSelection(vSelQuan); // добавление ряда распределения в калькулятор
 
-	if( mqCalc.GetSelectionStatus() == false){
+	if( mqCalc.GetSelectionStatus() == false ){
 		// ряд распределения некорректен 
 	}
-
 	double expVal;
-	if(GetExpectedValue(expVal)){
+	if( mqCalc.GetExpectedValue(expVal) == true ){
 		// получено мат.ожидание
 	}
 	double dispertion;
-	if(GetDispertion(dispertion)){
+	if( mqCalc.GetDispertion(dispertion) == true ){
 		// получена дисперсия
 	}
