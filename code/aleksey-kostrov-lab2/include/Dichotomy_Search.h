@@ -7,11 +7,8 @@ public:
 	Dichotomy_Search();
 	Dichotomy_Search(INPUT_TYPE Type, int Array_Size, int Search_Element);
 	virtual ~Dichotomy_Search();
-    void Count_Sort();
-    int Search();
+    int Sort_Search();
 private:
 	int ** Array, Array_Size, Search_Element;
-	int Array_Size;
-	void Array_Initialization(int ** Array, int Array_Size, INPUT_TYPE Type);
 };
 

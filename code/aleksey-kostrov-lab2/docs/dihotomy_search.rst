@@ -2,9 +2,9 @@
 ===========================================
 
 Класс ``Dichotomy_Search`` предназначен для поиска элемента в массиве методом "Дихотомии".
-Он предоставляет методы для предподготовки(сортировка массива) и 
+Он предоставляет метод для предподготовки(сортировка массива реализована внутри метода ``Sort_Search``) и 
 последующей обработки(поиск индекса желаемого элемента) входящих данных, а именно числового массива.
-В результате работы, один из методов класса выводит на экран индекс искомого элемента поиска.
+В результате работы, данный метод класса выводит на экран индекс искомого элемента поиска.
 
 .. code-block:: cpp
 
@@ -16,11 +16,9 @@
 		Dichotomy_Search();
 		Dichotomy_Search(INPUT_TYPE Type, int Array_Size, int Search_Element);
 		virtual ~Dichotomy_Search();
-		void Count_Sort();
-		int Search();
+		int Sort_Search();
 	private:
 		int ** Array, Array_Size, Search_Element; 		
-		void Array_Initialization(int ** Array, int Array_Size, INPUT_TYPE Type);
 	};
 
 Пример использования класса:
@@ -36,7 +34,6 @@
 	printf("Enter element to search ");
         scanf("%d\n",&Search_Element);
 	Dichotomy_Search example_of_use(Type, Array_Size, Search_Element);
-	example_of_use.Count_Sort();
-	printf("Index of search element: %d",example_of_use.Search());
+	printf("Index of search element: %d",example_of_use.Sort_Search());
 
 
