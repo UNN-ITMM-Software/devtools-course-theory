@@ -1,6 +1,6 @@
 all:
 	mkdir -p ./build
-	$(CXX) -o ./build/lengthconvertor ./src/lengthconvertor.cpp ./samples/lengthconvertor.cpp -I./include 
+	$(CXX) -o ./build/lengthconvertor ./src/LengthConvertor.cpp ./samples/LengthConvertor.cpp -I./include 
 
 test: all
 	./build/lengthconvertor
