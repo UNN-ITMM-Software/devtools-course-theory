@@ -1,4 +1,4 @@
-Кирилл Николаев: Конвертор чисел
+Кирилл Николаев: Конвертер чисел
 ================================
 Класс ``NumConverter`` предназначен для представления чисел, записанных в различных позиционных системах счисления (двоичной, восьмеричной, десятичной, шестнадцатеричной). Класс позволяет переводить числа в другие системы счисления из заявленных выше.
 
@@ -6,28 +6,26 @@
 
 	enum NumSystem
 	{
-		hex,octal,decimal,binary
+		hex,oct,dec,bin
 	};
 	std::string dec_to_bin(int dec_number);
 	class NumConverter
 	{
-	private:
-		NumSystem NumSys;
-		std::string Value;
 	public:
-		NumConverter(NumSystem myNumSys, std::string myValue);
+		NumConverter(NumSystem numsys, std::string value);
 		~NumConverter();
 		std::string GetValue();
-		int ToHex();
-		int ToOctal();
-		int ToDecimal();
-		int ToBinary();
+		void ToHex();
+		void ToOctal();
+		void ToDecimal();
+		void ToBinary();
 	};
 
 Пример использования:
 ---------------------
 .. code-block:: cpp
 
-	NumConverter a(decimal,"100");
+	NumConverter a(dec,"100");
 	a.ToBinary();
 	std::cout<<a.GetValue()<<std::endl;
+	

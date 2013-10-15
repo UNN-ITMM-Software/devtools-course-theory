@@ -3,7 +3,7 @@
 #include <stack>
 enum NumSystem
 {
-	hex,octal,decimal,binary
+	hex,oct,dec,bin
 };
 std::string dec_to_bin(int dec_number);
 class NumConverter
@@ -12,11 +12,11 @@ private:
 	NumSystem NumSys;
 	std::string Value;
 public:
-	NumConverter(NumSystem myNumSys, std::string myValue);
+	NumConverter(NumSystem numsys, std::string value);
 	~NumConverter();
 	std::string GetValue();
-	int ToHex();
-	int ToOctal();
-	int ToDecimal();
-	int ToBinary();
+	void ToHex();
+	void ToOctal();
+	void ToDecimal();
+	void ToBinary();
 };
