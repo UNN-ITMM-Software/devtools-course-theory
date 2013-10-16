@@ -19,8 +19,8 @@
 			double GetImaginary();
 			void SetReal(double _real);
 			void SetImaginary(double _imaginary);
-			friend istream& operator >>(istream& cin, ComplexCalculator &second);
-			friend ostream& operator <<(ostream& cout, ComplexCalculator &second);
+			void Input(char *str);
+			void Output(char* str);
 			static ComplexCalculator Add(ComplexCalculator first, ComplexCalculator second);
 			static ComplexCalculator Sub(ComplexCalculator first, ComplexCalculator second);
 			static ComplexCalculator Multi(ComplexCalculator first, ComplexCalculator second);
@@ -31,14 +31,10 @@
 
  .. code-block:: cpp
 		
-		ComplexCalculator a(5,1);
-		ComplexCalculator b(1,2);
-		ComplexCalculator c;
+		ComplexCalculator a(1,1);
+		ComplexCalculator b(2,2);
+		ComplexCalculator c(0,0);
+		char str[10]="";
 		c=ComplexCalculator::Add(a,b);
-		cout<<"A+B="<<c<<endl;
-		c=ComplexCalculator::Sub(a,b);
-		cout<<"A-B="<<c<<endl;
-		c=ComplexCalculator::Multi(a,b);
-		cout<<"A*B="<<c<<endl;
-		c=ComplexCalculator::Div(a,b);
-		cout<<"A/B="<<c<<endl;
+		c.Output(str);
+		printf("A+B=%s\n",str);
