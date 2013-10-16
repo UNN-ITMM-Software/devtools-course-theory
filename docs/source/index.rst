@@ -18,6 +18,7 @@
    code/ilia-udalov/docs/regex.rst
    code/vasiliy-kumaev/docs/currencyconvert.rst
    code/dmitriy-gorokhov/docs/QuadraticEquation.rst
+   code/aleksey-nesmelov/docs/fractcalc.rst
 
 
 Указатель и таблицы
