@@ -10,6 +10,6 @@ int main()
 	length.value = 45.6; length.UnitInput = KMeter;
 	printf("45.6 kilometers = %lf yards\n", convertor.Convert(length, Yard).value);
 	length.value = -7; length.UnitInput = KMeter;
-	printf("-7 kilometers = %lf yards\n", convertor.Convert(length, Yard).value); //Incorrect input, returns 0
+	printf("-7 kilometers = %lf yards\n", convertor.Convert(length, Yard).value); //Incorrect input, returns -1.0
 	return 0;
 }
