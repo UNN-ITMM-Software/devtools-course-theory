@@ -20,6 +20,7 @@
    code/dmitriy-gorokhov/docs/QuadraticEquation.rst
    code/aleksey-nesmelov/docs/fractcalc.rst
    code/aleksey-kostrov-lab2/docs/dihotomy_search.rst
+   code/andrey-golodyaev/docs/ComplexCalculator.rst
 
 
 Указатель и таблицы
