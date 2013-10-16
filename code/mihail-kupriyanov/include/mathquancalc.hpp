@@ -17,13 +17,14 @@ public:
 	bool PutSelection(const std::vector<SelQuan>& in_selection);
 	std::vector<SelQuan> GetSelection();
 
-	bool GetExpectedValue(double& value);
-	bool GetDispertion(double& value);
-	bool GetPrimaryMoment(double& value, int level);
-	bool GetCentralMoment(double& value, int level);
+	bool GetExpectedValue(double* value);
+	bool GetDispertion(double* value);
+	bool GetPrimaryMoment(double* value, int level);
+	bool GetCentralMoment(double* value, int level);
 
 	bool GetSelectionStatus();
 private:
+	bool selection_status;
 	std::vector<SelQuan> selection; 
 };
 
