@@ -17,7 +17,9 @@
 
 # IDE
 
-> **Интегрированная среда разработки, ИСР** (англ. **IDE, Integrated development environment** или **integrated debugging environment**) — система программных средств, используемая программистами для разработки программного обеспечения.
+> **Интегрированная среда разработки, ИСР** (англ. **IDE, Integrated development
+> environment** или **integrated debugging environment**) — система программных
+> средств, используемая программистами для разработки программного обеспечения.
 
 В чем отличие IDE от редакторов исходного кода?
 
@@ -25,34 +27,34 @@
 
 IDE - это не только ценный мех:
 
-  - текстовый редактор
-  - компилятор и/или интерпретатор
-  - средства автоматизации сборки
-  - отладчик
+  - Текстовый редактор
+  - Компилятор и/или интерпретатор
+  - Средства автоматизации сборки
+  - Отладчик
 
 # Функции современных IDE
 
-   - автодополнение
-   - поддержка шаблонов
-   - работа с СУБД, веб-сервисами
-   - интеграция задач // TODO: 
-   - браузер классов
-   - визульное редактирование классов
-   - профилировщик
-   - поддержка систем контроля версий
-   - инструменты рефакторинга
-   - сниппеты
+   - Автодополнение
+   - Поддержка шаблонов
+   - Работа с СУБД, веб-сервисами
+   - Интеграция задач (`//TODO: ...`)
+   - Браузер классов
+   - Визульное редактирование классов
+   - Профилировщик
+   - Поддержка систем контроля версий
+   - Инструменты рефакторинга
+   - Сниппеты
    - ...
 
 # Плагины для IDE
 
 JetBrains [Resharper](http://www.jetbrains.com/resharper/features/index.html)
 
-  - статический анализ кода
-  - сниппеты
-  - инструменты рефакторинга
-  - поддержка unit-тестов
-  - инструменты автогенерации кода
+  - Статический анализ кода
+  - Сниппеты
+  - Инструменты рефакторинга
+  - Поддержка unit-тестов
+  - Инструменты автогенерации кода
   - ...
 
 # Классификация IDE
@@ -67,7 +69,7 @@ JetBrains [Resharper](http://www.jetbrains.com/resharper/features/index.html)
 
 # Сравнение С++ IDE
 
-<center>![](./pix/IDE_comparison.png)</center>>
+<center>![](./pix/IDE_comparison.png)</center>
 
 # Содержание
 
@@ -77,29 +79,35 @@ JetBrains [Resharper](http://www.jetbrains.com/resharper/features/index.html)
 
 # Метапрограммирование
 
->> **Метапрограммирование** — вид программирования, связанный с созданием программ, которые порождают другие программы как результат своей работы.
+>> **Метапрограммирование** — вид программирования, связанный с созданием
+>> программ, которые порождают другие программы как результат своей работы.
 
 <center>![](./pix/meta.jpg)</center>
 
 # Шаблоны в С++
-<code><br/>
-#include \<iostream\> <br/>
-template\<int N\> <br/>
-struct Factorial<br/>
-{<br/>
- enum { value = N * Factorial\<N-1\>::value };<br/>
-};<br/>
-template\<\><br/>
-struct Factorial\<1\>{ enum { value = 1 }; };<br/>
-int main()<br/>
-{ <br/>
- const int fact5 = Factorial\<5\>::value; <br/>
- std::cout << fact5;<br/>
- return 0;<br/>
-}<br/>
-</code>
 
-David Abrahams and Aleksey Gurtovoy ["C++ Template Metaprogramming"](http://www.boostpro.com/mplbook/)
+```
+#include <iostream>
+
+template<int N>
+struct Factorial
+{
+    enum { value = N * Factorial\<N-1\>::value };
+};
+
+template<>
+struct Factorial<1>{ enum { value = 1 }; };
+
+int main()
+{
+    const int fact5 = Factorial<5>::value;
+    std::cout << fact5;
+    return 0;
+}
+```
+
+David Abrahams and Aleksey Gurtovoy
+["C++ Template Metaprogramming"](http://www.boostpro.com/mplbook/)
 
 # cog 
 
@@ -131,18 +139,25 @@ void DoLastThing();
 </pre>
 
 # lex & yacc
-- Lex - лексический анализатор, позволяетосуществлять разбор входной последовательности символов с целью получения на выходе последовательности символов, называемых **токенами**.
-- Yacc - синтаксический анализатор, который позволяет сопоставить линейной последовательности токенов языка его формальную грамматику.
+
+- Lex - лексический анализатор, позволяет осуществлять разбор входной
+  последовательности символов с целью получения на выходе последовательности
+  символов, называемых **токенами**.
+- Yacc - синтаксический анализатор, который позволяет сопоставить линейной
+  последовательности токенов языка его формальную грамматику.
 
 <center>![](./pix/lex.jpg)</center>
 
 # Визуальное программирование
 
->> **Визуальное программирование** — способ создания программы для ЭВМ путём манипулирования графическими объектами вместо написания её текста. 
+>> **Визуальное программирование** — способ создания программы для ЭВМ путём
+>> манипулирования графическими объектами вместо написания её текста.
 
 # Языки визульного программирования
 
-Языки на основе объектов, когда визуальная среда программирования предоставляет графические или символьные элементы, которыми можно манипулировать интерактивным образом в соответствии с некоторыми правилами
+Языки на основе объектов, когда визуальная среда программирования предоставляет
+графические или символьные элементы, которыми можно манипулировать интерактивным
+образом в соответствии с некоторыми правилами
     
   - Lego Mindstorms
 
@@ -150,7 +165,8 @@ void DoLastThing();
 
 # Языки визульного программирования
 
-Языки, в интегрированной среде разработки которых на этапе проектирования интерфейса применяются формы, с возможностью настройкой их свойств
+Языки, в интегрированной среде разработки которых на этапе проектирования
+интерфейса применяются формы, с возможностью настройкой их свойств
   
   - Borland C++ Builder
 
@@ -224,6 +240,7 @@ CMakeLists.txt:
 <pre>
 cmake_minimum_required(VERSION 2.8)  
 project(first_sample)
+
 set(SOURCES main.c lib.c)
 add_executable(main ${SOURCES})
 </pre>
@@ -243,12 +260,14 @@ CMakeLists.txt:
 
 <pre>
 cmake_minimum_required(VERSION 2.8)
-project(second_sample)       
-set(SOURCES main.c)    
+project(second_sample)
+
 set(SOURCE_LIB lib.c)
 add_library(library STATIC ${SOURCE_LIB})
-add_executable(main ${SOURCES}) 
-target_link_libraries(main library)   
+
+set(SOURCES main.c)
+add_executable(main ${SOURCES})
+target_link_libraries(main library)
 </pre>
 
 # Добавление подпроекта
@@ -266,18 +285,21 @@ target_link_libraries(main library)
 CMakeLists.txt:
 <pre>
 cmake_minimum_required(VERSION 2.8)
-project(third_sample)       
+project(third_sample)
+
 set(SOURCES main.c) 
-include_directories(library)   
+include_directories(library)
 add_executable(main ${SOURCES}) 
+
 add_subdirectory(library)
-target_link_libraries(main library)   
+target_link_libraries(main library)
 </pre>
 
 library/CMakeLists.txt:
 <pre>
 cmake_minimum_required(VERSION 2.8)
-project(library)        
+project(library)
+
 set(SOURCE_LIB lib.c)
 add_library(library STATIC ${SOURCE_LIB})
 </pre>
@@ -288,6 +310,7 @@ CMakeLists.txt:
 <pre>
 cmake_minimum_required(VERSION 2.8)
 project(sample)
+
 find_package(OPENCV REQUIRED)
 if(NOT OPENCV_FOUND)
     message(SEND_ERROR "Failed to find OpenCV")
@@ -295,6 +318,7 @@ if(NOT OPENCV_FOUND)
 else()
     include_directories(${OPENCV_INCLUDE_DIR})
 endif()
+
 add_executable(sample main.c)
 target_link_libraries(sample ${OPENCV_LIBRARIES})
 </pre>
@@ -304,18 +328,20 @@ target_link_libraries(sample ${OPENCV_LIBRARIES})
 Популярные билд-системы:
 
    - [SCons](http://www.scons.org)
+      - [Waf](http://freehackers.org/~tnagy/waf.html)
+   - [Rake](http://rake.rubyforge.org/)
    - [Makeit](http://www.dscpl.com.au/projects/makeit/)
    - [Jam](http://www.perforce.com/resources/documentation/jam)
    - [qmake](http://doc.trolltech.com/3.0/qmake.html)
    - [Maven](http://maven.apache.org/)
-   - [Rake](http://rake.rubyforge.org/)
-   - [Waf](http://freehackers.org/~tnagy/waf.html)
 
 # Резюме
 
-  1. Использование современных IDE может существенно облегчить процесс разработки
-  1. Метапрограммирование позволяет динамически создавать однотипный код
-  1. Билд-системы - незаменимый инструмент при разработке кроссплатформенных приложений
+  1. Использование современных IDE может существенно облегчить процесс
+     разработки.
+  1. Метапрограммирование позволяет динамически создавать однотипный код.
+  1. Билд-системы - незаменимый инструмент при разработке кроссплатформенных
+     приложений.
   
 # Контрольные вопросы
 
@@ -323,13 +349,15 @@ target_link_libraries(sample ${OPENCV_LIBRARIES})
   1. Отличия ИСР от редакторов исходного кода
   1. Основные функции/возможности современных ИСР
   1. Определение метапрограммирования и его примеры
-  1. Итория развития билд-систем
+  1. Иcтория развития билд-систем
+  1. Плюсы и минусы Makefile
+  1. Плюсы и минусы CMake
 
 # Ссылки
 
-  1. http://ru.wikipedia.org/wiki/Сравнение_IDE
-  1. http://rus-linux.net/lib.php?name=/MyLDP/algol/lex-yacc-howto.html
-  1. http://www.scons.org/wiki/SconsVsOtherBuildTools
+  1. <http://ru.wikipedia.org/wiki/Сравнение_IDE>
+  1. <http://rus-linux.net/lib.php?name=/MyLDP/algol/lex-yacc-howto.html>
+  1. <http://www.scons.org/wiki/SconsVsOtherBuildTools>
 
 # Спасибо!
 
