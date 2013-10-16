@@ -20,10 +20,10 @@
 		bool PutSelection(const std::vector<SelQuan>& in_selection); 
 		std::vector<SelQuan> GetSelection();
 
-		bool GetExpectedValue(double& value);
-		bool GetDispertion(double& value);
-		bool GetPrimaryMoment(double& value, int level);
-		bool GetCentralMoment(double& value, int level);
+		bool GetExpectedValue(double* value);
+		bool GetDispertion(double* value);
+		bool GetPrimaryMoment(double* value, int level);
+		bool GetCentralMoment(double* value, int level);
 
 		// проверяет правильность добавленной выборки 
 		bool GetSelectionStatus();
@@ -52,10 +52,10 @@
 		// ряд распределения некорректен 
 	}
 	double expVal;
-	if( mqCalc.GetExpectedValue(expVal) == true ){
+	if( mqCalc.GetExpectedValue(&expVal) == true ){
 		// получено мат.ожидание
 	}
 	double dispertion;
-	if( mqCalc.GetDispertion(dispertion) == true ){
+	if( mqCalc.GetDispertion(&dispertion) == true ){
 		// получена дисперсия
 	}
