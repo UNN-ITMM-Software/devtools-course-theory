@@ -19,6 +19,7 @@
    code/vasiliy-kumaev/docs/currencyconvert.rst
    code/dmitriy-gorokhov/docs/QuadraticEquation.rst
    code/aleksey-nesmelov/docs/fractcalc.rst
+   code/aleksey-kostrov-lab2/docs/dihotomy_search.rst
 
 
 Указатель и таблицы
