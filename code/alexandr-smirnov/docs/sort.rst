@@ -1,30 +1,21 @@
 Смирнов Александр: Алгоритмы сортировок
 =======================================
 
-Класс ``Sort`` предназначен для сортировки массива целых чисел. Он содержит методы:
+Класс ``Sort`` предназначен для сортировки массива целых чисел. Он содержит метод ``Sorter``, который позволяет сортировать массив следующими алгоритмами:
 
 * быстрая сортировка
 * пирамидальная сортировка
 * сортировка слияниями
 
 .. code-block:: cpp
-
+	
+    enum SortMethod{QuickSort, HeapSort, MergeSort};
     class Sort
     {
     public:
     Sort();
     virtual ~Sort();
-	
-    void quickSort(int *Array,int size);
-    void heapSort(int *Array,int size);
-    void mergeSort(int *Array,int size);
-    private:
-    int *elements;
-
-    void q_Sort_process(int l, int r);
-    void downHeap(int *mass, long K, int N);
-    void mergeSort_proc(int *mass, long L, long R);
-    void merge(int *a, int L, int Pivot, long R);
+    void Sorter(int *Array, int size, SortMethod method);
     };
 Пример использования:
 ---------------------
@@ -32,7 +23,5 @@
 
     int N = 10;
     int *a = new int[N];
-    Sort massiv;
-    massiv.quickSort(a, N);
-    massiv.heapSort(a, N);
-    massiv.mergeSort(a, N);
+    Sort sorter;
+    sorter.Sorter(a , N, QuickSort);
