@@ -14,8 +14,10 @@ int main()
 
 	if (!incorrect_triangle_obj.IsCorrect())
 	{
-		printf("\nIncorrect data! \nA(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n", a1.x, a1.y, b1.x, b1.y, c1.x, c1.y);
+		printf("Incorrect data! \nA(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n", a1.x, a1.y, b1.x, b1.y, c1.x, c1.y);
 	}
+	else
+		printf("Correct data! \nA(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n", a1.x, a1.y, b1.x, b1.y, c1.x, c1.y);
 
 	if (correct_triangle_obj.IsCorrect())
 	{
@@ -28,9 +30,9 @@ int main()
 		printf("Length of the side BC = %.2f\n", correct_triangle_obj.BC());
 		printf("Length of the side AC = %.2f\n\n", correct_triangle_obj.AC());
 
-		printf("Angle A = %f.2\n", correct_triangle_obj.AngleA());
-		printf("Angle B = %f.2\n", correct_triangle_obj.AngleB());
-		printf("Angle C = %f.2\n\n", correct_triangle_obj.AngleC());
+		printf("Angle A = %.2f\n", correct_triangle_obj.AngleA());
+		printf("Angle B = %.2f\n", correct_triangle_obj.AngleB());
+		printf("Angle C = %.2f\n\n", correct_triangle_obj.AngleC());
 
 		printf("Square of a triangle = %.2f\n", correct_triangle_obj.Square());
 		printf("Perimeter of a triangle = %.2f\n\n", correct_triangle_obj.Perimeter());
@@ -45,6 +47,8 @@ int main()
 		else
 			printf("Triangle is not isosceles.\n\n");
 	}
+	else 
+		printf("Incorrect data! \nA(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n", a2.x, a2.y, b2.x, b2.y, c2.x, c2.y);
 
 	return 0;
 }
