@@ -4,7 +4,7 @@ struct Currency
 {
 	Unit unit;
 	double value;
-}
+};
 class CurrencyConvert
 {
 public:
