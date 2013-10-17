@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=
-SOURCES=main.cpp regex.cpp
+SOURCES=main.cpp ../src/regex.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=regexpr
 

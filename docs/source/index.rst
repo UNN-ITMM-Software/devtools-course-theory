@@ -10,8 +10,16 @@
 .. toctree::
    :maxdepth: 2
 
-   code/kirill-kornyakov/docs/simplecalc.rst
-   
+   code/kirill-kornyakov-lab2/docs/simplecalc.rst
+   code/dmitry-vodopyanov/docs/lengthconvertor.rst
+   code/anna-zhbanova/docs/Triangle.rst
+   code/ksenya-kochanova/docs/TempConv.rst
+   code/pavel-korotaev/docs/WeightConvertor.rst	
+   code/ilia-udalov/docs/regex.rst
+   code/vasiliy-kumaev/docs/currencyconvert.rst
+   code/dmitriy-gorokhov/docs/QuadraticEquation.rst
+   code/aleksey-nesmelov/docs/fractcalc.rst
+   code/aleksey-kostrov-lab2/docs/dihotomy_search.rst
    code/andrey-golodyaev/docs/ComplexCalculator.rst
 
 
@@ -21,4 +29,3 @@
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
