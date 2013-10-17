@@ -15,7 +15,7 @@ public:
 		double probability;
 	};
 
-	bool PutSample(const std::vector<Event>& in_sample);
+	void PutSample(const std::vector<Event>& in_sample);
 	std::vector<Event> GetSample();
 
 	double GetExpectedValue();
@@ -23,7 +23,7 @@ public:
 	double GetPrimaryMoment(int level);
 	double GetCentralMoment(int level);
 
-	bool GetSampleStatus();
+	void GetSampleStatus();
 private:
 	std::vector<Event> sample; 
 };

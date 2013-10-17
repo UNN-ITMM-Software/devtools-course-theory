@@ -2,8 +2,8 @@
 #include "mathquancalc.hpp"
 #include <math.h>
 
-const char* exception_message = "Ряд распределения некорректен!"; 
-const double acc_val = 1.0E-10;
+const char* EXCEPTION_MESSAGE = "Ряд распределения некорректен!"; 
+const double ACC_VAL = 1.0E-10;
 
 MathQuanCalc::MathQuanCalc(){
 }
@@ -12,27 +12,26 @@ MathQuanCalc::MathQuanCalc(const MathQuanCalc& mqcalc){
 }
 MathQuanCalc::~MathQuanCalc(){
 }
-bool MathQuanCalc::PutSample(const std::vector<Event>& in_sample){
+void MathQuanCalc::PutSample(const std::vector<Event>& in_sample){
 	if(!in_sample.size())
-		return false;
+		throw std::string(EXCEPTION_MESSAGE);
 
 	double probability = 0.;
 	for(int i = 0; i < in_sample.size(); i++){
 		probability += in_sample[i].probability;
 		if(probability > 1)
-			return false;
+			throw std::string(EXCEPTION_MESSAGE);
 
 		for(int j = 0; j < in_sample.size(); j++){
 			if(j == i)
 				continue;
 			if(in_sample[j].value == in_sample[i].value)
-				return false;
+				throw std::string(EXCEPTION_MESSAGE);
 		}
 	}
-	if(fabs(probability - 1.) > acc_val)
-		return false;
+	if(fabs(probability - 1.) > ACC_VAL)
+		throw std::string(EXCEPTION_MESSAGE);
 	sample = in_sample;
-	return true;
 }
 std::vector<MathQuanCalc::Event> MathQuanCalc::GetSample(){
 	return sample;
@@ -44,8 +43,7 @@ double MathQuanCalc::GetDispersion(){
 	return GetCentralMoment(2);
 }
 double MathQuanCalc::GetPrimaryMoment(int level){
-	if(!GetSampleStatus())
-		throw std::string(exception_message);
+	GetSampleStatus();
 
 	double moment = 0;
 	for(int i = 0; i < sample.size(); i++){
@@ -62,6 +60,7 @@ double MathQuanCalc::GetCentralMoment(int level){
 	}
 	return moment;
 }
-bool MathQuanCalc::GetSampleStatus(){
-	return (sample.size() > 0);
+void MathQuanCalc::GetSampleStatus(){
+	if(sample.size() == 0)
+		throw std::string(EXCEPTION_MESSAGE);
 }

@@ -15,7 +15,8 @@ void PrintSample(vector<MathQuanCalc::Event> sample){
 }
 
 void MakeCalc(MathQuanCalc& mqCalc, vector<MathQuanCalc::Event>& sample){
-	if(mqCalc.PutSample(sample)){
+	try{
+		mqCalc.PutSample(sample);
 		double expVal = 0.;
 		try{
 			expVal = mqCalc.GetExpectedValue();
@@ -33,8 +34,8 @@ void MakeCalc(MathQuanCalc& mqCalc, vector<MathQuanCalc::Event>& sample){
 			printf("\n%s\n", str.c_str());			
 		}
 	}
-	else{
-		printf("\nОшибка при инициализации ряда распределения!\n");
+	catch(string& str){
+			printf("\n%s\n", str.c_str());			
 	}
 }
 

@@ -46,7 +46,8 @@
 	event.probability = 1/2;
 	sample.push_bask(event); // добавление значения и вероятности
 
-	if(mqCalc.PutSample(sample)){ // добавление ряда распределения в калькулятор
+	try{
+		mqCalc.PutSample(sample); // добавление ряда распределения в калькулятор
 		try{
 			double expVal = mqCalc.GetExpectedValue(); // пробуем получить мат.ожидание
 			// мат. ожидание полученно 
@@ -55,10 +56,13 @@
 			// что-то пошло не так
 		}
 		try{
-			double dispertion = mqCalc.GetDispertion(); // пробуем получить дисперсию
+			double dispersion = mqCalc.GetDispersion(); // пробуем получить дисперсию
 			// дисперсия получена
 		}
 		catch(std::string& str){
 			// что-то пошло не так
 		}
+	}
+	catch(std::string& str){
+		// ряд распределения некорректен
 	}
