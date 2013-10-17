@@ -1,13 +1,14 @@
-enum Unit {Inch, Foot, Yard, Mile, Meter, KMeter, CMeter};
+#pragma once
+enum LengthUnit {Inch, Foot, Yard, Mile, Meter, KMeter, CMeter};
 struct Length
 {
     double value;
-    Unit UnitInput;
+    LengthUnit UnitInput;
 };
 class LengthConvertor
 {
 public:
     LengthConvertor(void);
     virtual ~LengthConvertor(void);
-    Length Convert(Length length, Unit UnitOutput);
+    Length Convert(Length length, LengthUnit UnitOutput);
 };
