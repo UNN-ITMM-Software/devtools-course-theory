@@ -1,71 +1,67 @@
 #include "stdio.h"
-#include "../include/mathquancalc.hpp"
+#include "mathquancalc.hpp"
 #include <math.h>
 
+const char* exception_message = "Ряд распределения некорректен!"; 
+const double acc_val = 1.0E-10;
+
 MathQuanCalc::MathQuanCalc(){
-	selection_status = false;
 }
 MathQuanCalc::MathQuanCalc(const MathQuanCalc& mqcalc){
-	selection = mqcalc.selection;
+	sample = mqcalc.sample;
 }
 MathQuanCalc::~MathQuanCalc(){
-
 }
-bool MathQuanCalc::PutSelection(const std::vector<SelQuan>& in_selection){
-	selection = in_selection;
+bool MathQuanCalc::PutSample(const std::vector<Event>& in_sample){
+	if(!in_sample.size())
+		return false;
 
-	if(!selection.size())
-		return selection_status = false;
+	double probability = 0.;
+	for(int i = 0; i < in_sample.size(); i++){
+		probability += in_sample[i].probability;
+		if(probability > 1)
+			return false;
 
-	double chance = 0.;
-	for(int i = 0; i < selection.size(); i++){
-		chance += selection[i].chance;
-		if(chance > 1)
-			return selection_status = false;
-
-		for(int j = 0; j < selection.size(); j++){
+		for(int j = 0; j < in_sample.size(); j++){
 			if(j == i)
 				continue;
-			if(selection[j].value == selection[i].value)
-				return selection_status = false;
+			if(in_sample[j].value == in_sample[i].value)
+				return false;
 		}
 	}
-	if(fabs(chance - 1.) > 1.0E-10)
-		return selection_status = false;
-	return selection_status = true;
-}
-std::vector<MathQuanCalc::SelQuan> MathQuanCalc::GetSelection(){
-	return selection;
-}
-bool MathQuanCalc::GetExpectedValue(double* value){
-	return GetPrimaryMoment(value, 1);
-}
-bool MathQuanCalc::GetDispertion(double* value){
-	return GetCentralMoment(value, 2);
-}
-bool MathQuanCalc::GetPrimaryMoment(double* value, int level){
-	if(!GetSelectionStatus())
+	if(fabs(probability - 1.) > acc_val)
 		return false;
-
-	double moment = 0;
-	for(int i = 0; i < selection.size(); i++){
-		moment += pow(selection[i].value, (double)level) * selection[i].chance; 
-	}
-	*value = moment;
+	sample = in_sample;
 	return true;
 }
-bool MathQuanCalc::GetCentralMoment(double* value, int level){
-	double moment = 0;
-	double expVal = 0;
-	if(!GetPrimaryMoment(&expVal, 1))
-		return false;
-
-	for(int i = 0; i < selection.size(); i++){
-		moment += pow(selection[i].value - expVal, (double)level) * selection[i].chance; 
-	}
-	*value = moment;
-	return true;
+std::vector<MathQuanCalc::Event> MathQuanCalc::GetSample(){
+	return sample;
 }
-bool MathQuanCalc::GetSelectionStatus(){
-	return selection_status;
+double MathQuanCalc::GetExpectedValue(){
+	return GetPrimaryMoment(1);
+}
+double MathQuanCalc::GetDispersion(){
+	return GetCentralMoment(2);
+}
+double MathQuanCalc::GetPrimaryMoment(int level){
+	if(!GetSampleStatus())
+		throw std::string(exception_message);
+
+	double moment = 0;
+	for(int i = 0; i < sample.size(); i++){
+		moment += pow(sample[i].value, (double)level) * sample[i].probability; 
+	}
+	return moment;
+}
+double MathQuanCalc::GetCentralMoment(int level){
+	double moment = 0;
+	double expVal = GetExpectedValue();
+
+	for(int i = 0; i < sample.size(); i++){
+		moment += pow(sample[i].value - expVal, (double)level) * sample[i].probability; 
+	}
+	return moment;
+}
+bool MathQuanCalc::GetSampleStatus(){
+	return (sample.size() > 0);
 }
