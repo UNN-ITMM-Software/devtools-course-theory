@@ -15,31 +15,44 @@
 
 .. code-block:: cpp
 
+	struct PointXY 
+	{
+		float x;
+		float y; 
+	
+		PointXY (float x_=0, float y_=0)
+		{
+			x = x_;
+			y = y_;
+		}
+	};
+
 	class Triangle
 	{
 	public:
-		Triangle(PointXY a_ = 0, PointXY b_ = 0, PointXY c_ = 0);
+		Triangle();
+		Triangle(PointXY a_, PointXY b_, PointXY c_);
 		virtual ~Triangle(void);
 		
 		float AB();
 		float BC();
 		float AC();
-	
+
 		float AngleA();
 		float AngleB();
 		float AngleC();
-	
+
 		float Square();
 		float Perimeter();
-	
+
 		bool IsCorrect();
 		bool IsEquilateral();
 		bool IsIsosceles();
-	
+
 		PointXY GetA();
 		PointXY GetB();
 		PointXY GetC();
-	
+
 		void SetA(PointXY a_);
 		void SetB(PointXY b_);
 		void SetC(PointXY c_);
@@ -47,11 +60,7 @@
 		PointXY a;
 		PointXY b;
 		PointXY c;
-	
-		float Length (PointXY point1, PointXY point2);
-		float Angle (PointXY end_point1, PointXY vertex_of_angle, PointXY end_point2);
 	};
-
 
 Пример использования:  
 ---------------------

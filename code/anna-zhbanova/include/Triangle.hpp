@@ -4,7 +4,8 @@
 class Triangle
 {
 public:
-	Triangle(PointXY a_ = 0, PointXY b_ = 0, PointXY c_ = 0);
+	Triangle();
+	Triangle(PointXY a_, PointXY b_, PointXY c_);
 	virtual ~Triangle(void);
 	
 	float AB();
@@ -33,7 +34,4 @@ private:
 	PointXY a;
 	PointXY b;
 	PointXY c;
-
-	float Length (PointXY point1, PointXY point2);
-	float Angle (PointXY end_point1, PointXY vertex_of_angle, PointXY end_point2);
 };

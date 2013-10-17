@@ -1,8 +1,5 @@
-﻿#pragma once
-
-#define _USE_MATH_DEFINES
-#include "Triangle.hpp"
-#include <cmath>
+﻿#include "Triangle.hpp"
+#include <math.h>
 
 Triangle::Triangle(PointXY a_, PointXY b_, PointXY c_)
 {
@@ -16,28 +13,40 @@ Triangle::~Triangle(void)
 	
 float Triangle::AB()
 {
-	return Length(a,b);
+	float AB;
+	AB = sqrt((float)((a.x - b.x)*(a.x - b.x)+(a.y - b.y)*(a.y - b.y)));
+	return AB;
 }
 float Triangle::BC()
 {
-	return Length(b,c);
+	float BC;
+	BC = sqrt((float)((b.x - c.x)*(b.x - c.x)+(b.y - c.y)*(b.y - c.y)));
+	return BC;
 }
 float Triangle::AC()
 {
-	return Length(a,c);
+	float AC;
+	AC = sqrt((float)((a.x - c.x)*(a.x - c.x)+(a.y - c.y)*(a.y - c.y)));
+	return AC;
 }
 
 float Triangle::AngleA()
 {
-	return Angle(b,a,c);
+	float angleA;
+	angleA = 180*acos((AB()*AB()+AC()*AC()-BC()*BC())/(2*AB()*AC()))/3.14;
+	return angleA;
 }
 float Triangle::AngleB()
 {
-	return Angle(a,b,c);
+	float angleB;
+	angleB = 180*acos((AB()*AB()+BC()*BC()-AC()*AC())/(2*AB()*BC()))/3.14;
+	return angleB;
 }
 float Triangle::AngleC()
 {
-	return Angle(a,c,b);
+	float angleC;
+	angleC = 180*acos((AC()*AC()+BC()*BC()-AB()*AB())/(2*AC()*BC()))/3.14;
+	return angleC;
 }
 
 float Triangle::Square()
@@ -100,16 +109,4 @@ void Triangle::SetC(PointXY c_)
 	c = c_;
 }
 
-float Triangle::Length (PointXY point1, PointXY point2)
-{
-	return sqrt((point1.x - point2.x)*(point1.x - point2.x)+(point1.y - point2.y)*(point1.y - point2.y));
-}
 
-float Triangle::Angle (PointXY end_point1, PointXY vertex_of_angle, PointXY end_point2)
-{
-	float side1 = Length(end_point1, vertex_of_angle);
-	float side2 = Length(end_point2, vertex_of_angle);
-	float side3 = Length(end_point1, end_point2);
-
-	return 180*acos((side1*side1+side2*side2-side3*side3)/(2*side1*side2))/M_PI;
-}
