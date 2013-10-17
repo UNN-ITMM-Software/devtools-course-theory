@@ -5,15 +5,13 @@
 int main()
 {
 	ComplexCalculator a(1,1);
-	ComplexCalculator b(2,2);
+	ComplexCalculator b(1,2);
 	ComplexCalculator c(0,0);
 	char str[35]="";
-	printf("A=");
-	scanf("%s",str);
-	a.Input(str);
-	printf("B=");
-	scanf("%s",str);
-	b.Input(str);
+	a.Output(str);
+	printf("A=%s\n",str);
+	b.Output(str);
+	printf("B=%s\n",str);
 	printf("\n");
 	c=ComplexCalculator::Add(a,b);
 	c.Output(str);
