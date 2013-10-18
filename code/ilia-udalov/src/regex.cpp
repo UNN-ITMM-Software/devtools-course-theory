@@ -18,12 +18,12 @@ int match(const std::string& regex, const std::string& text) {
 
 int find(const std::string& substring, const std::string& text) {
     int i, j;
-    for(i = 0; i < text.size() - substring.size(); i++) {
-        for(j = 0; j < substring.size(); j++) {
+    for(i = 0; i < (int)text.size() - (int)substring.size(); i++) {
+        for(j = 0; j < (int)substring.size(); j++) {
             if (substring[j] != text[i + j])
                 break;
         }
-        if (j == substring.size()) {
+        if (j == (int)substring.size()) {
             return i;
         }
     }
