@@ -18,7 +18,7 @@
 
       public:
 
-       Fraction (int _numenator=0,int _denominator=1);
+       Fraction (int _numenator,int _denominator);
        virtual ~Fraction();
 
        int GetNumenator();
@@ -41,5 +41,5 @@
 
     Fraction fract_1(5,6);
     Fraction fract_2(-10,7);
-    Fraction result_fract;
+    Fraction result_fract(0,1);
     result_fract=Fraction::Add(fract_1,fract_2);

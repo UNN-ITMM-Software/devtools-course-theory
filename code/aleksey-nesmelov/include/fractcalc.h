@@ -9,7 +9,7 @@ class Fraction
 
  public:
 
-   Fraction (int _numenator=0,int _denominator=1);
+   Fraction (int _numenator,int _denominator);
    virtual ~Fraction();
 
    int GetNumenator();
