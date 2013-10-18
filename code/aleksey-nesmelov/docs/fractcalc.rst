@@ -11,7 +11,7 @@
     {
       private :
 
-       int numenator;
+       int numenator; 
        int denominator;
        int NOD() ;
        void Cut_Fraction();

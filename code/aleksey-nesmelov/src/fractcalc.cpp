@@ -3,7 +3,7 @@
 #include <iostream>
 #include "stdlib.h"
 
-using namespace std;
+using namespace std; 
 
 Fraction::Fraction(int _numenator,int _denominator)
 {

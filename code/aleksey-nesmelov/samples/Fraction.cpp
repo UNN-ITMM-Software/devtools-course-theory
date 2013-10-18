@@ -9,7 +9,7 @@ int main()
 
  printf ("\nA = %d/%d",fract_1.GetNumenator(),fract_1.GetDenominator());
  printf ("\nB = %d/%d",fract_2.GetNumenator(),fract_2.GetDenominator());
- printf("\n");
+ printf("\n"); 
 
  fract_res=Fraction::Add(fract_1,fract_2);
  printf ("\nA+B = %d/%d",fract_res.GetNumenator(),fract_res.GetDenominator());

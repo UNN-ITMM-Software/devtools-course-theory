@@ -1,6 +1,6 @@
 class Fraction
 {
- private :
+ private : 
 
    int numenator;
    int denominator;
