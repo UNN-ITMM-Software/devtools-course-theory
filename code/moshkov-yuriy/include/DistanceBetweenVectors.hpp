@@ -1,7 +1,7 @@
 #include <math.h>
 
 
-enum TypeMetric{L1, L2, L3, L4, LInfinity};
+enum TypeMetric{L1 = 1, L2, L3, L4, LInfinity};
 
 class DistanceBetweenVectors
 {
