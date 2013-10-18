@@ -13,7 +13,7 @@
  class DistanseBetweenVectors
  {
  public:
-	 static float CalculateDistance(float *vector1, float *vector2, TypeMetric typeMetric, int sizeVector = 0);
+	 static float CalculateDistance(float *vector1, float *vector2, TypeMetric typeMetric, int sizeVector);
  };
 	
 Пример использования:
