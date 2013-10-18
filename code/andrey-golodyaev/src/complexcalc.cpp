@@ -2,8 +2,7 @@
 #include <iostream>
 #include "string.h"
 #include "stdio.h"
-#include "Math.h"
-#include <stdlib.h>
+#include "stdlib.h"
 #include <sstream>
 using namespace std;
 ComplexCalculator::ComplexCalculator(double _real, double _imaginary)
@@ -90,7 +89,9 @@ void ComplexCalculator::Output(char *str)
 		if(imaginary!=1)
 		{
 			ostringstream sss;
-			sss << abs(imaginary);
+			if(imaginary>0)
+			sss << (imaginary);
+			else sss << (-imaginary);
 			str1+=sss.str();
 			str1+="*";
 		}
