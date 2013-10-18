@@ -3,23 +3,28 @@
 Класс ``TemperatureConverter`` предназначен для конвертации одной единицы измерения температуры в другую.
 Каждый метод конвертирует введенную величину температуры в указанную.
 
+
 .. code-block:: cpp
 
-    enum TemperatureUnit {Celsius, Kelvin, Fahrenheit, Newton};
-    struct Temperature
-    {
-        double value;
-        TemperatureUnit unit;
-    };
+#include <iostream>
+#include <string>
+#pragma once
 
-    class TemperatureConvertor
-    {
-    public:
-        TemperatureConvertor(void);
-        virtual ~TemperatureConvertor(void);
-        ConvertTo(Temperature fromTemperature,TemperatureUnit toUnit);
-    };
+enum TemperatureUnit {Celsius, Kelvin, Fahrenheit, Newton};
+struct Temperature
+{
+	double value;
+	TemperatureUnit unit;
+};
 
+class TemperatureConvertor
+{
+	friend std::istream& operator>>(std::istream& input, TemperatureUnit& newtemp);
+public:
+	TemperatureConvertor(void);
+	virtual ~TemperatureConvertor(void);
+	Temperature ConvertTo(Temperature fromTemperature,TemperatureUnit toUnit);
+};
 
 Примером использования класса в пользовательском C++ коде может служить нижеследующий код:
 
