@@ -1,6 +1,6 @@
 #pragma once
 
-enum RootCount {TWOROOTS, ONEROOT, NOREALROOT};
+enum RootCount {TWOROOTS, ONEROOT, NOREALROOT, ILLEGALEQUATIONFORM};
 
 class QuadraticEquation
 {
