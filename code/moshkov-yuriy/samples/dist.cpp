@@ -11,6 +11,6 @@ int main(int argc, char* argv[])
 	distance = DistanceBetweenVectors::CalculateDistance(vector1, vector2, L4, sizeVector);
 	printf("%f distance between source vectors in L4 \n", distance);
 	distance = DistanceBetweenVectors::CalculateDistance(vector1, vector2, LInfinity, sizeVector);
-	printf("%f distance between source vectors in LInfinity \n", distance);	
+	printf("%f distance between source vectors in LInfinity \n", distance);
 	return 0;
 }
