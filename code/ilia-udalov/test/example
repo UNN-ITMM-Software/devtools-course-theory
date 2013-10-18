@@ -1,12 +1,18 @@
 .*
+Any
 Any string
 ^.*
-Hello?
+Help
+Hello, world!
 ^false$
+can
 I can use regular expressions
 bird
+head
 bread
 ^c*.*
+re2
 re1234
 sed
-sed but true
+but
+true

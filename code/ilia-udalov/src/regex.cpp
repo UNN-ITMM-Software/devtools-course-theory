@@ -16,6 +16,20 @@ int match(const std::string& regex, const std::string& text) {
     return 0;
 }
 
+int find(const std::string& substring, const std::string& text) {
+    int i, j;
+    for(i = 0; i < text.size() - substring.size(); i++) {
+        for(j = 0; j < substring.size(); j++) {
+            if (substring[j] != text[i + j])
+                break;
+        }
+        if (j == substring.size()) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 int matchHere(const std::string& regex, const std::string& text, size_t r_pos, size_t t_pos) {
     if (r_pos == regex.size())
         return 1;
@@ -33,9 +47,5 @@ int matchStar(int c, const std::string& regex, const std::string& text, size_t r
         if (matchHere(regex, text, r_pos, t_pos))
             return 1;
     } while (t_pos != text.size() && (text[t_pos++] == c || c == '.'));
-    return 0;
-}
-
-int find(const std::string& substring, const std::string& text) {
     return 0;
 }
