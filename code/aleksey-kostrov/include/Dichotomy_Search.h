@@ -1,14 +1,17 @@
 #pragma once
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-enum INPUT_TYPE { RANDOM, MANUAL };
 class Dichotomy_Search
 {
 public:
 	Dichotomy_Search();
-	Dichotomy_Search(INPUT_TYPE Type, int Array_Size, int Search_Element);
+	Dichotomy_Search(int size, int elem);
 	virtual ~Dichotomy_Search();
-    int Sort_Search();
+	void Sort_Count();
+	int Search();
 private:
-	int ** Array, Array_Size, Search_Element;
+	int ** Array, array_size, search_element;
 };
 

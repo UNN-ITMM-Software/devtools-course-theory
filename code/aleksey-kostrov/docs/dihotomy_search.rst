@@ -2,38 +2,38 @@
 ===========================================
 
 Класс ``Dichotomy_Search`` предназначен для поиска элемента в массиве методом "Дихотомии".
-Он предоставляет метод для предподготовки(сортировка массива реализована внутри метода ``Sort_Search``) и 
+Он предоставляет метод для предподготовки(сортировка массива) и 
 последующей обработки(поиск индекса желаемого элемента) входящих данных, а именно числового массива.
-В результате работы, данный метод класса выводит на экран индекс искомого элемента поиска.
+В результате работы, данный метод класса выводит на экран индекс искомого элемента поиска или сообщает что такого нет.
 
 .. code-block:: cpp
-
-	enum INPUT_TYPE { RANDOM, MANUAL };
 
 	class Dichotomy_Search
 	{
 	public:
 		Dichotomy_Search();
-		Dichotomy_Search(INPUT_TYPE Type, int Array_Size, int Search_Element);
+		Dichotomy_Search(int size, int elem);
 		virtual ~Dichotomy_Search();
-		int Sort_Search();
+		void Sort_Count();
+		int Search();
 	private:
-		int ** Array, Array_Size, Search_Element; 		
+		int ** Array, array_size, search_element;
 	};
 
 Пример использования класса:
 
 .. code-block:: cpp
-
-	INPUT_TYPE Type;
-	int Array_Size, Search_Element;
-	printf("Select the type of input: 0-RANDOM, 1-MANUAL\n);
-	scanf("%d\n",&Type);
-	printf("Enter the size of the array: Array_Size = ");
-	scanf("%d\n",&Array_Size);
-	printf("Enter element to search ");
-        scanf("%d\n",&Search_Element);
-	Dichotomy_Search example_of_use(Type, Array_Size, Search_Element);
-	printf("Index of search element: %d",example_of_use.Sort_Search());
+	
+	try
+	{
+		Dichotomy_Search example_1(30,9);
+		example_1.Search();
+	}
+	catch (int e)
+	{
+		if (e==-1) printf("Element not found!\n");
+		else if(e==-2) printf("Error! Size of array < 1 \n");
+		else printf("Index of search element: %d",e+1);
+	}
 
 
