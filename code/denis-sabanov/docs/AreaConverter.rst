@@ -17,11 +17,11 @@
  class AreaConverter
  {
  public:
-	double Convert(double value,AreaType type);
-	double GetValue();
-	AreaType GetAreaType();
-	void SetValue(double value);
-	void SetAreaType(AreaType type);	
+	double Convert(AreaType newType);
+    double GetValue();
+    AreaType GetAreaType();
+    void SetValue(double newValue);
+    void SetAreaType(AreaType newType);	
  };
 	
 Пример использования:
@@ -32,7 +32,7 @@
 
  AreaConverter Converter;
  Converter.SetAreaType(sMeter);
- Converter.Convert(100,Converter.GetAreaType());
+ Converter.Convert(sFoot);
  
  
  
