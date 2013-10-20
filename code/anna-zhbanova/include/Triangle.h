@@ -2,11 +2,10 @@
 #ifndef CODE_ANNA_ZHBANOVA_INCLUDE_TRIANGLE_H_
 #define CODE_ANNA_ZHBANOVA_INCLUDE_TRIANGLE_H_
 
-#include "PointXY.h"
+#include <PointXY.h>
 
 class Triangle {
-public
-	:
+ public :
     Triangle(PointXY a_ = 0, PointXY b_ = 0, PointXY c_ = 0);
     virtual ~Triangle(void);
 
@@ -32,8 +31,7 @@ public
     void SetA(PointXY a_);
     void SetB(PointXY b_);
     void SetC(PointXY c_);
-private
-	:
+private :
     PointXY a;
     PointXY b;
     PointXY c;

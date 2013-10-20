@@ -1,7 +1,7 @@
 ﻿/* Copyright 2013 Anna Zhbanova */
-#include "Triangle.h"
+#include <Triangle.h>
 
-#include "stdio.h"
+#include <stdio.h>
 
 int main() {
     // некорректные данные
@@ -12,19 +12,22 @@ int main() {
     Triangle incorrect_triangle_obj(a1, b1, c1);
     Triangle correct_triangle_obj(a2, b2, c2);
 
-    if ( !incorrect_triangle_obj.IsCorrect() ){
-        printf("Incorrect data! \nA(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n",
+    if ( !incorrect_triangle_obj.IsCorrect() ) {
+        printf("Incorrect data!\n");
+        printf("A(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n",
             a1.x, a1.y, b1.x, b1.y, c1.x, c1.y);
     }
-    else
-        printf("Correct data! \nA(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n",
+    else {
+        printf("Correct data! \n");
+        printf("A(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n",
             a1.x, a1.y, b1.x, b1.y, c1.x, c1.y);
-
+    }
     if ( correct_triangle_obj.IsCorrect() ) {
-        printf("Triangle: \nA(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f)\n\n",
-            correct_triangle_obj.GetA().x,correct_triangle_obj.GetA().y, 
-            correct_triangle_obj.GetB().x,correct_triangle_obj.GetB().y, 
-            correct_triangle_obj.GetC().x,correct_triangle_obj.GetC().y);
+        printf("Triangle: \n");
+        printf("A(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f)\n\n",
+            correct_triangle_obj.GetA().x, correct_triangle_obj.GetA().y, 
+            correct_triangle_obj.GetB().x, correct_triangle_obj.GetB().y,
+            correct_triangle_obj.GetC().x, correct_triangle_obj.GetC().y);
 
         printf("Length of the side AB = %.2f\n", correct_triangle_obj.AB());
         printf("Length of the side BC = %.2f\n", correct_triangle_obj.BC());
@@ -47,10 +50,11 @@ int main() {
         else
             printf("Triangle is not isosceles.\n\n");
     }
-    else 
-        printf("Incorrect data! \nA(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n",
+    else {
+        printf("Incorrect data!\n");
+        printf("A(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n",
             a2.x, a2.y, b2.x, b2.y, c2.x, c2.y);
+	}
 
     return 0;
-
 }

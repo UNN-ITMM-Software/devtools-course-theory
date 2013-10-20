@@ -1,8 +1,8 @@
 ﻿/* Copyright 2013 Anna Zhbanova */
 
 #define _USE_MATH_DEFINES
-#include "Triangle.h"
-#include "math.h"
+#include <Triangle.h>
+#include <math.h>
 
 Triangle::Triangle(PointXY a_, PointXY b_, PointXY c_) {
     a = a_;
@@ -90,6 +90,7 @@ float Triangle::Angle(PointXY end_point1, PointXY vertex_of_angle, PointXY end_p
     float side1 = Length(end_point1, vertex_of_angle);
     float side2 = Length(end_point2, vertex_of_angle);
     float side3 = Length(end_point1, end_point2);
-    
-	return 180 * acos((side1 * side1 + side2 * side2 - side3 * side3) / (2 * side1 * side2)) / M_PI;
+
+	return 180 * acos((side1 * side1 + side2 * side2 - side3 * side3)
+                       /(2 * side1 * side2)) / M_PI;
 }
