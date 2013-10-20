@@ -10,27 +10,37 @@ function try {
     return $status
 }
 
-function print {
+function Header {
     echo ""
+    echo "*****************************************************"
     echo "$@"
-    echo "---------------------------"
+    echo "*****************************************************"
     echo ""
 }
 
-# Go through all directories and run 'make test'
+# Go through all directories, check Google style and run 'make test'
 for dir in */; 
 do
-    echo ""
-    echo "*****************************************************"
-    echo "Testing $dir"
-    echo "*****************************************************"
-
     cd $dir
 
-    print "Check Google-style"
-    find . -name "*.h" -or -name "*.hpp" -or -name "*.cpp" | xargs python ../cpplint.py
+    Header "Check \"Google C++ Style\" in $dir"
 
-    print "Build and test"
+    hpp_files=`find . -name "*.hpp"`
+    if [ $hpp_files ]; then
+        echo "ERROR: Please use *.h extension instead of *.hpp:"
+        echo " - $hpp_files"
+        # exit 1
+    fi
+
+    sources=`find . -name "*.h" -or -name "*.cpp"`
+    for file in $sources;
+    do
+        echo "Analysing $file"
+        python ../cpplint.py $file
+        # try python ../cpplint.py $file
+    done
+
+    Header "Build and Test $dir"
     if [ -f Makefile ];
     then
        echo "Makefile exists"
