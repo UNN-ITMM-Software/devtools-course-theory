@@ -41,7 +41,7 @@ int main() {
             correct_triangle_obj.Square());
         printf("Perimeter of a triangle = %.2f\n\n",
             correct_triangle_obj.Perimeter());
-		 
+
         if ( correct_triangle_obj.IsEquilateral() )
             printf("Triangle is equilateral.");
         else
@@ -55,7 +55,7 @@ int main() {
         printf("Incorrect data!\n");
         printf("A(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n",
             a2.x, a2.y, b2.x, b2.y, c2.x, c2.y);
-	}
+    }
 
     return 0;
 }
