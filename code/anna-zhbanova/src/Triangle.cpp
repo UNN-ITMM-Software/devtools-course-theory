@@ -2,7 +2,7 @@
 
 #define _USE_MATH_DEFINES
 #include "Triangle.h"
-#include <math.h>
+#include "math.h"
 
 Triangle::Triangle(PointXY a_, PointXY b_, PointXY c_) {
     a = a_;
@@ -81,14 +81,15 @@ void Triangle::SetC(PointXY c_) {
     c = c_;
 }
 
-float Triangle::Length (PointXY point1, PointXY point2) {
-    return sqrt ( (point1.x - point2.x) * (point1.x - point2.x) + (point1.y - point2.y) * (point1.y - point2.y) );
+float Triangle::Length(PointXY point1, PointXY point2) {
+    return sqrt ( (point1.x - point2.x) * (point1.x - point2.x) +
+        (point1.y - point2.y) * (point1.y - point2.y) );
 }
 
-float Triangle::Angle (PointXY end_point1, PointXY vertex_of_angle, PointXY end_point2) {
+float Triangle::Angle(PointXY end_point1, PointXY vertex_of_angle, PointXY end_point2) {
     float side1 = Length(end_point1, vertex_of_angle);
     float side2 = Length(end_point2, vertex_of_angle);
     float side3 = Length(end_point1, end_point2);
     
-    return 180 * acos((side1 * side1 + side2 * side2 - side3 * side3) / (2 * side1 * side2)) / M_PI;
+	return 180 * acos((side1 * side1 + side2 * side2 - side3 * side3) / (2 * side1 * side2)) / M_PI;
 }
