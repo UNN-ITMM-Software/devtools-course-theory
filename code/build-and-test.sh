@@ -32,7 +32,7 @@ do
         # exit 1
     fi
 
-    sources=`find . -name "*.h" -or -name "*.cpp"`
+    sources=`find . -name "*.hpp" -or -name "*.h" -or -name "*.cpp"`
     for file in $sources;
     do
         echo "Analysing $file"
