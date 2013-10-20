@@ -10,14 +10,27 @@ function try {
     return $status
 }
 
-# export CXX='g++'
+function print {
+    echo ""
+    echo "$@"
+    echo "---------------------------"
+    echo ""
+}
 
 # Go through all directories and run 'make test'
 for dir in */; 
 do
-    echo && echo "Testing $dir"
+    echo ""
+    echo "*****************************************************"
+    echo "Testing $dir"
+    echo "*****************************************************"
+
     cd $dir
 
+    print "Check Google-style"
+    find . -name "*.h" -or -name "*.hpp" -or -name "*.cpp" | xargs python ../cpplint.py
+
+    print "Build and test"
     if [ -f Makefile ];
     then
        echo "Makefile exists"
