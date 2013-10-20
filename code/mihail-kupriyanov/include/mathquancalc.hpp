@@ -2,6 +2,7 @@
 #define MATHQUANCALC
 
 #include <vector>
+#include <string>
 
 class MathQuanCalc{
 public:
@@ -9,22 +10,22 @@ public:
 	MathQuanCalc(const MathQuanCalc&);
 	virtual ~MathQuanCalc();
 
-	struct SelQuan{
+	struct Event{
 		double value;
-		double chance;
+		double probability;
 	};
 
-	bool PutSelection(const std::vector<SelQuan>& in_selection);
-	std::vector<SelQuan> GetSelection();
+	void PutSample(const std::vector<Event>& in_sample);
+	std::vector<Event> GetSample();
 
-	bool GetExpectedValue(double& value);
-	bool GetDispertion(double& value);
-	bool GetPrimaryMoment(double& value, int level);
-	bool GetCentralMoment(double& value, int level);
+	double GetExpectedValue();
+	double GetDispersion();
+	double GetPrimaryMoment(int level);
+	double GetCentralMoment(int level);
 
-	bool GetSelectionStatus();
+	void GetSampleStatus();
 private:
-	std::vector<SelQuan> selection; 
+	std::vector<Event> sample; 
 };
 
 #endif
