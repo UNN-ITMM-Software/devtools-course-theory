@@ -4,7 +4,7 @@
 int main() {
     WeightConvertor Conv;
     Weight weight;
-    weight.value = 100; 
+    weight.value = 100;
         weight.unit = Pound;
     printf("100 pounds = %lf stones\n",
                 Conv.ConvertTo(weight, Stone).value);
