@@ -22,10 +22,11 @@ int main() {
         printf("A(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n",
             a1.x, a1.y, b1.x, b1.y, c1.x, c1.y);
     }
+
     if ( correct_triangle_obj.IsCorrect() ) {
         printf("Triangle: \n");
         printf("A(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f)\n\n",
-            correct_triangle_obj.GetA().x, correct_triangle_obj.GetA().y, 
+            correct_triangle_obj.GetA().x, correct_triangle_obj.GetA().y,
             correct_triangle_obj.GetB().x, correct_triangle_obj.GetB().y,
             correct_triangle_obj.GetC().x, correct_triangle_obj.GetC().y);
 
@@ -37,8 +38,10 @@ int main() {
         printf("Angle B = %.2f\n", correct_triangle_obj.AngleB());
         printf("Angle C = %.2f\n\n", correct_triangle_obj.AngleC());
 
-        printf("Square of a triangle = %.2f\n", correct_triangle_obj.Square());
-        printf("Perimeter of a triangle = %.2f\n\n", correct_triangle_obj.Perimeter());
+        printf("Square of a triangle = %.2f\n",
+            correct_triangle_obj.Square());
+        printf("Perimeter of a triangle = %.2f\n\n",
+            correct_triangle_obj.Perimeter());
 		 
         if ( correct_triangle_obj.IsEquilateral() )
             printf("Triangle is equilateral.");

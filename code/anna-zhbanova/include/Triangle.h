@@ -31,13 +31,13 @@ class Triangle {
     void SetA(PointXY a_);
     void SetB(PointXY b_);
     void SetC(PointXY c_);
-private :
+ private :
     PointXY a;
     PointXY b;
     PointXY c;
 
     float Length(PointXY point1, PointXY point2);
-    float Angle(PointXY end_point1, PointXY vertex_of_angle, PointXY end_point2);
+    float Angle(PointXY end_p1, PointXY vertex_of_angle, PointXY end_p2);
 };
 
 #endif  // CODE_ANNA_ZHBANOVA_INCLUDE_TRIANGLE_H_
