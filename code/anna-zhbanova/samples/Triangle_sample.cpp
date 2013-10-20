@@ -16,8 +16,7 @@ int main() {
         printf("Incorrect data!\n");
         printf("A(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n",
             a1.x, a1.y, b1.x, b1.y, c1.x, c1.y);
-    }
-    else {
+    } else {
         printf("Correct data! \n");
         printf("A(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n",
             a1.x, a1.y, b1.x, b1.y, c1.x, c1.y);
@@ -52,8 +51,7 @@ int main() {
             printf("Triangle is isosceles.\n");
         else
             printf("Triangle is not isosceles.\n\n");
-    }
-    else {
+    } else {
         printf("Incorrect data!\n");
         printf("A(%.2f; %.2f), \nB(%.2f; %.2f), \nC(%.2f; %.2f).\n\n",
             a2.x, a2.y, b2.x, b2.y, c2.x, c2.y);
