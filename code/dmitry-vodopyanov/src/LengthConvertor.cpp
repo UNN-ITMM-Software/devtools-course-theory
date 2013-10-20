@@ -1,5 +1,5 @@
 /* Copyright 2013 Dmitry Vodopyanov */
-#include "LengthConvertor.h"
+#include <LengthConvertor.h>
 
 LengthConvertor::LengthConvertor(void) {}
 
