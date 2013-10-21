@@ -20,17 +20,17 @@ void QuadraticEquation::SetCoefficients(double _a, double _b, double _c) {
     c = _c;
 }
 
-int QuadraticEquation::Solve(double &root1, double &root2) {
-    if(a == 0)
+int QuadraticEquation::Solve(double *root1, double *root2) {
+    if (a == 0)
         return(ILLEGALEQUATIONFORM);
     double discriminant = b*b - 4*a*c;
-    if(discriminant < 0)
+    if (discriminant < 0) {
         return(NOREALROOT);
-    else {
-        root1 = (-b + sqrt(discriminant))/(2*a);
-        root2 = (-b - sqrt(discriminant))/(2*a);
+    } else {
+        *root1 = (-b + sqrt(discriminant))/(2*a);
+        *root2 = (-b - sqrt(discriminant))/(2*a);
     }
-    if(discriminant == 0)
+    if (discriminant == 0)
         return(ONEROOT);
     else
         return(TWOROOTS);

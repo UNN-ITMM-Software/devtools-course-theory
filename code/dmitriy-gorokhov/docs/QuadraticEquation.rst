@@ -18,7 +18,7 @@
 	virtual ~QuadraticEquation();
 
 	void SetCoefficients(double _a, double _b, double _c);
-	int Solve(double &root1, double &root2);
+	int Solve(double *root1, double *root2);
 
     private:
 	double a, b, c;
@@ -31,7 +31,7 @@
     double r1, r2;
     int returnCode;
     QuadraticEquation Sample(1, 2, 1);
-    returnCode = Sample.Solve(r1, r2);
+    returnCode = Sample.Solve(&r1, &r2);
     if(returnCode != NOREALROOT)
     {
         printf("Root 1: %.3f\n", r1);
