@@ -1,3 +1,4 @@
+/* Copyright 2013 Alexandr Smirnov */
 #include <sort.h>
     
     Sort::Sort(){}

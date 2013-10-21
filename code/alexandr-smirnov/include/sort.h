@@ -1,3 +1,4 @@
+/* Copyright 2013 Alexandr Smirnov */
 #ifndef H_SORT
 #define H_SORT
     
