@@ -46,7 +46,6 @@ void Dichotomy_Search::Sort_Count()
 	int **B = new int*[array_size];
 	for(int i = 0; i < array_size; i++)
 		B[i] = new int[2];
-
 	for (int i = 0; i < (max - min + 1); i++)
 		C[i] = 0;
 	for (int i = 0; i < array_size; i++)
