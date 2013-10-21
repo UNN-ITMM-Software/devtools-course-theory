@@ -15,7 +15,7 @@ int main(void) {
         printf("Root 2: %.3f\n", r2);
     } else {
         printf("illegal coefficients\n");
-	}
+    }
 
     Sample.SetCoefficients(1, 2, 1);
     returnCode = Sample.Solve(&r1, &r2);
@@ -25,7 +25,7 @@ int main(void) {
         printf("Root 2: %.3f\n", r2);
     } else {
         printf("illegal coefficients\n");
-	}
+    }
 
     Sample.SetCoefficients(1, 0, 1);
     returnCode = Sample.Solve(&r1, &r2);
@@ -35,7 +35,7 @@ int main(void) {
         printf("Root 2: %.3f\n", r2);
     } else {
         printf("illegal coefficients\n");
-	}
+    }
 
     return(0);
 }
