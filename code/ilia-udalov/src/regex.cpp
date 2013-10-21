@@ -1,7 +1,13 @@
-#include "../include/regex.hpp"
+// Copyright 2013 Ilia Udalov
 
-int matchStar(int c, const std::string& regex, const std::string& text, size_t r, size_t t);
-int matchHere(const std::string& regex, const std::string& text, size_t r, size_t t);
+#include <string>
+
+#include "../include/regex.h"
+
+static int matchStar(int c, const std::string& regex,
+    const std::string& text, size_t r, size_t t);
+static int matchHere(const std::string& regex,
+    const std::string& text, size_t r, size_t t);
 
 int match(const std::string& regex, const std::string& text) {
     size_t r_pos = 0;
@@ -18,31 +24,36 @@ int match(const std::string& regex, const std::string& text) {
 
 int find(const std::string& substring, const std::string& text) {
     int i, j;
-    for(i = 0; i < (int)text.size() - (int)substring.size(); i++) {
-        for(j = 0; j < (int)substring.size(); j++) {
+    for (i = 0;
+        i < static_cast<int>(text.size()) - static_cast<int>(substring.size());
+        i++) {
+        for (j = 0; j < static_cast<int>(substring.size()); j++) {
             if (substring[j] != text[i + j])
                 break;
         }
-        if (j == (int)substring.size()) {
+        if (j == static_cast<int>(substring.size())) {
             return i;
         }
     }
     return -1;
 }
 
-int matchHere(const std::string& regex, const std::string& text, size_t r_pos, size_t t_pos) {
+static int matchHere(const std::string& regex,
+        const std::string& text, size_t r_pos, size_t t_pos) {
     if (r_pos == regex.size())
         return 1;
     if (regex[r_pos + 1] == '*')
         return matchStar(regex[r_pos], regex, text, r_pos + 2, t_pos);
     if (regex[r_pos] == '$' && regex.size() == r_pos)
         return t_pos == text.size();
-    if (t_pos != text.size() && (regex[r_pos] == '.' || regex[r_pos] == text[t_pos]))
+    if (t_pos != text.size() && (regex[r_pos] == '.'
+        || regex[r_pos] == text[t_pos]))
         return matchHere(regex, text, r_pos + 1, t_pos + 1);
     return 0;
 }
 
-int matchStar(int c, const std::string& regex, const std::string& text, size_t r_pos, size_t t_pos) {
+static int matchStar(int c, const std::string& regex,
+        const std::string& text, size_t r_pos, size_t t_pos) {
     do {
         if (matchHere(regex, text, r_pos, t_pos))
             return 1;
