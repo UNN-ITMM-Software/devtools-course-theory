@@ -1,12 +1,11 @@
 /* Copyright 2013 Nesmelov Aleksey */
-#include"fractcalc.h"
+#include <fractcalc.h>
 #include <iostream>
 #include "stdlib.h"
 
 using namespace std; 
 
-Fraction::Fraction(int _numenator,int _denominator)
-{
+Fraction::Fraction(int _numenator, int _denominator) {
   numenator = _numenator;
   denominator = _denominator;
    if (denominator < 0)
@@ -15,17 +14,14 @@ Fraction::Fraction(int _numenator,int _denominator)
     denominator = abs(denominator);
    }
 }
-Fraction::~Fraction()
-{
-}
+Fraction::~Fraction() {}
 
-int Fraction::NOD()
-{
+int Fraction::NOD() {
    int a = abs(numenator);
    int b = abs(denominator);
  if (a != 0 && b != 0)
  { 
-	 while (a%b! = 0 && b%a != 0)
+	 while (a%b != 0 && b%a != 0)
      {
 	   if (a > b)
        a = a%b;
@@ -48,48 +44,40 @@ int Fraction::NOD()
   }
 }
 
-void Fraction::Cut_Fraction()
-{
+void Fraction::Cut_Fraction() {
   int nod = NOD();
   numenator = numenator / nod;
   denominator = denominator / nod;
 }
 
-int Fraction::GetNumenator()
- {
+int Fraction::GetNumenator() {
 	return numenator;
  }
-int Fraction::GetDenominator()
- {
+int Fraction::GetDenominator() {
 	 return denominator;
  }
-void Fraction::SetNumenator(int new_numenator)
- {
+void Fraction::SetNumenator(int new_numenator) {
 	 numenator = new_numenator;
  }
-void Fraction::SetDenominator(int new_denominator)
- {
+void Fraction::SetDenominator(int new_denominator) {
 	 denominator = new_denominator;
  }
 
 
-Fraction Fraction::Add(Fraction a,Fraction b)
-{
+Fraction Fraction::Add(Fraction a, Fraction b) {
  Fraction res(a.numenator * b.denominator + a.denominator * b.numenator,a.denominator * b.denominator);
  res.Cut_Fraction();
  return res;
 }
 
-Fraction Fraction::Subtract(Fraction a,Fraction b)
-{
+Fraction Fraction::Subtract(Fraction a, Fraction b) {
  Fraction res(a.numenator * b.denominator - a.denominator * b.numenator,a.denominator * b.denominator);
  res.Cut_Fraction();
  return res;
 }
 
 
-Fraction Fraction::Multiply(Fraction a,Fraction b)
-{
+Fraction Fraction::Multiply(Fraction a, Fraction b) {
  Fraction res(a.numenator * b.numenator,a.denominator * b.denominator);
  res.Cut_Fraction();
    if (res.denominator < 0)
@@ -100,8 +88,7 @@ Fraction Fraction::Multiply(Fraction a,Fraction b)
  return res;
 }
 
-Fraction Fraction::Divide(Fraction a,Fraction b)
-{
+Fraction Fraction::Divide(Fraction a, Fraction b) {
 Fraction res(a.numenator * b.denominator,a.denominator * b.numenator);
 res.Cut_Fraction();
   if (res.denominator < 0)
