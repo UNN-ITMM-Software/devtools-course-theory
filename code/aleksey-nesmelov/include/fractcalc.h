@@ -1,3 +1,4 @@
+/* Copyright 2013 Nesmelov Aleksey */
 class Fraction
 {
  private : 

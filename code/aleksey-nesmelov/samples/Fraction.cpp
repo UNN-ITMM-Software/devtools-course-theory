@@ -1,3 +1,4 @@
+/* Copyright 2013 Nesmelov Aleksey */
 #include "fractcalc.h"
 #include "stdio.h"
 
@@ -11,16 +12,16 @@ int main()
  printf ("\nB = %d/%d",fract_2.GetNumenator(),fract_2.GetDenominator());
  printf("\n"); 
 
- fract_res=Fraction::Add(fract_1,fract_2);
+ fract_res = Fraction::Add(fract_1,fract_2);
  printf ("\nA+B = %d/%d",fract_res.GetNumenator(),fract_res.GetDenominator());
 
- fract_res=Fraction::Subtract(fract_1,fract_2);
+ fract_res = Fraction::Subtract(fract_1,fract_2);
  printf ("\nA-B = %d/%d",fract_res.GetNumenator(),fract_res.GetDenominator());
 
- fract_res=Fraction::Multiply(fract_1,fract_2);
+ fract_res = Fraction::Multiply(fract_1,fract_2);
  printf ("\nA*B = %d/%d",fract_res.GetNumenator(),fract_res.GetDenominator());
 
- fract_res=Fraction::Divide(fract_1,fract_2);
+ fract_res = Fraction::Divide(fract_1,fract_2);
  printf ("\nA/B = %d/%d",fract_res.GetNumenator(),fract_res.GetDenominator());
 
 	return 0;
