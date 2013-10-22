@@ -3,9 +3,12 @@
 #define CODE_MOSHKOV_YURIY_INCLUDE_DISTANCEBETWEENVECTORS_H_
 #include <math.h>
 
-enum TypeMetric{L1 = 1, L2, L3, L4, LInfinity};
+enum TypeMetric {L1 = 1, L2, L3, L4, LInfinity};
 
 class DistanceBetweenVectors {
-public:
+public
+:
     static float CalculateDistance(float *vector1, float *vector2, TypeMetric typeMetric, int sizeVector);
 };
+
+#endif  // CODE_MOSHKOV_YURIY_INCLUDE_DISTANCEBETWEENVECTORS_H_
