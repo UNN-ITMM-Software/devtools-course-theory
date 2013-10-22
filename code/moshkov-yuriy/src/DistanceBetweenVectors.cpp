@@ -1,4 +1,4 @@
-#include "DistanceBetweenVectors.hpp"
+#include "DistanceBetweenVectors.h"
 
 
 float DistanceBetweenVectors::CalculateDistance(float *vector1, float *vector2, TypeMetric typeMetric, int sizeVector)
