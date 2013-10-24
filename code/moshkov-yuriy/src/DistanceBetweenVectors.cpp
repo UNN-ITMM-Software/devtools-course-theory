@@ -1,8 +1,8 @@
 /* Copyright 2013 Moshkov Yuriy */
 #include <DistanceBetweenVectors.h>
 
-float DistanceBetweenVectors::CalculateDistance(float *vector1, float *vector2, 
-                                                TypeMetric typeMetric, int sizeVector) {
+float DistanceBetweenVectors::CalculateDistance(float *vector1, float *vector2,
+                                       TypeMetric typeMetric, int sizeVector) {
     float distance;
     if (typeMetric == LInfinity) {
         float max = 0;
