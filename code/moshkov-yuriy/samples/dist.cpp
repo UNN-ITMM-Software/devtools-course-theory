@@ -1,5 +1,5 @@
 /* Copyright 2013 Moshkov Yuriy */
-#include "DistanceBetweenVectors.h"
+#include <DistanceBetweenVectors.h>
 #include <stdio.h>
 int main(int argc, char* argv[]) {
     const int sizeVector = 2;
