@@ -9,27 +9,24 @@
 
        class Fraction
     {
-      private :
+        public:
+            Fraction(int numenator, int denominator);
+            ~Fraction();
 
-       int numenator; 
-       int denominator;
-       int NOD() ;
-       void Cut_Fraction();
+            int GetNumenator();
+            int GetDenominator();
+            void SetNumenator(int value);
+            void SetDenominator(int value);
 
-      public:
-
-       Fraction (int _numenator,int _denominator);
-       virtual ~Fraction();
-
-       int GetNumenator();
-       int GetDenominator();
-       void SetNumenator(int new_numenator);
-       void SetDenominator(int new_denominator);
-
-       static Fraction Add(Fraction a,Fraction b);
-       static Fraction Subtract(Fraction a,Fraction b);
-       static Fraction Multiply(Fraction a,Fraction b);
-       static Fraction Divide(Fraction a,Fraction b);
+            static Fraction Add(Fraction a, Fraction b);
+            static Fraction Subtract(Fraction a, Fraction b);
+            static Fraction Multiply(Fraction a, Fraction b);
+            static Fraction Divide(Fraction a, Fraction b);
+        private :
+            int numenator; 
+            int denominator;
+            int NOD() ;
+            void CutFraction();
    
     };
 
@@ -39,7 +36,7 @@
 
  .. code-block:: cpp
 
-    Fraction fract_1(5,6);
-    Fraction fract_2(-10,7);
-    Fraction result_fract(0,1);
-    result_fract=Fraction::Add(fract_1,fract_2);
+    Fraction fract1(5, 6);
+    Fraction fract2(-10, 7);
+    Fraction resultFract(0, 1);
+    resultFract=Fraction::Add(fract1, fract2);
