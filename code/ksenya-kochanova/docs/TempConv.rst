@@ -6,24 +6,27 @@
 
 .. code-block:: cpp
 
-#include <iostream>
-#include <string>
-#pragma once
+/* Copyright 2013 Ksenya Kochanova */
 
 enum TemperatureUnit {Celsius, Kelvin, Fahrenheit, Newton};
+
 struct Temperature
 {
 	double value;
 	TemperatureUnit unit;
 };
 
+static double a[4] = {1, 1, 5/9, 100/33};
+static double b[4] = {0, -273.15, -32, 0};	
+
 class TemperatureConvertor
-{
-	friend std::istream& operator>>(std::istream& input, TemperatureUnit& newtemp);
+{		
 public:
 	TemperatureConvertor(void);
-	virtual ~TemperatureConvertor(void);
-	Temperature ConvertTo(Temperature fromTemperature,TemperatureUnit toUnit);
+	~TemperatureConvertor(void);
+
+	Temperature ConvertToCelsius(Temperature fromTemperature);
+	Temperature ConvertFromCelsius(Temperature inCelsius, TemperatureUnit toUnit); 
 };
 
 Примером использования класса в пользовательском C++ коде может служить нижеследующий код:
@@ -32,8 +35,10 @@ public:
 .. code-block:: cpp
 
     Temperature temperature;
-    temperature.Temperature = Celsius;
-    temperature.value = 10;
-
-    TemperatureConverter convertor;
-    Temperature outTemperature = convertor.ConvertTo(temperature, TemperatureUnit::Kelvin);
+	Temperature newTemperature;
+	TemperatureConvertor convertor;
+	temperature.value = 0;
+	temperature.unit = Kelvin;
+	TemperatureUnit newUnit = Newton;
+	Temperature inCelsius = convertor.ConvertToCelsius(temperature);
+	Temperature outTemperature = convertor.ConvertFromCelsius(inCelsius, newUnit);
