@@ -1,6 +1,5 @@
 /* Copyright 2013 Nesmelov Aleksey */
 #include <fractcalc.h>
-
 #include <stdio.h>
 
 int main() {
@@ -13,20 +12,19 @@ int main() {
     printf("\n");
 
     fractResult = Fraction::Add(fract1, fract2);
-    printf("\nA+B = %d/%d", fractResult.GetNumenator(), 
+    printf("\nA+B = %d/%d", fractResult.GetNumenator(),
         fractResult.GetDenominator());
 
     fractResult = Fraction::Subtract(fract1, fract2);
-    printf("\nA-B = %d/%d", fractResult.GetNumenator(), 
+    printf("\nA-B = %d/%d", fractResult.GetNumenator(),
         fractResult.GetDenominator());
 
     fractResult = Fraction::Multiply(fract1, fract2);
-    printf("\nA*B = %d/%d", fractResult.GetNumenator(), 
+    printf("\nA*B = %d/%d", fractResult.GetNumenator(),
         fractResult.GetDenominator());
 
     fractResult = Fraction::Divide(fract1, fract2);
-    printf("\nA/B = %d/%d", fractResult.GetNumenator(), 
+    printf("\nA/B = %d/%d", fractResult.GetNumenator(),
         fractResult.GetDenominator());
-
     return 0;
 }

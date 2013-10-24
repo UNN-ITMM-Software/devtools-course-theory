@@ -1,8 +1,6 @@
 /* Copyright 2013 Nesmelov Aleksey */
 #include <fractcalc.h>
 #include <stdlib.h>
-#include <iostream>
-
 Fraction::Fraction(int _numenator, int _denominator) {
     numenator = _numenator;
     denominator = _denominator;
@@ -58,7 +56,7 @@ Fraction Fraction::Add(Fraction a, Fraction b) {
     return res;
 }
 Fraction Fraction::Subtract(Fraction a, Fraction b) {
-    Fraction res(a.numenator * b.denominator - a.denominator * b.numenator, 
+    Fraction res(a.numenator * b.denominator - a.denominator * b.numenator,
         a.denominator * b.denominator);
     res.CutFraction();
     return res;
