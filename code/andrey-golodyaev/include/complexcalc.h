@@ -3,7 +3,7 @@
 #define CODE_ANDREY_GOLODYAEV_INCLUDE_COMPLEXCALC_H_
 
 class ComplexCalculator {
-public :
+ public :
     ComplexCalculator(double _real, double _imaginary);
     ~ComplexCalculator();
 
@@ -21,7 +21,7 @@ public :
                                    ComplexCalculator second);
     static ComplexCalculator Div(ComplexCalculator first,
                                  ComplexCalculator second);
-private :
+ private :
     double real;
     double imaginary;
 };

@@ -1,6 +1,7 @@
 /* Copyright 2013 Andrey Golodyaev */
 #include <complexcalc.h>
 #include <string.h>
+#include <string>
 #include <stdlib.h>
 #include <stdio.h>
 #include <sstream>
@@ -28,57 +29,56 @@ void ComplexCalculator::Input(char *str) {
     int n = 1;
     int ii = 0;
     int qr = 1, qi = 1;
-    if(s[0] != '+' && s[0] != '-') s = "+"+s;
+    if (s[0] != '+' && s[0] != '-') s = "+"+s;
     n = s.find('i');
-    if(n != -1) {
-        while(s[n-ii] != '+' && s[n-ii] != '-') {
+    if (n != -1) {
+        while (s[n-ii] != '+' && s[n-ii] != '-') {
             i = s[n-ii]+i;
             ii++;
         }
-        if(s[n-ii] == '-') qi = -1;
+        if (s[n-ii] == '-') qi = -1;
         ii = 0;
-        while(s[n+ii] != '+' && s[n+ii] != '-') {
+        while (s[n+ii] != '+' && s[n+ii] != '-') {
             i = i+s[n+ii];
             ii++;
-            if(n+ii == s.length()) break;
+            if (n+ii == s.length()) break;
         }
         i.erase(i.find('i'), 1);
         s.erase(s.find(i), i.length());
         i.erase(i.find('i'), 1);
-        if(i.find('*') != -1) i.erase(i.find('*'), 1);
-        if(i == "") imaginary = 1;
+        if (i.find('*') != -1) i.erase(i.find('*'), 1);
+        if (i == "") imaginary = 1;
         else
             imaginary = atof(i.c_str());
         imaginary*=qi;
-    }
-    else
+    } else
         imaginary = 0;
     if(s[0] == '-') qr = -1;
     ii = 0;
-    while(ii != s.length()) {
-        if(s[ii] == '+' || s[ii] == '-') s.erase(ii, 1);
+    while (ii != s.length()) {
+        if (s[ii] == '+' || s[ii] == '-') s.erase(ii, 1);
         else
             ii++;
     }
-    if(s == "") real = 0;
+    if (s == "") real = 0;
     else
         real = atof(s.c_str());
     real*=qr;
 }
 void ComplexCalculator::Output(char *str) {
     std::string str1 = "";
-    if(real != 0) {
+    if (real != 0) {
         std::ostringstream ss;
         ss << real;
         str1 = ss.str();
     }
-    if(imaginary != 0) {
+    if (imaginary != 0) {
         if (imaginary < 0) str1+='-';
         else
-            if(real != 0) str1+='+';
-        if(imaginary != 1) {
+            if (real != 0) str1+='+';
+        if (imaginary != 1) {
             std::ostringstream sss;
-            if(imaginary > 0)
+            if (imaginary > 0)
                 sss << (imaginary);
             else
                 sss << (-imaginary);
@@ -87,24 +87,24 @@ void ComplexCalculator::Output(char *str) {
         }
         str1+="i";
     }
-    if(real == 0 && imaginary == 0) str1 = "0";
+    if (real == 0 && imaginary == 0) str1 = "0";
     strncpy(str, (str1.c_str()), str1.length());
 }
-ComplexCalculator ComplexCalculator::Add(ComplexCalculator first, 
+ComplexCalculator ComplexCalculator::Add(ComplexCalculator first,
                                          ComplexCalculator second) {
     ComplexCalculator temp(0, 0);
     temp.real = first.GetReal()+second.GetReal();
     temp.imaginary = first.GetImaginary()+second.GetImaginary();
     return temp;
 }
-ComplexCalculator ComplexCalculator::Sub(ComplexCalculator first, 
+ComplexCalculator ComplexCalculator::Sub(ComplexCalculator first,
                                          ComplexCalculator second) {
     ComplexCalculator temp(0, 0);
     temp.real = first.GetReal()-second.GetReal();
     temp.imaginary = first.GetImaginary()-second.GetImaginary();
     return temp;
 }
-ComplexCalculator ComplexCalculator::Multi(ComplexCalculator first, 
+ComplexCalculator ComplexCalculator::Multi(ComplexCalculator first,
                                            ComplexCalculator second) {
     ComplexCalculator temp(0, 0);
     temp.real = first.GetReal()*second.GetReal()
@@ -113,7 +113,7 @@ ComplexCalculator ComplexCalculator::Multi(ComplexCalculator first,
                      +first.GetImaginary()*second.GetReal();
     return temp;
 }
-ComplexCalculator ComplexCalculator::Div(ComplexCalculator first, 
+ComplexCalculator ComplexCalculator::Div(ComplexCalculator first,
                                          ComplexCalculator second) {
     ComplexCalculator temp(0, 0);
     temp.real = (first.GetReal()*second.GetReal()
