@@ -1,9 +1,9 @@
 /* Copyright 2013 Andrey Golodyaev */
 #include <complexcalc.h>
 #include <string.h>
-#include <string>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string>
 #include <sstream>
 ComplexCalculator::ComplexCalculator(double _real, double _imaginary) {
     real = _real;
@@ -51,9 +51,10 @@ void ComplexCalculator::Input(char *str) {
         else
             imaginary = atof(i.c_str());
         imaginary*=qi;
-    } else
+    } else {
         imaginary = 0;
-    if(s[0] == '-') qr = -1;
+    }
+    if (s[0] == '-') qr = -1;
     ii = 0;
     while (ii != s.length()) {
         if (s[ii] == '+' || s[ii] == '-') s.erase(ii, 1);
