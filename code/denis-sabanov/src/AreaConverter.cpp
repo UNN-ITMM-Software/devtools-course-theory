@@ -1,91 +1,80 @@
+#include "stdafx.h"
 #include "AreaConverter.h"
 
-double AreaConverter::GetValue()
-{
+AreaConverter::AreaConverter(void){};
+
+AreaConverter::~AreaConverter(void){};
+
+double AreaConverter::GetValue() {
 	return value;
 };
 
-AreaType AreaConverter::GetAreaType()
-{
+AreaType AreaConverter::GetAreaType() {
 	return curType;
 };
 
-void AreaConverter::SetValue(double newValue)
-{
+void AreaConverter::SetValue(double newValue) {
 	value=newValue;
 };
 
-void AreaConverter::SetAreaType(AreaType newType)
-{
+void AreaConverter::SetAreaType(AreaType newType) {
 	curType=newType;
 }; 
 
-double AreaConverter::Convert(AreaType newType)
-{
-	switch (GetAreaType())
-	{
-	case sKilometer:
-		{
+void AreaConverter::ConvertToMeters() {
+	switch (GetAreaType()) {
+	case sKilometer: {
 			value=value*1000000;
 			break;
 		}
-	case sMeter:
-		{
+	case sMeter: {
 			break;
 		}
-	case sFoot:
-		{
+	case sFoot: {
 			value=value*0.0929;
 			break;
 		}
-	case acre:
-		{
+	case acre: {
 			value=value*4047;
 			break;
 		}
-	case ar:
-		{
+	case ar: {
 			value=value*100;
 			break;
 		}
-	case hectare:
-		{
+	case hectare: {
 			value=value*10000;
 			break;
 		}
 	}
-	switch(newType)
-	{
-	case sMeter:
-		{
+}
+
+double AreaConverter::ConvertToNewType(AreaType newType) {
+	ConvertToMeters();
+	switch(newType) {
+	case sMeter: {
 			curType=newType;
 			return value;
 		}
-	case sKilometer:
-		{
+	case sKilometer: {
 			curType=newType;
 			return value=value/1000000;
 		}
-	case sFoot:
-		{
+	case sFoot: {
 			curType=newType;
 			return value=value/0.0929;
 		}
-	case ar:
-		{
+	case ar: {
 			curType=newType;
 			return value=value/100;
 		}
-	case acre:
-		{
+	case acre: {
 			curType=newType;
 			return value=value/4047;
 		}
-	case hectare:
-		{
+	case hectare: {
 			curType=newType;
 			return value=value/10000;
 		}
 	}
-
 }

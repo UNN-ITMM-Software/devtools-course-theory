@@ -1,11 +1,10 @@
 #include "AreaConverter.h"
 #include "stdio.h"
 
-int main()
-{
+int main(){
 	AreaConverter Converter;
-	Converter.SetAreaType(sMeter);
+	Converter.SetAreaType(sKilometer);
 	Converter.SetValue(100);
-	printf("100 merers = %lf foots \n",Converter.Convert(sFoot) );
+	printf("100 merers = %lf foots \n",Converter.ConvertToNewType(sFoot) );
 	return 0;
 }
