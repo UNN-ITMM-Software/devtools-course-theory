@@ -1,6 +1,6 @@
 /* Copyright 2013 Ksenya Kochanova */
-#include <cstdio>
 #include <TemperatureConverter.h>
+#include <cstdio>
 int main() {
     Temperature temperature;
     Temperature newTemperature;
