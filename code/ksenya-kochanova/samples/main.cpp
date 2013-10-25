@@ -1,5 +1,4 @@
 /* Copyright 2013 Ksenya Kochanova */
-#include <iostream>
 #include <cstdio>
 #include "TemperatureConverter.h"
 int main() {
@@ -10,10 +9,12 @@ int main() {
     temperature.unit = Kelvin;
     TemperatureUnit newUnit = Newton;
     Temperature inCelsius = convertor.ConvertToCelsius(temperature);
-    Temperature outTemperature = convertor.ConvertFromCelsius(inCelsius, 
+    Temperature outTemperature = convertor.ConvertFromCelsius(inCelsius,
     newUnit);
-    std::cout << "Input: 0 Kelvin " << std::endl;
-    std::cout << "Output: ? Newton" << std::endl;
-    std::cout << "Result: " << outTemperature.value << std::endl;
+    printf ("Unit of temperature: \n");
+    printf (" 0 - Celsius,\n 1 - kelvin,\n 2 - Fahrenheit, \n 3 - Newton \n");
+    printf ("Input: %lf %d \n", temperature.value,temperature.unit);
+    printf ("Output: ? %d\n", newUnit);
+    printf ( "Result: %lf\n", outTemperature.value);
     return 0;
 }
