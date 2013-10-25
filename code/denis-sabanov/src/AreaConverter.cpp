@@ -2,8 +2,8 @@
 #include <AreaConverter.h>
 
 AreaConverter::AreaConverter(double value_, AreaType type_) {
-    value = _value;
-    curType = _type;
+    value = value_;
+    curType = type_;
 };
 
 AreaConverter::~AreaConverter(void){};
