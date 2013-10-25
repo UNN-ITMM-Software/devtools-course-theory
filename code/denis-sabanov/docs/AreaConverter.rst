@@ -17,7 +17,7 @@
  class AreaConverter
  {
  public:
-	AreaConverter(double _value, AreaType _type);
+	AreaConverter(double value_, AreaType type_);
 	virtual ~AreaConverter(void);
 
      	void ConvertToMeters();
