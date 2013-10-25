@@ -6,7 +6,7 @@ AreaConverter::AreaConverter(double value_, AreaType type_) {
     curType = type_;
 };
 
-AreaConverter::~AreaConverter(void) {};
+AreaConverter::~AreaConverter(void) {}
 
 double AreaConverter::GetValue() {
     return value;
