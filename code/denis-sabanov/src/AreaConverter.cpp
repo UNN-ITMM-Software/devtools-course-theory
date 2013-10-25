@@ -1,82 +1,83 @@
+/* Copyright 2013 Denis Sabanov */
 #include <AreaConverter.h>
 
-AreaConverter::AreaConverter(double _value, AreaType _type) {
-	value=_value;
-	curType=_type;
+AreaConverter::AreaConverter(double value_, AreaType type_) {
+    value = _value;
+    curType = _type;
 };
 
 AreaConverter::~AreaConverter(void){};
 
 double AreaConverter::GetValue() {
-	return value;
+    return value;
 };
 
 AreaType AreaConverter::GetAreaType() {
-	return curType;
+    return curType;
 };
 
 void AreaConverter::SetValue(double newValue) {
-	value=newValue;
+    value = newValue;
 };
 
 void AreaConverter::SetAreaType(AreaType newType) {
-	curType=newType;
+    curType = newType;
 }; 
 
 void AreaConverter::ConvertToMeters() {
-	switch (GetAreaType()) {
-	case sKilometer: {
-			value=value*1000000;
-			break;
-		}
-	case sMeter: {
-			break;
-		}
-	case sFoot: {
-			value=value*0.0929;
-			break;
-		}
-	case acre: {
-			value=value*4047;
-			break;
-		}
-	case ar: {
-			value=value*100;
-			break;
-		}
-	case hectare: {
-			value=value*10000;
-			break;
-		}
-	}
+    switch (GetAreaType()) {
+    case sKilometer: {
+        value = value*1000000;
+        break;
+        }
+    case sMeter: {
+        break;
+        }
+    case sFoot: {
+        value = value*0.0929;
+        break;
+        }
+    case acre: {
+        value = value*4047;
+        break;
+        }
+    case ar: {
+        value = value*100;
+        break;
+        }
+    case hectare: {
+        value = value*10000;
+        break;
+        }
+    }
 }
 
 double AreaConverter::ConvertToNewType(AreaType newType) {
-	ConvertToMeters();
-	switch(newType) {
-	case sMeter: {
-			curType=newType;
-			return value;
-		}
-	case sKilometer: {
-			curType=newType;
-			return value=value/1000000;
-		}
-	case sFoot: {
-			curType=newType;
-			return value=value/0.0929;
-		}
-	case ar: {
-			curType=newType;
-			return value=value/100;
-		}
-	case acre: {
-			curType=newType;
-			return value=value/4047;
-		}
-	case hectare: {
-			curType=newType;
-			return value=value/10000;
-		}
-	}
+    ConvertToMeters();
+    switch(newType) {
+    case sMeter: {
+        curType = newType;
+        return value;
+        }
+    case sKilometer: {
+        curType = newType;
+        return value = value/1000000;
+        }
+    case sFoot: {
+        curType = newType;
+        return value = value/0.0929;
+        }
+    case ar: {
+        curType = newType;
+        return value = value/100;
+        }
+    case acre: {
+        curType = newType;
+        return value = value/4047;
+        }
+    case hectare: {
+        curType = newType;
+        return value = value/10000;
+        }
+    }
 }
