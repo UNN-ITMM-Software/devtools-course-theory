@@ -6,7 +6,7 @@ AreaConverter::AreaConverter(double value_, AreaType type_) {
     curType = type_;
 };
 
-AreaConverter::~AreaConverter(void){};
+AreaConverter::~AreaConverter(void) {};
 
 double AreaConverter::GetValue() {
     return value;
@@ -22,7 +22,7 @@ void AreaConverter::SetValue(double newValue) {
 
 void AreaConverter::SetAreaType(AreaType newType) {
     curType = newType;
-}; 
+};
 
 void AreaConverter::ConvertToMeters() {
     switch (GetAreaType()) {
@@ -54,7 +54,7 @@ void AreaConverter::ConvertToMeters() {
 
 double AreaConverter::ConvertToNewType(AreaType newType) {
     ConvertToMeters();
-    switch(newType) {
+    switch (newType) {
     case sMeter: {
         curType = newType;
         return value;
