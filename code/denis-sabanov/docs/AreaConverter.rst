@@ -17,11 +17,16 @@
  class AreaConverter
  {
  public:
-	double Convert(AreaType newType);
-    double GetValue();
-    AreaType GetAreaType();
-    void SetValue(double newValue);
-    void SetAreaType(AreaType newType);	
+	AreaConverter(double _value, AreaType _type);
+	virtual ~AreaConverter(void);
+
+     	void ConvertToMeters();
+	double ConvertToNewType(AreaType newType);
+
+	double GetValue();
+	AreaType GetAreaType();
+        void SetValue(double newValue);
+        void SetAreaType(AreaType newType);
  };
 	
 Пример использования:
@@ -30,9 +35,8 @@
 
 .. code-block:: cpp
 
- AreaConverter Converter;
- Converter.SetAreaType(sMeter);
- Converter.Convert(sFoot);
+ AreaConverter Converter(100, sMeters);
+ Converter.ConvertToNewType(acre);
  
  
  
