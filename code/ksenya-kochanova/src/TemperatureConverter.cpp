@@ -22,7 +22,8 @@ TemperatureUnit toUnit) {
     if (inCelsius.value == 0.0001) {
         outTemperature.value = 0.0001;
         printf("Erorr");
-    } else
+    } else {
         outTemperature.value = 1 / a[toUnit] * (inCelsius.value - b[toUnit]);
+	}
     return outTemperature;
 }
