@@ -11,8 +11,7 @@
 
 enum TemperatureUnit {Celsius, Kelvin, Fahrenheit, Newton};
 
-struct Temperature
-{
+struct Temperature {
     double value;
     TemperatureUnit unit;
 };
@@ -20,8 +19,7 @@ struct Temperature
 static double a[4] = {1, 1, 5/9, 100/33};
 static double b[4] = {0, -273.15, -32, 0};
 
-class TemperatureConvertor
-    {
+class TemperatureConvertor {
     public
     :
         TemperatureConvertor(void);
@@ -29,10 +27,10 @@ class TemperatureConvertor
         
         Temperature ConvertToCelsius(Temperature fromTemperature);
         Temperature ConvertFromCelsius(Temperature inCelsius,
-        TemperatureUnit toUnit);
+TemperatureUnit toUnit);
     };
 
-#endif // CODE_KSENYA_KOCHANOVA_INCLUDE_TEMPERATURECONVERTER_H_
+#endif  // CODE_KSENYA_KOCHANOVA_INCLUDE_TEMPERATURECONVERTER_H_
 
 Примером использования класса в пользовательском C++ коде может служить нижеследующий код:
 
