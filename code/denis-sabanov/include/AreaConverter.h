@@ -5,7 +5,6 @@
 enum AreaType {sKilometer, hectare, ar, acre, sMeter, sFoot};
 
 class AreaConverter {
-
  public:
     AreaConverter(double _value, AreaType _type);
     virtual ~AreaConverter(void);
