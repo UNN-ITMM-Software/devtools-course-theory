@@ -1,7 +1,9 @@
-#include "stdafx.h"
-#include "AreaConverter.h"
+#include <AreaConverter.h>
 
-AreaConverter::AreaConverter(void){};
+AreaConverter::AreaConverter(double _value, AreaType _type) {
+	value=_value;
+	curType=_type;
+};
 
 AreaConverter::~AreaConverter(void){};
 
