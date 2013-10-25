@@ -5,8 +5,8 @@
 enum AreaType {sKilometer, hectare, ar, acre, sMeter, sFoot};
 
 class AreaConverter {
-                
-public:
+
+ public:
     AreaConverter(double _value, AreaType _type);
     virtual ~AreaConverter(void);
 
@@ -17,8 +17,8 @@ public:
     AreaType GetAreaType();
     void SetValue(double newValue);
     void SetAreaType(AreaType newType);
-private:
+ private:
     double value;
     AreaType curType;
-#endif // CODE_DENIS_SABANOV_INCLUDE_AREACONVERTER_H_
 };
+#endif  // CODE_DENIS_SABANOV_INCLUDE_AREACONVERTER_H_
