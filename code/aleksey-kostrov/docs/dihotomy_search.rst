@@ -8,32 +8,30 @@
 
 .. code-block:: cpp
 
-	class Dichotomy_Search
-	{
-	public:
-		Dichotomy_Search();
-		Dichotomy_Search(int size, int elem);
-		virtual ~Dichotomy_Search();
-		void Sort_Count();
-		int Search();
-	private:
-		int ** Array, array_size, search_element;
+	class DichotomySearch {
+ 	public:
+		DichotomySearch();
+		~DichotomySearch();
+		int **Preprocess(int *array, int size);
+		int Search(int *array, int element, int size);
 	};
 
 Пример использования класса:
 
 .. code-block:: cpp
 	
-	try
-	{
-		Dichotomy_Search example_1(30,9);
-		example_1.Search();
-	}
-	catch (int e)
-	{
-		if (e==-1) printf("Element not found!\n");
-		else if(e==-2) printf("Error! Size of array < 1 \n");
-		else printf("Index of search element: %d",e+1);
-	}
+	try {
+        	DichotomySearch example1;
+        	example1.Search(array, element, size);
+    	} catch (int e) {
+        	if (e == ELEM_NOT_FOUND)
+            		printf("Element not found!\n");
+        	else if(e == TOO_SMALL_ARRAY)
+            		printf("Error! Size of array < 1 \n");
+        	else
+            		printf("Index of search element: %d",e+1);
+    	} catch (...) {
+        	printf("Other Error!");
+   	}
 
 
