@@ -12,5 +12,5 @@ Currency CurrencyConvert::Convert(Currency currency, Unit UnitOutput) {
                          currency.value/multiplierToDollar[UnitOutput];
     else
         currency.value = -1;
-    return currency;        
-}	
+    return currency;
+}
