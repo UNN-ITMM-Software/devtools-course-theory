@@ -14,10 +14,11 @@ class AreaConverter {
 
     double GetValue();
     AreaType GetAreaType();
-    void SetValue(double newValue);
-    void SetAreaType(AreaType newType);
  private:
     double value;
     AreaType curType;
+    
+    void SetValue(double newValue);
+    void SetAreaType(AreaType newType);
 };
 #endif  // CODE_DENIS_SABANOV_INCLUDE_AREACONVERTER_H_
