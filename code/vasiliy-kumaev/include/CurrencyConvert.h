@@ -10,7 +10,7 @@ struct Currency {
 };
 
 class CurrencyConvert {
-public:
+ public:
     CurrencyConvert(void);
     virtual ~CurrencyConvert(void);
 
