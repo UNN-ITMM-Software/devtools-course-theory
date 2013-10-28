@@ -3,11 +3,12 @@
 
 Класс ``QuadraticEquation`` предназначен для решения квадратных уравнений.
 Он предоставляет методы задания коэффициентов уравнения и решения уравнения.
-Метод решения возвращает код, описывающий количество корней уравнения.
+Метод решения возвращает код, описывающий количество корней уравнения или 
+сообщение о неправильных коэффициентах уравнения.
 
 .. code-block:: cpp
 
-    enum RootCount {TWOROOTS, ONEROOT, NOREALROOT};
+    enum RootCount {TWOROOTS, ONEROOT, NOREALROOT, ILLEGALEQUATIONFORM};
 
     class QuadraticEquation
     {
@@ -17,7 +18,7 @@
 	virtual ~QuadraticEquation();
 
 	void SetCoefficients(double _a, double _b, double _c);
-	int Solve(double &root1, double &root2);
+	int Solve(double *root1, double *root2);
 
     private:
 	double a, b, c;
@@ -30,7 +31,7 @@
     double r1, r2;
     int returnCode;
     QuadraticEquation Sample(1, 2, 1);
-    returnCode = Sample.Solve(r1, r2);
+    returnCode = Sample.Solve(&r1, &r2);
     if(returnCode != NOREALROOT)
     {
         printf("Root 1: %.3f\n", r1);
