@@ -9,16 +9,17 @@ class AreaConverter {
     AreaConverter(double _value, AreaType _type);
     virtual ~AreaConverter(void);
 
-    void ConvertToMeters();
     double ConvertToNewType(AreaType newType);
 
+    void SetValue(double newValue);
+    void SetAreaType(AreaType newType);
     double GetValue();
     AreaType GetAreaType();
  private:
     double value;
     AreaType curType;
 
-    void SetValue(double newValue);
-    void SetAreaType(AreaType newType);
+    void ConvertToMeters();
+
 };
 #endif  // CODE_DENIS_SABANOV_INCLUDE_AREACONVERTER_H_
