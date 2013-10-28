@@ -1,38 +1,33 @@
 ﻿Кумаев Василий: Конвертор валют
 ===============================
 
-Класс ``CurrencyConvert`` предназначен для осуществления конвертации валют. Он представляет метод ``Convert`` для конвертирования одной валюты в другую.
+Класс ``CurrencyConvert`` предназначен для осуществления конвертации валют. Он представляет метод ``ConvertCurrency`` для конвертирования одной валюты в другую.
 
 .. code-block:: cpp
 
-/* Copyright 2013 Vasiliy Kumaev */
-#ifndef CODE_VASILIY_KUMAEV_INCLUDE_CURRENCYCONVERTOR_H_
-#define CODE_VASILIY_KUMAEV_INCLUDE_CURRENCYCONVERTOR_H_
+    enum Unit {Dollar, Euro, Ruble, Pound};
 
-enum Unit {Dollar, Euro, Ruble, Pound};
+    struct Currency
+    {
+        Unit unit;
+        double value;
+    };
 
-struct Currency {
-    Unit unit;
-    double value;
-};
-
-class CurrencyConvert {
-public:
+    class CurrencyConvert
+    {
+    public:
         CurrencyConvert(void);
         virtual ~CurrencyConvert(void);
-
-        Currency Convert(Currency currency, Unit UnitOutput);
-};
-
-#endif  // CODE_VASILIY_KUMAEV_INCLUDE_CURRENCYCONVERTOR_H_
+        static Currency ConvertCurrency(Currency currency, Unit UnitOutput);
+    };
 
 Примером использования класса в пользовательском C++ коде может служить нижеследующий код:
 
 .. code-block:: cpp
 
-CurrencyConvertor convertor;
-Currency CurrencyUnit;
-CurrencyUnit.value = 50;
-CurrencyUnit.unit = Ruble;
-Unit UnitOutput = Euro;
-Currency CurrencyOutput = convertor.Convert(CurrencyUnit, UnitOutput);
+    CurrencyConvertor convertor;
+    Currency CurrencyUnit;
+    CurrencyUnit.value = 50;
+    CurrencyUnit.unit = Ruble;
+    Unit UnitOutput = Euro;
+    Currency CurrencyOutput = convertor.ConvertCurrency(CurrencyUnit, UnitOutput);

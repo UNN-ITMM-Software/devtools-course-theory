@@ -14,7 +14,7 @@ class CurrencyConvert {
     CurrencyConvert(void);
     virtual ~CurrencyConvert(void);
 
-    Currency Convert(Currency currency, Unit UnitOutput);
+    static Currency Convert(Currency currency, Unit UnitOutput);
 };
 
 #endif  // CODE_VASILIY_KUMAEV_INCLUDE_CURRENCYCONVERT_H_
