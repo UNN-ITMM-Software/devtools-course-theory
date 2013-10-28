@@ -1,23 +1,20 @@
 /* Copyright 2013 Alexandr Smirnov */
-#ifndef H_SORT
-#define H_SORT
-    
-enum SortMethod{QuickSort, HeapSort, MergeSort};
-    
-class Sort{
-public:
-    Sort();
-    virtual ~Sort();
-    void Sorter(int *Array, int size, SortMethod method);
-private:
-    int *elements;
 
-    void quickSort(int *Array, int size);
-    void heapSort(int *Array, int size);
-    void mergeSort(int *Array, int size);
-    void q_Sort_process(int l, int r);
-    void downHeap(int *mass, long K, int N); 
-    void mergeSort_proc(int *mass, long L, long R);
-    void merge(int *a, int L, int Pivot, long R);
+#ifndef CODE_ALEXANDR_SMIRNOV_INCLUDE_SORT_H_
+#define CODE_ALEXANDR_SMIRNOV_INCLUDE_SORT_H_
+    
+enum SortMethod {QUICKSORT, HEAPSORT, MERGESORT};
+    
+class Sorter {
+ public :
+    Sorter(void);
+    ~Sorter(void);
+    
+    void Sort(int *Array, int size, SortMethod method);
+ private :
+    class SortImplementation;
+    SortImplementation* pImpl;
 };
-#endif
+    
+#endif  // CODE_ALEXANDR_SMIRNOV_INCLUDE_SORT_H_
+    
