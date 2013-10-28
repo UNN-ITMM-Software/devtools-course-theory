@@ -9,11 +9,17 @@ TemperatureConvertor::~TemperatureConvertor(void) {}
 Temperature TemperatureConvertor::ConvertToCelsius(Temperature
 fromTemperature) {
     Temperature inCelsius;
-    if (fromTemperature.value > -273.15)
+    if ((fromTemperature.unit == Celsius)&&(fromTemperature.value < -273.15))
+         inCelsius.value = 0.0001;
+    if ((fromTemperature.unit == Kelvin)&&(fromTemperature.value < 0))
+        inCelsius.value = 0.0001;
+    if ((fromTemperature.unit == Fahrenheit)&&(fromTemperature.value < -459.67))
+        inCelsius.value = 0.0001;
+    if ((fromTemperature.unit == Fahrenheit)&&(fromTemperature.value < -90.14))
+        inCelsius.value = 0.0001;
+    else
         inCelsius.value = a[fromTemperature.unit] * fromTemperature.value
 + b[fromTemperature.unit];
-    else
-        inCelsius.value = 0.0001;
     return inCelsius;
 }
 Temperature TemperatureConvertor:: ConvertFromCelsius(Temperature inCelsius,
