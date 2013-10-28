@@ -10,19 +10,18 @@ int main(void) {
     const int ELEM_NOT_FOUND = -1;
     int * array;
     int size = 30, element = 9;
-    printf ("Size of array = %d\n",size);
-    printf ("Search element = %d\n",element);
+    printf("Size of array = %d\n", size);
+    printf("Search element = %d\n", element);
     srand(time(NULL));
     array = new int[size];
     for (int i = 0; i < size; i++)
-        array[i] = rand_r() % RIGHT_BORDER_RANDOM + LEFT_BORDER_RANDOM;
+        array[i] = rand() % RIGHT_BORDER_RANDOM + LEFT_BORDER_RANDOM;
     if (size < SIZE_FOR_PRINT && size > 0) {
         printf("Generated array: ");
         for (int i = 0; i < size; i++)
             printf("%d ", array[i]);
         printf("\n");
-    }
-    else if (size > 0)
+    } else if (size > 0)
         printf("Array was generated automatically!\n");
     try {
         DichotomySearch example1;
