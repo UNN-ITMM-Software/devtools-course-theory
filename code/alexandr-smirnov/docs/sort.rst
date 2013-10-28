@@ -10,7 +10,7 @@
 .. code-block:: cpp
 	
     enum SortMethod {QUICKSORT, HEAPSORT, MERGESORT};
-    class Sort
+    class Sorter
     {
     public:
         Sorter(void);
