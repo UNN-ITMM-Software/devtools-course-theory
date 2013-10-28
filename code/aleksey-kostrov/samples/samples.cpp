@@ -12,9 +12,8 @@ int main(void) {
     int size = 20, element = 18;
     printf("Size of array = %d\n", size);
     printf("Search element = %d\n", element);
-    srand(time(NULL));
     array = new int[size];
-    unsigned int seed = 10;
+    unsigned int seed = time(NULL);
     for (int i = 0; i < size; i++)
         array[i] = rand_r(&seed) % RIGHT_BORDER_RANDOM + LEFT_BORDER_RANDOM;
     if (size < SIZE_FOR_PRINT && size > 0) {
