@@ -17,7 +17,7 @@ class AreaConverter {
  private:
     double value;
     AreaType curType;
-    
+
     void SetValue(double newValue);
     void SetAreaType(AreaType newType);
 };
