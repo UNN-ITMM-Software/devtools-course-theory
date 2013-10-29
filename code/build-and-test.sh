@@ -29,15 +29,14 @@ do
     if [ $hpp_files ]; then
         echo "ERROR: Please use *.h extension instead of *.hpp:"
         echo " - $hpp_files"
-        # exit 1
+        exit 1
     fi
 
     sources=`find . -name "*.hpp" -or -name "*.h" -or -name "*.cpp"`
     for file in $sources;
     do
         echo "Analysing $file"
-        python ../cpplint.py $file
-        # try python ../cpplint.py $file
+        try python ../cpplint.py $file
     done
 
     Header "Build and Test $dir"
