@@ -6,18 +6,22 @@
 
 int main() {
     printf("This is the program of sorting arrays\n");
-	
-    int N = 10;
+
+    int N = 3;
     int* a = new int[N];
     int* b = new int[N];
     int* c = new int[N];
-    unsigned int* r;
 
-    for (int i = 0; i < N; i++) {
-        a[i] = rand_r(r) % 10;
-        b[i] = rand_r(r) % 10;
-        c[i] = rand_r(r) % 10;
-    }
+    a[0]=5;
+    a[1]=3;
+    a[2]=-8;
+    b[0]=4;
+    b[1]=-2;
+    b[2]=0;
+    c[0]=1;
+    c[1]=-3;
+    c[2]=-3;
+
     Sorter sorter;
 
     printf("Here are array A and result of sorting it by QuickSort\n");
