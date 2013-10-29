@@ -8,15 +8,15 @@
 * сортировка слияниями
 
 .. code-block:: cpp
-	
+
     enum SortMethod {QUICKSORT, HEAPSORT, MERGESORT};
-    class Sort
+    class Sorter
     {
     public:
         Sorter(void);
         ~Sorter(void);
-        
-	void Sort(int *Array, int size, SortMethod method);
+    
+    void Sort(int *Array, int size, SortMethod method);
     };
 Пример использования:
 ---------------------
