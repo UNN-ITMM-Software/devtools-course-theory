@@ -20,6 +20,6 @@ class AreaConverter {
     AreaType curType;
 
     void ConvertToMeters();
-
 };
+
 #endif  // CODE_DENIS_SABANOV_INCLUDE_AREACONVERTER_H_

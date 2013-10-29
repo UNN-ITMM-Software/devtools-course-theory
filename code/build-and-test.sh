@@ -18,18 +18,14 @@ function Header {
     echo ""
 }
 
-# Go through all directories, check Google style and run 'make test'
-for dir in */; 
-do
-    cd $dir
-
-    Header "Check \"Google C++ Style\" in $dir"
+function CheckGoogleStyle {
+    retCode=0
 
     hpp_files=`find . -name "*.hpp"`
     if [ $hpp_files ]; then
         echo "ERROR: Please use *.h extension instead of *.hpp:"
         echo " - $hpp_files"
-        # exit 1
+        retCode=1
     fi
 
     sources=`find . -name "*.hpp" -or -name "*.h" -or -name "*.cpp"`
@@ -37,8 +33,22 @@ do
     do
         echo "Analysing $file"
         python ../cpplint.py $file
-        # try python ../cpplint.py $file
+        status=$?
+        if [ $status -ne 0 ]; then
+            retCode=$status
+        fi
     done
+
+    return $retCode
+}
+
+# Go through all directories, check Google style and run 'make test'
+for dir in */; 
+do
+    cd $dir
+
+    Header "Check \"Google C++ Style\" in $dir"
+    try CheckGoogleStyle
 
     Header "Build and Test $dir"
     if [ -f Makefile ];
