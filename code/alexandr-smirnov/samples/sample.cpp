@@ -3,6 +3,7 @@
 #include <sort.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <conio.h>
 
 int main() {
     printf("This is the program of sorting arrays\n");
@@ -53,4 +54,5 @@ int main() {
     delete a, b, c;
 
     return 0;
+    getch();
 }
