@@ -20,12 +20,4 @@
 		void ToDecimal();
 		void ToBinary();
 	};
-
-Пример использования:
----------------------
-.. code-block:: cpp
-
-	NumConverter a(dec,"100");
-	a.ToBinary();
-	std::cout<<a.GetValue()<<std::endl;
 	

@@ -1,22 +1,27 @@
 #include <string>
 #include <stdlib.h>
 #include <stack>
+#include <cmath>
+#include <cstdio>
+
 enum NumSystem
 {
 	hex,oct,dec,bin
 };
-std::string dec_to_bin(int dec_number);
+
+std::string DecToBin(int decNum);
+
 class NumConverter
 {
-private:
-	NumSystem NumSys;
-	std::string Value;
 public:
 	NumConverter(NumSystem numsys, std::string value);
 	~NumConverter();
 	std::string GetValue();
-	void ToHex();
-	void ToOctal();
-	void ToDecimal();
-	void ToBinary();
+	std::string ToHex();
+	std::string ToOctal();
+	std::string ToDecimal();
+	std::string ToBinary();
+private:
+	NumSystem NumSys;
+	std::string Value;
 };
