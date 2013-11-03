@@ -1,5 +1,5 @@
 // Copyright 2013 K.Nikolaev
-#include <numconverter.h>
+#include <NumConverter.h>
 #include <cstdio>
 
 int main(int argc, char* argv[]) {
