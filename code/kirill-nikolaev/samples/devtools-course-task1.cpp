@@ -1,30 +1,28 @@
-// devtools-course task 1.cpp : Defines the entry point for the console application.
-//
-#include "NumConverter.h"
-#include <iostream>
+// Copyright 2013 K.Nikolaev
+#include <numconverter.h>
+#include <cstdio>
 
-int main(int argc, char* argv[])
-{
-	std::cout << "This is a number converter application" << std::endl;
-	NumConverter a(hex, "1f");
-	std::cout << a.GetValue() << " in hex" << std::endl;
-	std::cout << "Is " << a.ToOctal() << " in oct" << std::endl;
-	std::cout << "Is " << a.ToDecimal() << " in dec" << std::endl;
-	std::cout << "Is " << a.ToBinary() << " in bin" << std::endl << std::endl;
-	NumConverter b(oct, "17");
-	std::cout << b.GetValue() << " in oct" << std::endl;
-	std::cout << "Is " << b.ToHex() << " in hex" << std::endl;
-	std::cout << "Is " << b.ToDecimal() << " in dec" << std::endl;
-	std::cout << "Is " << b.ToBinary() << " in bin" << std::endl << std::endl;
-	NumConverter c(dec, "199");
-	std::cout << c.GetValue() << " in dec" << std::endl;
-	std::cout << "Is " << c.ToHex() << " in hex" << std::endl;
-	std::cout << "Is " << c.ToOctal() << " in oct" << std::endl;
-	std::cout << "Is " << c.ToBinary() << " in bin" << std::endl << std::endl;
-	NumConverter d(bin, "11101011");
-	std::cout << d.GetValue() << " in bin" << std::endl;
-	std::cout << "Is " << d.ToHex() << " in hex" << std::endl;
-	std::cout << "Is " << d.ToOctal() << " in oct" << std::endl;
-	std::cout << "Is " << d.ToDecimal() << " in dec" << std::endl << std::endl;
-	return 0;
+int main(int argc, char* argv[]) {
+    printf("This is a number converter application\n");
+    NumConverter a(hex, "1f");
+    printf("%s in hex\n", a.GetValue().c_str());
+    printf("Is %s in oct\n", a.ToOctal().c_str());
+    printf("Is %s in dec\n", a.ToDecimal().c_str());
+    printf("Is %s in bin\n", a.ToBinary().c_str());
+    NumConverter b(oct, "17");
+    printf("%s in oct\n", b.GetValue().c_str());
+    printf("Is %s in hex\n", b.ToHex().c_str());
+    printf("Is %s in dec\n", b.ToDecimal().c_str());
+    printf("Is %s in bin\n", b.ToBinary().c_str());
+    NumConverter c(dec, "199");
+    printf("%s in dec\n", c.GetValue().c_str());
+    printf("Is %s in hex\n", c.ToHex().c_str());
+    printf("Is %s in oct\n", c.ToOctal().c_str());
+    printf("Is %s in bin\n", c.ToBinary().c_str());
+    NumConverter d(bin, "11101011");
+    printf("%s in bin\n", d.GetValue().c_str());
+    printf("Is %s in hex\n", d.ToHex().c_str());
+    printf("Is %s in oct\n", d.ToOctal().c_str());
+    printf("Is %s in dec\n", d.ToDecimal().c_str());
+    return 0;
 }
