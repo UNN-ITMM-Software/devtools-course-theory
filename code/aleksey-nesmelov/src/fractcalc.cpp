@@ -2,11 +2,17 @@
 #include <fractcalc.h>
 #include <stdlib.h>
 Fraction::Fraction(int _numenator, int _denominator) {
-    numenator = _numenator;
-    denominator = _denominator;
-    if (denominator < 0) {
-        numenator = -numenator;
-        denominator = abs(denominator);
+    try {
+        if (_denominator == 0) throw 0;
+        numenator = _numenator;
+        denominator = _denominator;
+        if (denominator < 0) {
+            numenator = -numenator;
+            denominator = abs(denominator);
+        }
+    }
+    catch (int i) {
+        printf("\nDenominator cannot be zero");
     }
 }
 Fraction::~Fraction() {}
@@ -71,11 +77,19 @@ Fraction Fraction::Multiply(Fraction a, Fraction b) {
     return res;
 }
 Fraction Fraction::Divide(Fraction a, Fraction b) {
-    Fraction res(a.numenator * b.denominator, a.denominator * b.numenator);
-    res.CutFraction();
-    if (res.denominator < 0) {
-        res.numenator = - res.numenator;
-        res.denominator = abs(res.denominator);
+    Fraction res(0, 1);
+    try {
+        if (b.numenator == 0) throw 0;
+        res.SetNumenator(a.numenator * b.denominator);
+        res.SetDenominator(a.denominator * b.numenator);
+        res.CutFraction();
+        if (res.denominator < 0) {
+            res.numenator = -res.numenator;
+            res.denominator = abs(res.denominator);
+        }
+    }
+    catch (int i) {
+        printf("\nDivisor cannot be zero");
     }
     return res;
 }
