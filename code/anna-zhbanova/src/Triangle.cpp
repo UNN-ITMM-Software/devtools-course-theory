@@ -57,17 +57,17 @@ bool Triangle::IsCorrect() {
     return true;
 }
 bool Triangle::IsEquilateral() {
-    int ab = (int)(10000 * AB());
-    int bc = (int)(10000 * BC());
-    int ac = (int)(10000 * AC());
+    int ab = static_cast<int>(10000 * AB());
+    int bc = static_cast<int>(10000 * BC());
+    int ac = static_cast<int>(10000 * AC());
     if (ab == bc || ab == ac || bc == ac)
         return true;
     return false;
 }
 bool Triangle::IsIsosceles() {
-    int ab = (int)(10000 * AB());
-    int bc = (int)(10000 * BC());
-    int ac = (int)(10000 * AC());
+    int ab = static_cast<int>(10000 * AB());
+    int bc = static_cast<int>(10000 * BC());
+    int ac = static_cast<int>(10000 * AC());
     if (ab == bc && ab == ac)
         return true;
     return false;
