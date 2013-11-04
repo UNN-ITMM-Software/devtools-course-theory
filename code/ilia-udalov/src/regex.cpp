@@ -1,33 +1,41 @@
-#include "regex.h"
+#include "../include/regex.hpp"
 
-int Regex:: isOk() {
-    size_t r = 0;
-    size_t t = 0;
-    if ((reg.size() > 0) && (reg[r] == '^')) {
-        return Matchhere(r + 1, t);
+int matchStar(int c, const std::string& regex, const std::string& text, size_t r, size_t t);
+int matchHere(const std::string& regex, const std::string& text, size_t r, size_t t);
+
+int match(const std::string& regex, const std::string& text) {
+    size_t r_pos = 0;
+    size_t t_pos = 0;
+    if ((regex.size() > 0) && (regex[r_pos] == '^')) {
+        return matchHere(regex, text, r_pos + 1, t_pos);
     }
     do {
-        if (Matchhere(r, t))
+        if (matchHere(regex, text, r_pos, t_pos))
             return 1;
-    } while (t++ != text.size());
-    return 0;
-
-int Regex::Matchhere(size_t r, size_t t) {
-    if (r == reg.size())
-        return 1;
-    if (reg[r + 1] == '*')
-        return Matchstar(reg[r], r + 2, t);
-    if (reg[r] == '$' && reg.size() == r)
-        return t == text.size();
-    if (t != text.size() && (reg[r] == '.' || reg[r] == text[t]))
-        return Matchhere(r + 1, t + 1);
+    } while (t_pos++ != text.size());
     return 0;
 }
 
-int Regex::Matchstar(int c, size_t r, size_t t) {
+int matchHere(const std::string& regex, const std::string& text, size_t r_pos, size_t t_pos) {
+    if (r_pos == regex.size())
+        return 1;
+    if (regex[r_pos + 1] == '*')
+        return matchStar(regex[r_pos], regex, text, r_pos + 2, t_pos);
+    if (regex[r_pos] == '$' && regex.size() == r_pos)
+        return t_pos == text.size();
+    if (t_pos != text.size() && (regex[r_pos] == '.' || regex[r_pos] == text[t_pos]))
+        return matchHere(regex, text, r_pos + 1, t_pos + 1);
+    return 0;
+}
+
+int matchStar(int c, const std::string& regex, const std::string& text, size_t r_pos, size_t t_pos) {
     do {
-        if (Matchhere(r, t))
+        if (matchHere(regex, text, r_pos, t_pos))
             return 1;
-    } while (t != text.size() && (text[t++] == c || c == '.'));
+    } while (t_pos != text.size() && (text[t_pos++] == c || c == '.'));
+    return 0;
+}
+
+int find(const std::string& substring, const std::string& text) {
     return 0;
 }
