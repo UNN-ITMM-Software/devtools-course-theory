@@ -4,10 +4,10 @@
 #include <Triangle.h>
 #include <math.h>
 
-Triangle::Triangle(PointXY a_, PointXY b_, PointXY c_) {
-    a = a_;
-    b = b_;
-    c = c_;
+Triangle::Triangle(PointXY a, PointXY b, PointXY c) {
+    this->a = a;
+    this->b = b;
+    this->c = c;
 }
 Triangle::~Triangle(void) {
 }
@@ -71,14 +71,14 @@ PointXY Triangle::GetC() {
     return c;
 }
 
-void Triangle::SetA(PointXY a_) {
-    a = a_;
+void Triangle::SetA(PointXY a) {
+    this->a = a;
 }
-void Triangle::SetB(PointXY b_) {
-    b = b_;
+void Triangle::SetB(PointXY b) {
+    this->b = b;
 }
-void Triangle::SetC(PointXY c_) {
-    c = c_;
+void Triangle::SetC(PointXY c) {
+    this->c = c;
 }
 
 float Triangle::Length(PointXY point1, PointXY point2) {
@@ -86,11 +86,11 @@ float Triangle::Length(PointXY point1, PointXY point2) {
         (point1.y - point2.y) * (point1.y - point2.y) );
 }
 
-float Triangle::Angle(PointXY end_p1, PointXY vertex_of_angle, PointXY end_p2) {
-    float side1 = Length(end_p1, vertex_of_angle);
-    float side2 = Length(end_p2, vertex_of_angle);
-    float side3 = Length(end_p1, end_p2);
+float Triangle::Angle(PointXY endP1, PointXY vertexOfAngle, PointXY endP2) {
+    float side1 = Length(endP1, vertexOfAngle);
+    float side2 = Length(endP2, vertexOfAngle);
+    float side3 = Length(endP1, endP2);
 
-    return 180 * acos((side1 * side1 + side2 * side2 - side3 * side3)
-                       /(2 * side1 * side2)) / M_PI;
+    return (float)(180 * acos((side1 * side1 + side2 * side2 - side3 * side3)
+                       /(2 * side1 * side2)) / M_PI);
 }
