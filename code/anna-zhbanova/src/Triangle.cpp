@@ -82,8 +82,8 @@ void Triangle::SetC(PointXY c_) {
 }
 
 float Triangle::Length(PointXY point1, PointXY point2) {
-    return static_cast <float>(sqrt ( (point1.x - point2.x) * (point1.x - point2.x) +
-        (point1.y - point2.y) * (point1.y - point2.y) ));
+    return static_cast <float>(sqrt ( (point1.x - point2.x) *
+        (point1.x - point2.x) + (point1.y - point2.y) * (point1.y - point2.y) ));
 }
 
 float Triangle::Angle(PointXY endP1, PointXY vertexOfAngle, PointXY endP2) {
