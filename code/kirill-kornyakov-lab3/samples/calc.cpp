@@ -1,9 +1,10 @@
-#include "simplecalc.hpp"
+// Copyright 2013 Kirill Kornyakov
 
-#include "stdio.h"
+#include <simplecalc.h>
 
-int main()
-{
+#include <stdio.h>
+
+int main() {
     printf("This is a simple calculator application!\n");
 
     SimpleCalculator calc;
