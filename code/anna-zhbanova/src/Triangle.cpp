@@ -90,7 +90,7 @@ float Triangle::Angle(PointXY endP1, PointXY vertexOfAngle, PointXY endP2) {
     float side1 = Length(endP1, vertexOfAngle);
     float side2 = Length(endP2, vertexOfAngle);
     float side3 = Length(endP1, endP2);
-    
+
     return static_cast <float>(180 * acos((side1 * side1 + side2 * side2
                               - side3 * side3)/(2 * side1 * side2)) / M_PI);
 }
