@@ -9,6 +9,11 @@ Triangle::Triangle(PointXY a_, PointXY b_, PointXY c_) {
     b = b_;
     c = c_;
 }
+Triangle::Triangle() {
+    a = 0;
+    b = 0;
+    c = 0;
+}
 Triangle::~Triangle(void) {
 }
 

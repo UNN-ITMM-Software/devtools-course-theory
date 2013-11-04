@@ -6,7 +6,8 @@
 
 class Triangle {
  public :
-    Triangle(PointXY a = 0, PointXY b = 0, PointXY c = 0);
+    Triangle(PointXY a, PointXY b, PointXY c);
+    Triangle();
     virtual ~Triangle(void);
 
     float AB();
