@@ -10,9 +10,9 @@ Triangle::Triangle(PointXY a_, PointXY b_, PointXY c_) {
     c = c_;
 }
 Triangle::Triangle() {
-    a = 0;
-    b = 0;
-    c = 0;
+    a = PointXY();
+    b = PointXY();
+    c = PointXY();
 }
 Triangle::~Triangle(void) {
 }
