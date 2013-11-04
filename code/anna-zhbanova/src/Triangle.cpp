@@ -1,8 +1,9 @@
 ﻿/* Copyright 2013 Anna Zhbanova */
 
-#define _USE_MATH_DEFINES
 #include <Triangle.h>
 #include <math.h>
+
+const float PI = 3.1415926535;
 
 Triangle::Triangle(PointXY a_, PointXY b_, PointXY c_) {
     a = a_;
@@ -56,12 +57,18 @@ bool Triangle::IsCorrect() {
     return true;
 }
 bool Triangle::IsEquilateral() {
-    if (AB() == BC() || AB() == AC() || BC() == AC())
+    int ab = (int)(10000 * AB());
+    int bc = (int)(10000 * BC());
+    int ac = (int)(10000 * AC());
+    if (ab == bc || ab == ac || bc == ac)
         return true;
     return false;
 }
 bool Triangle::IsIsosceles() {
-    if (AB() == BC() && AB() == AC())
+    int ab = (int)(10000 * AB());
+    int bc = (int)(10000 * BC());
+    int ac = (int)(10000 * AC());
+    if (ab == bc && ab == ac)
         return true;
     return false;
 }
@@ -98,5 +105,5 @@ float Triangle::Angle(PointXY endP1, PointXY vertexOfAngle, PointXY endP2) {
     float side3 = Length(endP1, endP2);
 
     return static_cast <float>(180 * acos((side1 * side1 + side2 * side2
-                              - side3 * side3)/(2 * side1 * side2)) / M_PI);
+                              - side3 * side3)/(2 * side1 * side2)) / PI);
 }
