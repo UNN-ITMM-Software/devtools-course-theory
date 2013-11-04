@@ -43,7 +43,7 @@ function CheckGoogleStyle {
 }
 
 # Go through all directories, check Google style and run 'make test'
-for dir in */; 
+for dir in */;
 do
     cd $dir
 
@@ -61,3 +61,11 @@ do
 
     cd ..
 done
+
+# Build common CMake project
+Header "Test common CMake project"
+
+cmake_build_dir="../build_cmake"
+mkdir $cmake_build_dir
+cd $cmake_build_dir
+try cmake ../code && make && make test
