@@ -3,17 +3,11 @@
 #include <Triangle.h>
 #include <math.h>
 
-const float PI = 3.1415926535;
+const double PI = 3.1415926535;
 
-Triangle::Triangle(PointXY a_, PointXY b_, PointXY c_) {
-    a = a_;
-    b = b_;
-    c = c_;
+Triangle::Triangle(PointXY a_, PointXY b_, PointXY c_): a(a_), b(b_), c(c_) {
 }
-Triangle::Triangle() {
-    a = PointXY();
-    b = PointXY();
-    c = PointXY();
+Triangle::Triangle(): a(PointXY()), b(PointXY()), c(PointXY()) {
 }
 Triangle::~Triangle(void) {
 }

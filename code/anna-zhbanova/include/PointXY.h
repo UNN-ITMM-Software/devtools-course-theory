@@ -6,13 +6,9 @@ struct PointXY {
     float x;
     float y;
 
-    PointXY() {
-        x = 0;
-        y = 0;
+    PointXY(): x(0), y(0) {
     }
-    PointXY(float x_, float y_) {
-        x = x_;
-        y = y_;
+    PointXY(float x_, float y_): x(x_), y(y_) {
     }
 };
 
