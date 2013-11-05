@@ -57,8 +57,9 @@ int Triangle::IsEquilateral() {
         int ac = static_cast<int>(10000 * AC());
         if (ab == bc || ab == ac || bc == ac)
             return 1;
-    } else
+    } else {
         return -1;
+    }
     return 0;
 }
 int Triangle::IsIsosceles() {
@@ -68,8 +69,9 @@ int Triangle::IsIsosceles() {
         int ac = static_cast<int>(10000 * AC());
         if (ab == bc && ab == ac)
             return 1;
-    } else
+    } else {
         return -1;
+    }
     return 0;
 }
 

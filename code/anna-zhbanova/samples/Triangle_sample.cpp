@@ -3,8 +3,6 @@
 
 #include <stdio.h>
 #include <cstdlib>
-#include <stdlib.h>
-#include <stdint.h>
 
 #pragma pack(push, 1)
 typedef struct {
@@ -28,7 +26,7 @@ Expression parseArguments(int argc, char** argv);
 
 void help(const char* appname) {
     printf("\n\nThis is an application ");
-	printf("that calculates the basic parameters of the triangle(ABC)\n\n");
+    printf("that calculates the basic parameters of the triangle(ABC)\n\n");
     printf("Please provide arguments in the following format:\n\n");
     printf("The fractional part is introduced through the point.");
     printf("  $ %s <x1> <y1> <operation>\n\n", appname);
@@ -130,7 +128,7 @@ int main(int argc, char** argv) {
     PointXY result;
     switch (expr.operation) {
     case 0:
-        triangle_obj.SetA(expr.parameter);	
+        triangle_obj.SetA(expr.parameter);
         result = triangle_obj.GetA();
         printf("Result A = (%.2f, %.2f)\n", result.x, result.y);
         break;
@@ -159,7 +157,7 @@ int main(int argc, char** argv) {
     case 6:
         if (triangle_obj.IsCorrect())
             printf("Result = Is correct\n");
-        else 
+        else
             printf("Result = Isn't correct\n");
         break;
     case 7:
