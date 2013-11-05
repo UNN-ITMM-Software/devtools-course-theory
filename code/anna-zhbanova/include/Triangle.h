@@ -2,7 +2,7 @@
 #ifndef CODE_ANNA_ZHBANOVA_INCLUDE_TRIANGLE_H_
 #define CODE_ANNA_ZHBANOVA_INCLUDE_TRIANGLE_H_
 
-#include <PointXY.h>
+#include "PointXY.h"
 
 class Triangle {
  public :
@@ -22,8 +22,8 @@ class Triangle {
     float Perimeter();
 
     bool IsCorrect();
-    bool IsEquilateral();
-    bool IsIsosceles();
+    int IsEquilateral();
+    int IsIsosceles();
 
     PointXY GetA();
     PointXY GetB();
