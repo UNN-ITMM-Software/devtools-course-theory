@@ -150,6 +150,11 @@ API (Application Programming Interface) - набор готовых классо
   1. Могут быть добавлены перегрузки функций, если функция уже была перегружена;
   1. etc
 
+# Бинарная совместимость 2
+
+Подход проекта KDE: http://techbase.kde.org/Policies/Binary_Compatibility_Issues_With_C++
+Инструмент проверки совместимости abi-compliance-checker
+
 # Совместимость на уровне исходного кода
 
   1. Может отличаться число параметров функции, если определены значения по умолчанию для новых параметров;
@@ -203,3 +208,4 @@ API (Application Programming Interface) - набор готовых классо
   1. Filemon: http://technet.microsoft.com/en-us/sysinternals/bb896642.aspx
   1. Regmon: http://technet.microsoft.com/en-us/sysinternals/bb896652.aspx
   1. DebugView: http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx
+  1. abi-compliance-checker http://ispras.linuxbase.org/index.php/ABI_compliance_checker
