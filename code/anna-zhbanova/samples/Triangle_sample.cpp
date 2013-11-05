@@ -14,10 +14,10 @@ typedef struct {
 } Expression;
 #pragma pack(pop)
 
-char* massOperations[17] = {"SetA", "SetB", "SetC", "GetA", "GetB", "GetC",
-                           "IsCorrect", "IsEquilateral", "IsIsosceles",
-                           "AB", "BC", "AC", "AngleA", "AngleB", "AngleC",
-                           "Square", "Perimeter"};
+const char* massOperations[17] = {"SetA", "SetB", "SetC", "GetA", "GetB",
+                                 "GetC", "IsCorrect", "IsEquilateral",
+                                 "IsIsosceles", "AB", "BC", "AC", "AngleA",
+                                 "AngleB", "AngleC", "Square", "Perimeter"};
 
 void help(const char* appname);
 float parseFloat(const char* arg);
@@ -43,7 +43,7 @@ void help(const char* appname) {
 
 float parseFloat(const char* arg) {
     char* end;
-    float value = strtod(arg, &end);
+    float value = static_cast<float>(strtod(arg, &end));
 
     if (!end[0]) {
         printf("%s is valid\n", arg);
