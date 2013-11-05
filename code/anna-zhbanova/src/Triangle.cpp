@@ -1,6 +1,6 @@
 ﻿/* Copyright 2013 Anna Zhbanova */
 
-#include "Triangle.h"
+#include <Triangle.h>
 #include <math.h>
 
 const double PI = 3.1415926535;
@@ -51,27 +51,25 @@ bool Triangle::IsCorrect() {
     return true;
 }
 int Triangle::IsEquilateral() {
-	if ( IsCorrect() ) {
-		int ab = static_cast<int>(10000 * AB());
-		int bc = static_cast<int>(10000 * BC());
-		int ac = static_cast<int>(10000 * AC());
-		if (ab == bc || ab == ac || bc == ac)
-			return 1;
-	}
-	else
-		return -1;
+    if ( IsCorrect() ) {
+        int ab = static_cast<int>(10000 * AB());
+        int bc = static_cast<int>(10000 * BC());
+        int ac = static_cast<int>(10000 * AC());
+        if (ab == bc || ab == ac || bc == ac)
+            return 1;
+    } else
+        return -1;
     return 0;
 }
 int Triangle::IsIsosceles() {
-	if ( IsCorrect() ) {
-		int ab = static_cast<int>(10000 * AB());
-		int bc = static_cast<int>(10000 * BC());
-		int ac = static_cast<int>(10000 * AC());
-		if (ab == bc && ab == ac)
-			return 1;
-	}
-	else
-		return -1;
+    if ( IsCorrect() ) {
+        int ab = static_cast<int>(10000 * AB());
+        int bc = static_cast<int>(10000 * BC());
+        int ac = static_cast<int>(10000 * AC());
+        if (ab == bc && ab == ac)
+            return 1;
+    } else
+        return -1;
     return 0;
 }
 

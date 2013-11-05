@@ -1,11 +1,9 @@
 ﻿/* Copyright 2013 Anna Zhbanova */
-#include "Triangle.h"
+#include <Triangle.h>
 
 #include <stdio.h>
 #include <cstdlib>
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <stdint.h>
 
 #pragma pack(push, 1)
@@ -18,10 +16,10 @@ typedef struct {
 } Expression;
 #pragma pack(pop)
 
-char* massOperations[17] = {"SetA","SetB","SetC","GetA","GetB","GetC",
-                           "IsCorrect","IsEquilateral","IsIsosceles",
-                           "AB","BC","AC","AngleA","AngleB","AngleC",
-                           "Square","Perimeter"};
+char* massOperations[17] = {"SetA", "SetB", "SetC", "GetA", "GetB", "GetC",
+                           "IsCorrect", "IsEquilateral", "IsIsosceles",
+                           "AB", "BC", "AC", "AngleA", "AngleB", "AngleC",
+                           "Square", "Perimeter"};
 
 void help(const char* appname);
 float parseFloat(const char* arg);
@@ -29,18 +27,19 @@ int parseInteger(const char* arg);
 Expression parseArguments(int argc, char** argv);
 
 void help(const char* appname) {
-    printf("\n\nThis is an application that calculates the basic parameters of the triangle(ABC)\n\n");
+    printf("\n\nThis is an application ");
+	printf("that calculates the basic parameters of the triangle(ABC)\n\n");
     printf("Please provide arguments in the following format:\n\n");
     printf("The fractional part is introduced through the point.");
     printf("  $ %s <x1> <y1> <operation>\n\n", appname);
     printf("Where both arguments are float numbers, ");
     printf("and <operation> is one of\n");
-    for (int i = 0; i<3; i++)
+    for (int i = 0; i < 3; i++)
         printf("<%d>%s\n", i, massOperations[i]);
     printf("\n  $ %s <x1> <y1> <x2> <y2> <x3> <y3> <operation>\n\n", appname);
     printf("Where all arguments are float numbers, ");
     printf("and <operation> is one of\n");
-    for (int i = 3; i<17; i++)
+    for (int i = 3; i < 17; i++)
         printf("<%d>%s\n", i, massOperations[i]);
 }
 
@@ -82,7 +81,7 @@ Expression parseArguments(int argc, char** argv) {
     }
 
     Expression expression;
-    if(argc == 8) {
+    if (argc == 8) {
         try {
             expression.A.x = parseFloat(argv[1]);
             expression.A.y = parseFloat(argv[2]);
@@ -103,7 +102,7 @@ Expression parseArguments(int argc, char** argv) {
         } else {
             printf("%s is valid operation\n", argv[7]);
         }
-    } else if(argc == 4) {
+    } else if (argc == 4) {
         try {
             expression.parameter.x = parseFloat(argv[1]);
             expression.parameter.y = parseFloat(argv[2]);
@@ -126,12 +125,10 @@ Expression parseArguments(int argc, char** argv) {
 }
 
 int main(int argc, char** argv) {
-
     Expression expr = parseArguments(argc, argv);
-
     Triangle triangle_obj(expr.A, expr.B, expr.C);
     PointXY result;
-    switch (expr.operation) {	
+    switch (expr.operation) {
     case 0:
         triangle_obj.SetA(expr.parameter);	
         result = triangle_obj.GetA();
@@ -165,10 +162,10 @@ int main(int argc, char** argv) {
         else 
             printf("Result = Isn't correct\n");
         break;
-    case 7:		 
+    case 7:
         if (triangle_obj.IsEquilateral() == 1)
             printf("Result = Is equilateral\n");
-        else if(triangle_obj.IsEquilateral() == -1)
+        else if (triangle_obj.IsEquilateral() == -1)
             printf("Result = Isn't correct triangle\n");
         else
             printf("Result = Isn't equilateral\n");
@@ -176,7 +173,7 @@ int main(int argc, char** argv) {
     case 8:
         if (triangle_obj.IsIsosceles() == 1)
             printf("Result = Is isosceles\n");
-        else if(triangle_obj.IsIsosceles() == -1)
+        else if (triangle_obj.IsIsosceles() == -1)
             printf("Result = Isn't correct triangle\n");
         else
             printf("Result = Isn't isosceles\n");
