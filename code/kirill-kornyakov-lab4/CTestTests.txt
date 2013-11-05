@@ -1,0 +1,75 @@
+#############################################
+##### Testing
+#############################################
+
+enable_testing()
+
+add_test( 
+    NAME can_Run
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+
+add_test( 
+    NAME can_Print_Help_Without_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+set_tests_properties (can_Print_Help_Without_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "This is a simple calculator.")
+
+add_test(
+    NAME can_Check_Number_Of_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 2
+)
+set_tests_properties (can_Check_Number_Of_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be 3 arguments.")
+
+add_test(
+    NAME can_Detect_Wrong_Number_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 pi +
+)
+set_tests_properties (can_Detect_Wrong_Number_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
+
+add_test(
+    NAME can_Detect_Wrong_Operation_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 1 +trash
+)
+set_tests_properties (can_Detect_Wrong_Operation_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong operation!")
+
+add_test(
+    NAME can_Add_Positive_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 2 3 +
+)
+set_tests_properties (can_Add_Positive_Numbers 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 5")
+
+add_test(
+    NAME can_Sub_Positive_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 20 30 -
+)
+set_tests_properties (can_Sub_Positive_Numbers 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = -10")
+
+add_test(
+    NAME can_Add_Negative_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -20 -30 +
+)
+set_tests_properties (can_Add_Negative_Numbers 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = -50")
+
+add_test(
+    NAME can_Sub_Large_Negative_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -200000 -3000000 -
+)
+set_tests_properties (can_Sub_Large_Negative_Numbers 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 2800000")

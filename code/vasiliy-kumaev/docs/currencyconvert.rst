@@ -5,19 +5,20 @@
 
 .. code-block:: cpp
 
-    #pragma once
     enum Unit {Dollar, Euro, Ruble, Pound};
+
     struct Currency
     {
         Unit unit;
         double value;
     };
+
     class CurrencyConvert
     {
     public:
         CurrencyConvert(void);
         virtual ~CurrencyConvert(void);
-        Currency ConvertCurrency(Currency currency, Unit UnitOutput);
+        static Currency ConvertCurrency(Currency currency, Unit UnitOutput);
     };
 
 Примером использования класса в пользовательском C++ коде может служить нижеследующий код:

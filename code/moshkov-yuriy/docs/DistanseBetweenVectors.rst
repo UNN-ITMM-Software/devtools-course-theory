@@ -6,12 +6,14 @@
 
 .. code-block:: cpp
 
- enum TypeMetric{L1, L2, L3, L4, LInfinity};
+ #include <math.h>
+
+ enum TypeMetric{L1 = 1, L2, L3, L4, LInfinity};
 
  class DistanseBetweenVectors
  {
  public:
-	 static float CalculateDistance(float *vector1, float *vector2, TypeMetric typeMetric, int sizeVector = 0);
+	 static float CalculateDistance(float *vector1, float *vector2, TypeMetric typeMetric, int sizeVector);
  };
 	
 Пример использования:
@@ -19,6 +21,7 @@
 
 .. code-block:: cpp
 
- float vector1[2] = {1, 0};
- float vector2[2] = {2, 1};
- float distance = DistanseBetweenVectors::CalculateDistance(vector1, vector2, L2);
+ const int sizeVector = 2;
+ float vector1[sizeVector] = {1, 0};
+ float vector2[sizeVector] = {2, 1};
+ float distance = DistanseBetweenVectors::CalculateDistance(vector1, vector2, L2, sizeVector);

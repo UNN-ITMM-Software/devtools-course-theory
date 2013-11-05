@@ -1,14 +1,19 @@
-#pragma once
+/* Copyright 2013 Aleksey Kostrov */
 
-enum INPUT_TYPE { RANDOM, MANUAL };
-class Dichotomy_Search
-{
-public:
-	Dichotomy_Search();
-	Dichotomy_Search(INPUT_TYPE Type, int Array_Size, int Search_Element);
-	virtual ~Dichotomy_Search();
-    int Sort_Search();
-private:
-	int ** Array, Array_Size, Search_Element;
+#ifndef CODE_ALEKSEY_KOSTROV_INCLUDE_DICHOTOMY_SEARCH_H_
+#define CODE_ALEKSEY_KOSTROV_INCLUDE_DICHOTOMY_SEARCH_H_
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+class DichotomySearch {
+ public:
+    DichotomySearch();
+    ~DichotomySearch();
+    int **Preprocess(int *array, int size);
+    int Search(int *array, int element, int size);
 };
+
+#endif  // CODE_ALEKSEY_KOSTROV_INCLUDE_DICHOTOMY_SEARCH_H_
 
