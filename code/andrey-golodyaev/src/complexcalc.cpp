@@ -31,7 +31,7 @@ void ComplexCalculator::Input(char *str) {
     int qr = 1, qi = 1;
     if (s[0] != '+' && s[0] != '-') s = "+"+s;
     n = s.find('i');
-    if (n != -1) {
+    if (n > 0) {
         while (s[n-ii] != '+' && s[n-ii] != '-') {
             i = s[n-ii]+i;
             ii++;
