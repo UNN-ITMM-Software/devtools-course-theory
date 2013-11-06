@@ -48,11 +48,11 @@ set_tests_properties (can_Calc_Expected_Value_and_Dispersion
   PROPERTIES PASS_REGULAR_EXPRESSION "Dispersion:  0.25")
 
 add_test( 
-    NAME can_Detect_Wrong_Probabilitys
+    NAME can_Detect_Wrong_Probabilities
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 1 0.5 2 0.25
 )
-set_tests_properties (can_Detect_Wrong_Probabilitys
+set_tests_properties (can_Detect_Wrong_Probabilities
   PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Wrong sample!")
 
 add_test( 
