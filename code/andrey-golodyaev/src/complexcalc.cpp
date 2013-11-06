@@ -68,16 +68,18 @@ void ComplexCalculator::Input(char *str) {
 }
 void ComplexCalculator::Output(char *str) {
     std::string str1 = "";
-    if (real != 0) {
+	double ep = 0.00001;
+	double ep2 = 1.0000;
+    if (real > ep || real < ep) {
         std::ostringstream ss;
         ss << real;
         str1 = ss.str();
     }
-    if (imaginary != 0) {
+    if (imaginary > ep || imaginary < ep) {
         if (imaginary < 0) str1+='-';
         else
-            if (real != 0) str1+='+';
-        if (imaginary != 1) {
+            if (real > ep || real < ep) str1+='+';
+        if (imaginary > ep2 || imaginary < ep2) {
             std::ostringstream sss;
             if (imaginary > 0)
                 sss << (imaginary);
@@ -88,7 +90,8 @@ void ComplexCalculator::Output(char *str) {
         }
         str1+="i";
     }
-    if (real == 0 && imaginary == 0) str1 = "0";
+    if (real < ep && real > -ep &&
+        imaginary < ep && imaginary > -ep) str1 = "0";
     strncpy(str, (str1.c_str()), str1.length());
 }
 ComplexCalculator ComplexCalculator::Add(ComplexCalculator first,
