@@ -14,6 +14,8 @@ typedef struct {
 } Expression;
 #pragma pack(pop)
 
+extern const char* massOperations[17];
+
 const char* massOperations[17] = {"SetA", "SetB", "SetC", "GetA", "GetB",
                                  "GetC", "IsCorrect", "IsEquilateral",
                                  "IsIsosceles", "AB", "BC", "AC", "AngleA",
@@ -57,7 +59,7 @@ float parseFloat(const char* arg) {
 
 int parseInteger(const char* arg) {
     char* end;
-    int value = strtol(arg, &end, 10);
+    int value = static_cast<int>(strtol(arg, &end, 10));
 
     if (!end[0]) {
     } else {
