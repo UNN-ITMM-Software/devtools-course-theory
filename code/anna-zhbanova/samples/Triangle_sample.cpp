@@ -5,7 +5,7 @@
 #include <cstdlib>
 
 #pragma pack(push, 1)
-typedef struct {
+typedef struct Expression {
     PointXY A;
     PointXY B;
     PointXY C;
@@ -13,7 +13,7 @@ typedef struct {
     int operation;
     Expression(): A(PointXY()), B(PointXY()), C(PointXY()) {
     }
-} Expression;
+};
 #pragma pack(pop)
 
 extern const char* massOperations[17];
