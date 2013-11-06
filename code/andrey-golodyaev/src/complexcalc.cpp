@@ -5,7 +5,9 @@
 #include <stdio.h>
 #include <string>
 #include <sstream>
-ComplexCalculator::ComplexCalculator(double _real, double _imaginary): real(_real), imaginary(_imaginary) {
+ComplexCalculator::ComplexCalculator(double _real,
+                                     double _imaginary): real(_real),
+                                     imaginary(_imaginary) {
 }
 ComplexCalculator::~ComplexCalculator() {
 }
