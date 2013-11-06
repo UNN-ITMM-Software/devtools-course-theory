@@ -97,13 +97,19 @@ Expression parseArguments(int argc, char** argv) {
             printf("Wrong number format!\n");
             exit(2);
         }
-        expression.operation = parseInteger(argv[7]);
-        if ((expression.operation > 16) ||
-            (expression.operation < 0)) {
-            printf("%s - Wrong operation!\n", argv[7]);
+        try {
+            expression.operation = parseInteger(argv[7]);
+            if ((expression.operation > 16) ||
+                (expression.operation < 0)) {
+                printf("%s - Wrong operation!\n", argv[7]);
+                exit(3);
+            } else {
+                printf("%s is valid operation\n", argv[7]);
+            }
+        }
+        catch(...) {
+            printf("Wrong operation format!\n");
             exit(3);
-        } else {
-            printf("%s is valid operation\n", argv[7]);
         }
     } else if (argc == 4) {
         try {
@@ -115,13 +121,19 @@ Expression parseArguments(int argc, char** argv) {
             exit(2);
         }
 
-        expression.operation = parseInteger(argv[3]);
-        if ((expression.operation >= 3) ||
-            (expression.operation < 0)) {
-            printf("%s - Wrong operation!\n", argv[3]);
+        try {
+            expression.operation = parseInteger(argv[3]);
+            if ((expression.operation > 3) ||
+                (expression.operation < 0)) {
+                printf("%s - Wrong operation!\n", argv[3]);
+                exit(3);
+            } else {
+                printf("%s is valid operation\n", argv[3]);
+            }
+        }
+        catch(...) {
+            printf("Wrong operation format!\n");
             exit(3);
-        } else {
-            printf("%s is valid operation\n", argv[3]);
         }
     }
     return expression;
