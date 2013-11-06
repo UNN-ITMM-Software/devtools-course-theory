@@ -8,7 +8,7 @@
 #include "../include/mathquancalc.h"
 // #include "mathquancalc.h"
 
-void HelpExeption(char* appName) {
+static void HelpExeption(char* appName) {
     printf("This is a math quantities calculator application.\n\n");
     printf("Please provide arguments in the following format:\n\n");
     printf("  $ %s <value_1> <probability_1> <value_2> <probability2_>"
@@ -16,7 +16,7 @@ void HelpExeption(char* appName) {
     printf("Where both arguments are double numbers.\n");
 }
 
-void PrintSample(std::vector<MathQuanCalc::Event> sample) {
+static void PrintSample(std::vector<MathQuanCalc::Event> sample) {
     printf("\n%s", "Values:    ");
     for (unsigned int i = 0; i < sample.size(); i++) {
         printf("%5.2f ", sample[i].value);
@@ -27,7 +27,7 @@ void PrintSample(std::vector<MathQuanCalc::Event> sample) {
     }
 }
 
-void MakeCalc(MathQuanCalc* mqCalc,
+static void MakeCalc(MathQuanCalc* mqCalc,
     const std::vector<MathQuanCalc::Event>& sample) {
     try {
         mqCalc->PutSample(sample);
@@ -53,7 +53,7 @@ void MakeCalc(MathQuanCalc* mqCalc,
     }
 }
 
-double ParseDouble(const char* arg) {
+static double ParseDouble(const char* arg) {
     char* end;
     double value = strtof(arg, &end);
 
