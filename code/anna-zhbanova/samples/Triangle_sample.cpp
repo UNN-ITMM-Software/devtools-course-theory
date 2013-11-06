@@ -11,7 +11,8 @@ struct Expression {
     PointXY C;
     PointXY parameter;
     int operation;
-    Expression(): A(PointXY()), B(PointXY()), C(PointXY()) {
+    Expression(): A(PointXY()), B(PointXY()), C(PointXY()),
+                  parameter(PointXY()), operation(0) {
     }
 };
 #pragma pack(pop)
