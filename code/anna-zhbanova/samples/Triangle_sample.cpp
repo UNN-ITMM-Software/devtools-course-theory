@@ -11,6 +11,8 @@ typedef struct {
     PointXY C;
     PointXY parameter;
     int operation;
+    Expression(): A(PointXY()), B(PointXY()), C(PointXY()) {
+    }
 } Expression;
 #pragma pack(pop)
 
