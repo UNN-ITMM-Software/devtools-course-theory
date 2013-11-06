@@ -5,7 +5,7 @@
 #include <cstdlib>
 
 #pragma pack(push, 1)
-typedef struct Expression {
+struct Expression {
     PointXY A;
     PointXY B;
     PointXY C;
