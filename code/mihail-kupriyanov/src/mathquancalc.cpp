@@ -31,7 +31,7 @@ void MathQuanCalc::PutSample(const std::vector<Event>& in_sample) {
         for (unsigned int j = 0; j < in_sample.size(); j++) {
             if (j == i)
                 continue;
-            if (in_sample[j].value == in_sample[i].value)
+            if (fabs(in_sample[j].value - in_sample[i].value) < ACC_VAL)
                 throw std::string(EXCEPTION_MESSAGE);
         }
     }
