@@ -5,9 +5,7 @@
 #include <stdio.h>
 #include <string>
 #include <sstream>
-ComplexCalculator::ComplexCalculator(double _real, double _imaginary) {
-    real = _real;
-    imaginary = _imaginary;
+ComplexCalculator::ComplexCalculator(double _real, double _imaginary): real(_real), imaginary(_imaginary) {
 }
 ComplexCalculator::~ComplexCalculator() {
 }
@@ -26,8 +24,8 @@ void ComplexCalculator::SetImaginary(double _imaginary) {
 void ComplexCalculator::Input(char *str) {
     std::string s = str;
     std::string i = "";
-    int n = 1;
-    int ii = 0;
+    std::basic_string<char>::size_type n = 1;
+    std::basic_string<char>::size_type ii = 0;
     int qr = 1, qi = 1;
     if (s[0] != '+' && s[0] != '-') s = "+"+s;
     n = s.find('i');
@@ -46,7 +44,7 @@ void ComplexCalculator::Input(char *str) {
         i.erase(i.find('i'), 1);
         s.erase(s.find(i), i.length());
         i.erase(i.find('i'), 1);
-        if (i.find('*') != -1) i.erase(i.find('*'), 1);
+        if (i.find('*') > 0) i.erase(i.find('*'), 1);
         if (i == "") imaginary = 1;
         else
             imaginary = atof(i.c_str());
