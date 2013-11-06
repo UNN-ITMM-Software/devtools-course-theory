@@ -8,9 +8,8 @@
 #include "../include/mathquancalc.h"
 // #include "mathquancalc.h"
 
-const std::string EXCEPTION_MESSAGE("ERROR: Wrong sample!");
-// const char[] EXCEPTION_MESSAGE = "ERROR: Wrong sample!";
-const double ACC_VAL = 1.0E-10;
+static const char* EXCEPTION_MESSAGE = "ERROR: Wrong sample!";
+static const double ACC_VAL = 1.0E-10;
 
 MathQuanCalc::MathQuanCalc() : sample() {
 }
