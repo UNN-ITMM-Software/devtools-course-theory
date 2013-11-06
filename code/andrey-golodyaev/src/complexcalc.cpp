@@ -68,8 +68,8 @@ void ComplexCalculator::Input(char *str) {
 }
 void ComplexCalculator::Output(char *str) {
     std::string str1 = "";
-	double ep = 0.00001;
-	double ep2 = 1.0000;
+    double ep = 0.00001;
+    double ep2 = 1.0000;
     if (real > ep || real < ep) {
         std::ostringstream ss;
         ss << real;
