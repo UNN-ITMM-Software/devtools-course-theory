@@ -4,11 +4,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+#pragma pack(push, 1)
 typedef struct {
     ComplexCalculator arg1;
     ComplexCalculator arg2;
     char operation;
 } Expression;
+#pragma pack(pop)
+
+void help(const char* appname);
+Expression parseArguments(int argc, char** argv);
 
 void help(const char* appname) {
     printf("This is a calculator of complex numbers.\n\n");
