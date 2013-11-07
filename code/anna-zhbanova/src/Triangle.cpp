@@ -34,8 +34,7 @@ float Triangle::AngleC() {
 
 float Triangle::Square() {
     float s = -1;
-    if ( IsCorrect() )
-    {
+    if ( IsCorrect() ) {
         float side1 = Length(a, b);
         float side2 = Length(a, c);
         float side3 = Length(b, c);
