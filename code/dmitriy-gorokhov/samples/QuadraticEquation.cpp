@@ -72,7 +72,7 @@ int main(int argc, char** argv) {
     int returnCode;
     returnCode = Sample.Solve(&r1, &r2);
     if (returnCode == NOREALROOT) {
-        printf("No real root\n");
+        printf("No real roots\n");
     } else {
         printf("Root1 = %.3f, Root2 = %.3f\n", r1, r2);
     }
