@@ -29,3 +29,4 @@ add_app(${appname} "samples")
 ##### Testing
 #############################################
 
+include("CTestTests.txt")
