@@ -24,3 +24,9 @@ add_lib_static(${libname} "src")
 # Declare application
 add_local_dependency(${libname})
 add_app(${appname} "samples")
+
+#############################################
+##### Testing
+#############################################
+
+include("CTestTests.txt")

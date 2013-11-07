@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <string>
 #include <sstream>
+ComplexCalculator::ComplexCalculator(): real(0), imaginary(0) {
+}
 ComplexCalculator::ComplexCalculator(double _real,
                                      double _imaginary): real(_real),
                                      imaginary(_imaginary) {
@@ -28,6 +30,17 @@ void ComplexCalculator::Input(char *str) {
     std::string i = "";
     std::basic_string<char>::size_type n = 1;
     std::basic_string<char>::size_type ii = 0;
+    int sh = 0;
+    int si = 0;
+    for (std::basic_string<char>::size_type i = 0; i < s.length(); i++) {
+        if (s[i] == 'i') si++;
+        if (s[i] == '*' || s[i] == '/') sh++;
+        if (si > 1 || sh > 1 || (s[i] < '0' || s[i] > '9') && s[i] != 'i'
+            && s[i] != '+' && s[i] != '-' && s[i] != '*' && s[i] != '/') {
+            printf("%s - Wrong number format!\n", str);
+            exit(2);
+        }
+    }
     int qr = 1, qi = 1;
     if (s[0] != '+' && s[0] != '-') s = "+"+s;
     n = s.find('i');
@@ -49,7 +62,13 @@ void ComplexCalculator::Input(char *str) {
         if (i.find('*') > 0) i.erase(i.find('*'), 1);
         if (i == "") imaginary = 1;
         else
-            imaginary = atof(i.c_str());
+            try {
+                imaginary = atof(i.c_str());
+            }
+            catch (...) {
+                printf("Wrong number format!\n", str);
+                exit(2);
+            }
         imaginary*=qi;
     } else {
         imaginary = 0;
@@ -63,7 +82,12 @@ void ComplexCalculator::Input(char *str) {
     }
     if (s == "") real = 0;
     else
-        real = atof(s.c_str());
+        try {
+            real = atof(s.c_str());
+        }
+        catch (...) {
+                printf("Wrong number format!\n");
+        }
     real*=qr;
 }
 void ComplexCalculator::Output(char *str) {
@@ -120,6 +144,15 @@ ComplexCalculator ComplexCalculator::Multi(ComplexCalculator first,
 ComplexCalculator ComplexCalculator::Div(ComplexCalculator first,
                                          ComplexCalculator second) {
     ComplexCalculator temp(0, 0);
+    double ep = 0.00001;
+    if(second.GetReal()*second.GetReal()
+       +second.GetImaginary()*second.GetImaginary() < ep &&
+       second.GetReal()*second.GetReal()
+       +second.GetImaginary()*second.GetImaginary() > -ep)
+    {
+    printf("Division by zero!\n");
+    exit(4);
+    }
     temp.real = (first.GetReal()*second.GetReal()
                 +first.GetImaginary()*second.GetImaginary())/
                 (second.GetReal()*second.GetReal()
