@@ -33,7 +33,7 @@ void ComplexCalculator::Input(char *str) {
     int sh = 0;
     int si = 0;
     for (std::basic_string<char>::size_type iii = 0;
-         iii < s.length(); iii+) {
+         iii < s.length(); iii++) {
         if (s[iii] == 'i') si++;
         if (s[iii] == '*' || s[iii] == '/') sh++;
         if (si > 1 || sh > 1 || (s[iii] < '0' || s[iii] > '9')
