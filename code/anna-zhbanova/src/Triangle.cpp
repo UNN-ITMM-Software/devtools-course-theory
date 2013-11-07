@@ -35,7 +35,16 @@ float Triangle::AngleC() {
 float Triangle::Square() {
     float s = -1;
     if ( IsCorrect() )
-        s = static_cast <float>(AB() * AC() * sin(AngleA()) / 2);
+    {
+        float side1 = Length(a, b);
+        float side2 = Length(a, c);
+        float side3 = Length(b, c);
+
+        float sinA = static_cast<float>(sqrt(1 - ((side1 * side1 + side2 * side2
+           - side3 * side3)/(2 * side1 * side2))*((side1 * side1 + side2 * side2
+           - side3 * side3)/(2 * side1 * side2))));
+        s = side1 * side2 * sinA / 2;
+    }
     return s;
 }
 float Triangle::Perimeter() {

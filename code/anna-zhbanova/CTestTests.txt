@@ -246,6 +246,13 @@ add_test(
 set_tests_properties (can_Calculate_Angle_C
   PROPERTIES PASS_REGULAR_EXPRESSION "Result Angle C = 45\\.00")
 
+add_test(
+    NAME can_Calculate_Square
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0 6 3 0 0 0 15 
+)
+set_tests_properties (can_Calculate_Square
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result square = 9\\.00")
 
 add_test(
     NAME can_Calculate_Perimeter
@@ -254,3 +261,4 @@ add_test(
 )
 set_tests_properties (can_Calculate_Perimeter
   PROPERTIES PASS_REGULAR_EXPRESSION "Result perimeter = 12\\.00")
+

@@ -209,7 +209,7 @@ int main(int argc, char** argv) {
         printf("Result Angle B = %.2f\n", triangle_obj.AngleB());
         break;
     case 14:
-        printf("Result Angle C= %.2f\n", triangle_obj.AngleC());
+        printf("Result Angle C = %.2f\n", triangle_obj.AngleC());
         break;
     case 15:
         printf("Result square = %.2f\n", triangle_obj.Square());
