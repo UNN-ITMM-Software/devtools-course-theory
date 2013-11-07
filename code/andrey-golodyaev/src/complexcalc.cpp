@@ -32,12 +32,12 @@ void ComplexCalculator::Input(char *str) {
     std::basic_string<char>::size_type ii = 0;
     int sh = 0;
     int si = 0;
-    for (std::basic_string<char>::size_type i = 0; i < s.length(); i++) {
-        if (s[i] == 'i') si++;
-        if (s[i] == '*' || s[i] == '/') sh++;
-        if (si > 1 || sh > 1 || (s[i] < '0' || s[i] > '9') && s[i] != 'i'
-            && s[i] != '+' && s[i] != '-' && s[i] != '*' && s[i] != '/') {
-            printf("%s - Wrong number format!\n", str);
+    for (std::basic_string<char>::size_type ii = 0; ii < s.length(); ii++) {
+        if (s[ii] == 'i') si++;
+        if (s[ii] == '*' || s[ii] == '/') sh++;
+        if (si > 1 || sh > 1 || (s[ii] < '0' || s[ii] > '9') && s[ii] != 'i'
+            && s[ii] != '+' && s[ii] != '-' && s[ii] != '*' && s[ii] != '/') {
+            printf("Wrong number format!\n");
             exit(2);
         }
     }
@@ -66,7 +66,7 @@ void ComplexCalculator::Input(char *str) {
                 imaginary = atof(i.c_str());
             }
             catch(...) {
-                printf("Wrong number format!\n", str);
+                printf("Wrong number format!\n");
                 exit(2);
             }
         imaginary*=qi;
