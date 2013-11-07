@@ -5,7 +5,7 @@
 #include <string.h>
 
 #pragma pack(push, 1)
-typedef struct Exp{
+typedef struct Exp {
     ComplexCalculator arg1;
     ComplexCalculator arg2;
     char operation;
