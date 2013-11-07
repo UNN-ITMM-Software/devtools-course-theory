@@ -41,7 +41,7 @@ Expression parseArguments(int argc, char** argv) {
         expression.operation != '-' &&
         expression.operation != '*' &&
         expression.operation != '/')) {
-        printf("%s - Wrong operation!\n", argv[3]);
+        printf("Wrong operation!\n");
         exit(3);
     }
     return expression;
@@ -59,22 +59,26 @@ int main(int argc, char** argv) {
     case '+' :
     c = ComplexCalculator::Add(a, b);
     c.Output(str);
-    printf("A+B=%s\n", str);
+    printf("A+B=");
+    puts(str);
     break;
     case '-' :
     c = ComplexCalculator::Sub(a, b);
     c.Output(str);
-    printf("A-B=%s\n", str);
+    printf("A-B=");
+    puts(str);
     break;
     case '*' :
     c = ComplexCalculator::Multi(a, b);
     c.Output(str);
-    printf("A*B=%s\n", str);
+    printf("A*B=");
+    puts(str);
     break;
     case '/' :
     c = ComplexCalculator::Div(a, b);
     c.Output(str);
-    printf("A/B=%s\n", str);
+    printf("A/B=");
+    puts(str);
     break;
     }
     return 0;
