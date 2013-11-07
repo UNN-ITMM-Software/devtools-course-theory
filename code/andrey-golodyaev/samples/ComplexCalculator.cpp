@@ -5,10 +5,12 @@
 #include <string.h>
 
 #pragma pack(push, 1)
-typedef struct {
+typedef struct Exp{
     ComplexCalculator arg1;
     ComplexCalculator arg2;
     char operation;
+    Exp(): arg1(), arg2(), operation('+') {
+    }
 } Expression;
 #pragma pack(pop)
 
