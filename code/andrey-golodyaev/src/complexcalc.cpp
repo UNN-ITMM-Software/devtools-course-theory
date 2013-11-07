@@ -65,7 +65,7 @@ void ComplexCalculator::Input(char *str) {
             try {
                 imaginary = atof(i.c_str());
             }
-            catch (...) {
+            catch(...) {
                 printf("Wrong number format!\n", str);
                 exit(2);
             }
@@ -85,7 +85,7 @@ void ComplexCalculator::Input(char *str) {
         try {
             real = atof(s.c_str());
         }
-        catch (...) {
+        catch(...) {
                 printf("Wrong number format!\n");
         }
     real*=qr;
@@ -145,11 +145,10 @@ ComplexCalculator ComplexCalculator::Div(ComplexCalculator first,
                                          ComplexCalculator second) {
     ComplexCalculator temp(0, 0);
     double ep = 0.00001;
-    if(second.GetReal()*second.GetReal()
+    if (second.GetReal()*second.GetReal()
        +second.GetImaginary()*second.GetImaginary() < ep &&
        second.GetReal()*second.GetReal()
-       +second.GetImaginary()*second.GetImaginary() > -ep)
-    {
+       +second.GetImaginary()*second.GetImaginary() > -ep) {
     printf("Division by zero!\n");
     exit(4);
     }

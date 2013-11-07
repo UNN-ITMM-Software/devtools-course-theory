@@ -22,8 +22,7 @@ Expression parseArguments(int argc, char** argv) {
     if (argc == 1) {
         help(argv[0]);
         exit(0);
-    } else
-          if (argc != 4) {
+    } else if (argc != 4) {
               printf("ERROR: Should be 3 arguments.\n\n");
               exit(1);
     }
@@ -44,8 +43,8 @@ Expression parseArguments(int argc, char** argv) {
 int main(int argc, char** argv) {
     ComplexCalculator a;
     ComplexCalculator b;
-    a=expr.arg1;
-    b=expr.arg2;
+    a = expr.arg1;
+    b = expr.arg2;
     ComplexCalculator c;
     char str[35]="";
     switch (expr.operation) {
