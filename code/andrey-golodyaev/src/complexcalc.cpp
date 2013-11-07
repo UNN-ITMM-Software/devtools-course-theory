@@ -32,11 +32,14 @@ void ComplexCalculator::Input(char *str) {
     std::basic_string<char>::size_type ii = 0;
     int sh = 0;
     int si = 0;
-    for (std::basic_string<char>::size_type iii = 0; iii < s.length(); iii+) {
+    for (std::basic_string<char>::size_type iii = 0;
+         iii < s.length(); iii+) {
         if (s[iii] == 'i') si++;
         if (s[iii] == '*' || s[iii] == '/') sh++;
-        if (si > 1 || sh > 1 || (s[iii] < '0' || s[iii] > '9') && s[iii] != 'i'
-            && s[iii] != '+' && s[iii] != '-' && s[iii] != '*' && s[iii] != '/') {
+        if (si > 1 || sh > 1 || (s[iii] < '0' || s[iii] > '9')
+            && s[iii] != 'i'
+            && s[iii] != '+' && s[iii] != '-' && s[iii] != '*'
+            && s[iii] != '/') {
             printf("Wrong number format!\n");
             exit(2);
         }
