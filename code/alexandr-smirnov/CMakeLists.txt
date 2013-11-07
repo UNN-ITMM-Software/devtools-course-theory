@@ -1,20 +1,30 @@
-cmake_minimum_required(VERSION 2.8)
+#############################################
+##### Declaring
+#############################################
 
-project(Sorter)
+set(libname "alexandr-smirnov-sort-library")
+set(appname "alexandr-smirnov-sort-sample")
 
-include_directories("./include/")
+message("")
+message("############################################")
+message("##### Testing ${appname}")
+message("############################################")
+message("")
 
-set(HEADERS
-  "./include/sort.h"
-  )
+#############################################
+##### Building
+#############################################
 
-set(SOURCES
-  "./samples/sample.cpp"
-  "./src/sort.cpp"
-  )				
+# Declare directory with public headers
+add_dir_inc("include")
 
-add_executable(Sorter
-  ${HEADERS}
-  ${SOURCES}
-  )
-  
+# Declare static library
+add_lib_static(${libname} "src")
+
+# Declare application
+add_local_dependency(${libname})
+add_app(${appname} "samples")
+
+#############################################
+##### Testing
+#############################################
