@@ -1,6 +1,7 @@
 /* Copyright 2013 Nesmelov Aleksey */
 #include <fractcalc.h>
 #include <stdlib.h>
+#include <stdio.h>
 Fraction::Fraction(int _numenator, int _denominator) {
     try {
         if (_denominator == 0) throw 0;
