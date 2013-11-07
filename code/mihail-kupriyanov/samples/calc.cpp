@@ -8,7 +8,7 @@
 #include "../include/mathquancalc.h"
 // #include "mathquancalc.h"
 
-static void HelpExeption(char* appName) {
+static void Help(char* appName) {
     printf("This is a math quantities calculator application.\n\n");
     printf("Please provide arguments in the following format:\n\n");
     printf("  $ %s <value_1> <probability_1> <value_2> <probability2_>"
@@ -73,12 +73,12 @@ int main(int argc, char** argv) {
     std::vector<MathQuanCalc::Event> sample;
 
     if (argc == 1) {
-        HelpExeption(argv[0]);
+        Help(argv[0]);
         exit(0);
     }
     if ((argc % 2) == 0) {
         printf("ERROR: wrong arguments format.\n\n");
-        HelpExeption(argv[0]);
+        Help(argv[0]);
         exit(1);
     }
 

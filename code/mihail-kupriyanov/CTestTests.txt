@@ -43,9 +43,9 @@ add_test(
 )
 
 set_tests_properties (can_Calc_Expected_Value_and_Dispersion 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Expected value:  1.50")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Expected value:  1\\.50")
 set_tests_properties (can_Calc_Expected_Value_and_Dispersion
-  PROPERTIES PASS_REGULAR_EXPRESSION "Dispersion:  0.25")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Dispersion:  0\\.25")
 
 add_test( 
     NAME can_Detect_Wrong_Probabilities
