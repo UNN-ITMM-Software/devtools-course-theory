@@ -11,7 +11,7 @@ Fraction::Fraction(int _numenator, int _denominator) {
             denominator = abs(denominator);
         }
     }
-    catch (int i) {
+    catch(int i) {
         printf("\nDenominator cannot be zero");
     }
 }
@@ -88,7 +88,7 @@ Fraction Fraction::Divide(Fraction a, Fraction b) {
             res.denominator = abs(res.denominator);
         }
     }
-    catch (int i) {
+    catch(int i) {
         printf("\nDivisor cannot be zero");
     }
     return res;
