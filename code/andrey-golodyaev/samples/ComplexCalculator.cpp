@@ -41,6 +41,7 @@ Expression parseArguments(int argc, char** argv) {
 }
 
 int main(int argc, char** argv) {
+    Expression expr = parseArguments(argc, argv);
     ComplexCalculator a;
     ComplexCalculator b;
     a = expr.arg1;
