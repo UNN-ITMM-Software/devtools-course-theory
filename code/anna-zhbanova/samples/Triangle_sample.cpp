@@ -13,7 +13,7 @@ struct Expression {
     char nameOfVertex;
     int operation;
     Expression(): A(PointXY()), B(PointXY()), C(PointXY()),
-                  parameter(PointXY()), operation(0), nameOfVertex('a') {
+                  parameter(PointXY()), nameOfVertex('a'), operation(0) {
     }
 };
 #pragma pack(pop)
