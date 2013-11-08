@@ -4,25 +4,25 @@
 AreaConverter::AreaConverter(double value_, AreaType type_) {
     value = value_;
     curType = type_;
-};
+}
 
 AreaConverter::~AreaConverter(void) {}
 
 double AreaConverter::GetValue() {
     return value;
-};
+}
 
 AreaType AreaConverter::GetAreaType() {
     return curType;
-};
+}
 
 void AreaConverter::SetValue(double newValue) {
     value = newValue;
-};
+}
 
 void AreaConverter::SetAreaType(AreaType newType) {
     curType = newType;
-};
+}
 
 void AreaConverter::ConvertToMeters() {
     switch (GetAreaType()) {
