@@ -48,7 +48,7 @@ add_test(
     COMMAND ${appname} 1 2 -3
 )
 set_tests_properties (can_Solve_Equation_With_Integer_Coefficients
-  PROPERTIES PASS_REGULAR_EXPRESSION "Root1 = 1.000, Root2 = -3.000")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Root1 = 1\.000, Root2 = -3\.000")
 
 add_test(
     NAME can_Solve_Equation_With_Real_Coefficients
@@ -56,7 +56,7 @@ add_test(
     COMMAND ${appname} 1.7 6.95 -2.3
 )
 set_tests_properties (can_Solve_Equation_With_Real_Coefficients
-  PROPERTIES PASS_REGULAR_EXPRESSION "Root1 = 0.308, Root2 = -4.396")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Root1 = 0\.308, Root2 = -4\.396")
 
 add_test(
     NAME can_Solve_Equation_With_Zero_Third_Coefficient
@@ -64,7 +64,7 @@ add_test(
     COMMAND ${appname} 1 8 0
 )
 set_tests_properties (can_Solve_Equation_With_Zero_Third_Coefficient
-  PROPERTIES PASS_REGULAR_EXPRESSION "Root1 = 0.000, Root2 = -8.000")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Root1 = 0\.000, Root2 = -8\.000")
 
 add_test(
     NAME can_Solve_Equation_With_One_Real_Root
@@ -72,7 +72,7 @@ add_test(
     COMMAND ${appname} 1 2 1
 )
 set_tests_properties (can_Solve_Equation_With_One_Real_Root
-  PROPERTIES PASS_REGULAR_EXPRESSION "Root1 = -1.000, Root2 = -1.000")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Root1 = -1\.000, Root2 = -1\.000")
 
 add_test(
     NAME can_Detect_Equation_With_No_Real_Roots
