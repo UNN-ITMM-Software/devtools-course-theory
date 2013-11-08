@@ -4,6 +4,7 @@
 
 enum AreaType {sKilometer, hectare, ar, acre, sMeter, sFoot};
 
+#pragma pack(1)
 class AreaConverter {
  public:
     AreaConverter(double _value, AreaType _type);
