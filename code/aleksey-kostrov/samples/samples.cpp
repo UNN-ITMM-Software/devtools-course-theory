@@ -13,7 +13,7 @@ int main() {
     printf("Size of array = %d\n", size);
     printf("Search element = %d\n", element);
     array = new int[size];
-    unsigned int seed = (unsigned int)time(NULL);
+    unsigned int seed = static_cast<unsigned int>(time(NULL));
     for (int i = 0; i < size; i++)
         array[i] = rand_r(&seed) % RIGHT_BORDER_RANDOM + LEFT_BORDER_RANDOM;
     if (size < SIZE_FOR_PRINT && size > 0) {
