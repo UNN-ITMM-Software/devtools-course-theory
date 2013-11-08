@@ -2,11 +2,11 @@
 #include <fractcalc.h>
 #include <stdlib.h>
 #include <stdio.h>
-Fraction::Fraction(int _numenator, int _denominator) {
+Fraction::Fraction(int _numenator, int _denominator):
+                                   numenator(_numenator),
+                                   denominator(_denominator) {
     try {
         if (_denominator == 0) throw 0;
-        numenator = _numenator;
-        denominator = _denominator;
         if (denominator < 0) {
             numenator = -numenator;
             denominator = abs(denominator);
@@ -14,6 +14,7 @@ Fraction::Fraction(int _numenator, int _denominator) {
     }
     catch(int i) {
         printf("\nDenominator cannot be zero");
+        exit(2);
     }
 }
 Fraction::~Fraction() {}
