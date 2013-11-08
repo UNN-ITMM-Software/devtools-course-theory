@@ -1,7 +1,7 @@
 /* Copyright 2013 Denis Sabanov */
 #include <AreaConverter.h>
 
-AreaConverter::AreaConverter(double value_, AreaType type_) {
+AreaConverter::AreaConverter(double value_ = 0, AreaType type_ = sMeter) {
     value = value_;
     curType = type_;
 }
@@ -80,4 +80,5 @@ double AreaConverter::ConvertToNewType(AreaType newType) {
         return value = value/10000;
         }
     }
+    return 0;
 }
