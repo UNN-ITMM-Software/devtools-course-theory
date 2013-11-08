@@ -13,8 +13,8 @@ float DistanceBetweenVectors::CalculateDistance(float *vector1, float *vector2,
     } else {
         float sumComp = 0;
         for (int i = 0; i < sizeVector; i++)
-            sumComp += powf(static_cast<float>(fabs(vector1[i] - vector2[i])), 
-			                1.0f * static_cast<float>(typeMetric));
+            sumComp += powf(static_cast<float>(fabs(vector1[i] - vector2[i])),
+                            1.0f * static_cast<float>(typeMetric));
         distance = powf(sumComp, 1.0f / static_cast<float>(typeMetric));
     }
     return distance;
