@@ -40,7 +40,7 @@ float* getVector(char* str, int sizeVector) {
     if ((str[0] == '{') && (str[strlen(str) - 1] == '}')) {
         vector = new float[sizeVector];
         char* strWithBracket = new char[strlen(str) - 2 + 1];
-		char* rest;
+        char* rest;
         strWithBracket[strlen(str) - 2] = '\0';
         strncpy(strWithBracket, str + 1, strlen(str) - 2);
         char* charElem = strtok_r(strWithBracket, ",", &rest);
