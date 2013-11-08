@@ -36,7 +36,7 @@ Expression parseArguments(int argc, char** argv) {
     Expression expression;
     expression.arg1.Input(argv[1]);
     expression.arg2.Input(argv[2]);
-    expression.operation=*argv[3];
+    expression.operation=argv[3][0];
     if (strlen(argv[3]) > 1 || (expression.operation != '+' &&
         expression.operation != '-' &&
         expression.operation != '*' &&
