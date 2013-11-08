@@ -128,7 +128,7 @@ Expression parseArguments(int argc, char** argv) {
         }
         try {
             expression.nameOfVertex = *argv[3];
-			if(expression.nameOfVertex != 'a' &&
+        if (expression.nameOfVertex != 'a' &&
                expression.nameOfVertex != 'b' &&
                expression.nameOfVertex != 'c') {
                printf("Wrong name of vertex!\n");
@@ -168,7 +168,7 @@ Expression parseArguments(int argc, char** argv) {
         }
         try {
             expression.nameOfVertex = *argv[7];
-            if(expression.nameOfVertex != 'a' &&
+            if (expression.nameOfVertex != 'a' &&
                expression.nameOfVertex != 'b' &&
                expression.nameOfVertex != 'c') {
                printf("Wrong name of vertex!\n");
