@@ -9,9 +9,6 @@ struct Temperature {
     TemperatureUnit unit;
 };
 
-static double a[4] = {1, 1, 5/9, 100/33};
-static double b[4] = {0, -273.15, -32, 0};
-
 class TemperatureConvertor {
     public
     :

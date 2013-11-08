@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <TemperatureConverter.h>
 
+double a[4] = {1, 1, 5/9, 100/33};
+double b[4] = {0, -273.15, -32, 0};
+
 TemperatureConvertor::TemperatureConvertor(void) {}
 
 TemperatureConvertor::~TemperatureConvertor(void) {}
