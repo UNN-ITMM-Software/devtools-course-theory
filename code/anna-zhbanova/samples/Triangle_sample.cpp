@@ -20,7 +20,7 @@ struct Expression {
 
 extern const char* operations[13];
 
-const char* operations[13] = {"Set","Get", "IsCorrect", "IsEquilateral",
+const char* operations[13] = {"Set", "Get", "IsCorrect", "IsEquilateral",
                                  "IsIsosceles", "AB", "BC", "AC", "AngleA",
                                  "AngleB", "AngleC", "Square", "Perimeter"};
 
@@ -128,13 +128,13 @@ Expression parseArguments(int argc, char** argv) {
         }
         try {
             expression.nameOfVertex = *argv[3];
-			if(expression.nameOfVertex != 'a' && 
+			if(expression.nameOfVertex != 'a' &&
                expression.nameOfVertex != 'b' &&
                expression.nameOfVertex != 'c') {
                printf("Wrong name of vertex!\n");
                exit(2);
             } else {
-			   printf("%s is valid name of vertex\n", argv[3]);
+                printf("%s is valid name of vertex\n", argv[3]);
             }
         }
         catch(...) {
@@ -153,7 +153,7 @@ Expression parseArguments(int argc, char** argv) {
         catch(...) {
             printf("Wrong operation format!\n");
             exit(3);
-		} } else if (argc == 9) {
+        } } else if (argc == 9) {
         try {
             expression.A.x = parseFloat(argv[1]);
             expression.A.y = parseFloat(argv[2]);
@@ -168,13 +168,13 @@ Expression parseArguments(int argc, char** argv) {
         }
         try {
             expression.nameOfVertex = *argv[7];
-			if(expression.nameOfVertex != 'a' && 
+            if(expression.nameOfVertex != 'a' &&
                expression.nameOfVertex != 'b' &&
                expression.nameOfVertex != 'c') {
                printf("Wrong name of vertex!\n");
                exit(2);
             } else {
-			   printf("%s is valid name of vertex\n", argv[7]);
+                printf("%s is valid name of vertex\n", argv[7]);
             }
         }
         catch(...) {
