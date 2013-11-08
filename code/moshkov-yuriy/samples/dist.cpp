@@ -1,7 +1,7 @@
 /* Copyright 2013 Moshkov Yuriy */
 #include <DistanceBetweenVectors.h>
 #include <stdio.h>
-int main(int argc, char* argv[]) {
+int main() {
     const int sizeVector = 2;
     float vector1[sizeVector] = {1, 0};
     float vector2[sizeVector] = {2, 1};
