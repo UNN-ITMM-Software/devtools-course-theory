@@ -37,7 +37,7 @@ set_tests_properties (calc_can_Detect_Wrong_Number_Format
 add_test(
     NAME calc_can_Detect_Wrong_Operation_Format
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 1 1 k
+    COMMAND ${appname} 1 1 ++
 )
 set_tests_properties (calc_can_Detect_Wrong_Operation_Format 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong operation!")
@@ -48,7 +48,7 @@ add_test(
     COMMAND ${appname} 1+i 2+2i +
 )
 set_tests_properties (calc_can_Add_Numbers 
-  PROPERTIES PASS_REGULAR_EXPRESSION "A+B=3+3\\*i")
+  PROPERTIES PASS_REGULAR_EXPRESSION "[A+B=3+3*i]")
 
 add_test(
     NAME calc_can_Sub_Numbers
@@ -56,7 +56,7 @@ add_test(
     COMMAND ${appname} i 1-i -
 )
 set_tests_properties (calc_can_Sub_Numbers 
-  PROPERTIES PASS_REGULAR_EXPRESSION "A-B=-1+2\\*i")
+  PROPERTIES PASS_REGULAR_EXPRESSION "[A-B=-1+2*i]")
 
 add_test(
     NAME calc_can_Mul_Numbers
@@ -64,7 +64,7 @@ add_test(
     COMMAND ${appname} 1+i 1+i *
 )
 set_tests_properties (calc_can_Mul_Numbers 
-  PROPERTIES PASS_REGULAR_EXPRESSION "A*B=2\\*i")
+  PROPERTIES PASS_REGULAR_EXPRESSION "[A*B=2*i]")
 
 add_test(
     NAME calc_can_Div_Numbers
@@ -72,4 +72,4 @@ add_test(
     COMMAND ${appname} 1+i i /
 )
 set_tests_properties (calc_can_Div_Numbers 
-  PROPERTIES PASS_REGULAR_EXPRESSION "A/B=1-1\\*i")
+  PROPERTIES PASS_REGULAR_EXPRESSION "[A/B=1-1*i]")
