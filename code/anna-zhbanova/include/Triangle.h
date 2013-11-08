@@ -25,13 +25,8 @@ class Triangle {
     int IsEquilateral();
     int IsIsosceles();
 
-    PointXY GetA();
-    PointXY GetB();
-    PointXY GetC();
-
-    void SetA(PointXY a);
-    void SetB(PointXY b);
-    void SetC(PointXY c);
+    PointXY Get(char nameVertex);
+    void Set(char nameVertex, PointXY coordinates);
  private :
     PointXY a;
     PointXY b;

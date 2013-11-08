@@ -60,10 +60,8 @@ bool Triangle::IsCorrect() {
 }
 int Triangle::IsEquilateral() {
     if ( IsCorrect() ) {
-        int ab = static_cast<int>(10000 * AB());
-        int bc = static_cast<int>(10000 * BC());
-        int ac = static_cast<int>(10000 * AC());
-        if (ab == bc || ab == ac || bc == ac)
+        float eps = static_cast <float>(0.0001);
+        if ((AB() - BC()) < eps || (AB() - AC()) < eps || (BC() - AC()) < eps)
             return 1;
     } else {
         return -1;
@@ -72,10 +70,8 @@ int Triangle::IsEquilateral() {
 }
 int Triangle::IsIsosceles() {
     if ( IsCorrect() ) {
-        int ab = static_cast<int>(10000 * AB());
-        int bc = static_cast<int>(10000 * BC());
-        int ac = static_cast<int>(10000 * AC());
-        if (ab == bc && ab == ac)
+        float eps = static_cast <float>(0.0001);
+        if ((AB() - BC()) < eps && (AB() - AC()) < eps)
             return 1;
     } else {
         return -1;
@@ -83,24 +79,34 @@ int Triangle::IsIsosceles() {
     return 0;
 }
 
-PointXY Triangle::GetA() {
-    return a;
-}
-PointXY Triangle::GetB() {
-    return b;
-}
-PointXY Triangle::GetC() {
-    return c;
+PointXY Triangle::Get(char nameVertex) {
+    PointXY coordinates;
+    switch (nameVertex) {
+    case 'a':
+        coordinates = a;
+        break;
+    case 'b':
+        coordinates = b;
+        break;
+    case 'c':
+        coordinates = c;
+        break;
+    }
+    return coordinates;
 }
 
-void Triangle::SetA(PointXY a_) {
-    a = a_;
-}
-void Triangle::SetB(PointXY b_) {
-    b = b_;
-}
-void Triangle::SetC(PointXY c_) {
-    c = c_;
+void Triangle::Set(char nameVertex, PointXY coordinates) {
+    switch (nameVertex) {
+    case 'a':
+        a = coordinates;
+        break;
+    case 'b':
+        b = coordinates;
+        break;
+    case 'c':
+        c = coordinates;
+        break;
+    }
 }
 
 float Triangle::Length(PointXY point1, PointXY point2) {

@@ -10,17 +10,17 @@ struct Expression {
     PointXY B;
     PointXY C;
     PointXY parameter;
+    char nameOfVertex;
     int operation;
     Expression(): A(PointXY()), B(PointXY()), C(PointXY()),
-                  parameter(PointXY()), operation(0) {
+                  parameter(PointXY()), operation(0), nameOfVertex('a') {
     }
 };
 #pragma pack(pop)
 
-extern const char* massOperations[17];
+extern const char* operations[13];
 
-const char* massOperations[17] = {"SetA", "SetB", "SetC", "GetA", "GetB",
-                                 "GetC", "IsCorrect", "IsEquilateral",
+const char* operations[13] = {"Set","Get", "IsCorrect", "IsEquilateral",
                                  "IsIsosceles", "AB", "BC", "AC", "AngleA",
                                  "AngleB", "AngleC", "Square", "Perimeter"};
 
@@ -33,17 +33,23 @@ void help(const char* appname) {
     printf("\n\nThis is an application ");
     printf("that calculates the basic parameters of the triangle(ABC)\n\n");
     printf("Please provide arguments in the following format:\n\n");
-    printf("The fractional part is introduced through the point.");
-    printf("  $ %s <x1> <y1> <operation>\n\n", appname);
+    printf("The fractional part is introduced through the point.\n\n");
+    printf("  $ %s <x1> <y1> <nameOfVertex> <operation>\n\n", appname);
     printf("Where both arguments are float numbers, ");
-    printf("and <operation> is one of\n");
-    for (int i = 0; i < 3; i++)
-        printf("<%d>%s\n", i, massOperations[i]);
+    printf("<nameOfVertex> is one of 'a', 'b' or 'c' ");
+    printf("and <operation> is \n");
+    printf("<%d>%s\n\n", 0, operations[0]);
+    printf("  $ %s <x1> <y1> <x2> <y2> <x3> <y3> <nameOfVertex> <operation>",
+                                                                    appname);
+    printf("\n\nWhere all arguments are float numbers, ");
+    printf("<nameOfVertex> is one of 'a', 'b' or 'c' ");
+    printf("and <operation> is \n");
+    printf("<%d>%s\n", 1, operations[1]);
     printf("\n  $ %s <x1> <y1> <x2> <y2> <x3> <y3> <operation>\n\n", appname);
     printf("Where all arguments are float numbers, ");
     printf("and <operation> is one of\n");
-    for (int i = 3; i < 17; i++)
-        printf("<%d>%s\n", i, massOperations[i]);
+    for (int i = 2; i < 13; i++)
+        printf("<%d>%s\n", i, operations[i]);
 }
 
 float parseFloat(const char* arg) {
@@ -77,8 +83,8 @@ Expression parseArguments(int argc, char** argv) {
     if (argc == 1) {
         help(argv[0]);
         exit(0);
-    } else if (argc != 8 && argc != 4) {
-        printf("ERROR: Should be 7 or 3 arguments.\n\n");
+    } else if (argc != 5 && argc != 9 && argc != 8) {
+        printf("ERROR: Should be 4, 7 or 8 arguments.\n\n");
         help(argv[0]);
         exit(1);
     }
@@ -99,8 +105,8 @@ Expression parseArguments(int argc, char** argv) {
         }
         try {
             expression.operation = parseInteger(argv[7]);
-            if ((expression.operation > 16) ||
-                (expression.operation < 0)) {
+            if ((expression.operation > 12) ||
+                (expression.operation < 2)) {
                 printf("%s - Wrong operation!\n", argv[7]);
                 exit(3);
             } else {
@@ -111,7 +117,7 @@ Expression parseArguments(int argc, char** argv) {
             printf("Wrong operation format!\n");
             exit(3);
         }
-    } else if (argc == 4) {
+    } else if (argc == 5) {
         try {
             expression.parameter.x = parseFloat(argv[1]);
             expression.parameter.y = parseFloat(argv[2]);
@@ -120,15 +126,68 @@ Expression parseArguments(int argc, char** argv) {
             printf("Wrong number format!\n");
             exit(2);
         }
-
         try {
-            expression.operation = parseInteger(argv[3]);
-            if ((expression.operation > 3) ||
-                (expression.operation < 0)) {
-                printf("%s - Wrong operation!\n", argv[3]);
+            expression.nameOfVertex = *argv[3];
+			if(expression.nameOfVertex != 'a' && 
+               expression.nameOfVertex != 'b' &&
+               expression.nameOfVertex != 'c') {
+               printf("Wrong name of vertex!\n");
+               exit(2);
+            } else {
+			   printf("%s is valid name of vertex\n", argv[3]);
+            }
+        }
+        catch(...) {
+            printf("Wrong name of vertex!\n");
+            exit(2);
+        }
+        try {
+            expression.operation = parseInteger(argv[4]);
+            if (expression.operation != 0) {
+                printf("%s - Wrong operation!\n", argv[4]);
                 exit(3);
             } else {
-                printf("%s is valid operation\n", argv[3]);
+                printf("%s is valid operation\n", argv[4]);
+            }
+        }
+        catch(...) {
+            printf("Wrong operation format!\n");
+            exit(3);
+		} } else if (argc == 9) {
+        try {
+            expression.A.x = parseFloat(argv[1]);
+            expression.A.y = parseFloat(argv[2]);
+            expression.B.x = parseFloat(argv[3]);
+            expression.B.y = parseFloat(argv[4]);
+            expression.C.x = parseFloat(argv[5]);
+            expression.C.y = parseFloat(argv[6]);
+        }
+        catch(...) {
+            printf("Wrong number format!\n");
+            exit(2);
+        }
+        try {
+            expression.nameOfVertex = *argv[7];
+			if(expression.nameOfVertex != 'a' && 
+               expression.nameOfVertex != 'b' &&
+               expression.nameOfVertex != 'c') {
+               printf("Wrong name of vertex!\n");
+               exit(2);
+            } else {
+			   printf("%s is valid name of vertex\n", argv[7]);
+            }
+        }
+        catch(...) {
+            printf("Wrong name of vertex!\n");
+            exit(2);
+        }
+        try {
+            expression.operation = parseInteger(argv[8]);
+            if (expression.operation != 1) {
+                printf("%s - Wrong operation!\n", argv[8]);
+                exit(3);
+            } else {
+                printf("%s is valid operation\n", argv[8]);
             }
         }
         catch(...) {
@@ -141,81 +200,65 @@ Expression parseArguments(int argc, char** argv) {
 
 int main(int argc, char** argv) {
     Expression expr = parseArguments(argc, argv);
-    Triangle triangle_obj(expr.A, expr.B, expr.C);
+    Triangle triangle(expr.A, expr.B, expr.C);
     PointXY result;
     switch (expr.operation) {
     case 0:
-        triangle_obj.SetA(expr.parameter);
-        result = triangle_obj.GetA();
-        printf("Result A = (%.2f, %.2f)\n", result.x, result.y);
+        triangle.Set(expr.nameOfVertex, expr.parameter);
+        result = triangle.Get(expr.nameOfVertex);
+        printf("Result %c = (%.2f, %.2f)\n", expr.nameOfVertex,
+                                             result.x, result.y);
         break;
     case 1:
-        triangle_obj.SetB(expr.parameter);
-        result = triangle_obj.GetB();
-        printf("Result B = (%.2f, %.2f)\n", result.x, result.y);
+        result = triangle.Get(expr.nameOfVertex);
+        printf("Result %c = (%.2f, %.2f)\n", expr.nameOfVertex,
+                                             result.x, result.y);
         break;
     case 2:
-        triangle_obj.SetC(expr.parameter);
-        result = triangle_obj.GetC();
-        printf("Result C = (%.2f, %.2f)\n", result.x, result.y);
-        break;
-    case 3:
-        result = triangle_obj.GetA();
-        printf("Result A = (%.2f, %.2f)\n", result.x, result.y);
-        break;
-    case 4:
-        result = triangle_obj.GetB();
-        printf("Result B = (%.2f, %.2f)\n", result.x, result.y);
-        break;
-    case 5:
-        result = triangle_obj.GetC();
-        printf("Result C = (%.2f, %.2f)\n", result.x, result.y);
-        break;
-    case 6:
-        if (triangle_obj.IsCorrect())
+        if (triangle.IsCorrect())
             printf("Result = Is correct\n");
         else
             printf("Result = Isn't correct\n");
         break;
-    case 7:
-        if (triangle_obj.IsEquilateral() == 1)
+    case 3:
+        if (triangle.IsEquilateral() == 1)
             printf("Result = Is equilateral\n");
-        else if (triangle_obj.IsEquilateral() == -1)
+        else if (triangle.IsEquilateral() == -1)
             printf("Result = Isn't correct triangle\n");
         else
             printf("Result = Isn't equilateral\n");
         break;
-    case 8:
-        if (triangle_obj.IsIsosceles() == 1)
+    case 4:
+        if (triangle.IsIsosceles() == 1)
             printf("Result = Is isosceles\n");
-        else if (triangle_obj.IsIsosceles() == -1)
+        else if (triangle.IsIsosceles() == -1)
             printf("Result = Isn't correct triangle\n");
         else
             printf("Result = Isn't isosceles\n");
         break;
+    case 5:
+        printf("Result AB = %.2f\n", triangle.AB());
+        break;
+    case 6:
+        printf("Result BC = %.2f\n", triangle.BC());
+        break;
+    case 7:
+        printf("Result AC = %.2f\n", triangle.AC());
+        break;
+    case 8:
+        printf("Result Angle A = %.2f\n", triangle.AngleA());
+        break;
     case 9:
-        printf("Result AB = %.2f\n", triangle_obj.AB());
+        printf("Result Angle B = %.2f\n", triangle.AngleB());
         break;
     case 10:
-        printf("Result BC = %.2f\n", triangle_obj.BC());
+        printf("Result Angle C = %.2f\n", triangle.AngleC());
         break;
     case 11:
-        printf("Result AC = %.2f\n", triangle_obj.AC());
+        printf("Result square = %.2f\n", triangle.Square());
         break;
     case 12:
-        printf("Result Angle A = %.2f\n", triangle_obj.AngleA());
-        break;
-    case 13:
-        printf("Result Angle B = %.2f\n", triangle_obj.AngleB());
-        break;
-    case 14:
-        printf("Result Angle C = %.2f\n", triangle_obj.AngleC());
-        break;
-    case 15:
-        printf("Result square = %.2f\n", triangle_obj.Square());
-        break;
-    case 16:
-        printf("Result perimeter = %.2f\n", triangle_obj.Perimeter());
+        printf("Result perimeter = %.2f\n", triangle.Perimeter());
         break;
     }
 
