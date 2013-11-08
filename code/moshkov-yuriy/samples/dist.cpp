@@ -7,7 +7,7 @@ int main() {
     float vector2[sizeVector] = {2, 1};
     float distance = 0;
     distance = DistanceBetweenVectors::CalculateDistance(vector1, vector2,
-                                                         L1, sizeVector);
+                                                        L1, sizeVector);
     printf("%f distance between source vectors in L1 \n", distance);
     distance = DistanceBetweenVectors::CalculateDistance(vector1, vector2,
                                                          L4, sizeVector);
