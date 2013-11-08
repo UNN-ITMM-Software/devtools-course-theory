@@ -57,7 +57,7 @@ float parseFloat(const char* arg) {
         printf("%s is invalid\n", arg);
         throw "wrong number format";
     }
-	return value;
+    return value;
 }
 
 float* getVector(char* str, int sizeVector) {
