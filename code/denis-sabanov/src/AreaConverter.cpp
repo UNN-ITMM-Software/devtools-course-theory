@@ -81,5 +81,4 @@ double AreaConverter::ConvertToNewType(AreaType newType) {
         return value = value/10000;
         }
     }
-    return 0;
 }
