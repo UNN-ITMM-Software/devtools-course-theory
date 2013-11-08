@@ -64,6 +64,7 @@ Expression parseArguments(int argc, char** argv) {
     }
     if (expression.arg2 == 0) {
          printf("%s Denominator cannot be zero\n", argv[2]);
+	}
     if (expression.arg4 == 0) {
          printf("%s Denominator cannot be zero\n", argv[4]);
     }
