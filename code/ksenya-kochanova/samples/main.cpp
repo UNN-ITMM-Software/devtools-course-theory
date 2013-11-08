@@ -24,7 +24,7 @@ void help(const char* appname) {
     printf("Please provide arguments in the following format:\n\n");
     printf(" $ %s <value> <unit> <unit>\n\n", appname);
     printf("Unit of temperature: \n");
-    printf("\n 0 - Celsius,\n 1 - kelvin,\n 2 - Fahrenheit, \n 3 - Newton \n\n");
+    printf("\n0 - Celsius,\n1 - kelvin,\n2 - Fahrenheit,\n 3 - Newton \n\n");
 }
 int64_t parseInteger(const char* arg) {
     char* end;
@@ -67,7 +67,7 @@ Expression parseArguments(int argc, char** argv) {
         printf("Wrong value format for Newton!\n");
         exit(5);
     }
-	    expression.oldunit = static_cast<TemperatureUnit>(parseInteger(argv[2]));
+        expression.oldunit = static_cast<TemperatureUnit>(parseInteger(argv[2]));
     if ((strlen(argv[2]) != 1) ||
         (expression.oldunit < 0 || expression.oldunit > 3)) {
         printf("%s - Wrong unit!\n", argv[2]);
@@ -83,7 +83,7 @@ Expression parseArguments(int argc, char** argv) {
     } else {
         printf("%s is valid unit\n", argv[3]);
     }
-	    return expression;
+        return expression;
 }
 int main(int argc, char** argv) {
     Expression expr = parseArguments(argc, argv);
