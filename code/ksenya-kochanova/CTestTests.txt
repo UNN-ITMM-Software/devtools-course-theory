@@ -27,19 +27,19 @@ set_tests_properties (can_Check_Number_Of_Arguments
   PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be 3 arguments: value, oldunit, newunit.")
 
 add_test(
-    NAME can_Detect_Wrong_Unit_Format
+    NAME can_Detect_Wrong_oldUnit_Format
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 100 5 1
 )
-set_tests_properties (can_Detect_Wrong_Unit_Format 
+set_tests_properties (can_Detect_Wrong_oldUnit_Format 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong oldunit format!")
 
 add_test(
-    NAME can_Detect_Wrong_Unit_Format
+    NAME can_Detect_Wrong_newUnit_Format
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 100 1 5
 )
-set_tests_properties (can_Detect_Wrong_Unit_Format 
+set_tests_properties (can_Detect_Wrong_newUnit_Format 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong newunit format!")
 
 add_test(
