@@ -24,5 +24,11 @@ int main(int argc, char* argv[]) {
     printf("Is %s in hex\n", d.ToHex().c_str());
     printf("Is %s in oct\n", d.ToOctal().c_str());
     printf("Is %s in dec\n", d.ToDecimal().c_str());
+    NumConverter e(hex, "fffffff0");
+    printf("%s in hex\n", e.GetValue().c_str());
+    printf("Is %s in oct\n", e.ToOctal().c_str());
+    printf("Is %s in dec\n", e.ToDecimal().c_str());
+    printf("Is %s in bin\n", e.ToBinary().c_str());
+
     return 0;
 }
