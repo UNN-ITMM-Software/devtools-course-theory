@@ -46,15 +46,16 @@ void ComplexCalculator::Input(char *str) {
     }
     int qr = 1, qi = 1;
     if (s[0] != '+' && s[0] != '-') s = "+"+s;
+    s = s+' ';
     n = s.find('i');
-    if (n > 0) {
+    if (si > 0 && n > 0) {
         while (s[n-ii] != '+' && s[n-ii] != '-') {
             i = s[n-ii]+i;
             ii++;
         }
         if (s[n-ii] == '-') qi = -1;
         ii = 0;
-        while (s[n+ii] != '+' && s[n+ii] != '-') {
+        while (s[n+ii] != '+' && s[n+ii] != '-' && s[n+ii] != ' ') {
             i = i+s[n+ii];
             ii++;
             if (n+ii == s.length()) break;
@@ -62,7 +63,7 @@ void ComplexCalculator::Input(char *str) {
         i.erase(i.find('i'), 1);
         s.erase(s.find(i), i.length());
         i.erase(i.find('i'), 1);
-        if (i.find('*') > 0) i.erase(i.find('*'), 1);
+        if (i.find('*') > 0 && sh > 0) i.erase(i.find('*'), 1);
         if (i == "") imaginary = 1;
         else
             try {
@@ -97,16 +98,16 @@ void ComplexCalculator::Output(char *str) {
     std::string str1 = "";
     double ep = 0.00001;
     double ep2 = 1.0000;
-    if (real > ep || real < ep) {
+    if (real > ep || real < -ep) {
         std::ostringstream ss;
         ss << real;
         str1 = ss.str();
     }
-    if (imaginary > ep || imaginary < ep) {
+    if (imaginary > ep || imaginary < -ep) {
         if (imaginary < 0) str1+='-';
         else
-            if (real > ep || real < ep) str1+='+';
-        if (imaginary > ep2 || imaginary < ep2) {
+            if (real > ep || real < -ep) str1+='+';
+        if (imaginary > ep2 || imaginary < -ep2) {
             std::ostringstream sss;
             if (imaginary > 0)
                 sss << (imaginary);
