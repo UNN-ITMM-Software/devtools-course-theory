@@ -27,22 +27,23 @@ void help(const char* appname) {
     printf("for calculate distance between vectors.\n\n");
     printf("Please provide arguments in the following format:\n\n");
     printf(" $ %s <sizeVector> <vector1> <vector2> <typeMetric>\n\n", appname);
-    printf("Where sizeVector > 0, both vectors have this ");
+    printf("Where sizeVector is integer and > 0, both vectors have this ");
     printf("form: {element_1,...,element_sizeVector} ");
+    printf("where all elements are float ");
     printf("and typeMetric is one of\n");
     for (int i = 0; i < 5; i++)
         printf("%s\n", arrTypeMetric[i]);
 }
 
-float* getVector(char* str, int sizeVector)
-{
+float* getVector(char* str, int sizeVector) {
     float* vector = NULL;
     if ((str[0] == '{') && (str[strlen(str) - 1] == '}')) {
         vector = new float[sizeVector];
         char* strWithBracket = new char[strlen(str) - 2 + 1];
+		char* rest;
         strWithBracket[strlen(str) - 2] = '\0';
         strncpy(strWithBracket, str + 1, strlen(str) - 2);
-        char* charElem = strtok(strWithBracket, ",");
+        char* charElem = strtok_r(strWithBracket, ",", &rest);
         int indElem = 0;
         while (charElem != NULL) {
             if (indElem == sizeVector) {
@@ -56,7 +57,7 @@ float* getVector(char* str, int sizeVector)
                 printf("Wrong vector's elements format!\n");
                 exit(2);
             }
-            charElem = strtok(NULL, ",");
+            charElem = strtok_r(rest, ",", &rest);
         }
         if (indElem != sizeVector) {
             delete []vector;
@@ -86,7 +87,7 @@ Expression parseArguments(int argc, char** argv) {
     if (expression.sizeVector <= 0)    {
         printf("Wrong input size vector!\n");
         exit(3);
-    }    
+    }
     for (int i = 0; i < 5; i++)
         if (strcmp(argv[4], arrTypeMetric[i]) == 0)    {
             expression.typeMetric = static_cast<TypeMetric>(i + 1);
