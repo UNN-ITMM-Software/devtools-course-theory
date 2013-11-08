@@ -100,7 +100,7 @@ set_tests_properties (can_Mult_Negative_Fractions
   PROPERTIES PASS_REGULAR_EXPRESSION "Result = 1 / 2")
 
 add_test(
-    NAME can_Div_Negativeositive_Fractions
+    NAME can_Div_Negative_Fractions
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} -1 3 -2 3 /
 )
