@@ -16,60 +16,60 @@ add_test(
     COMMAND ${appname}
 )
 set_tests_properties (can_Print_Help_Without_Arguments 
-  PROPERTIES PASS_REGULAR_EXPRESSION "This is a temperature convertor.")
+  PROPERTIES PASS_REGULAR_EXPRESSION "This is a simple calculator.")
 
 add_test(
     NAME can_Check_Number_Of_Arguments
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 100 0
+    COMMAND ${appname} 1 2
 )
 set_tests_properties (can_Check_Number_Of_Arguments 
-  PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be 3 arguments: value, oldunit, newunit.")
+  PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be 3 arguments.")
 
 add_test(
-    NAME can_Detect_Wrong_Unit
+    NAME can_Detect_Wrong_Number_Format
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 100 1 5
+    COMMAND ${appname} 1 pi +
 )
-set_tests_properties (can_Detect_Wrong_Unit_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong newunit format!")
+set_tests_properties (can_Detect_Wrong_Number_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
 
 add_test(
-    NAME can_Detect_Wrong_Value_Format_for_Celsius
+    NAME can_Detect_Wrong_Operation_Format
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} -280 0 1
-)
-set_tests_properties (can_Detect_Wrong_Operation_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong value for Celsius!")
-
-add_test(
-    NAME can_Detect_Wrong_Value_Format_for_Kelvin
-    WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} -5 1 2
+    COMMAND ${appname} 1 1 +trash
 )
 set_tests_properties (can_Detect_Wrong_Operation_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong value for Kelvin!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong operation!")
 
 add_test(
-    NAME can_Detect_Wrong_Value_Format_for_Fahrenheit
+    NAME can_Add_Positive_Numbers
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} -500 2 1
-)
-set_tests_properties (can_Detect_Wrong_Operation_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong value for Fahrenheit!")
-
-add_test(
-    NAME can_Detect_Wrong_Value_Format_for_Newton
-    WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} -100 3 1
-)
-set_tests_properties (can_Detect_Wrong_Operation_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong value for Newton!")
-
-add_test(
-    NAME can_Convert_Correct_Value
-    WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 0 1 0
+    COMMAND ${appname} 2 3 +
 )
 set_tests_properties (can_Add_Positive_Numbers 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Result = -273.15")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 5")
+
+add_test(
+    NAME can_Sub_Positive_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 20 30 -
+)
+set_tests_properties (can_Sub_Positive_Numbers 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = -10")
+
+add_test(
+    NAME can_Add_Negative_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -20 -30 +
+)
+set_tests_properties (can_Add_Negative_Numbers 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = -50")
+
+add_test(
+    NAME can_Sub_Large_Negative_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -200000 -3000000 -
+)
+set_tests_properties (can_Sub_Large_Negative_Numbers 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 2800000")
