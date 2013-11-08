@@ -80,9 +80,11 @@ Expression parseArguments(int argc, char** argv) {
 
 int main(int argc, char** argv) {
     Expression expr = parseArguments(argc, argv);
-    try {
-    Fraction fract1(expr.arg1, expr.arg2);
-    Fraction fract2(expr.arg3, expr.arg4);
+    Fraction fract1(expr.arg1, 1);
+    Fraction fract2(expr.arg3, 1);
+    try {   
+    fract1.SetDenominator(expr.arg2);
+    fract2.SetDenominator(expr.arg4);   
     }
     catch(...) {
     printf("Wrong denominator!");

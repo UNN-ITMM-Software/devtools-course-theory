@@ -53,7 +53,12 @@ void Fraction::SetNumenator(int value) {
     numenator = value;
 }
 void Fraction::SetDenominator(int value) {
+    if (value == 0) {
+        printf("Denominator cannot be zero!\n");
+        throw "wrong denominator";
+    } else {
     denominator = value;
+    }
 }
 Fraction Fraction::Add(Fraction a, Fraction b) {
     Fraction res(a.numenator * b.denominator + a.denominator * b.numenator,
