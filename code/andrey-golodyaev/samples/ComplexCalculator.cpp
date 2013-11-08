@@ -59,26 +59,22 @@ int main(int argc, char** argv) {
     case '+' :
     c = ComplexCalculator::Add(a, b);
     c.Output(str);
-    printf("A+B=");
-    puts(str);
+    printf("A+B = %s\n", str);
     break;
     case '-' :
     c = ComplexCalculator::Sub(a, b);
     c.Output(str);
-    printf("A-B=");
-    puts(str);
+    printf("A-B = %s\n", str);
     break;
     case '*' :
     c = ComplexCalculator::Multi(a, b);
     c.Output(str);
-    printf("A*B=");
-    puts(str);
+    printf("A*B = %s\n", str);
     break;
     case '/' :
     c = ComplexCalculator::Div(a, b);
     c.Output(str);
-    printf("A/B=");
-    puts(str);
+    printf("A/B = %s\n", str);
     break;
     }
     return 0;
