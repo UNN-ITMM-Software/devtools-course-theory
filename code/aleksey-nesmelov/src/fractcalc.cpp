@@ -9,7 +9,7 @@ Fraction::Fraction(int _numenator,
     printf("Denominator cannot be zero!\n");
     throw "wrong denominator";
     exit(2);
-	} else {
+    } else {
         if (denominator < 0) {
             numenator = -numenator;
             denominator = abs(denominator);
@@ -79,11 +79,11 @@ Fraction Fraction::Multiply(Fraction a, Fraction b) {
 }
 Fraction Fraction::Divide(Fraction a, Fraction b) {
     Fraction res(0, 1);
-	if (b.numenator == 0) {
+    if (b.numenator == 0) {
         printf("\nDivisor cannot be zero");
         throw "wrong divisor";
         exit(2);
-	} else {
+    } else {
         res.SetNumenator(a.numenator * b.denominator);
         res.SetDenominator(a.denominator * b.numenator);
         res.CutFraction();
