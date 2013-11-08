@@ -1,0 +1,64 @@
+#############################################
+##### Testing
+#############################################
+
+enable_testing()
+
+add_test(
+    NAME can_Run
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+
+add_test( 
+    NAME can_Print_Help_Without_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+set_tests_properties (can_Print_Help_Without_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "math quantities calculator")
+
+add_test( 
+    NAME can_Detect_Wrong_Number_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} as w sd er
+)
+
+set_tests_properties (can_Detect_Wrong_Number_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "wrong number format")
+
+add_test( 
+    NAME can_Check_Number_Of_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 0.5 2
+)
+
+set_tests_properties (can_Check_Number_Of_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "wrong arguments format")
+
+add_test( 
+    NAME can_Calc_Expected_Value_and_Dispersion
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 0.5 2 0.5
+)
+
+set_tests_properties (can_Calc_Expected_Value_and_Dispersion 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Expected value:  1\\.50")
+set_tests_properties (can_Calc_Expected_Value_and_Dispersion
+  PROPERTIES PASS_REGULAR_EXPRESSION "Dispersion:  0\\.25")
+
+add_test( 
+    NAME can_Detect_Wrong_Probabilities
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 0.5 2 0.25
+)
+set_tests_properties (can_Detect_Wrong_Probabilities
+  PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Wrong sample!")
+
+add_test( 
+    NAME can_Detect_Wrong_Values
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 0.25 1 0.25 1 0.25 1 0.25
+)
+set_tests_properties (can_Detect_Wrong_Values 
+  PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Wrong sample!")
