@@ -80,7 +80,7 @@ Fraction Fraction::Multiply(Fraction a, Fraction b) {
 Fraction Fraction::Divide(Fraction a, Fraction b) {
     Fraction res(0, 1);
     if (b.numenator == 0) {
-        printf("\nDivisor cannot be zero");
+        printf("\nDivisor cannot be zero!");
         throw "wrong divisor";
         exit(2);
     } else {
