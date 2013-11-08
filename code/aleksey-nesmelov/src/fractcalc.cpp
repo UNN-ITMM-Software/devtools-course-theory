@@ -2,9 +2,9 @@
 #include <fractcalc.h>
 #include <stdlib.h>
 #include <stdio.h>
-Fraction::Fraction(int _numenator, int _denominator):
-                                   numenator(_numenator),
-                                   denominator(_denominator) {
+Fraction::Fraction(int _numenator,
+                   int _denominator): numenator(_numenator),
+                                      denominator(_denominator) {
     try {
         if (_denominator == 0) throw 0;
         if (denominator < 0) {

@@ -24,7 +24,7 @@ void help(const char* appname) {
     printf("This is a fraction calculator application.\n\n");
     printf("Please provide arguments in the following format:\n\n");
     printf("  $ %s <argument1> <argument2> <argument3>", appname);
-	printf(" <argument4> <operation>\n\n",);
+    printf(" <argument4> <operation>\n\n");
     printf("Where all arguments are integer numbers, ");
     printf("and <operation> is one of '+' , '-' , '*' or '/'.\n");
 }
