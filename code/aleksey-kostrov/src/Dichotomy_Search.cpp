@@ -5,6 +5,8 @@ DichotomySearch::DichotomySearch() {}
 
 DichotomySearch::~DichotomySearch() {}
 
+void DeleteMemory(int ** array, int size);
+
 int **DichotomySearch::Preprocess(int * array, int size) {
     int ** addit_array;
     addit_array = new int *[size];

@@ -5,7 +5,7 @@
 #define LEFT_BORDER_RANDOM 1
 #define RIGHT_BORDER_RANDOM 50
 
-int main(void) {
+int main() {
     const int TOO_SMALL_ARRAY = -2;
     const int ELEM_NOT_FOUND = -1;
     int * array;
@@ -13,7 +13,7 @@ int main(void) {
     printf("Size of array = %d\n", size);
     printf("Search element = %d\n", element);
     array = new int[size];
-    unsigned int seed = time(NULL);
+    unsigned int seed = (unsigned int)time(NULL);
     for (int i = 0; i < size; i++)
         array[i] = rand_r(&seed) % RIGHT_BORDER_RANDOM + LEFT_BORDER_RANDOM;
     if (size < SIZE_FOR_PRINT && size > 0) {
