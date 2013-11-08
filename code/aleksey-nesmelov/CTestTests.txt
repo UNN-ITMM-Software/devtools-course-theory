@@ -121,7 +121,7 @@ add_test(
     COMMAND ${appname} 1 0 2 -3 *
 )
 set_tests_properties (can_not_Enter_Fractions_With_Zero_Denominator 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Denominator cannot be zero!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "wrong denominator")
 
 add_test(
     NAME can_not_Div_Fractions_With_Zero_Divisor
@@ -129,4 +129,4 @@ add_test(
     COMMAND ${appname} 1 2 0 1 /
 )
 set_tests_properties (can_not_Div_Fractions_With_Zero_Divisor 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Divisor cannot be zero!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "wrong divisor")
