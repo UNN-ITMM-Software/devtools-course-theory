@@ -19,8 +19,10 @@ extern const char* arrTypeMetric[5];
 const char* arrTypeMetric[5] = {"L1", "L2", "L3", "L4", "LInfinity"};
 
 void help(const char* appname);
-float* getVector(char* str);
+float* getVector(char* str, int sizeVector);
 Expression parseArguments(int argc, char** argv);
+float parseFloat(const char* arg);
+int parseInt(const char* arg);
 
 void help(const char* appname) {
     printf("This is an application ");
@@ -33,6 +35,29 @@ void help(const char* appname) {
     printf("and typeMetric is one of\n");
     for (int i = 0; i < 5; i++)
         printf("%s\n", arrTypeMetric[i]);
+}
+
+int parseInt(const char* arg) {
+    char* end;
+    int value = static_cast<int>(strtol(arg, &end, 10));
+    if (!end[0]) {
+    } else {
+        printf("%s is invalid\n", arg);
+        throw "wrong number format";
+    }
+    return value;
+}
+
+float parseFloat(const char* arg) {
+    char* end;
+    float value = static_cast<float>(strtod(arg, &end));
+    if (!end[0]) {
+        printf("%s is valid\n", arg);
+    } else {
+        printf("%s is invalid\n", arg);
+        throw "wrong number format";
+    }
+	return value;
 }
 
 float* getVector(char* str, int sizeVector) {
@@ -51,7 +76,7 @@ float* getVector(char* str, int sizeVector) {
                 break;
             }
             try {
-                vector[indElem++] = static_cast<float>(atof(charElem));
+                vector[indElem++] = static_cast<float>(parseFloat(charElem));
             }
             catch(...) {
                 printf("Wrong vector's elements format!\n");
@@ -78,7 +103,7 @@ Expression parseArguments(int argc, char** argv) {
     }
     Expression expression;
     try {
-        expression.sizeVector = static_cast<int>(atoi(argv[1]));
+        expression.sizeVector = static_cast<int>(parseInt(argv[1]));
     }
     catch(...) {
         printf("Wrong number format of size vector!\n");
