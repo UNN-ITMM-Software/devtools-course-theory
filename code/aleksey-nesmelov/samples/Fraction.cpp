@@ -25,7 +25,11 @@ void help(const char* appname) {
     printf("Please provide arguments in the following format:\n\n");
     printf("  $ %s <argument1> <argument2> <argument3>", appname);
     printf(" <argument4> <operation>\n\n");
-    printf("Where all arguments are integer numbers, ");
+    printf("Where all arguments are :\n ");
+    printf("<argument1> - numenator of first fraction\n ");
+    printf("<argument2> - denominator of first fraction\n ");
+    printf("<argument3> - numenator of second fraction\n ");
+    printf("<argument4> - denominator of second fraction\n ");
     printf("and <operation> is one of '+' , '-' , '*' or '/'.\n");
 }
 
@@ -76,8 +80,14 @@ Expression parseArguments(int argc, char** argv) {
 
 int main(int argc, char** argv) {
     Expression expr = parseArguments(argc, argv);
+    try {
     Fraction fract1(expr.arg1, expr.arg2);
     Fraction fract2(expr.arg3, expr.arg4);
+    }
+    catch(...) {
+    printf("Wrong denominator!");
+    exit(2);
+    }
     Fraction result(0, 1);
 
     switch (expr.operation) {
@@ -97,7 +107,13 @@ int main(int argc, char** argv) {
         result.GetDenominator());
         break;
      case '/':
+        try {
         result = Fraction::Divide(fract1, fract2);
+        }
+        catch(...) {
+        printf("Wrong divisor!");
+        exit(2);
+        }
         printf("Result = %d / %d\n", result.GetNumenator(),
         result.GetDenominator());
         break;
