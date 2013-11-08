@@ -89,7 +89,7 @@ add_test(
     COMMAND ${appname} -1 -1 -2.22 -3.22 -0.2 -0.3 a 1
 )
 set_tests_properties (can_Get_Negative_Numbers
-  PROPERTIES PASS_REGULAR_EXPRESSION "[Result a = (-1.00, -1.00)]"
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result a = (-1.00, -1.00)]")
 
 add_test(
     NAME can_Detect_Wrong_Triangle
