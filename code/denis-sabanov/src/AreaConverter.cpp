@@ -79,6 +79,6 @@ double AreaConverter::ConvertToNewType(AreaType newType) {
     default: {
         curType = newType;
         return value;
-    }
+        }
     }
 }
