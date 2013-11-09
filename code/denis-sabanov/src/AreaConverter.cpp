@@ -58,30 +58,34 @@ double AreaConverter::ConvertToNewType(AreaType newType) {
     switch (newType) {
     case sMeter: {
         curType = newType;
-        return value;
+        break;
         }
     case sKilometer: {
         curType = newType;
-        return value = value/1000000;
+        value = value/1000000;
+        break;
         }
     case sFoot: {
         curType = newType;
-        return value = value/0.0929;
+        value = value/0.0929;
+        break;
         }
     case ar: {
         curType = newType;
-        return value = value/100;
+        value = value/100;
+        break;
         }
     case acre: {
         curType = newType;
-        return value = value/4047;
+        value = value/4047;
+        break;
         }
     case hectare: {
         curType = newType;
-        return value = value/10000;
+        value = value/10000;
+        break;
         }
-    default: {
-        return value;
         }
+    return value;
     }
 }
