@@ -93,10 +93,5 @@ int main(int argc, char** argv) {
     printf("%lf %d to %d = ", length.value,
                               length.UnitInput, length.UnitOutput);
     printf("%lf", result.value);
-
-    /* test only for me */
-    length1 = {1.3, KMeter, Meter};
-    Length result1 = convertor.Convert(length1);
-    printf("res %lf", length1.value);
     return 0;
 }

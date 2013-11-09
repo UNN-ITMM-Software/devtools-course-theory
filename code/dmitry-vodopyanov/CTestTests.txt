@@ -45,7 +45,7 @@ set_tests_properties (can_Detect_Wrong_Operation_Format
 add_test(
     NAME can_Convert_KMeters_to_Meters
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 1.3 5 1
+    COMMAND ${appname} 1.3 5 4
 )
 set_tests_properties (can_Convert_KMeters_to_Meters
   PROPERTIES PASS_REGULAR_EXPRESSION "1300.000000")
