@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <float.h>
 
 #pragma pack(push, 1)
 typedef struct {
@@ -50,8 +51,8 @@ int parseInt(const char* arg) {
 
 float parseFloat(const char* arg) {
     char* end;
-    float value = static_cast<float>(strtod(arg, &end));
-    if (!end[0]) {
+    float value = static_cast<float>(strtof(arg, &end));
+    if (!end[0] && (value < DBL_MAX) && (value > -DBL_MAX )) {
         printf("%s is valid\n", arg);
     } else {
         printf("%s is invalid\n", arg);
