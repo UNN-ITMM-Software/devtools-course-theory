@@ -31,7 +31,7 @@ void help(const char* appname) {
 
 double parseDouble(const char* value) {
     char* end;
-    double number = static_cast<double>strtol(value, &end, 10);
+    double number = strtol(value, &end, 10);
 
     if (!end[0]) {
         printf("%s is valid\n", value);
