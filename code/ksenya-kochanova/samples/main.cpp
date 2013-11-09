@@ -67,7 +67,7 @@ Expression parseArguments(int argc, char** argv) {
         printf("Wrong value format for Newton!\n");
         exit(5);
     }
-	    expression.oldunit = static_cast<TemperatureUnit>(parseInteger(argv[2]));
+    expression.oldunit = static_cast<TemperatureUnit>(parseInteger(argv[2]));
     if ((strlen(argv[2]) != 1) ||
         (expression.oldunit < Celsius || expression.oldunit > Newton)) {
         printf("%s - Wrong unit!\n", argv[2]);
