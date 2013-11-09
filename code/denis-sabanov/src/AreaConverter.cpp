@@ -80,5 +80,6 @@ double AreaConverter::ConvertToNewType(AreaType newType) {
         curType = newType;
         return value = value/10000;
         }
+    default: return 0;
     }
 }
