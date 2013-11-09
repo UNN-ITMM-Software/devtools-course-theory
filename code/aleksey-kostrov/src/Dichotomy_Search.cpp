@@ -55,10 +55,6 @@ void DeleteMemory(int ** array, int size) {
 
 int DichotomySearch::Search(int * array, int element, int size) {
     int **addit_array = Preprocess(array, size);
-    if (size < 1) {
-        DeleteMemory(addit_array, size);
-        throw -2;
-    }
     int leftborder, rightborder, middle, temp;
     leftborder = 0;
     rightborder = size - 1;
@@ -71,11 +67,11 @@ int DichotomySearch::Search(int * array, int element, int size) {
         } else {
             temp = addit_array[middle][0];
             DeleteMemory(addit_array, size);
-            throw temp;
+            return temp;
         }
         if (leftborder > rightborder) {
             DeleteMemory(addit_array, size);
-            throw  -1;
+            return  -1;
         }
     }
 }
