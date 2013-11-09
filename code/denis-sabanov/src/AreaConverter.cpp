@@ -56,10 +56,6 @@ void AreaConverter::ConvertToMeters() {
 double AreaConverter::ConvertToNewType(AreaType newType) {
     ConvertToMeters();
     switch (newType) {
-    case sMeter: {
-        curType = newType;
-        return value;
-        }
     case sKilometer: {
         curType = newType;
         return value = value/1000000;
@@ -80,6 +76,8 @@ double AreaConverter::ConvertToNewType(AreaType newType) {
         curType = newType;
         return value = value/10000;
         }
-    default: return 0;
+    default: {
+        curType = newType;
+        return value;
     }
 }
