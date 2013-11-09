@@ -89,3 +89,19 @@ add_test(
 )
 set_tests_properties (can_Calculate_Distance_In_L3 
   PROPERTIES PASS_REGULAR_EXPRESSION "[distance = 118.150780]")
+
+add_test(
+    NAME can_Calculate_Large_Distance_In_L4
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 3 {200000,20001.22222,1000000.1} {120001.03,300000.05,500000} L4
+)
+set_tests_properties (can_Calculate_Large_Distance_In_L4 
+  PROPERTIES PASS_REGULAR_EXPRESSION "[distance = 511940.375000]")
+
+add_test(
+    NAME can_Calculate_Distance_In_LInfinity
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 2 {20000,10000.108} {300000.05,50000} LInfinity
+)
+set_tests_properties (can_Calculate_Distance_In_LInfinity 
+  PROPERTIES PASS_REGULAR_EXPRESSION "[distance = 280000.062500]")
