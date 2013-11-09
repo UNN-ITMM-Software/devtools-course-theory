@@ -67,7 +67,7 @@ void ComplexCalculator::Input(char *str) {
         }
         s.erase(s.find(i)-1, i.length()+1);
         i.erase(i.find('i'), 1);
-        if (i.find('*') >= 0 && sh > 0) i.erase(i.find('*'), 1);
+        if (sh > 0) i.erase(i.find('*'), 1);
         if (sh > 0 && i == "") {
             printf("Wrong number format!\n");
             exit(2);
