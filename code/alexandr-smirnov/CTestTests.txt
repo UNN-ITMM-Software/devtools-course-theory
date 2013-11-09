@@ -9,3 +9,19 @@ add_test(
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname}
 )
+
+add_test( 
+    NAME can_Print_Help_Without_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+set_tests_properties (can_Print_Help_Without_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "This is an application of sorting.")
+
+add_test(
+    NAME can_Check_Number_Of_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} q 3 2
+)
+set_tests_properties (can_Check_Number_Of_Arguments
+  PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be 4 arguments.")
