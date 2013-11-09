@@ -59,7 +59,7 @@ int main(int argc, char** argv) {
     b = expr.arg2;
     ComplexCalculator c;
     char str[35]="";
-    
+
     switch (expr.operation) {
      case '+' :
         c = ComplexCalculator::Add(a, b);
