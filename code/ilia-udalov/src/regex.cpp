@@ -23,16 +23,16 @@ int match(const std::string& regex, const std::string& text) {
 }
 
 int find(const std::string& substring, const std::string& text) {
-    int i, j;
-    for (i = 0;
-        i < static_cast<int>(text.size()) - static_cast<int>(substring.size());
-        i++) {
-        for (j = 0; j < static_cast<int>(substring.size()); j++) {
-            if (substring[j] != text[i + j])
+    size_t i, j;
+    for (i = 0; i < text.size() - substring.size(); i++) {
+        for (j = 0; j < substring.size(); j++) {
+            if (static_cast<wchar_t>(substring[j])
+                != static_cast<wchar_t>(text[i + j])) {
                 break;
+            }
         }
-        if (j == static_cast<int>(substring.size())) {
-            return i;
+        if (j == substring.size()) {
+            return static_cast<int>(i);
         }
     }
     return -1;
