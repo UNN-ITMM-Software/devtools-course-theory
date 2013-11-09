@@ -51,7 +51,7 @@ int parseInt(const char* arg) {
 
 float parseFloat(const char* arg) {
     char* end;
-    float value = static_cast<float>(strtof(arg, &end));
+    float value = static_cast<float>(strtod(arg, &end));
     if (!end[0] && (value < DBL_MAX) && (value > -DBL_MAX )) {
         printf("%s is valid\n", arg);
     } else {
