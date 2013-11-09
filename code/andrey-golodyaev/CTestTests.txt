@@ -47,7 +47,7 @@ add_test(
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 1+2*i 2-3i +
 )
-set_tests_properties (calc_can_Add_Numbers 1
+set_tests_properties (calc_can_Add_Numbers1
   PROPERTIES PASS_REGULAR_EXPRESSION "[A+B = 3-i]")
 
 add_test(
