@@ -4,7 +4,7 @@
 
 enum TemperatureUnit {Celsius, Kelvin, Fahrenheit, Newton};
 
-struct Temperature {
+    struct Temperature {
     double value;
     TemperatureUnit unit;
 };
