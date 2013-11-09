@@ -55,5 +55,5 @@ add_test(
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 100 2 1
 )
-set_tests_properties (can_Convert_Tuble_to_Euro
+set_tests_properties (can_Convert_Ruble_to_Euro
   PROPERTIES PASS_REGULAR_EXPRESSION "Result = 4.054054")
