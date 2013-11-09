@@ -80,4 +80,5 @@ double AreaConverter::ConvertToNewType(AreaType newType) {
         curType = newType;
         return value;
     }
+    }
 }
