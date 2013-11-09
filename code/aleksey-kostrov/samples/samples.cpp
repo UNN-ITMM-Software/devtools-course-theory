@@ -57,8 +57,10 @@ Expression parseArguments(int argc, char **argv) {
         exit(2);
     }
 
-    if (expression.size <= 0)
+    if (expression.size <= 0) {
         printf("Size of array must be more than zero!\n");
+        exit(3);
+    }
 
     return expression;
 }
