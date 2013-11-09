@@ -140,7 +140,6 @@ int main(int argc, char** argv) {
     float distance = 0;
     distance = DistanceBetweenVectors::CalculateDistance(expression.vect1,
                expression.vect2, expression.typeMetric, expression.sizeVector);
-    printf("%f distance between source vectors in %s\n", distance,
-            arrTypeMetric[static_cast<int>(expression.typeMetric - 1)]);
+    printf("distance = %f\n", distance);
     return 0;
 }

@@ -65,3 +65,27 @@ add_test(
 )
 set_tests_properties (can_Detect_Wrong_Format_Type_Metric 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format of type metric!")
+
+add_test(
+    NAME can_Calculate_Distance_In_L1
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 3 {3,4,4} {3,2,1} L1
+)
+set_tests_properties (can_Calculate_Distance_In_L1 
+  PROPERTIES PASS_REGULAR_EXPRESSION "[distance = 5.000000]")
+  
+add_test(
+    NAME can_Calculate_Distance_In_L2
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 4 {3.1,10.2,9.83,8.8} {3.11,1.2,0.9,9.1} L2
+)
+set_tests_properties (can_Calculate_Distance_In_L2 
+  PROPERTIES PASS_REGULAR_EXPRESSION "[distance = 12.682074]")
+
+add_test(
+    NAME can_Calculate_Distance_In_L3
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 5 {31,102,98.3,1.4,2.4} {31.1,12,1.03,3.05,5} L3
+)
+set_tests_properties (can_Calculate_Distance_In_L3 
+  PROPERTIES PASS_REGULAR_EXPRESSION "[distance = 118.150780]")
