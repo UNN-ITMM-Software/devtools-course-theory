@@ -93,9 +93,9 @@ int main(int argc, char** argv) {
     printf("%lf %d to %d = ", length.value,
                               length.UnitInput, length.UnitOutput);
     printf("%lf", result.value);
-    
+
     /* test only for me */
     length = {1.3, KMeter, Meter};
-    printf("res %lf",length.value);
+    printf("res %lf", length.value);
     return 0;
 }
