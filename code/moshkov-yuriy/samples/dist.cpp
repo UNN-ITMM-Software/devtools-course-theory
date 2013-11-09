@@ -87,6 +87,7 @@ float* getVector(char* str, int sizeVector) {
             delete []vector;
             vector = NULL;
         }
+        delete []strWithBracket;
     }
     return vector;
 }
@@ -141,5 +142,7 @@ int main(int argc, char** argv) {
     distance = DistanceBetweenVectors::CalculateDistance(expression.vect1,
                expression.vect2, expression.typeMetric, expression.sizeVector);
     printf("distance = %f\n", distance);
+    delete []expression.vect1;
+    delete []expression.vect2;
     return 0;
 }
