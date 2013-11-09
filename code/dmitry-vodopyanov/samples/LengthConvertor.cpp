@@ -1,6 +1,6 @@
 /* Copyright 2013 Dmitry Vodopyanov */
 
-#include "LengthConvertor.h"
+#include <LengthConvertor.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -25,7 +25,9 @@ void help(const char* appname) {
     printf("You should provide arguments in the following format:\n\n");
     printf("  $ %s <value> <input unit> <output unit>\n\n", appname);
     printf("Where <value> is double number, ");
-    printf("and both units are one of Inch, Foot, Yard, Mile, Meter, KMeter, CMeter.\n");
+    printf("and both units are one of 
+    printf("0 = Inch, 1 = Foot, 2 = Yard, 3 = Mile,\n");
+    printf("4 = Meter, 5 = KMeter, 6 = CMeter.\n");
 }
 
 double parseDouble(const char* value) {
