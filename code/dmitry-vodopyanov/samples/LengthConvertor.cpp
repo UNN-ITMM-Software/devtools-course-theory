@@ -25,14 +25,14 @@ void help(const char* appname) {
     printf("You should provide arguments in the following format:\n\n");
     printf("  $ %s <value> <input unit> <output unit>\n\n", appname);
     printf("Where <value> is double number, ");
-    printf("and both units are one of");
+    printf("and both units are one of\n");
     printf("0 = Inch, 1 = Foot, 2 = Yard, 3 = Mile,\n");
     printf("4 = Meter, 5 = KMeter, 6 = CMeter.\n");
 }
 
 double parseDouble(const char* value) {
     char* end;
-    double num = strtol(value, &end, 10);
+    double num = strtof(value, &end);
 
     if (!end[0]) {
         printf("%s is valid\n", value);
@@ -71,13 +71,15 @@ Expression parseArguments(int argc, char** argv) {
     Expression expression;
     try {
         expression.value = static_cast<double>(parseDouble(argv[1]));
-    expression.UnitInput = static_cast<LengthUnit>(parseInteger(argv[2]));
-    expression.UnitOutput = static_cast<LengthUnit>(parseInteger(argv[3]));
+        expression.UnitInput = static_cast<LengthUnit>(parseInteger(argv[2]));
+        expression.UnitOutput = static_cast<LengthUnit>(parseInteger(argv[3]));
     }
     catch(...) {
         printf("Wrong format!\n");
         exit(2);
     }
+
+    return expression;
 }
 
 int main(int argc, char** argv) {
