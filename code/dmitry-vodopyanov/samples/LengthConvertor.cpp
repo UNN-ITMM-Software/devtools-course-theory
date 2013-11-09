@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
     length.UnitInput = expr.UnitInput;
     length.UnitOutput = expr.UnitOutput;
     Length result = convertor.Convert(length);
-    printf("%lf %d = ", length.value, length.UnitInput);
-    printf("%lf %d", result.value, result.UnitOutput);
+    printf("%lf %d to %d = ", length.value, length.UnitInput, length.UnitOutput);
+    printf("%lf", result.value);
     return 0;
 }
