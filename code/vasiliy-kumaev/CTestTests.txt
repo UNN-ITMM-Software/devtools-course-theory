@@ -39,7 +39,7 @@ add_test(
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 100 7 1
 )
-set_tests_properties (can_Detect_Wrong_oldUnit_Format 
+set_tests_properties (can_Detect_Wrong_oldunit_Format 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong oldunit format!")
 
 add_test(
@@ -47,7 +47,7 @@ add_test(
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 100 1 8
 )
-set_tests_properties (can_Detect_Wrong_newUnit_Format 
+set_tests_properties (can_Detect_Wrong_newunit_Format 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong newunit format!")
 
 add_test(
