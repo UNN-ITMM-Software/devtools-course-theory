@@ -30,7 +30,7 @@ TemperatureUnit toUnit) {
     double b[4] = {0, -273.15, -32, 0};
     Temperature outTemperature;
     if (inCelsius.value == 12345) {
-        outTemperature.value = 0.0001;
+        outTemperature.value = 12345;
         printf("Erorr");
     } else {
         outTemperature.value = 1 / a[toUnit] * (inCelsius.value - b[toUnit]);
