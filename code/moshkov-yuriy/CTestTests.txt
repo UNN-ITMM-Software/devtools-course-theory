@@ -31,7 +31,7 @@ add_test(
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 3 {3,4,1} 4,3,2 L1
 )
-set_tests_properties (can_Detect_Wrong_Number_Format 
+set_tests_properties (can_Detect_Wrong_Vector_Format 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong vector format!")
 
 add_test(
@@ -49,14 +49,6 @@ add_test(
 )
 set_tests_properties (can_Detect_Wrong_Number_Format_Vector_Elements 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format of vector's elements!")
-
-add_test(
-    NAME can_Detect_Wrong_Input_Size_Vector
-    WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} -1 {1.2,2.1} {2.1,1} L2
-)
-set_tests_properties (can_Detect_Wrong_Input_Size_Vector
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong input size vector!")
 
 add_test(
     NAME can_Detect_Wrong_Input_Size_Vector
