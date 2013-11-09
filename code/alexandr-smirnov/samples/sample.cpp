@@ -50,7 +50,9 @@ int main() {
     for (int i = 0; i < N; i++)
         printf("%d ", c[i]);
 
-    delete a, b, c;
+    delete a;
+    delete b;
+    delete c;
 
     return 0;
 }
