@@ -69,7 +69,7 @@ set_tests_properties (can_Detect_Wrong_Format_Type_Metric
 add_test(
     NAME can_Calculate_Distance_In_L1
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 3 {3,4,4} {3,2,1} L1
+    COMMAND ${appname} 3 {3.0,4.0,4.0} {3,2,1} L1
 )
 set_tests_properties (can_Calculate_Distance_In_L1 
   PROPERTIES PASS_REGULAR_EXPRESSION "[distance = 5.000000]")
