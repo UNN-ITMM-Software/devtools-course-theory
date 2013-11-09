@@ -1,13 +1,14 @@
 /* Copyright 2013 Alexandr Smirnov */
 
-#include "sort.h"
+#include <sort.h>
 #include <stdlib.h>
 #include <stdio.h>
 
 void help(const char* appname) {
     printf("This is an application of sorting arrays of integer numbers.\n\n");
     printf("Please provide arguments in the following format:\n\n");
-    printf("$ %s <sort method> <size of array> <element[1]> <element[2]> ... <element[size]> \n\n", appname);
+    printf("$ %s <sort method> <size of array> <element[1]> <element[2]> \n\n");
+    printf(" ... <element[size]> \n\n", appname);
     printf("Where all arguments but second are integer numbers, \n\n");
     printf("third argument is the number of elements in the array,  \n\n");
     printf("and second argument has type 'string' and values: \n\n");
@@ -20,7 +21,8 @@ void parseArguments(int argc, char** argv) {
         help(argv[0]);
         exit(0);
     }
-    else if (argc != (atoi(argv[2]) + 3)) {
+    else
+    if (argc != (atoi(argv[2]) + 3)) {
         printf("ERROR: The number of arguments must match value of second argument + 3.\n\n");
         help(argv[0]);
         exit(1);
