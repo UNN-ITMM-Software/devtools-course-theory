@@ -56,7 +56,7 @@ void AreaConverter::ConvertToMeters() {
 double AreaConverter::ConvertToNewType(AreaType newType) {
     ConvertToMeters();
     switch (newType) {
-    case sMeters: {
+    case sMeter: {
         curType = newType;
         return value;
         }
