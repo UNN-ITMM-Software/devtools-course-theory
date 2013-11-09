@@ -83,7 +83,7 @@ Expression parseArguments(int argc, char** argv) {
 
 int main(int argc, char** argv) {
     Expression expr = parseArguments(argc, argv);
-    CurrencyConvertor convertor;
+    CurrencyConvert convertor;
     Currency currency;
 
     currency.value = expr.value;
