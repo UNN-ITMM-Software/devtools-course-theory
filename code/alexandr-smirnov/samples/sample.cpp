@@ -20,12 +20,13 @@ void parseArguments(int argc, char** argv) {
     if (argc == 1) {
         help(argv[0]);
         exit(0);
-    }
-    else
-    if (argc != (atoi(argv[2]) + 3)) {
-        printf("ERROR: The number of arguments must match value of second argument + 3.\n\n");
-        help(argv[0]);
-        exit(1);
+    } else {
+      if (argc != (atoi(argv[2]) + 3)) {
+          printf("ERROR: The number of arguments must match \n\n");
+          printf("value of second argument + 3.\n\n");
+          help(argv[0]);
+          exit(1);
+      }
     }
 }
 
@@ -35,7 +36,7 @@ int main(int argc, char** argv) {
     int N = atoi(argv[2]);
     int* a = new int[N];
 
-    for (int i = 0; i < N; i++) 
+    for (int i = 0; i < N; i++)
       a[i] = atoi(argv[i + 3]);
     Sorter sorter;
 
