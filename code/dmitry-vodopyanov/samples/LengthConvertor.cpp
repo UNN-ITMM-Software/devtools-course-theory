@@ -52,7 +52,7 @@ int64_t parseInteger(const char* arg) {
         printf("%s is valid\n", arg);
     } else {
         printf("%s is invalid\n", arg);
-        throw "wrong number format";
+        throw "wrong format";
     }
 
     return value;
