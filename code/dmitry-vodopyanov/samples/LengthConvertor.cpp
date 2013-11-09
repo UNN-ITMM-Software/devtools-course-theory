@@ -89,9 +89,9 @@ int main(int argc, char** argv) {
     length.value = expr.value;
     length.UnitInput = expr.UnitInput;
     length.UnitOutput = expr.UnitOutput;
-    Length result = convertor.Convert(length);
     printf("%lf %d to %d = ", length.value,
                               length.UnitInput, length.UnitOutput);
-    printf("%lf", result.value);
+    length = convertor.Convert(length);
+    printf("%lf", length.value);
     return 0;
 }
