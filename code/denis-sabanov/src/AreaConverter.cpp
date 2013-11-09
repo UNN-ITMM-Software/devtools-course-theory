@@ -88,4 +88,3 @@ double AreaConverter::ConvertToNewType(AreaType newType) {
         }
     return value;
 }
-
