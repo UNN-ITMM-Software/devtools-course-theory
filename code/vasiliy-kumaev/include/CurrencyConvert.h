@@ -5,7 +5,8 @@
 enum Unit {Dollar, Euro, Ruble, Pound};
 
 struct Currency {
-    Unit unit;
+    Unit newunit;
+    Unit oldunit;
     double value;
 };
 
@@ -14,7 +15,7 @@ class CurrencyConvert {
     CurrencyConvert(void);
     virtual ~CurrencyConvert(void);
 
-    static Currency Convert(Currency currency, Unit UnitOutput);
+    static Currency Convert(Currency currency);
 };
 
 #endif  // CODE_VASILIY_KUMAEV_INCLUDE_CURRENCYCONVERT_H_
