@@ -7,15 +7,15 @@ enum LengthUnit {Inch, Foot, Yard, Mile, Meter, KMeter, CMeter};
 struct Length {
     double value;
     LengthUnit UnitInput;
+    LengthUnit UnitOutput;
 };
 
 class LengthConvertor {
-public
-:
+ public:
     LengthConvertor(void);
     virtual ~LengthConvertor(void);
 
-    Length Convert(Length length, LengthUnit UnitOutput);
+    Length Convert(Length length);
 };
 
 #endif  // CODE_DMITRY_VODOPYANOV_INCLUDE_LENGTHCONVERTOR_H_

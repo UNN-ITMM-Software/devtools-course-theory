@@ -1,17 +1,92 @@
 /* Copyright 2013 Dmitry Vodopyanov */
-#include <LengthConvertor.h>
+
+#include "LengthConvertor.h"
+
 #include <stdio.h>
-int main() {
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+
+#pragma pack(push, 1)
+typedef struct {
+    double value;
+    LengthUnit UnitInput;
+    LengthUnit UnitOutput;
+} Expression;
+#pragma pack(pop)
+
+void help(const char* appname);
+double parseDouble(const char* arg);
+int64_t parseInteger(const char* arg);
+Expression parseArguments(int argc, char** argv);
+
+void help(const char* appname) {
+    printf("This is a length convertor application.\n\n");
+    printf("You should provide arguments in the following format:\n\n");
+    printf("  $ %s <value> <input unit> <output unit>\n\n", appname);
+    printf("Where <value> is double number, ");
+    printf("and both units are one of Inch, Foot, Yard, Mile, Meter, KMeter, CMeter.\n");
+}
+
+double parseDouble(const char* value) {
+    char* end;
+    double num = strtol(value, &end, 10);
+
+    if (!end[0]) {
+        printf("%s is valid\n", value);
+    } else {
+        printf("%s is invalid\n", value);
+        throw "wrong number format";
+    }
+
+    return num;
+}
+
+int64_t parseInteger(const char* arg) {
+    char* end;
+    int64_t value = strtol(arg, &end, 10);
+
+    if (!end[0]) {
+        printf("%s is valid\n", arg);
+    } else {
+        printf("%s is invalid\n", arg);
+        throw "wrong number format";
+    }
+
+    return value;
+}
+
+Expression parseArguments(int argc, char** argv) {
+    if (argc == 1) {
+        help(argv[0]);
+        exit(0);
+    } else if (argc != 4) {
+        printf("ERROR: Should be 3 arguments.\n\n");
+        help(argv[0]);
+        exit(1);
+    }
+
+    Expression expression;
+    try {
+        expression.value = static_cast<double>(parseDouble(argv[1]));
+    expression.UnitInput = static_cast<LengthUnit>(parseInteger(argv[2]));
+    expression.UnitOutput = static_cast<LengthUnit>(parseInteger(argv[3]));
+    }
+    catch(...) {
+        printf("Wrong format!\n");
+        exit(2);
+    }
+}
+
+int main(int argc, char** argv) {
+  Expression expr = parseArguments(argc, argv);
     LengthConvertor convertor;
     Length length;
-    length.value = 6.0; length.UnitInput = Inch;
-    printf("6 inches = %lf meters\n",
-           convertor.Convert(length, Meter).value);
-    length.value = 45.6; length.UnitInput = KMeter;
-    printf("45.6 kilometers = %lf yards\n",
-           convertor.Convert(length, Yard).value);
-    length.value = -7.0; length.UnitInput = KMeter;
-    printf("-7 kilometers = %lf yards\n",
-           convertor.Convert(length, Yard).value);
+  length.value = expr.value;
+    length.UnitInput = expr.UnitInput;
+  length.UnitOutput = expr.UnitOutput;
+  Length Convert(length);
+    printf("%lf %d = ", length.value, length.UnitInput);
+    printf("%lf %d", length.value, length.UnitOutput);
     return 0;
 }
