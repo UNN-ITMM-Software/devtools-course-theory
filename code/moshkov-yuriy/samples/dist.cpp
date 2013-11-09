@@ -79,8 +79,7 @@ float* getVector(char* str, int sizeVector) {
                 vector[indElem++] = static_cast<float>(parseFloat(charElem));
             }
             catch(...) {
-                printf("Wrong vector's elements format!\n");
-                exit(2);
+                throw "Wrong vector's elements format";
             }
             charElem = strtok_r(rest, ",", &rest);
         }
@@ -121,11 +120,17 @@ Expression parseArguments(int argc, char** argv) {
             printf("Wrong format of type metric!\n");
             exit(4);
         }
-    expression.vect1 = getVector(argv[2], expression.sizeVector);
-    expression.vect2 = getVector(argv[3], expression.sizeVector);
-    if ((expression.vect1 == NULL) || (expression.vect2 == NULL)) {
-        printf("Wrong vector's form!\n");
+    try {
+        expression.vect1 = getVector(argv[2], expression.sizeVector);
+        expression.vect2 = getVector(argv[3], expression.sizeVector);
+    }
+    catch(...) {
+        printf("Wrong number format of vector's elements!\n");
         exit(5);
+    }
+    if ((expression.vect1 == NULL) || (expression.vect2 == NULL)) {
+        printf("Wrong vector's format!\n");
+        exit(6);
     }
     return expression;
 }
