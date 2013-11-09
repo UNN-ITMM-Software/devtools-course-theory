@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
     if (expr.size < SIZE_FOR_PRINT) {
         printf("Generated array: ");
         for (int i = 0; i < expr.size; i++)
-            printf("%d ", array[i]);
+            printf(" %d ", array[i]);
         printf("\n");
     } else if (expr.size > 0) {
         printf("Array was generated automatically!\n");
