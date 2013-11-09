@@ -21,8 +21,12 @@ void help(const char* appname) {
     printf("This is a calculator of complex numbers.\n\n");
     printf("Please provide arguments in the following format:\n\n");
     printf("  $ %s <argument1> <argument2> <operation>\n\n", appname);
-    printf("Where both arguments are complex numbers, ");
-    printf("and <operation> is one of '+', '-', '*' or '/'.\n");
+    printf("Where both arguments are complex numbers");
+    printf("Format of complex number:\n");
+    printf("1) a+b*i or a+i*b\n");
+    printf("2) b*i+a or i*b+a\n");
+    printf("Where a, b - real number; * can be absent\n");
+    printf("<operation> is one of '+', '-', '*' or '/'.\n");
 }
 
 Expression parseArguments(int argc, char** argv) {
@@ -55,27 +59,28 @@ int main(int argc, char** argv) {
     b = expr.arg2;
     ComplexCalculator c;
     char str[35]="";
+    
     switch (expr.operation) {
-    case '+' :
-    c = ComplexCalculator::Add(a, b);
-    c.Output(str);
-    printf("A+B = %s\n", str);
-    break;
-    case '-' :
-    c = ComplexCalculator::Sub(a, b);
-    c.Output(str);
-    printf("A-B = %s\n", str);
-    break;
-    case '*' :
-    c = ComplexCalculator::Multi(a, b);
-    c.Output(str);
-    printf("A*B = %s\n", str);
-    break;
-    case '/' :
-    c = ComplexCalculator::Div(a, b);
-    c.Output(str);
-    printf("A/B = %s\n", str);
-    break;
+     case '+' :
+        c = ComplexCalculator::Add(a, b);
+        c.Output(str);
+        printf("A+B = %s\n", str);
+        break;
+     case '-' :
+        c = ComplexCalculator::Sub(a, b);
+        c.Output(str);
+        printf("A-B = %s\n", str);
+        break;
+     case '*' :
+        c = ComplexCalculator::Multi(a, b);
+        c.Output(str);
+        printf("A*B = %s\n", str);
+        break;
+     case '/' :
+        c = ComplexCalculator::Div(a, b);
+        c.Output(str);
+        printf("A/B = %s\n", str);
+        break;
     }
     return 0;
 }
