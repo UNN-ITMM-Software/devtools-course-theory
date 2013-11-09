@@ -75,7 +75,7 @@ Expression parseArguments(int argc, char** argv) {
         expression.UnitOutput = static_cast<LengthUnit>(parseInteger(argv[3]));
     }
     catch(...) {
-        printf("Wrong format!\n");
+        printf("Wrong format!");
         exit(2);
     }
 
@@ -83,14 +83,14 @@ Expression parseArguments(int argc, char** argv) {
 }
 
 int main(int argc, char** argv) {
-  Expression expr = parseArguments(argc, argv);
+    Expression expr = parseArguments(argc, argv);
     LengthConvertor convertor;
     Length length;
-  length.value = expr.value;
+    length.value = expr.value;
     length.UnitInput = expr.UnitInput;
-  length.UnitOutput = expr.UnitOutput;
-  Length Convert(length);
+    length.UnitOutput = expr.UnitOutput;
+    Length result = convertor.Convert(length);
     printf("%lf %d = ", length.value, length.UnitInput);
-    printf("%lf %d", length.value, length.UnitOutput);
+    printf("%lf %d", result.value, result.UnitOutput);
     return 0;
 }

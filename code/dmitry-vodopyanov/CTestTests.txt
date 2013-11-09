@@ -32,7 +32,7 @@ add_test(
     COMMAND ${appname} a 5 4
 )
 set_tests_properties (can_Detect_Wrong_Number_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "wrong number format")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
 
 add_test(
     NAME can_Detect_Wrong_Operation_Format
@@ -40,7 +40,7 @@ add_test(
     COMMAND ${appname} 1 1 rubbish
 )
 set_tests_properties (can_Detect_Wrong_Operation_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "wrong format")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
 
 add_test(
     NAME can_Convert_KMeters_to_Meters
