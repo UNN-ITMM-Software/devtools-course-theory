@@ -89,8 +89,8 @@ int main(int argc, char** argv) {
     currency.value = expr.value;
     currency.oldunit = expr.oldunit;
     currency.newunit = expr.newunit;
-    currency Convert(currency);
     printf("%lf %d = ", currency.value, currency.oldunit);
+    convertor.Convert(currency);
     printf("%lf %d", currency.value, currency.newunit);
 
     return 0;
