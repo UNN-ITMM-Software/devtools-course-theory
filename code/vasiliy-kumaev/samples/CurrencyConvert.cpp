@@ -31,13 +31,13 @@ void help(const char* appname) {
 
 double parseDouble(const char* value) {
     char* end;
-    double number = strtof(value, &end);
+    double number = static_cast<double>(strtod(value, &end));
 
     if (!end[0]) {
         printf("%s is valid\n", value);
     } else {
         printf("%s is invalid\n", value);
-        throw "wrong number format";
+        throw "Wrong format";
     }
 
     return number;
@@ -51,7 +51,7 @@ int64_t parseInteger(const char* arg) {
         printf("%s is valid\n", arg);
     } else {
         printf("%s is invalid\n", arg);
-        throw "wrong number format";
+        throw "Wrong format";
     }
 
     return value;
@@ -66,22 +66,12 @@ Expression parseArguments(int argc, char** argv) {
         help(argv[0]);
         exit(1);
     }
-    int64_t oldUnit = parseInteger(argv[2]);
-    int64_t newUnit = parseInteger(argv[3]);
-    if ((strlen(argv[2]) != 1) || (oldUnit != '0' && oldUnit != '1' &&
-        oldUnit != '2' && oldUnit != '3')) {
-        printf("%s - Wrong currency!\n", argv[2]);
-        exit(2);
-    } else if ((strlen(argv[3]) != 1) || (newUnit != '0' && newUnit != '1' &&
-        newUnit != '2' && newUnit != '3')) {
-        printf("%s - Wrong currency!\n", argv[3]);
-        exit(3);
-    }
+    
     Expression expression;
     try {
         expression.value = static_cast<double>(parseDouble(argv[1]));
-        expression.oldunit = static_cast<Unit>(oldUnit);
-        expression.newunit = static_cast<Unit>(newUnit);
+        expression.oldunit = static_cast<Unit>(parseInteger(argv[2]));
+        expression.newunit = static_cast<Unit>(parseInteger(argv[3]));
     }
     catch(...) {
         printf("Wrong format!\n");
@@ -99,9 +89,8 @@ int main(int argc, char** argv) {
     currency.value = expr.value;
     currency.oldunit = expr.oldunit;
     currency.newunit = expr.newunit;
-    printf("%lf %d = ", currency.value, currency.oldunit);
     convertor.Convert(currency);
-    printf("%lf %d", currency.value, currency.newunit);
+    printf("Result = %d", currency.value);
 
     return 0;
 }

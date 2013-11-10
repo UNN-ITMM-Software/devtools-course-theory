@@ -32,7 +32,7 @@ add_test(
     COMMAND ${appname} p 0 3
 )
 set_tests_properties (can_Detect_Wrong_Number_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
 
 add_test(
     NAME can_Detect_Wrong_oldunit_Format
@@ -40,7 +40,7 @@ add_test(
     COMMAND ${appname} 100 7 1
 )
 set_tests_properties (can_Detect_Wrong_oldunit_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong oldunit format!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
 
 add_test(
     NAME can_Detect_Wrong_newunit_Format
@@ -48,7 +48,7 @@ add_test(
     COMMAND ${appname} 100 1 8
 )
 set_tests_properties (can_Detect_Wrong_newunit_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong newunit format!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
 
 add_test(
     NAME can_Convert_Ruble_to_Euro
