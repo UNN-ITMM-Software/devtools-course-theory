@@ -40,7 +40,7 @@ add_test(
     COMMAND ${appname} 1 1 abc
 )
 set_tests_properties (can_Detect_Wrong_Operation_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
 
 add_test(
     NAME can_Convert_Ton_to_Hundredweight
