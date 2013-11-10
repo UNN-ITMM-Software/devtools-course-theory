@@ -1,0 +1,91 @@
+#############################################
+##### Testing
+#############################################
+
+enable_testing()
+
+add_test( 
+    NAME calc_can_Run
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+
+add_test( 
+    NAME calc_can_Print_Help_Without_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+set_tests_properties (calc_can_Print_Help_Without_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "This is a calculator of complex numbers.")
+
+add_test(
+    NAME calc_can_Check_Number_Of_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1+2*i 2+3*i
+)
+set_tests_properties (calc_can_Check_Number_Of_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be 3 arguments.")
+
+add_test(
+    NAME calc_can_Detect_Wrong_Number_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1+3**i 2 +
+)
+set_tests_properties (calc_can_Detect_Wrong_Number_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
+
+add_test(
+    NAME calc_can_Detect_Wrong_Operation_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 1 ++
+)
+set_tests_properties (calc_can_Detect_Wrong_Operation_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong operation!")
+
+add_test(
+    NAME calc_can_Add_Numbers1
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1+2*i 2-3i +
+)
+set_tests_properties (calc_can_Add_Numbers1
+  PROPERTIES PASS_REGULAR_EXPRESSION "[A+B = 3-i]")
+
+add_test(
+    NAME calc_can_Add_Numbers2
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1+i2 2-i*3 +
+)
+set_tests_properties (calc_can_Add_Numbers2 
+  PROPERTIES PASS_REGULAR_EXPRESSION "[A+B = 3-i]")
+
+add_test(
+    NAME calc_can_Add_Numbers3
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -2*i+1 i3+2 +
+)
+set_tests_properties (calc_can_Add_Numbers3
+  PROPERTIES PASS_REGULAR_EXPRESSION "[A+B = 3+i]")
+
+add_test(
+    NAME calc_can_Sub_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} i 1-i -
+)
+set_tests_properties (calc_can_Sub_Numbers 
+  PROPERTIES PASS_REGULAR_EXPRESSION "[A-B = -1+2*i]")
+
+add_test(
+    NAME calc_can_Mul_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1+i 1+i *
+)
+set_tests_properties (calc_can_Mul_Numbers 
+  PROPERTIES PASS_REGULAR_EXPRESSION "[A*B = 2*i]")
+
+add_test(
+    NAME calc_can_Div_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1+i i /
+)
+set_tests_properties (calc_can_Div_Numbers 
+  PROPERTIES PASS_REGULAR_EXPRESSION "[A/B = 1-i]")
