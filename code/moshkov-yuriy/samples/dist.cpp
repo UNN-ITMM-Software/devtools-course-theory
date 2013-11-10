@@ -7,9 +7,7 @@
 #include <float.h>
 
 #if defined _WIN32 || defined _WIN64
-#define strtok strtok_s
-#else
-#define strtok strtok_r
+#define strtok_r strtok_s
 #endif
 
 #pragma pack(push, 1)
@@ -75,7 +73,7 @@ float* getVector(char* str, int sizeVector) {
         char* rest;
         strWithBracket[strlen(str) - 2] = '\0';
         strncpy(strWithBracket, str + 1, strlen(str) - 2);
-        char* charElem = strtok(strWithBracket, ",", &rest);
+        char* charElem = strtok_r(strWithBracket, ",", &rest);
         int indElem = 0;
         while (charElem != NULL) {
             if (indElem == sizeVector) {
@@ -88,7 +86,7 @@ float* getVector(char* str, int sizeVector) {
             catch(...) {
                 throw "Wrong vector's elements format";
             }
-            charElem = strtok(rest, ",", &rest);
+            charElem = strtok_r(rest, ",", &rest);
         }
         if (indElem != sizeVector) {
             delete []vector;
