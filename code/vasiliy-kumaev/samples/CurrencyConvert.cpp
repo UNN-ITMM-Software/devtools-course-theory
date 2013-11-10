@@ -73,8 +73,8 @@ int64_t parseInteger(const char* arg) {
     if (!end[0]) {
         printf("%s is valid\n", arg);
     } else if (value < 0) {
-    printf("%s is invalid\n", arg);
-    throw "Negative value!";
+        printf("%s is invalid\n", arg);
+        throw "Negative value!";
     } else {
         printf("%s is invalid\n", arg);
         throw "Wrong format";
@@ -87,10 +87,14 @@ Expression parseArguments(int argc, char** argv) {
     if (argc == 1) {
         help(argv[0]);
         exit(0);
+    } else if (argv[1][0] == '-') {
+        printf("Negative value!\n\n");
+        help(argv[0]);
+        exit(1);
     } else if (argc != 4) {
         printf("ERROR: Should be 3 arguments.\n\n");
         help(argv[0]);
-        exit(1);
+        exit(2);
     }
 
     Expression expression;
@@ -101,7 +105,7 @@ Expression parseArguments(int argc, char** argv) {
     }
     catch(...) {
         printf("Wrong format!\n");
-        exit(4);
+        exit(3);
     }
 
     return expression;
