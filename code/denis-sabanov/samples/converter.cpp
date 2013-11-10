@@ -24,7 +24,8 @@ void help(const char* appname) {
     printf("Please provide arguments in the following format:\n\n");
     printf(" $ %s <value> <unit> <unit>\n\n", appname);
     printf("The list of area units: \n");
-    printf("\n 0 - sKilometer,\n 1 - hectare,\n 2 - ar, \n 3 - acre \n 4 - sMeter \n 5 - sFoot \n");
+    printf("\n 0 - sKilometer,\n 1 - hectare,\n 2 - ar, \n 3 - acre"); 
+    printf("\n 4 - sMeter \n 5 - sFoot \n");
 }
 
 double parseDouble(const char* arg) {
@@ -66,8 +67,7 @@ Expression parseArguments(int argc, char** argv) {
     Expression expression;
     try {
         expression.value = static_cast<double>(parseDouble(argv[1]));
-        if(expression.value<0)
-            {
+        if (expression.value < 0) {
                 printf("Wrong value! Value must be > 0");
                 exit(2);
             }
@@ -85,7 +85,7 @@ int main(int argc, char** argv) {
     Expression expr = parseArguments(argc, argv);
     printf("%lf %d to %d = ", expr.value,
         expr.curUnit, expr.newUnit);
-    AreaConverter Converter(expr.value, expr.curUnit);	
+    AreaConverter Converter(expr.value, expr.curUnit);
     printf("%lf", Converter.ConvertToNewType(expr.newUnit));
     return 0;
 }
