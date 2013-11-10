@@ -1,9 +1,10 @@
 /* Copyright 2013 Ksenya Kochanova */
+#include <TemperatureConverter.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <cstdio>
-#include <TemperatureConverter.h>
 
 TemperatureConvertor::TemperatureConvertor(void) {}
 
@@ -16,22 +17,23 @@ fromTemperature) {
     Temperature inCelsius;
     if ((fromTemperature.unit == 0)&&(fromTemperature.value < -273.15)) {
          flag = 0;
-    inCelsius.value = 0;
+         inCelsius.value = 0;
     }
     if ((fromTemperature.unit == 1)&&(fromTemperature.value < 0)) {
          flag = 0;
-    inCelsius.value = 0;
+         inCelsius.value = 0;
     }
     if ((fromTemperature.unit == 2)&&(fromTemperature.value < -459.67)) {
          flag = 0;
-    inCelsius.value = 0;
+         inCelsius.value = 0;
     }
     if ((fromTemperature.unit == 3)&&(fromTemperature.value < -90.14)) {
          flag = 0;
-    inCelsius.value = 0;
-   } else
+         inCelsius.value = 0;
+   } else {
         inCelsius.value = a[fromTemperature.unit] * fromTemperature.value
 + b[fromTemperature.unit];
+     }
     return inCelsius;
 }
 Temperature TemperatureConvertor:: ConvertFromCelsius(int flag,
