@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
     currency.oldunit = expr.oldunit;
     currency.newunit = expr.newunit;
     convertor.Convert(currency);
-    printf("Result = %lf", currency.value);
+    printf("Result = %.3lf", currency.value);
 
     return 0;
 }
