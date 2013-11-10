@@ -11,7 +11,7 @@ struct Expression {
     PointXY C;
     PointXY parameter;
     char nameOfStartVertex;
-	char nameOfEndVertex;
+    char nameOfEndVertex;
     int operation;
     Expression(): A(PointXY()), B(PointXY()), C(PointXY()),
                   parameter(PointXY()), nameOfStartVertex('a'),
@@ -114,7 +114,7 @@ Expression parseArguments(int argc, char** argv) {
         catch(...) {
             printf("Wrong number format!\n");
             exit(2);
-		} }
+        } }
     if (argc == 8) {
         try {
             expression.operation = parseInteger(argv[7]);
@@ -201,7 +201,7 @@ Expression parseArguments(int argc, char** argv) {
             expression.nameOfEndVertex = *argv[8];
             if ((expression.nameOfStartVertex != 'a' &&
                expression.nameOfStartVertex != 'b' &&
-               expression.nameOfStartVertex != 'c') || 
+               expression.nameOfStartVertex != 'c') ||
                (expression.nameOfEndVertex != 'a' &&
                expression.nameOfEndVertex != 'b' &&
                expression.nameOfEndVertex != 'c')) {
@@ -271,7 +271,6 @@ int main(int argc, char** argv) {
             printf("Result = Isn't isosceles\n");
         break;
     case 5:
-        
         printf("Result Length %c%c = %.2f\n",
                 expr.nameOfStartVertex, expr.nameOfEndVertex,
                 triangle.Length(expr.nameOfStartVertex, expr.nameOfEndVertex));
