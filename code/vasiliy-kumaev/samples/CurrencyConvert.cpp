@@ -46,19 +46,19 @@ double parseDouble(const char* value) {
 
 Unit parseUnit(const char* value) {
     Unit un;
-    if(strcmp(value,"Ruble") == 0) {
+    if (strcmp(value, "Ruble") == 0) {
       un = Ruble;
       printf("%s is valid\n", value);
     }
-    if else(strcmp(value,"Dollar") == 0) {
+    if else(strcmp(value, "Dollar") == 0) {
       un = Dollar;
       printf("%s is valid\n", value);
     }
-    if else(strcmp(value,"Euro") == 0) {
+    if else(strcmp(value, "Euro") == 0) {
       un = Euro;
       printf("%s is valid\n", value);
     }
-    if else(strcmp(value,"Pound") == 0) {
+    if else(strcmp(value, "Pound") == 0) {
       un = Pound;
       printf("%s is valid\n", value);
     } else {
@@ -67,7 +67,6 @@ Unit parseUnit(const char* value) {
     }
 
     return un;
-
 }
 
 int64_t parseInteger(const char* arg) {
