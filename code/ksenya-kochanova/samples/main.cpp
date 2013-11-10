@@ -102,7 +102,6 @@ Expression parseArguments(int argc, char** argv) {
     return expression;
 }
 int main(int argc, char** argv) {
-    int flag = 1;
     Temperature temperature;
     TemperatureUnit newUnit;
     TemperatureConvertor convertor;
@@ -110,8 +109,8 @@ int main(int argc, char** argv) {
     temperature.value = expr.value;
     temperature.unit = expr.oldunit;
     newUnit = expr.newunit;
-    Temperature inCelsius = convertor.ConvertToCelsius(flag, temperature);
-    Temperature outTemperature = convertor.ConvertFromCelsius(flag, inCelsius,
+    Temperature inCelsius = convertor.ConvertToCelsius(temperature);
+    Temperature outTemperature = convertor.ConvertFromCelsius(inCelsius,
         newUnit);
     printf("Input: %lf %d \n", temperature.value, temperature.unit);
     printf("Output: ? %d\n", newUnit);

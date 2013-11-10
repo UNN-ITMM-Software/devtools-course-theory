@@ -10,7 +10,7 @@ TemperatureConvertor::TemperatureConvertor(void) {}
 
 TemperatureConvertor::~TemperatureConvertor(void) {}
 
-Temperature TemperatureConvertor::ConvertToCelsius(int flag, Temperature
+Temperature TemperatureConvertor::ConvertToCelsius(Temperature
 fromTemperature) {
     double a[4] = {1, 1, 5/9, 100/33};
     double b[4] = {0, -273.15, -32, 0};
@@ -19,8 +19,8 @@ fromTemperature) {
 + b[fromTemperature.unit];
     return inCelsius;
 }
-Temperature TemperatureConvertor:: ConvertFromCelsius(int flag,
-Temperature inCelsius, TemperatureUnit toUnit) {
+Temperature TemperatureConvertor:: ConvertFromCelsius(Temperature inCelsius,
+TemperatureUnit toUnit) {
     double a[4] = {1, 1, 5/9, 100/33};
     double b[4] = {0, -273.15, -32, 0};
     Temperature outTemperature;
