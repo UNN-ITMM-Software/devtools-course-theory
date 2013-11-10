@@ -53,7 +53,7 @@ set_tests_properties (can_Detect_Not_Found_Element
 add_test(
     NAME can_Detect_Element
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 10 9
+    COMMAND ${appname} 20 54
 )
 set_tests_properties (can_Detect_Element 
   PROPERTIES PASS_REGULAR_EXPRESSION "Index of search element: 1")

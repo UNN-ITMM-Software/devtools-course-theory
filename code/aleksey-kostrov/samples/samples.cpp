@@ -79,7 +79,7 @@ int main(int argc, char** argv) {
     for (int i = 0; i < expr.size; i++)
         array[i] = static_cast<int>(rand_r(&seed) % RIGHT_BORDER_RANDOM)
                 + LEFT_BORDER_RANDOM;
-    array[0] = 9;
+    array[0] = 54;
     if (expr.size < SIZE_FOR_PRINT) {
         printf("Generated array: ");
         for (int i = 0; i < expr.size; i++)
