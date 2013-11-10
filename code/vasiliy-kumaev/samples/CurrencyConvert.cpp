@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
     currency.value = expr.value;
     currency.oldunit = expr.oldunit;
     NewUnit = expr.newunit;
-    currency = convertor.Convert(currency,NewUnit);
+    currency = convertor.Convert(currency, NewUnit);
     printf("Result = %.3lf", currency.value);
 
     return 0;
