@@ -9,7 +9,7 @@
 
 #pragma pack(push, 1)
 typedef struct {
-    int value;
+    double value;
     TemperatureUnit newunit;
     TemperatureUnit oldunit;
 } Expression;
@@ -39,7 +39,17 @@ int64_t parseInteger(const char* arg) {
 
     return value;
 }
-
+double parseDouble(const char* arg) {
+    char* end;
+    double value = strtod(arg, &end);
+    if (!end[0]) {
+        printf("%s is valid\n", arg);
+    } else {
+        printf("%s is invalid\n", arg);
+        throw "wrong number format";
+    }
+    return value;
+}
 Expression parseArguments(int argc, char** argv) {
     if (argc == 1) {
         help(argv[0]);
@@ -50,9 +60,10 @@ Expression parseArguments(int argc, char** argv) {
         exit(1);
     }
     Expression expression;
-    expression.value = static_cast<int>(parseInteger(argv[1]));
-    expression.oldunit = static_cast<TemperatureUnit>(parseInteger(argv[2]));
-    expression.newunit = static_cast<TemperatureUnit>(parseInteger(argv[3]));
+    try {
+         expression.value = static_cast<double>(parseDouble(argv[1]));
+         expression.oldunit = static_cast<TemperatureUnit>(parseInteger(argv[2]));
+         expression.newunit = static_cast<TemperatureUnit>(parseInteger(argv[3]));
     if ((expression.oldunit == Celsius) &&(expression.value < -273.15)) {
         printf("Wrong value format for Celsius!\n");
         exit(2);
@@ -81,7 +92,12 @@ Expression parseArguments(int argc, char** argv) {
     } else {
         printf("%s is valid unit\n", argv[3]);
     }
-        return expression;
+        }
+    catch(...) {
+        printf("Wrong format!");
+        exit(2);
+        }
+    return expression;
 }
 int main(int argc, char** argv) {
     Temperature temperature;
