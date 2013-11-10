@@ -59,22 +59,6 @@ set_tests_properties (can_Detect_Wrong_Operation_Format2
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
 
 add_test(
-    NAME can_Detect_Wrong_Argument_Value_Format2
-    WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 1 -2 3
-)
-set_tests_properties (can_Detect_Wrong_Value_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong argument#2! Value must be betwin 0 and 5")
-
-add_test(
-    NAME can_Detect_Wrong_Argument_Value_Format3
-    WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 1 2 7
-)
-set_tests_properties (can_Detect_Wrong_Value_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong argument#3! Value must be betwin 0 and 5")
-  
-add_test(
     NAME can_Convert_sKMeters_to_sFoots
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 0.5 0 5
