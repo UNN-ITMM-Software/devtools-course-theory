@@ -27,64 +27,52 @@ void AreaConverter::SetAreaType(AreaType newType) {
 
 void AreaConverter::ConvertToMeters() {
     switch (GetAreaType()) {
-    case sKilometer: {
+    case sKilometer:
         value = value*1000000;
         break;
-        }
-    case sMeter: {
+    case sMeter:
         break;
-        }
-    case sFoot: {
+    case sFoot:
         value = value*0.0929;
         break;
-        }
-    case acre: {
+    case acre:
         value = value*4047;
         break;
-        }
-    case ar: {
+    case ar:
         value = value*100;
         break;
-        }
-    case hectare: {
+    case hectare:
         value = value*10000;
         break;
-        }
     }
 }
 
 double AreaConverter::ConvertToNewType(AreaType newType) {
     ConvertToMeters();
     switch (newType) {
-    case sMeter: {
+    case sMeter:
         curType = newType;
         break;
-        }
-    case sKilometer: {
+    case sKilometer:
         curType = newType;
         value = value/1000000;
         break;
-        }
-    case sFoot: {
+    case sFoot:
         curType = newType;
         value = value/0.0929;
         break;
-        }
-    case ar: {
+    case ar:
         curType = newType;
         value = value/100;
         break;
-        }
-    case acre: {
+    case acre:
         curType = newType;
         value = value/4047;
         break;
-        }
-    case hectare: {
+    case hectare:
         curType = newType;
         value = value/10000;
         break;
-        }
         }
     return value;
 }
