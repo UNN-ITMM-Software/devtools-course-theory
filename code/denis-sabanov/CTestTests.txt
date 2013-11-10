@@ -51,6 +51,14 @@ set_tests_properties (can_Detect_Wrong_Operation_Format
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
 
 add_test(
+    NAME can_Detect_Wrong_Operation_Format2
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 2 cat
+)
+set_tests_properties (can_Detect_Wrong_Operation_Format2
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
+
+add_test(
     NAME can_Convert_sKMeters_to_sFoots
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 0.5 0 5
