@@ -69,4 +69,4 @@ cmake_build_dir="../build_cmake"
 $dir=$cmake_build_dir
 mkdir $cmake_build_dir
 cd $cmake_build_dir
-try cmake ../code && make && make test
+try cmake ../code && make && ctest --output-on-failure
