@@ -5,20 +5,16 @@
 #define LEFT_BORDER_RANDOM 1
 #define RIGHT_BORDER_RANDOM 50
 
+#if defined _WIN32 || defined _WIN64
+#define rand_r rand_s
+#endif
+
 #pragma pack(push, 1)
 typedef struct {
     int size;
     int element;
 } Expression;
 #pragma pack(pop)
-
-bool funk() {
-#ifdef _WINDOWS
-return true;
-#elif _LINUX
-return false;
-#endif
-}
 
 void help(const char* appname);
 int parseInteger(const char* arg);
@@ -79,19 +75,11 @@ int main(int argc, char** argv) {
     int * array;
     int returnCode;
     array = new int[expr.size];
-    if (funk()) {
-        srand(static_cast<unsigned int>(time(NULL)));
-        for (int i = 0; i < expr.size; i++)
-            array[i] = static_cast<int>(rand() % RIGHT_BORDER_RANDOM)
-                    + LEFT_BORDER_RANDOM;
-        array[0] = 9;
-    } else {
-        unsigned int seed = static_cast<unsigned int>(time(NULL));
-        for (int i = 0; i < expr.size; i++)
-            array[i] = static_cast<int>(rand_r(&seed) % RIGHT_BORDER_RANDOM)
-                    + LEFT_BORDER_RANDOM;
-        array[0] = 9;
-    }
+    unsigned int seed = static_cast<unsigned int>(time(NULL));
+    for (int i = 0; i < expr.size; i++)
+        array[i] = static_cast<int>(rand_r(&seed) % RIGHT_BORDER_RANDOM)
+                + LEFT_BORDER_RANDOM;
+    array[0] = 9;
     if (expr.size < SIZE_FOR_PRINT) {
         printf("Generated array: ");
         for (int i = 0; i < expr.size; i++)
