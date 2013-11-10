@@ -50,15 +50,15 @@ Unit parseUnit(const char* value) {
       un = Ruble;
       printf("%s is valid\n", value);
     }
-    if else(strcmp(value, "Dollar") == 0) {
+    else if (strcmp(value, "Dollar") == 0) {
       un = Dollar;
       printf("%s is valid\n", value);
     }
-    if else(strcmp(value, "Euro") == 0) {
+    else if (strcmp(value, "Euro") == 0) {
       un = Euro;
       printf("%s is valid\n", value);
     }
-    if else(strcmp(value, "Pound") == 0) {
+    else if (strcmp(value, "Pound") == 0) {
       un = Pound;
       printf("%s is valid\n", value);
     } else {
