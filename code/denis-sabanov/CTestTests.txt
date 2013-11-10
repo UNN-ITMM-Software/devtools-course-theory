@@ -35,11 +35,11 @@ set_tests_properties (can_Detect_Wrong_Number_Format
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
 
 add_test(
-    NAME can_Detect_Wrong_Number_Format
+    NAME can_Detect_Wrong_Value_Format
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} -1 2 3
 )
-set_tests_properties (can_Detect_Wrong_Number_Format 
+set_tests_properties (can_Detect_Wrong_Value_Format 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong value! Value must be > 0")
 
 add_test(
