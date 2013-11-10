@@ -85,11 +85,12 @@ int main(int argc, char** argv) {
     Expression expr = parseArguments(argc, argv);
     CurrencyConvert convertor;
     Currency currency;
+    Unit NewUnit;
 
     currency.value = expr.value;
     currency.oldunit = expr.oldunit;
-    currency.newunit = expr.newunit;
-    currency = convertor.Convert(currency);
+    NewUnit = expr.newunit;
+    currency = convertor.Convert(currency,NewUnit);
     printf("Result = %.3lf", currency.value);
 
     return 0;
