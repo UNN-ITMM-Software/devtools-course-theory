@@ -4,8 +4,10 @@
 bool flag;
 
 #ifdef _WINDOWS
+#define random rand
 flag = true;
 #elif _UNIX
+#define random rand_r
 flag = false;
 #endif
 
@@ -82,7 +84,7 @@ int main(int argc, char** argv) {
     if (flag) {
         srand(time(NULL));
         for (int i = 0; i < expr.size; i++)
-            array[i] = rand() % RIGHT_BORDER_RANDOM + LEFT_BORDER_RANDOM;
+            array[i] = random() % RIGHT_BORDER_RANDOM + LEFT_BORDER_RANDOM;
         array[0] = 9;
     } else {
         unsigned int seed = static_cast<unsigned int>(time(NULL));
