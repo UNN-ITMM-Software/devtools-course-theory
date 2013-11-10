@@ -17,7 +17,7 @@ add_test(
 )
 
 set_tests_properties (can_Print_Help_Without_Arguments 
-  PROPERTIES PASS_REGULAR_EXPRESSION "This is a simple handler for regexps and substrings.")
+  PROPERTIES PASS_REGULAR_EXPRESSION "This is a simple handler for regexps and substrings\\.")
 
 add_test(
     NAME can_Check_Overflow_Arguments
@@ -35,9 +35,9 @@ add_test(
 )
 
 set_tests_properties (can_Match_Simple_Regexp_And_Same_Substring
-  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: match.")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: match\\.")
 set_tests_properties (can_Match_Simple_Regexp_And_Same_Substring 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: does not found.")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: does not found\\.")
 
 add_test(
     NAME can_Find_And_Match_Simple_String
@@ -46,9 +46,9 @@ add_test(
 )
 
 set_tests_properties (can_Find_And_Match_Simple_String
-  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: match.")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: match\\.")
 set_tests_properties (can_Find_And_Match_Simple_String 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: first pos is: 0.")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: first pos is: 0\\.")
 
 add_test(
     NAME can_Not_Match
@@ -57,9 +57,9 @@ add_test(
 )
 
 set_tests_properties (can_Not_Match
-  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: match.")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: match\\.")
 set_tests_properties (can_Not_Match 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: first pos is: 5.")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: first pos is: 5\\.")
 
 add_test(
     NAME can_Not_Find_String_And_Match_Regexpr
@@ -68,9 +68,9 @@ add_test(
 )
 
 set_tests_properties (can_Not_Find_String_And_Match_Regexpr
-  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: does not match.")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: does not match\\.")
 set_tests_properties (can_Not_Find_String_And_Match_Regexpr 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: does not found.")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: does not found\\.")
 
 add_test(
     NAME can_Match_Dif_Regexp
@@ -79,7 +79,7 @@ add_test(
 )
 
 set_tests_properties (can_Match_Dif_Regexp
-  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: match.")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: match\\.")
 set_tests_properties (can_Match_Dif_Regexp 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: first pos is: 11   .")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: first pos is: 11\\.")
   
