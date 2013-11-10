@@ -7,8 +7,8 @@
 void help(const char* appname) {
     printf("This is an application of sorting arrays of integer numbers.\n\n");
     printf("Please provide arguments in the following format:\n\n");
-    printf("  $ %s <sort method> <size of array> <element[1]> <element[2]>\n\n", appname);
-    printf(" ... <element[size]> \n\n");
+    printf("  $ %s <sort method> <size of array>", appname);
+    printf(" <element[1]> <element[2]>... <element[size]> \n\n");
     printf("Where all arguments but second are integer numbers, \n\n");
     printf("third argument is the number of elements in the array,  \n\n");
     printf("and second argument has type 'string' and values: \n\n");
