@@ -10,9 +10,7 @@ class Triangle {
     Triangle();
     virtual ~Triangle(void);
 
-    float AB();
-    float BC();
-    float AC();
+    float Length(char nameOfStartVertex, char nameOfEndVertex);
 
     float AngleA();
     float AngleB();

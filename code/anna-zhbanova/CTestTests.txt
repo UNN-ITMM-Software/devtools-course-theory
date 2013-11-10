@@ -47,7 +47,7 @@ add_test(
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 1 1 z 0
 )
-set_tests_properties (can_Detect_Wrong_Operation_Format 
+set_tests_properties (can_Detect_Wrong_Name_Of_Vertex
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong name of vertex!")
 
 add_test(
@@ -141,33 +141,18 @@ set_tests_properties (can_Detect_Not_Isosceles_Triangle
   PROPERTIES PASS_REGULAR_EXPRESSION "Result = Isn't isosceles")
 
 add_test(
-    NAME can_Calculate_Side_AB
+    NAME can_Calculate_Side
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 0 0 3 7 5 3 5 
+    COMMAND ${appname} 0 0 3 7 5 3 a b 5 
 )
-set_tests_properties (can_Calculate_Side_AB
-  PROPERTIES PASS_REGULAR_EXPRESSION "[Result AB = 7.62]")
+set_tests_properties (can_Calculate_Side
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result ab = 7.62]")
 
-add_test(
-    NAME can_Calculate_Side_BC
-    WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 0 0 3 7 5 3 6
-)
-set_tests_properties (can_Calculate_Side_BC
-  PROPERTIES PASS_REGULAR_EXPRESSION "[Result BC = 4.47]")
-
-add_test(
-    NAME can_Calculate_Side_AC
-    WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 0 0 3 7 5 3 7 
-)
-set_tests_properties (can_Calculate_Side_AC
-  PROPERTIES PASS_REGULAR_EXPRESSION "[Result AC = 5.83]")
 
 add_test(
     NAME can_Calculate_Angle_A
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 0 0 5 0 2.5 4.33012719 8
+    COMMAND ${appname} 0 0 5 0 2.5 4.33012719 6
 )
 set_tests_properties (can_Calculate_Angle_A
   PROPERTIES PASS_REGULAR_EXPRESSION "[Result Angle A = 60.00]")
@@ -175,7 +160,7 @@ set_tests_properties (can_Calculate_Angle_A
 add_test(
     NAME can_Calculate_Angle_B
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 5 0 0 0 0 2.5 9
+    COMMAND ${appname} 5 0 0 0 0 2.5 7
 )
 set_tests_properties (can_Calculate_Angle_B
   PROPERTIES PASS_REGULAR_EXPRESSION "[Result Angle B = 90.00]")
@@ -184,7 +169,7 @@ set_tests_properties (can_Calculate_Angle_B
 add_test(
     NAME can_Calculate_Angle_C
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 5 0 0 0 0 5 10
+    COMMAND ${appname} 5 0 0 0 0 5 8
 )
 set_tests_properties (can_Calculate_Angle_C
   PROPERTIES PASS_REGULAR_EXPRESSION "[Result Angle C = 45.00]")
@@ -192,7 +177,7 @@ set_tests_properties (can_Calculate_Angle_C
 add_test(
     NAME can_Calculate_Square
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 0 6 3 0 0 0 11
+    COMMAND ${appname} 0 6 3 0 0 0 9
 )
 set_tests_properties (can_Calculate_Square
   PROPERTIES PASS_REGULAR_EXPRESSION "[Result square = 9.00]")
@@ -200,7 +185,7 @@ set_tests_properties (can_Calculate_Square
 add_test(
     NAME can_Calculate_Perimeter
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 0 3 0 0 4 0 12
+    COMMAND ${appname} 0 3 0 0 4 0 10
 )
 set_tests_properties (can_Calculate_Perimeter
   PROPERTIES PASS_REGULAR_EXPRESSION "[Result perimeter = 12.00]")

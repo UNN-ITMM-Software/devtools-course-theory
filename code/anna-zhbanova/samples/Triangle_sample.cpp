@@ -10,19 +10,21 @@ struct Expression {
     PointXY B;
     PointXY C;
     PointXY parameter;
-    char nameOfVertex;
+    char nameOfStartVertex;
+	char nameOfEndVertex;
     int operation;
     Expression(): A(PointXY()), B(PointXY()), C(PointXY()),
-                  parameter(PointXY()), nameOfVertex('a'), operation(0) {
+                  parameter(PointXY()), nameOfStartVertex('a'),
+                  nameOfEndVertex('b'), operation(0) {
     }
 };
 #pragma pack(pop)
 
-extern const char* operations[13];
+extern const char* operations[11];
 
-const char* operations[13] = {"Set", "Get", "IsCorrect", "IsEquilateral",
-                                 "IsIsosceles", "AB", "BC", "AC", "AngleA",
-                                 "AngleB", "AngleC", "Square", "Perimeter"};
+const char* operations[11] = {"Set", "Get", "Length",
+                              "IsCorrect", "IsEquilateral", "IsIsosceles",
+                          "AngleA", "AngleB", "AngleC", "Square", "Perimeter"};
 
 void help(const char* appname);
 float parseFloat(const char* arg);
@@ -34,21 +36,31 @@ void help(const char* appname) {
     printf("that calculates the basic parameters of the triangle(ABC)\n\n");
     printf("Please provide arguments in the following format:\n\n");
     printf("The fractional part is introduced through the point.\n\n");
+
     printf("  $ %s <x1> <y1> <nameOfVertex> <operation>\n\n", appname);
     printf("Where both arguments are float numbers, ");
     printf("<nameOfVertex> is one of 'a', 'b' or 'c' ");
     printf("and <operation> is \n");
     printf("<%d>%s\n\n", 0, operations[0]);
+
     printf("  $ %s <x1> <y1> <x2> <y2> <x3> <y3> <nameOfVertex> <operation>",
                                                                     appname);
     printf("\n\nWhere all arguments are float numbers, ");
     printf("<nameOfVertex> is one of 'a', 'b' or 'c' ");
     printf("and <operation> is \n");
     printf("<%d>%s\n", 1, operations[1]);
+
+    printf("  $ %s <x1> <y1> <x2> <y2> <x3> <y3>", appname);
+    printf("<nameStartVertex> <nameEndVertex> <operation>");
+    printf("\n\nWhere all arguments are float numbers, ");
+    printf("<nameStartVertex> and <nameEndVertex> is one of 'a', 'b' or 'c' ");
+    printf("and <operation> is \n");
+    printf("<%d>%s\n", 2, operations[2]);
+
     printf("\n  $ %s <x1> <y1> <x2> <y2> <x3> <y3> <operation>\n\n", appname);
     printf("Where all arguments are float numbers, ");
     printf("and <operation> is one of\n");
-    for (int i = 2; i < 13; i++)
+    for (int i = 3; i < 11; i++)
         printf("<%d>%s\n", i, operations[i]);
 }
 
@@ -83,14 +95,14 @@ Expression parseArguments(int argc, char** argv) {
     if (argc == 1) {
         help(argv[0]);
         exit(0);
-    } else if (argc != 5 && argc != 9 && argc != 8) {
-        printf("ERROR: Should be 4, 7 or 8 arguments.\n\n");
+    } else if (argc != 5 && argc != 9 && argc != 8 && argc != 10) {
+        printf("ERROR: Should be 4, 7 8 or 9 arguments.\n\n");
         help(argv[0]);
         exit(1);
     }
 
     Expression expression;
-    if (argc == 8) {
+    if (argc == 8 || argc == 9 || argc == 10) {
         try {
             expression.A.x = parseFloat(argv[1]);
             expression.A.y = parseFloat(argv[2]);
@@ -102,7 +114,8 @@ Expression parseArguments(int argc, char** argv) {
         catch(...) {
             printf("Wrong number format!\n");
             exit(2);
-        }
+		} }
+    if (argc == 8) {
         try {
             expression.operation = parseInteger(argv[7]);
             if ((expression.operation > 12) ||
@@ -127,10 +140,10 @@ Expression parseArguments(int argc, char** argv) {
             exit(2);
         }
         try {
-            expression.nameOfVertex = *argv[3];
-        if (expression.nameOfVertex != 'a' &&
-               expression.nameOfVertex != 'b' &&
-               expression.nameOfVertex != 'c') {
+            expression.nameOfStartVertex = *argv[3];
+        if (expression.nameOfStartVertex != 'a' &&
+               expression.nameOfStartVertex != 'b' &&
+               expression.nameOfStartVertex != 'c') {
                printf("Wrong name of vertex!\n");
                exit(2);
             } else {
@@ -155,22 +168,10 @@ Expression parseArguments(int argc, char** argv) {
             exit(3);
         } } else if (argc == 9) {
         try {
-            expression.A.x = parseFloat(argv[1]);
-            expression.A.y = parseFloat(argv[2]);
-            expression.B.x = parseFloat(argv[3]);
-            expression.B.y = parseFloat(argv[4]);
-            expression.C.x = parseFloat(argv[5]);
-            expression.C.y = parseFloat(argv[6]);
-        }
-        catch(...) {
-            printf("Wrong number format!\n");
-            exit(2);
-        }
-        try {
-            expression.nameOfVertex = *argv[7];
-            if (expression.nameOfVertex != 'a' &&
-               expression.nameOfVertex != 'b' &&
-               expression.nameOfVertex != 'c') {
+            expression.nameOfStartVertex = *argv[7];
+            if (expression.nameOfStartVertex != 'a' &&
+               expression.nameOfStartVertex != 'b' &&
+               expression.nameOfStartVertex != 'c') {
                printf("Wrong name of vertex!\n");
                exit(2);
             } else {
@@ -194,6 +195,39 @@ Expression parseArguments(int argc, char** argv) {
             printf("Wrong operation format!\n");
             exit(3);
         }
+    } else if (argc == 10) {
+        try {
+            expression.nameOfStartVertex = *argv[7];
+            expression.nameOfEndVertex = *argv[8];
+            if ((expression.nameOfStartVertex != 'a' &&
+               expression.nameOfStartVertex != 'b' &&
+               expression.nameOfStartVertex != 'c') || 
+               (expression.nameOfEndVertex != 'a' &&
+               expression.nameOfEndVertex != 'b' &&
+               expression.nameOfEndVertex != 'c')) {
+               printf("Wrong name of vertex!\n");
+               exit(2);
+            } else {
+                printf("%s is valid name of vertex\n", argv[7]);
+            }
+        }
+        catch(...) {
+            printf("Wrong name of vertex!\n");
+            exit(2);
+        }
+        try {
+            expression.operation = parseInteger(argv[9]);
+            if (expression.operation != 5) {
+                printf("%s - Wrong operation!\n", argv[9]);
+                exit(3);
+            } else {
+                printf("%s is valid operation\n", argv[9]);
+            }
+        }
+        catch(...) {
+            printf("Wrong operation format!\n");
+            exit(3);
+        }
     }
     return expression;
 }
@@ -204,14 +238,14 @@ int main(int argc, char** argv) {
     PointXY result;
     switch (expr.operation) {
     case 0:
-        triangle.Set(expr.nameOfVertex, expr.parameter);
-        result = triangle.Get(expr.nameOfVertex);
-        printf("Result %c = (%.2f, %.2f)\n", expr.nameOfVertex,
+        triangle.Set(expr.nameOfStartVertex, expr.parameter);
+        result = triangle.Get(expr.nameOfStartVertex);
+        printf("Result %c = (%.2f, %.2f)\n", expr.nameOfStartVertex,
                                              result.x, result.y);
         break;
     case 1:
-        result = triangle.Get(expr.nameOfVertex);
-        printf("Result %c = (%.2f, %.2f)\n", expr.nameOfVertex,
+        result = triangle.Get(expr.nameOfStartVertex);
+        printf("Result %c = (%.2f, %.2f)\n", expr.nameOfStartVertex,
                                              result.x, result.y);
         break;
     case 2:
@@ -237,27 +271,24 @@ int main(int argc, char** argv) {
             printf("Result = Isn't isosceles\n");
         break;
     case 5:
-        printf("Result AB = %.2f\n", triangle.AB());
+        
+        printf("Result Length %c%c = %.2f\n",
+                expr.nameOfStartVertex, expr.nameOfEndVertex,
+                triangle.Length(expr.nameOfStartVertex, expr.nameOfEndVertex));
         break;
     case 6:
-        printf("Result BC = %.2f\n", triangle.BC());
-        break;
-    case 7:
-        printf("Result AC = %.2f\n", triangle.AC());
-        break;
-    case 8:
         printf("Result Angle A = %.2f\n", triangle.AngleA());
         break;
-    case 9:
+    case 7:
         printf("Result Angle B = %.2f\n", triangle.AngleB());
         break;
-    case 10:
+    case 8:
         printf("Result Angle C = %.2f\n", triangle.AngleC());
         break;
-    case 11:
+    case 9:
         printf("Result square = %.2f\n", triangle.Square());
         break;
-    case 12:
+    case 10:
         printf("Result perimeter = %.2f\n", triangle.Perimeter());
         break;
     }
