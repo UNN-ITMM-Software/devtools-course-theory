@@ -76,6 +76,7 @@ Expression parseArguments(int argc, char** argv) {
         newUnit != '2' && newUnit != '3')) {
         printf("%s - Wrong currency!\n", argv[3]);
         exit(3);
+    }
     Expression expression;
     try {
         expression.value = static_cast<double>(parseDouble(argv[1]));
