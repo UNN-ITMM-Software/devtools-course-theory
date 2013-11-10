@@ -66,7 +66,7 @@ Expression parseArguments(int argc, char** argv) {
         help(argv[0]);
         exit(1);
     }
-    
+
     Expression expression;
     try {
         expression.value = static_cast<double>(parseDouble(argv[1]));
