@@ -6,6 +6,12 @@
 #include <string.h>
 #include <float.h>
 
+#if defined _WIN32 || defined _WIN64
+#define strtok strtok_s
+#else
+#define strtok strtok_r
+#endif
+
 #pragma pack(push, 1)
 typedef struct {
     int sizeVector;
@@ -52,7 +58,7 @@ int parseInt(const char* arg) {
 float parseFloat(const char* arg) {
     char* end;
     float value = static_cast<float>(strtod(arg, &end));
-    if (!end[0] && (value < DBL_MAX) && (value > -DBL_MAX )) {
+    if (!end[0] && (value < FLT_MAX) && (value > -FLT_MAX )) {
         printf("%s is valid\n", arg);
     } else {
         printf("%s is invalid\n", arg);
@@ -69,7 +75,7 @@ float* getVector(char* str, int sizeVector) {
         char* rest;
         strWithBracket[strlen(str) - 2] = '\0';
         strncpy(strWithBracket, str + 1, strlen(str) - 2);
-        char* charElem = strtok_r(strWithBracket, ",", &rest);
+        char* charElem = strtok(strWithBracket, ",", &rest);
         int indElem = 0;
         while (charElem != NULL) {
             if (indElem == sizeVector) {
@@ -82,7 +88,7 @@ float* getVector(char* str, int sizeVector) {
             catch(...) {
                 throw "Wrong vector's elements format";
             }
-            charElem = strtok_r(rest, ",", &rest);
+            charElem = strtok(rest, ",", &rest);
         }
         if (indElem != sizeVector) {
             delete []vector;
