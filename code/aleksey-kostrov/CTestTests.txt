@@ -49,3 +49,11 @@ add_test(
 )
 set_tests_properties (can_Detect_Not_Found_Element 
   PROPERTIES PASS_REGULAR_EXPRESSION "Element not found!")
+
+add_test(
+    NAME can_Detect_Element
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 10 9
+)
+set_tests_properties (can_Detect_Element 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Index of search element: 1")

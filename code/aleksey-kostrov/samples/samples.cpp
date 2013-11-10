@@ -1,6 +1,14 @@
 /* Copyright 2013 Aleksey Kostrov */
 #include <Dichotomy_Search.h>
 
+bool flag;
+
+#ifdef _WINDOWS
+flag = true;
+#elif _UNIX
+flag = false;
+#endif
+
 #define SIZE_FOR_PRINT 25
 #define LEFT_BORDER_RANDOM 1
 #define RIGHT_BORDER_RANDOM 50
@@ -71,9 +79,17 @@ int main(int argc, char** argv) {
     int * array;
     int returnCode;
     array = new int[expr.size];
-    unsigned int seed = static_cast<unsigned int>(time(NULL));
-    for (int i = 0; i < expr.size; i++)
-        array[i] = rand_r(&seed) % RIGHT_BORDER_RANDOM + LEFT_BORDER_RANDOM;
+    if (flag) {
+        srand(time(NULL));
+        for (int i = 0; i < expr.size; i++)
+            array[i] = rand() % RIGHT_BORDER_RANDOM + LEFT_BORDER_RANDOM;
+        array[0] = 9;
+    } else {
+        unsigned int seed = static_cast<unsigned int>(time(NULL));
+        for (int i = 0; i < expr.size; i++)
+            array[i] = rand_r(&seed) % RIGHT_BORDER_RANDOM + LEFT_BORDER_RANDOM;
+        array[0] = 9;
+    }
     if (expr.size < SIZE_FOR_PRINT) {
         printf("Generated array: ");
         for (int i = 0; i < expr.size; i++)
@@ -88,6 +104,7 @@ int main(int argc, char** argv) {
             printf("Element not found!\n");
         else
             printf("Index of search element: %d", returnCode+1);
+    delete [] array;
 
     return 0;
 }
