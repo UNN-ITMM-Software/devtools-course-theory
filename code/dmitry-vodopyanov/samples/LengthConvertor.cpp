@@ -32,7 +32,7 @@ void help(const char* appname) {
 
 double parseDouble(const char* value) {
     char* end;
-    double num = strtof(value, &end);
+    double num = strtod(value, &end);
 
     if (!end[0]) {
         printf("%s is valid\n", value);
