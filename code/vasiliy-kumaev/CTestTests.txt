@@ -37,7 +37,7 @@ set_tests_properties (can_Detect_Wrong_Number_Format
 add_test(
     NAME can_Detect_Wrong_oldunit_Format
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 100 7 1
+    COMMAND ${appname} 100 pi 1
 )
 set_tests_properties (can_Detect_Wrong_oldunit_Format 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
@@ -45,7 +45,7 @@ set_tests_properties (can_Detect_Wrong_oldunit_Format
 add_test(
     NAME can_Detect_Wrong_newunit_Format
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 100 1 8
+    COMMAND ${appname} 100 1 X
 )
 set_tests_properties (can_Detect_Wrong_newunit_Format 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
