@@ -73,7 +73,15 @@ Expression parseArguments(int argc, char** argv) {
                 exit(2);
             }
         expression.curUnit = static_cast<AreaType>(parseInteger(argv[2]));
+        if (expression.curUnit < 0 || expression.curUnit > 5) {
+            printf("Wrong argument#2! Value must be betwin 0 and 5");
+            exit(2);
+            }
         expression.newUnit = static_cast<AreaType>(parseInteger(argv[3]));
+        if (expression.newUnit < 0 || expression.newUnit > 5) {
+            printf("Wrong argument#3! Value must be betwin 0 and 5");
+            exit(2);
+            }
         }
     catch(...) {
         printf("Wrong format!");
