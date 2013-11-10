@@ -1,7 +1,6 @@
 /* Copyright 2013 Ksenya Kochanova */
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <stdint.h>
 #include <cstdio>
 #include <TemperatureConverter.h>
@@ -26,18 +25,17 @@ fromTemperature) {
     if ((fromTemperature.unit == 2)&&(fromTemperature.value < -459.67)) {
          flag = 0;
     inCelsius.value = 0;
-	}
+    }
     if ((fromTemperature.unit == 3)&&(fromTemperature.value < -90.14)) {
          flag = 0;
     inCelsius.value = 0;
-	}
-    else
+   } else
         inCelsius.value = a[fromTemperature.unit] * fromTemperature.value
 + b[fromTemperature.unit];
     return inCelsius;
 }
-Temperature TemperatureConvertor:: ConvertFromCelsius(int flag, Temperature inCelsius,
-TemperatureUnit toUnit) {
+Temperature TemperatureConvertor:: ConvertFromCelsius(int flag,
+Temperature inCelsius, TemperatureUnit toUnit) {
     double a[4] = {1, 1, 5/9, 100/33};
     double b[4] = {0, -273.15, -32, 0};
     Temperature outTemperature;

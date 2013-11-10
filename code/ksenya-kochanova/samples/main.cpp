@@ -66,7 +66,7 @@ Expression parseArguments(int argc, char** argv) {
          (argv[2]));
          expression.newunit = static_cast<TemperatureUnit>(parseInteger
          (argv[3]));
-   if ((expression.oldunit == 0) &&(expression.value < -273.15)) {
+    if ((expression.oldunit == 0) &&(expression.value < -273.15)) {
         printf("Wrong value format for Celsius!\n");
         exit(2);
     }
