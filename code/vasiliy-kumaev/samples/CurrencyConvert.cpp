@@ -17,6 +17,7 @@ typedef struct {
 
 void help(const char* appname);
 double parseDouble(const char* arg);
+Unit parseUnit(const char* arg);
 int64_t parseInteger(const char* arg);
 Expression parseArguments(int argc, char** argv);
 
@@ -26,7 +27,7 @@ void help(const char* appname) {
     printf("  $ %s <value> <oldunit> <newunit>\n\n", appname);
     printf("Where <value> is double number, ");
     printf("and both units are one of");
-    printf("0 = Dollar,\n 1 = Euro,\n 2 = Ruble,\n 3 = Pound\n");
+    printf("\n Dollar,\n Euro,\n Ruble,\n Pound\n");
 }
 
 double parseDouble(const char* value) {
@@ -41,6 +42,32 @@ double parseDouble(const char* value) {
     }
 
     return number;
+}
+
+Unit parseUnit(const char* value) {
+    Unit un;
+    if(strcmp(value,"Ruble") == 0) {
+      un = Ruble;
+      printf("%s is valid\n", value);
+    }
+    if else(strcmp(value,"Dollar") == 0) {
+      un = Dollar;
+      printf("%s is valid\n", value);
+    }
+    if else(strcmp(value,"Euro") == 0) {
+      un = Euro;
+      printf("%s is valid\n", value);
+    }
+    if else(strcmp(value,"Pound") == 0) {
+      un = Pound;
+      printf("%s is valid\n", value);
+    } else {
+        printf("%s is invalid\n", value);
+        throw "Wrong format";
+    }
+
+    return un;
+
 }
 
 int64_t parseInteger(const char* arg) {
@@ -70,8 +97,8 @@ Expression parseArguments(int argc, char** argv) {
     Expression expression;
     try {
         expression.value = static_cast<double>(parseDouble(argv[1]));
-        expression.oldunit = static_cast<Unit>(parseInteger(argv[2]));
-        expression.newunit = static_cast<Unit>(parseInteger(argv[3]));
+        expression.oldunit = static_cast<Unit>(parseUnit(argv[2]));
+        expression.newunit = static_cast<Unit>(parseUnit(argv[3]));
     }
     catch(...) {
         printf("Wrong format!\n");
