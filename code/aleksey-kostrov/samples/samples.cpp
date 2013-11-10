@@ -84,7 +84,8 @@ int main(int argc, char** argv) {
     if (flag) {
         srand(static_cast<unsigned int>(time(NULL)));
         for (int i = 0; i < expr.size; i++)
-            array[i] = random() % RIGHT_BORDER_RANDOM + LEFT_BORDER_RANDOM;
+            array[i] = static_cast<int>(random() % RIGHT_BORDER_RANDOM)
+                    + LEFT_BORDER_RANDOM;
         array[0] = 9;
     } else {
         unsigned int seed = static_cast<unsigned int>(time(NULL));
