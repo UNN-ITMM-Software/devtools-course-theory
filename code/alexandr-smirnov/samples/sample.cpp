@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+void help(const char* appname);
+void parseArguments(int argc, char** argv);
+
 void help(const char* appname) {
     printf("This is an application of sorting arrays of integer numbers.\n\n");
     printf("Please provide arguments in the following format:\n\n");
