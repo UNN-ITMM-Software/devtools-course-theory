@@ -30,7 +30,7 @@ fromTemperature) {
     if ((fromTemperature.unit == 3)&&(fromTemperature.value < -90.14)) {
          flag = 0;
          inCelsius.value = 0;
-   } else {
+    } else {
         inCelsius.value = a[fromTemperature.unit] * fromTemperature.value
 + b[fromTemperature.unit];
      }
