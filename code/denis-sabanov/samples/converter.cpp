@@ -17,6 +17,7 @@ typedef struct {
 
 void help(const char* appname);
 int64_t parseInteger(const char* arg);
+double parseDouble(const char* arg);
 Expression parseArguments(int argc, char** argv);
 
 void help(const char* appname) {
