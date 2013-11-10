@@ -4,7 +4,7 @@
 
 enum TemperatureUnit {Celsius, Kelvin, Fahrenheit, Newton};
 
-    struct Temperature {
+struct Temperature {
     double value;
     TemperatureUnit unit;
 };
@@ -14,8 +14,8 @@ class TemperatureConvertor {
     :
         TemperatureConvertor(void);
         ~TemperatureConvertor(void);
-        Temperature ConvertToCelsius(Temperature fromTemperature);
-        Temperature ConvertFromCelsius(Temperature inCelsius,
+        Temperature ConvertToCelsius(int flag, Temperature fromTemperature);
+        Temperature ConvertFromCelsius(int flag, Temperature inCelsius,
 TemperatureUnit toUnit);
     };
 

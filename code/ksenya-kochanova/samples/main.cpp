@@ -66,14 +66,43 @@ Expression parseArguments(int argc, char** argv) {
          (argv[2]));
          expression.newunit = static_cast<TemperatureUnit>(parseInteger
          (argv[3]));
+   if ((expression.oldunit == 0) &&(expression.value < -273.15)) {
+        printf("Wrong value format for Celsius!\n");
+        exit(2);
     }
+    if ((expression.oldunit == 1) &&(expression.value < 0)) {
+        printf("Wrong value format for Kelvin!\n");
+        exit(3);
+    }
+    if ((expression.oldunit == 2) &&(expression.value < -459.67)) {
+        printf("Wrong value format for Fahrenheit!\n");
+        exit(4);
+    }
+    if ((expression.oldunit == 3) &&(expression.value < -90.14)) {
+        printf("Wrong value format for Newton!\n");
+        exit(5);
+    }
+    if (expression.oldunit < 0 || expression.oldunit > 3) {
+        printf("%s - Wrong unit!\n", argv[2]);
+        exit(6);
+    } else {
+        printf("%s is valid unit\n", argv[2]);
+    }
+    if (expression.newunit < 0 || expression.newunit > 3) {
+        printf("%s - Wrong unit!\n", argv[3]);
+        exit(7);
+    } else {
+        printf("%s is valid unit\n", argv[3]);
+    }
+        }
     catch(...) {
         printf("Wrong format!");
-        exit(2);
+        exit(8);
         }
     return expression;
 }
 int main(int argc, char** argv) {
+    int flag = 1;
     Temperature temperature;
     TemperatureUnit newUnit;
     TemperatureConvertor convertor;
@@ -81,8 +110,8 @@ int main(int argc, char** argv) {
     temperature.value = expr.value;
     temperature.unit = expr.oldunit;
     newUnit = expr.newunit;
-    Temperature inCelsius = convertor.ConvertToCelsius(temperature);
-    Temperature outTemperature = convertor.ConvertFromCelsius(inCelsius,
+    Temperature inCelsius = convertor.ConvertToCelsius(flag, temperature);
+    Temperature outTemperature = convertor.ConvertFromCelsius(flag, inCelsius,
         newUnit);
     printf("Input: %lf %d \n", temperature.value, temperature.unit);
     printf("Output: ? %d\n", newUnit);
