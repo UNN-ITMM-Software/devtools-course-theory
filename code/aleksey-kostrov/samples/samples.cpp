@@ -82,7 +82,7 @@ int main(int argc, char** argv) {
     int returnCode;
     array = new int[expr.size];
     if (flag) {
-        srand(time(NULL));
+        srand(static_cast<unsigned int>(time(NULL)));
         for (int i = 0; i < expr.size; i++)
             array[i] = random() % RIGHT_BORDER_RANDOM + LEFT_BORDER_RANDOM;
         array[0] = 9;
