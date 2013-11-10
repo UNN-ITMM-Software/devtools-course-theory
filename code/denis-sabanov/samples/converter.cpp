@@ -24,7 +24,7 @@ void help(const char* appname) {
     printf("Please provide arguments in the following format:\n\n");
     printf(" $ %s <value> <unit> <unit>\n\n", appname);
     printf("The list of area units: \n");
-    printf("\n 0 - sKilometer,\n 1 - hectare,\n 2 - ar, \n 3 - acre"); 
+    printf("\n 0 - sKilometer,\n 1 - hectare,\n 2 - ar, \n 3 - acre");
     printf("\n 4 - sMeter \n 5 - sFoot \n");
 }
 
