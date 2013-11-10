@@ -59,9 +59,9 @@ bool Triangle::IsCorrect() {
 int Triangle::IsEquilateral() {
     if ( IsCorrect() ) {
         float eps = static_cast <float>(0.0001);
-        if ((abs(Length('a', 'b') - Length('b', 'c'))) < eps ||
-            (abs(Length('a', 'b') - Length('a', 'c'))) < eps ||
-            (abs(Length('b', 'c') - Length('a', 'c'))) < eps)
+        if ((fabs(Length('a', 'b') - Length('b', 'c'))) < eps ||
+            (fabs(Length('a', 'b') - Length('a', 'c'))) < eps ||
+            (fabs(Length('b', 'c') - Length('a', 'c'))) < eps)
             return 1;
     } else {
         return -1;
@@ -71,8 +71,8 @@ int Triangle::IsEquilateral() {
 int Triangle::IsIsosceles() {
     if ( IsCorrect() ) {
         float eps = static_cast <float>(0.0001);
-        if ((abs(Length('a', 'b') - Length('b', 'c'))) < eps &&
-            (abs(Length('a', 'b') - Length('a', 'c'))) < eps)
+        if ((fabs(Length('a', 'b') - Length('b', 'c'))) < eps &&
+            (fabs(Length('a', 'b') - Length('a', 'c'))) < eps)
             return 1;
     } else {
         return -1;
