@@ -43,11 +43,11 @@ set_tests_properties (can_Detect_Wrong_Negative_Value
   PROPERTIES PASS_REGULAR_EXPRESSION "Negative value!")
 
 add_test(
-    NAME can_Detect_Wrong_oldunit_Format
+    NAME can_Detect_Wrong_oldunit_and_newunit_Formats
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 100 pi Buble
 )
-set_tests_properties (can_Detect_Wrong_oldunit_Format 
+set_tests_properties (can_Detect_Wrong_oldunit_and_newunit_Formats 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
 
 add_test(
