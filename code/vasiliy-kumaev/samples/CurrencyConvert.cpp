@@ -69,9 +69,12 @@ Unit parseUnit(const char* value) {
 int64_t parseInteger(const char* arg) {
     char* end;
     int64_t value = strtol(arg, &end, 10);
-
+       
     if (!end[0]) {
         printf("%s is valid\n", arg);
+    } else if (value < 0){
+    printf("%s is invalid\n", arg);
+    throw "Negative value!";
     } else {
         printf("%s is invalid\n", arg);
         throw "Wrong format";
