@@ -56,7 +56,8 @@ int parseInt(const char* arg) {
 float parseFloat(const char* arg) {
     char* end;
     float value = static_cast<float>(strtod(arg, &end));
-    if (!end[0] && (value < FLT_MAX) && (value > -FLT_MAX )) {
+    if (!end[0] && (value < FLT_MAX) && (value > -FLT_MAX) && (value > FLT_MIN)
+        && (value < -FLT_MIN)) {
         printf("%s is valid\n", arg);
     } else {
         printf("%s is invalid\n", arg);
