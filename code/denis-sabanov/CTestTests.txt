@@ -1,0 +1,91 @@
+#############################################
+##### Testing
+#############################################
+
+enable_testing()
+
+add_test( 
+    NAME can_Run
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+
+add_test( 
+    NAME can_Print_Help_Without_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+set_tests_properties (can_Print_Help_Without_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "This is a area convertor application.")
+
+add_test(
+    NAME can_Check_Number_Of_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 2 3
+)
+set_tests_properties (can_Check_Number_Of_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be 3 arguments.")
+
+add_test(
+    NAME can_Detect_Wrong_Number_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} a 2 3
+)
+set_tests_properties (can_Detect_Wrong_Number_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
+
+add_test(
+    NAME can_Detect_Wrong_Value_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -1 2 3
+)
+set_tests_properties (can_Detect_Wrong_Value_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong value! Value must be > 0")
+
+add_test(
+    NAME can_Detect_Wrong_Operation_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 song 3
+)
+set_tests_properties (can_Detect_Wrong_Operation_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
+
+add_test(
+    NAME can_Detect_Wrong_Operation_Format2
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 2 cat
+)
+set_tests_properties (can_Detect_Wrong_Operation_Format2
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
+
+add_test(
+    NAME can_Convert_sKMeters_to_sFoots
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0.5 0 5
+)
+set_tests_properties (can_Convert_sKMeters_to_sFoots
+  PROPERTIES PASS_REGULAR_EXPRESSION "5382131.324004")
+
+add_test(
+    NAME can_Convert_Hectare_to_Ar
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 10 1 2
+)
+set_tests_properties (can_Convert_Hectare_to_Ar
+  PROPERTIES PASS_REGULAR_EXPRESSION "1000.000000")
+  
+add_test(
+    NAME can_Convert_Acre_to_sMeter
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 5.5 3 4
+)
+set_tests_properties (can_Convert_Acre_to_sMeter
+  PROPERTIES PASS_REGULAR_EXPRESSION "22258.500000")  
+  
+add_test(
+    NAME can_Convert_sMeter_to_sFoot
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1500 4 5
+)
+set_tests_properties (can_Convert_sMeter_to_sFoot
+  PROPERTIES PASS_REGULAR_EXPRESSION "16146.393972")  
