@@ -1,12 +1,17 @@
 /* Copyright 2013 Nesmelov Aleksey */
 #include <fractcalc.h>
 #include <stdlib.h>
-Fraction::Fraction(int _numenator, int _denominator) {
-    numenator = _numenator;
-    denominator = _denominator;
-    if (denominator < 0) {
-        numenator = -numenator;
-        denominator = abs(denominator);
+#include <stdio.h>
+Fraction::Fraction(int _numenator,
+                   int _denominator): numenator(_numenator),
+                                      denominator(_denominator) {
+    if (_denominator == 0) {
+    throw "wrong denominator";
+    } else {
+        if (denominator < 0) {
+            numenator = -numenator;
+            denominator = abs(denominator);
+        }
     }
 }
 Fraction::~Fraction() {}
@@ -47,7 +52,12 @@ void Fraction::SetNumenator(int value) {
     numenator = value;
 }
 void Fraction::SetDenominator(int value) {
+    if (value == 0) {
+        printf("Denominator cannot be zero!\n");
+        throw "wrong denominator";
+    } else {
     denominator = value;
+    }
 }
 Fraction Fraction::Add(Fraction a, Fraction b) {
     Fraction res(a.numenator * b.denominator + a.denominator * b.numenator,
@@ -71,11 +81,17 @@ Fraction Fraction::Multiply(Fraction a, Fraction b) {
     return res;
 }
 Fraction Fraction::Divide(Fraction a, Fraction b) {
-    Fraction res(a.numenator * b.denominator, a.denominator * b.numenator);
-    res.CutFraction();
-    if (res.denominator < 0) {
-        res.numenator = - res.numenator;
-        res.denominator = abs(res.denominator);
+    Fraction res(0, 1);
+    if (b.numenator == 0) {
+        throw "wrong divisor";
+    } else {
+        res.SetNumenator(a.numenator * b.denominator);
+        res.SetDenominator(a.denominator * b.numenator);
+        res.CutFraction();
+        if (res.denominator < 0) {
+            res.numenator = -res.numenator;
+            res.denominator = abs(res.denominator);
+        }
     }
     return res;
 }

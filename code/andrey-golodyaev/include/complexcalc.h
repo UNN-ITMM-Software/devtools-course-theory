@@ -4,6 +4,7 @@
 
 class ComplexCalculator {
  public :
+    ComplexCalculator();
     ComplexCalculator(double _real, double _imaginary);
     ~ComplexCalculator();
 

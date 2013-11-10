@@ -1,0 +1,132 @@
+#############################################
+##### Testing
+#############################################
+
+enable_testing()
+
+add_test( 
+    NAME can_Run
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+
+add_test( 
+    NAME can_Print_Help_Without_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+set_tests_properties (can_Print_Help_Without_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "This is a fraction calculator.")
+
+add_test(
+    NAME can_Check_Number_Of_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 5 6 8 9
+)
+set_tests_properties (can_Check_Number_Of_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be 5 arguments.")
+
+add_test(
+    NAME can_Detect_Wrong_Number_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 2 6 7 n -
+)
+set_tests_properties (can_Detect_Wrong_Number_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
+
+add_test(
+    NAME can_Detect_Wrong_Operation_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 7 3 8 r
+)
+set_tests_properties (can_Detect_Wrong_Operation_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong operation!")
+
+add_test(
+    NAME can_Add_Positive_Fractions
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 3 1 2 +
+)
+set_tests_properties (can_Add_Positive_Fractions 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 5 / 6")
+
+add_test(
+    NAME can_Sub_Positive_Fractions
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 4 3 5 -
+)
+set_tests_properties (can_Sub_Positive_Fractions 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = -7 / 20")
+
+add_test(
+    NAME can_Mult_Positive_Fractions
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 2 3 3 4 *
+)
+set_tests_properties (can_Mult_Positive_Fractions 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 1 / 2")
+
+add_test(
+    NAME can_Div_Positive_Fractions
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 3 2 3 /
+)
+set_tests_properties (can_Div_Positive_Fractions 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 1 / 2")
+
+
+add_test(
+    NAME can_Add_Negative_Fractions
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -1 3 -1 2 +
+)
+set_tests_properties (can_Add_Negative_Fractions 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = -5 / 6")
+
+add_test(
+    NAME can_Sub_Negative_Fractions
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -1 4 -3 5 -
+)
+set_tests_properties (can_Sub_Negative_Fractions 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 7 / 20")
+
+add_test(
+    NAME can_Mult_Negative_Fractions
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -2 3 -3 4 *
+)
+set_tests_properties (can_Mult_Negative_Fractions 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 1 / 2")
+
+add_test(
+    NAME can_Div_Negative_Fractions
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -1 3 -2 3 /
+)
+set_tests_properties (can_Div_Negative_Fractions 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 1 / 2")
+
+add_test(
+    NAME can_Enter_Fractions_With_Negative_Denominator
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 -3 2 -3 *
+)
+set_tests_properties (can_Enter_Fractions_With_Negative_Denominator 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 2 / 9")
+
+add_test(
+    NAME can_not_Enter_Fractions_With_Zero_Denominator
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 0 2 -3 *
+)
+set_tests_properties (can_not_Enter_Fractions_With_Zero_Denominator 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong denominator!")
+
+add_test(
+    NAME can_not_Div_Fractions_With_Zero_Divisor
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 2 0 1 /
+)
+set_tests_properties (can_not_Div_Fractions_With_Zero_Divisor 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong divisor!")
