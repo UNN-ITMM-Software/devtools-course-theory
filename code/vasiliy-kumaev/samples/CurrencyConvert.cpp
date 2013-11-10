@@ -65,7 +65,7 @@ Expression parseArguments(int argc, char** argv) {
         printf("ERROR: Should be 3 arguments.\n\n");
         help(argv[0]);
         exit(1);
-    }  
+    }
     int64_t oldUnit = parseInteger(argv[2]);
     int64_t newUnit = parseInteger(argv[3]);
     if ((strlen(argv[2]) != 1) || (oldUnit != '0' && oldUnit != '1' &&
