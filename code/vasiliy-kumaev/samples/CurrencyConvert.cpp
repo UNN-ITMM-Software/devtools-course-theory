@@ -65,17 +65,26 @@ Expression parseArguments(int argc, char** argv) {
         printf("ERROR: Should be 3 arguments.\n\n");
         help(argv[0]);
         exit(1);
-    }
-
+    }  
+    int64_t oldUnit = parseInteger(argv[2]);
+    int64_t newUnit = parseInteger(argv[3]);
+    if ((strlen(argv[2]) != 1) || (oldUnit != '0' && oldUnit != '1' &&
+        oldUnit != '2' && oldUnit != '3')) {
+        printf("%s - Wrong currency!\n", argv[2]);
+        exit(2);
+    } else if ((strlen(argv[3]) != 1) || (newUnit != '0' && newUnit != '1' &&
+        newUnit != '2' && newUnit != '3')) {
+        printf("%s - Wrong currency!\n", argv[3]);
+        exit(3);
     Expression expression;
     try {
         expression.value = static_cast<double>(parseDouble(argv[1]));
-        expression.oldunit = static_cast<Unit>(parseInteger(argv[2]));
-        expression.newunit = static_cast<Unit>(parseInteger(argv[3]));
+        expression.oldunit = static_cast<Unit>(oldUnit);
+        expression.newunit = static_cast<Unit>(newUnit);
     }
     catch(...) {
         printf("Wrong format!\n");
-        exit(2);
+        exit(4);
     }
 
     return expression;

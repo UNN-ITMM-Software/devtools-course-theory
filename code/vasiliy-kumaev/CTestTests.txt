@@ -37,7 +37,7 @@ set_tests_properties (can_Detect_Wrong_Number_Format
 add_test(
     NAME can_Detect_Wrong_oldunit_Format
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 100.5 7 1
+    COMMAND ${appname} 100 7 1
 )
 set_tests_properties (can_Detect_Wrong_oldunit_Format 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong oldunit format!")
