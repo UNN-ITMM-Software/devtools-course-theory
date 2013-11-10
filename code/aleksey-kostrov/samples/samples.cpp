@@ -89,7 +89,7 @@ int main(int argc, char** argv) {
     } else {
         unsigned int seed = static_cast<unsigned int>(time(NULL));
         for (int i = 0; i < expr.size; i++)
-            array[i] = rand_r(&seed) % RIGHT_BORDER_RANDOM + LEFT_BORDER_RANDOM;
+            array[i] = static_cast<int>(rand_r(&seed) % RIGHT_BORDER_RANDOM) + LEFT_BORDER_RANDOM;
         array[0] = 9;
     }
     if (expr.size < SIZE_FOR_PRINT) {
