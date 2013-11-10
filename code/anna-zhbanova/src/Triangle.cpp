@@ -50,18 +50,18 @@ float Triangle::Perimeter() {
 }
 
 bool Triangle::IsCorrect() {
-    if (Length('a', 'b') + Length('a', 'c') <= Length('b', 'c') ||
-        Length('a', 'b') + Length('b', 'c') <= Length('a', 'c') ||
-        Length('b', 'c') + Length('a', 'c') <= Length('a', 'b'))
+    if ((Length('a', 'b') + Length('a', 'c') <= Length('b', 'c')) ||
+        (Length('a', 'b') + Length('b', 'c') <= Length('a', 'c')) ||
+        (Length('b', 'c') + Length('a', 'c') <= Length('a', 'b')))
         return false;
     return true;
 }
 int Triangle::IsEquilateral() {
     if ( IsCorrect() ) {
         float eps = static_cast <float>(0.0001);
-        if (abs(Length('a', 'b') - Length('b', 'c')) < eps ||
-            abs(Length('a', 'b') - Length('a', 'c')) < eps ||
-            abs(Length('b', 'c') - Length('a', 'c')) < eps)
+        if ((abs(Length('a', 'b') - Length('b', 'c'))) < eps ||
+            (abs(Length('a', 'b') - Length('a', 'c'))) < eps ||
+            (abs(Length('b', 'c') - Length('a', 'c'))) < eps)
             return 1;
     } else {
         return -1;
@@ -71,8 +71,8 @@ int Triangle::IsEquilateral() {
 int Triangle::IsIsosceles() {
     if ( IsCorrect() ) {
         float eps = static_cast <float>(0.0001);
-        if (abs(Length('a', 'b') - Length('b', 'c')) < eps &&
-            abs(Length('a', 'b') - Length('a', 'c')) < eps)
+        if ((abs(Length('a', 'b') - Length('b', 'c'))) < eps &&
+            (abs(Length('a', 'b') - Length('a', 'c'))) < eps)
             return 1;
     } else {
         return -1;
