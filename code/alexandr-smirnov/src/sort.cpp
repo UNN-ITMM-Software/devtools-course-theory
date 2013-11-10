@@ -9,7 +9,7 @@ class Sorter::SortImplementation {
     void mergeSort(int *Array, int size);
     void quickSortProcess(int l, int r);
     void downHeap(int *mass, int K, int N);
-    void mergeSortProcess(int *mass, int L, int R);
+    void mergeSortProcess(int L, int R);
     void merge(int *a, int L, int Pivot, int R);
  private :
     int *elements;
@@ -98,15 +98,15 @@ void Sorter::SortImplementation::downHeap(int *mass, int K, int N) {
 void Sorter::SortImplementation::mergeSort(int *Array, int size) {
     elements = new int[size];
     elements = Array;
-    mergeSortProcess(elements, 0, size - 1);
+    mergeSortProcess(0, size - 1);
 }
 
-void Sorter::SortImplementation::mergeSortProcess(int *mass, int L, int R) {
+void Sorter::SortImplementation::mergeSortProcess(int L, int R) {
     int Pivot;
     if (L < R) {
         Pivot = (L + R) / 2;
-        mergeSortProcess(elements, L, Pivot);
-        mergeSortProcess(elements, Pivot + 1, R);
+        mergeSortProcess(L, Pivot);
+        mergeSortProcess(Pivot + 1, R);
         merge(elements, L, Pivot, R);
     }
 }
