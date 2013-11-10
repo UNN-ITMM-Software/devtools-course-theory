@@ -10,7 +10,7 @@
 #pragma pack(push, 1)
 typedef struct {
     double value;
-	AreaType curUnit;
+    AreaType curUnit;
     AreaType newUnit;
 } Expression;
 #pragma pack(pop)
@@ -66,13 +66,13 @@ Expression parseArguments(int argc, char** argv) {
     Expression expression;
     try {
         expression.value = static_cast<double>(parseDouble(argv[1]));
-		if(expression.value<0)
-		{
-			printf("Wrong value! Value must be > 0");
-			exit(2);
-		}
-		expression.curUnit = static_cast<AreaType>(parseInteger(argv[2]));
-		expression.newUnit = static_cast<AreaType>(parseInteger(argv[3]));
+        if(expression.value<0)
+            {
+                printf("Wrong value! Value must be > 0");
+                exit(2);
+            }
+        expression.curUnit = static_cast<AreaType>(parseInteger(argv[2]));
+        expression.newUnit = static_cast<AreaType>(parseInteger(argv[3]));
         }
     catch(...) {
         printf("Wrong format!");
@@ -83,9 +83,9 @@ Expression parseArguments(int argc, char** argv) {
 
 int main(int argc, char** argv) {
     Expression expr = parseArguments(argc, argv);
-	printf("%lf %d to %d = ", expr.value,
-		expr.curUnit, expr.newUnit);
-	AreaConverter Converter(expr.value, expr.curUnit);	
+    printf("%lf %d to %d = ", expr.value,
+        expr.curUnit, expr.newUnit);
+    AreaConverter Converter(expr.value, expr.curUnit);	
     printf("%lf", Converter.ConvertToNewType(expr.newUnit));
     return 0;
 }
