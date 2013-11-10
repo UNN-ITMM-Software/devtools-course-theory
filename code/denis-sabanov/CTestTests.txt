@@ -21,7 +21,7 @@ set_tests_properties (can_Print_Help_Without_Arguments
 add_test(
     NAME can_Check_Number_Of_Arguments
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 1 2 3
+    COMMAND ${appname} 2 3
 )
 set_tests_properties (can_Check_Number_Of_Arguments 
   PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be 3 arguments.")
