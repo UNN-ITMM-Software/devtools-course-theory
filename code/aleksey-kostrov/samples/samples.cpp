@@ -1,16 +1,6 @@
 /* Copyright 2013 Aleksey Kostrov */
 #include <Dichotomy_Search.h>
 
-bool flag;
-
-#ifdef _WINDOWS
-#define random rand
-flag = true;
-#elif _UNIX
-#define random rand_r
-flag = false;
-#endif
-
 #define SIZE_FOR_PRINT 25
 #define LEFT_BORDER_RANDOM 1
 #define RIGHT_BORDER_RANDOM 50
@@ -21,6 +11,14 @@ typedef struct {
     int element;
 } Expression;
 #pragma pack(pop)
+
+bool funk() {
+#ifdef _WINDOWS
+return true;
+#elif _LINUX
+return false;
+#endif
+}
 
 void help(const char* appname);
 int parseInteger(const char* arg);
@@ -81,10 +79,10 @@ int main(int argc, char** argv) {
     int * array;
     int returnCode;
     array = new int[expr.size];
-    if (flag) {
+    if (funk()) {
         srand(static_cast<unsigned int>(time(NULL)));
         for (int i = 0; i < expr.size; i++)
-            array[i] = static_cast<int>(random() % RIGHT_BORDER_RANDOM)
+            array[i] = static_cast<int>(rand() % RIGHT_BORDER_RANDOM)
                     + LEFT_BORDER_RANDOM;
         array[0] = 9;
     } else {
