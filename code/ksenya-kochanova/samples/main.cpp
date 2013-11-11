@@ -25,7 +25,7 @@ void help(const char* appname) {
     printf("Please provide arguments in the following format:\n\n");
     printf(" $ %s <value> <unit> <unit>\n\n", appname);
     printf("Unit of temperature: \n");
-    printf("\n0 - Celsius,\n1 - kelvin,\n2 - Fahrenheit, \n3 - Newton \n\n");
+    printf("\nCelsius \nKelvin \nFahrenheit \nNewton \n\n");
 }
 int64_t parseInteger(const char* arg) {
     char* end;
@@ -110,9 +110,7 @@ int main(int argc, char** argv) {
     temperature.value = expr.value;
     temperature.unit = expr.oldunit;
     newUnit = expr.newunit;
-    Temperature inCelsius = convertor.ConvertToCelsius(temperature);
-    Temperature outTemperature = convertor.ConvertFromCelsius(inCelsius,
-        newUnit);
+    Temperature outTemperature = convertor.Convert(temperature,newUnit);
     printf("Input: %lf %d \n", temperature.value, temperature.unit);
     printf("Output: ? %d\n", newUnit);
     printf("Result: %lf\n", outTemperature.value);
