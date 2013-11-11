@@ -117,7 +117,7 @@ int main(int argc, char** argv) {
     temperature.value = expr.value;
     temperature.unit = expr.oldunit;
     newUnit = expr.newunit;
-    Temperature outTemperature = convertor.Convert(temperature,newUnit);
+    Temperature outTemperature = convertor.Convert(temperature, newUnit);
     printf("Input: %lf %d \n", temperature.value, temperature.unit);
     printf("Output: ? %d\n", newUnit);
     printf("Result: %lf\n", outTemperature.value);
