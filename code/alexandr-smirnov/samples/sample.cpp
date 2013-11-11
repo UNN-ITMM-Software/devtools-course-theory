@@ -3,9 +3,11 @@
 #include <sort.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
 
 void help(const char* appname);
 void parseArguments(int argc, char** argv);
+int64_t parseInteger(const char* arg);
 
 void help(const char* appname) {
     printf("This is an application of sorting arrays of integer numbers.\n\n");
@@ -30,7 +32,30 @@ void parseArguments(int argc, char** argv) {
           help(argv[0]);
           exit(1);
       }
+      try {
+        for (int i = 2;i < argc;i++) {
+        int arg = static_cast<int>(parseInteger(argv[i]));
+        }
+      }
+      catch(...) {
+        printf("Wrong number format!\n");
+        exit(2);
+      }
     }
+}
+
+int64_t parseInteger(const char* arg) {
+    char* end;
+    int64_t value = strtol(arg, &end, 10);
+
+    if (!end[0]) {
+        printf("%s is valid\n", arg);
+    } else {
+        printf("%s is invalid\n", arg);
+        throw "wrong number format";
+    }
+
+    return value;
 }
 
 int main(int argc, char** argv) {
