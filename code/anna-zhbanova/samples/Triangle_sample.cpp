@@ -92,7 +92,7 @@ int parseInteger(const char* arg) {
     return value;
 }
 
-NameOfVertex parseEnum(const char arg){
+NameOfVertex parseEnum(const char arg) {
     NameOfVertex value = (NameOfVertex)(arg-65);
     if (value == A || value == B || value == C) {
     } else {
