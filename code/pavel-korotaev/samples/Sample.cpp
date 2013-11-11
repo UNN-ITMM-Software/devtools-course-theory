@@ -103,8 +103,8 @@ Expression parseArguments(int argc, char** argv) {
     Expression expression;
     try {
         expression.value = static_cast<double>(parseDouble(argv[1]));
-        expression.unit = static_cast<WeightUnit>(parseInteger(argv[2]));
-        expression.UnitOutput = static_cast<WeightUnit>(parseInteger(argv[3]));
+        expression.unit = static_cast<WeightUnit>(parseWeightUnit(argv[2]));
+        expression.UnitOutput = static_cast<WeightUnit>(parseWeightUnit(argv[3]));
     }
     catch(...) {
         printf("Wrong number format!\n");
