@@ -29,6 +29,7 @@ const char* operations[9] = {"Set", "Get", "Angle", "Length",
 void help(const char* appname);
 float parseFloat(const char* arg);
 int parseInteger(const char* arg);
+NameOfVertex parseEnum(const char arg);
 Expression parseArguments(int argc, char** argv);
 
 void help(const char* appname) {
