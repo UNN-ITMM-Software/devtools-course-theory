@@ -18,6 +18,7 @@ typedef struct {
 void help(const char* appname);
 double parseDouble(const char* arg);
 int64_t parseInteger(const char* arg);
+WeightUnit parseWeightUnit(const char* arg);
 Expression parseArguments(int argc, char** argv);
 
 void help(const char* appname) {
@@ -50,6 +51,37 @@ int64_t parseInteger(const char* arg) {
 
     if (!end[0]) {
         printf("%s is valid\n", arg);
+    } else {
+        printf("%s is invalid\n", arg);
+        throw "wrong number format";
+    }
+
+    return value;
+}
+
+WeightUnit parseWeightUnit(const char* arg){
+    WeightUnit value;
+    if (strcmp(arg, "Ounce") == 0) {
+      value = Ounce;
+      printf("%s is valid\n", arg);
+    } else if (strcmp(arg, "Pound") == 0) {
+      value = Pound;
+      printf("%s is valid\n", arg);
+    } else if (strcmp(arg, "Stone") == 0) {
+      value = Stone;
+      printf("%s is valid\n", arg);
+    } else if (strcmp(arg, "Grams") == 0) {
+      value = Grams;
+      printf("%s is valid\n", arg);
+    } else if (strcmp(arg, "Kilograms") == 0) {
+      value = Kilograms;
+      printf("%s is valid\n", arg);
+    } else if (strcmp(arg, "Hundredweight") == 0) {
+      value = Hundredweight;
+      printf("%s is valid\n", arg);
+    } else if (strcmp(arg, "Ton") == 0) {
+      value = Ton;
+      printf("%s is valid\n", arg);
     } else {
         printf("%s is invalid\n", arg);
         throw "wrong number format";
