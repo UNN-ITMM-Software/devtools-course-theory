@@ -91,17 +91,17 @@ set_tests_properties (can_Convert_Correct_Value_Celsius_Newton
   PROPERTIES PASS_REGULAR_EXPRESSION "1.666667")
 
 add_test(
-    NAME can_Convert_Correct_Value_Fahrenhait_Celsius
+    NAME can_Convert_Correct_Value_Newton_Celsius
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 120 Fahrenhait Celsius
+    COMMAND ${appname} 10 Newton Celsius
 )
 set_tests_properties (can_Convert_Correct_Value_Fahrenheit_Celsius
-  PROPERTIES PASS_REGULAR_EXPRESSION "34.666667")
+  PROPERTIES PASS_REGULAR_EXPRESSION "30.000000")
 
 add_test(
     NAME can_Convert_Correct_Value_Newton_Fahrenhait
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 0 Newton Fahrenhait
+    COMMAND ${appname} 0 Newton Fahrenheit
 )
 set_tests_properties (can_Convert_Correct_Value_Newton_Fahrenheit
   PROPERTIES PASS_REGULAR_EXPRESSION "57.600000")
