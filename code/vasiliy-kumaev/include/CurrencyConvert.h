@@ -4,6 +4,7 @@
 
 enum Unit {Dollar, Euro, Ruble, Pound};
 
+#pragma pack(1)
 struct Currency {
     Unit unit;
     double value;
