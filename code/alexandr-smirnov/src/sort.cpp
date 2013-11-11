@@ -18,6 +18,11 @@ class Sorter::SortImplementation {
 Sorter::Sorter(void): pImpl(new SortImplementation) {
 }
 
+Sorter::Sorter(const Sorter& sorter) {
+    pImpl = new SortImplementation;
+    pImpl = sorter.pImpl;
+}
+
 Sorter::~Sorter(void) {
     delete pImpl;
 }
@@ -36,6 +41,15 @@ void Sorter::Sort(int *Array, int size, SortMethod method) {
         pImpl -> mergeSort(Array, size);
         break;
     }
+}
+
+const Sorter& Sorter::operator=(const Sorter& sorter) {
+    if (this != &sorter) {
+      delete pImpl;
+      pImpl = new SortImplementation;
+      pImpl = sorter.pImpl;
+    }
+    return *this;
 }
 
 void Sorter::SortImplementation::quickSort(int *Array, int size) {

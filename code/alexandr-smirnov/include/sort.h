@@ -8,9 +8,11 @@ enum SortMethod {QUICKSORT, HEAPSORT, MERGESORT};
 class Sorter {
  public :
     Sorter(void);
+    Sorter(const Sorter& sorter);
     ~Sorter(void);
 
     void Sort(int *Array, int size, SortMethod method);
+    const Sorter& operator=(const Sorter& sorter);
  private :
     class SortImplementation;
     SortImplementation* pImpl;
