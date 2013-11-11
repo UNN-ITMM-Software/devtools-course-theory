@@ -92,9 +92,9 @@ int parseInteger(const char* arg) {
     return value;
 }
 
-NameOfVertex parseEnum(const char arg) {	    
+NameOfVertex parseEnum(const char arg){
     NameOfVertex value = (NameOfVertex)(arg-65);
-	if (value == A || value == B || value == C) {
+    if (value == A || value == B || value == C) {
     } else {
         printf("%c is invalid\n", arg);
         throw "wrong name of vertex";
@@ -220,11 +220,6 @@ Expression parseArguments(int argc, char** argv) {
 }
 
 int main(int argc, char** argv) {
-	argc = 5;
-	argv[1] = "1";
-	argv[2] = "2";
-	argv[3] = "s";
-	argv[4] = "0";
     Expression expr = parseArguments(argc, argv);
     Triangle triangle(expr.A, expr.B, expr.C);
     PointXY result;
