@@ -18,14 +18,25 @@ float Triangle::Length(char nameOfStartVertex, char nameOfEndVertex) {
     return Length(StartVertex, EndVertex);
 }
 
-float Triangle::AngleA() {
-    return Angle(b, a, c);
-}
-float Triangle::AngleB() {
-    return Angle(a, b, c);
-}
-float Triangle::AngleC() {
-    return Angle(a, c, b);
+float Triangle::Angle(char nameOfVertexAngle) {
+    PointXY vertexOfAngle = Get(nameOfVertexAngle);
+    PointXY endP1, endP2;
+    switch(nameOfVertexAngle)
+    {
+    case 'a':
+        endP1 = Get('b');
+        endP2 = Get('c');
+        break;
+    case 'b':
+        endP1 = Get('b');
+        endP2 = Get('c');
+        break;
+    case 'c':
+        endP1 = Get('b');
+        endP2 = Get('c');
+        break;
+    }
+    return Angle(endP1, vertexOfAngle, endP2);
 }
 
 float Triangle::Square() {

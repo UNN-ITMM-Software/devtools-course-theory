@@ -22,10 +22,7 @@
 	    virtual ~Triangle(void);
 
 	    float Length(char nameOfStartVertex, char nameOfEndVertex);
-
-	    float AngleA();
-	    float AngleB();
-	    float AngleC();
+	    float Angle(char nameOfVertexAngle);
 
 	    float Square();
 	    float Perimeter();

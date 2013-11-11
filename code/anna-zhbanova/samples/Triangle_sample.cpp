@@ -20,11 +20,11 @@ struct Expression {
 };
 #pragma pack(pop)
 
-extern const char* operations[11];
+extern const char* operations[9];
 
-const char* operations[11] = {"Set", "Get", "Length",
+const char* operations[9] = {"Set", "Get", "Angle", "Length",
                               "IsCorrect", "IsEquilateral", "IsIsosceles",
-                          "AngleA", "AngleB", "AngleC", "Square", "Perimeter"};
+                              "Square", "Perimeter"};
 
 void help(const char* appname);
 float parseFloat(const char* arg);
@@ -48,19 +48,20 @@ void help(const char* appname) {
     printf("\n\nWhere all arguments are float numbers, ");
     printf("<nameOfVertex> is one of 'a', 'b' or 'c' ");
     printf("and <operation> is \n");
-    printf("<%d>%s\n", 1, operations[1]);
+    for (int i = 1; i < 3; i++)
+        printf("<%d>%s\n", i, operations[i]);
 
     printf("  $ %s <x1> <y1> <x2> <y2> <x3> <y3>", appname);
     printf("<nameStartVertex> <nameEndVertex> <operation>");
     printf("\n\nWhere all arguments are float numbers, ");
     printf("<nameStartVertex> and <nameEndVertex> is one of 'a', 'b' or 'c' ");
     printf("and <operation> is \n");
-    printf("<%d>%s\n", 2, operations[2]);
+    printf("<%d>%s\n", 3, operations[3]);
 
     printf("\n  $ %s <x1> <y1> <x2> <y2> <x3> <y3> <operation>\n\n", appname);
     printf("Where all arguments are float numbers, ");
     printf("and <operation> is one of\n");
-    for (int i = 3; i < 11; i++)
+    for (int i = 4; i < 9; i++)
         printf("<%d>%s\n", i, operations[i]);
 }
 
@@ -95,8 +96,8 @@ Expression parseArguments(int argc, char** argv) {
     if (argc == 1) {
         help(argv[0]);
         exit(0);
-    } else if (argc != 5 && argc != 9 && argc != 8 && argc != 10) {
-        printf("ERROR: Should be 4, 7 8 or 9 arguments.\n\n");
+    } else if (argc != 5 && argc != 8 && argc != 9 && argc != 10) {
+        printf("ERROR: Should be 4, 7, 8 or 9 arguments.\n\n");
         help(argv[0]);
         exit(1);
     }
@@ -118,8 +119,8 @@ Expression parseArguments(int argc, char** argv) {
     if (argc == 8) {
         try {
             expression.operation = parseInteger(argv[7]);
-            if ((expression.operation > 12) ||
-                (expression.operation < 2)) {
+            if ((expression.operation > 8) ||
+                (expression.operation < 4)) {
                 printf("%s - Wrong operation!\n", argv[7]);
                 exit(3);
             } else {
@@ -184,7 +185,7 @@ Expression parseArguments(int argc, char** argv) {
         }
         try {
             expression.operation = parseInteger(argv[8]);
-            if (expression.operation != 1) {
+            if (expression.operation < 1 || expression.operation > 2) {
                 printf("%s - Wrong operation!\n", argv[8]);
                 exit(3);
             } else {
@@ -217,7 +218,7 @@ Expression parseArguments(int argc, char** argv) {
         }
         try {
             expression.operation = parseInteger(argv[9]);
-            if (expression.operation != 5) {
+            if (expression.operation != 3) {
                 printf("%s - Wrong operation!\n", argv[9]);
                 exit(3);
             } else {
@@ -249,12 +250,21 @@ int main(int argc, char** argv) {
                                              result.x, result.y);
         break;
     case 2:
+        printf("Result Angle %c = %.2f\n", expr.nameOfStartVertex, 
+                                       triangle.Angle(expr.nameOfStartVertex));
+        break;
+    case 3:
+        printf("Result Length %c%c = %.2f\n",
+                expr.nameOfStartVertex, expr.nameOfEndVertex,
+                triangle.Length(expr.nameOfStartVertex, expr.nameOfEndVertex));
+        break;
+    case 4:
         if (triangle.IsCorrect())
             printf("Result = Is correct\n");
         else
             printf("Result = Isn't correct\n");
         break;
-    case 3:
+    case 5:
         if (triangle.IsEquilateral() == 1)
             printf("Result = Is equilateral\n");
         else if (triangle.IsEquilateral() == -1)
@@ -262,7 +272,7 @@ int main(int argc, char** argv) {
         else
             printf("Result = Isn't equilateral\n");
         break;
-    case 4:
+    case 6:
         if (triangle.IsIsosceles() == 1)
             printf("Result = Is isosceles\n");
         else if (triangle.IsIsosceles() == -1)
@@ -270,24 +280,10 @@ int main(int argc, char** argv) {
         else
             printf("Result = Isn't isosceles\n");
         break;
-    case 5:
-        printf("Result Length %c%c = %.2f\n",
-                expr.nameOfStartVertex, expr.nameOfEndVertex,
-                triangle.Length(expr.nameOfStartVertex, expr.nameOfEndVertex));
-        break;
-    case 6:
-        printf("Result Angle A = %.2f\n", triangle.AngleA());
-        break;
     case 7:
-        printf("Result Angle B = %.2f\n", triangle.AngleB());
-        break;
-    case 8:
-        printf("Result Angle C = %.2f\n", triangle.AngleC());
-        break;
-    case 9:
         printf("Result square = %.2f\n", triangle.Square());
         break;
-    case 10:
+    case 8:
         printf("Result perimeter = %.2f\n", triangle.Perimeter());
         break;
     }
