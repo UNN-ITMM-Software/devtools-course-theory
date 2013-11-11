@@ -48,7 +48,7 @@ add_test(
     COMMAND ${appname} -14 Grams Stone
 )
 set_tests_properties (can_Detect_Negative_Number 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "-1.000000")
 
 add_test(
     NAME can_Detect_Wrong_UnitInput_Format
