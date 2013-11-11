@@ -76,7 +76,7 @@ int main(int argc, char** argv) {
     if (argv[1][0] == 'm')
       sorter.Sort(a, N, MERGESORT);
 
-    printf("Result of sorting:\n");
+    printf("Result of sorting: ");
 
     for (int i = 0; i < N; i++)
       printf("%d ", a[i]);
