@@ -250,7 +250,7 @@ int main(int argc, char** argv) {
                                              result.x, result.y);
         break;
     case 2:
-        printf("Result Angle %c = %.2f\n", expr.nameOfStartVertex, 
+        printf("Result Angle %c = %.2f\n", expr.nameOfStartVertex,
                                        triangle.Angle(expr.nameOfStartVertex));
         break;
     case 3:

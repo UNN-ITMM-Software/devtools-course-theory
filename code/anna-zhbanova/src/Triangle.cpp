@@ -21,8 +21,7 @@ float Triangle::Length(char nameOfStartVertex, char nameOfEndVertex) {
 float Triangle::Angle(char nameOfVertexAngle) {
     PointXY vertexOfAngle = Get(nameOfVertexAngle);
     PointXY endP1, endP2;
-    switch(nameOfVertexAngle)
-    {
+    switch (nameOfVertexAngle) {
     case 'a':
         endP1 = Get('b');
         endP2 = Get('c');
