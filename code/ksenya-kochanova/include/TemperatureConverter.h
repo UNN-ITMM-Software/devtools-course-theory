@@ -15,7 +15,7 @@ class TemperatureConvertor {
     :
         TemperatureConvertor(void);
         ~TemperatureConvertor(void);
-        Temperature Convert (Temperature fromtemp,TemperatureUnit toUnit);
+        Temperature Convert(Temperature fromtemp, TemperatureUnit toUnit);
     private
     :
         Temperature ConvertToCelsius(Temperature fromTemperature);

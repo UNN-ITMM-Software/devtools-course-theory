@@ -27,14 +27,14 @@ TemperatureUnit toUnit) {
     outTemperature.value = 1 / a[toUnit] * (inCelsius.value - b[toUnit]);
     return outTemperature;
 }
-Temperature TemperatureConvertor:: Convert (Temperature temperature,TemperatureUnit toUnit)
-{
+Temperature TemperatureConvertor:: Convert(Temperature temperature,
+TemperatureUnit toUnit) {
     Temperature temp;
     Temperature (TemperatureConvertor::*ConvertToCelsius)(Temperature);
     Temperature (TemperatureConvertor::*ConvertFromCelsius)(Temperature ,
-TemperatureUnit );
+TemperatureUnit);
     ConvertToCelsius = &TemperatureConvertor::ConvertToCelsius;
     ConvertFromCelsius = &TemperatureConvertor::ConvertFromCelsius;
     temp = (this->*ConvertToCelsius)(temperature);
-    return (this->*ConvertFromCelsius)(temp,toUnit);
+    return (this->*ConvertFromCelsius)(temp, toUnit);
 }
