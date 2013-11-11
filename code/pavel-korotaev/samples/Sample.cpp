@@ -84,7 +84,7 @@ WeightUnit parseWeightUnit(const char* arg) {
       printf("%s is valid\n", arg);
     } else {
         printf("%s is invalid\n", arg);
-        throw "wrong number format";
+        throw "Wrong number format!";
     }
 
     return value;
