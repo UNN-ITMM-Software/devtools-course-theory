@@ -80,4 +80,4 @@ add_test(
     COMMAND ${appname} 100 Pound Stone
 )
 set_tests_properties (can_Convert_Pound_to_Stone 
-  PROPERTIES PASS_REGULAR_EXPRESSION "7\\.143")
+  PROPERTIES PASS_REGULAR_EXPRESSION "7\\.142")
