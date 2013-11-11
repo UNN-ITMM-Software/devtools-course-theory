@@ -12,7 +12,8 @@ Triangle::Triangle(): a(PointXY()), b(PointXY()), c(PointXY()) {
 Triangle::~Triangle(void) {
 }
 
-float Triangle::Length(NameOfVertex nameOfStartVertex, NameOfVertex nameOfEndVertex) {
+float Triangle::Length(NameOfVertex nameOfStartVertex,
+                       NameOfVertex nameOfEndVertex) {
     PointXY StartVertex = Get(nameOfStartVertex);
     PointXY EndVertex = Get(nameOfEndVertex);
     return Length(StartVertex, EndVertex);
