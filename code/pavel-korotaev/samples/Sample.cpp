@@ -59,7 +59,7 @@ int64_t parseInteger(const char* arg) {
     return value;
 }
 
-WeightUnit parseWeightUnit(const char* arg){
+WeightUnit parseWeightUnit(const char* arg) {
     WeightUnit value;
     if (strcmp(arg, "Ounce") == 0) {
       value = Ounce;
