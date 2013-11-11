@@ -33,7 +33,7 @@ void parseArguments(int argc, char** argv) {
           exit(1);
       }
       try {
-        for (int i = 2;i < argc;i++) {
+        for (int i = 2; i < argc; i++) {
         int arg = static_cast<int>(parseInteger(argv[i]));
         }
       }
