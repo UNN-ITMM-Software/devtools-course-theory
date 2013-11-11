@@ -93,7 +93,7 @@ int parseInteger(const char* arg) {
 }
 
 NameOfVertex parseEnum(const char arg) {
-    NameOfVertex value = (NameOfVertex)(arg-65);
+    NameOfVertex value = static_cast<NameOfVertex>(arg-65);
     if (value == A || value == B || value == C) {
     } else {
         printf("%c is invalid\n", arg);
