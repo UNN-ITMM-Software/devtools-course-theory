@@ -10,12 +10,12 @@ struct Expression {
     PointXY B;
     PointXY C;
     PointXY parameter;
-    char nameOfStartVertex;
-    char nameOfEndVertex;
+    NameOfVertex nameOfStartVertex;
+    NameOfVertex nameOfEndVertex;
     int operation;
     Expression(): A(PointXY()), B(PointXY()), C(PointXY()),
-                  parameter(PointXY()), nameOfStartVertex('a'),
-                  nameOfEndVertex('b'), operation(0) {
+                  parameter(PointXY()), nameOfStartVertex(),
+                  nameOfEndVertex(), operation(0) {
     }
 };
 #pragma pack(pop)
@@ -39,14 +39,14 @@ void help(const char* appname) {
 
     printf("  $ %s <x1> <y1> <nameOfVertex> <operation>\n\n", appname);
     printf("Where both arguments are float numbers, ");
-    printf("<nameOfVertex> is one of 'a', 'b' or 'c' ");
+    printf("<nameOfVertex> is one of 'A', 'B' or 'C' ");
     printf("and <operation> is \n");
     printf("<%d>%s\n\n", 0, operations[0]);
 
     printf("  $ %s <x1> <y1> <x2> <y2> <x3> <y3> <nameOfVertex> <operation>",
                                                                     appname);
     printf("\n\nWhere all arguments are float numbers, ");
-    printf("<nameOfVertex> is one of 'a', 'b' or 'c' ");
+    printf("<nameOfVertex> is one of 'A', 'B' or 'C' ");
     printf("and <operation> is \n");
     for (int i = 1; i < 3; i++)
         printf("<%d>%s\n", i, operations[i]);
@@ -54,7 +54,7 @@ void help(const char* appname) {
     printf("  $ %s <x1> <y1> <x2> <y2> <x3> <y3>", appname);
     printf("<nameStartVertex> <nameEndVertex> <operation>");
     printf("\n\nWhere all arguments are float numbers, ");
-    printf("<nameStartVertex> and <nameEndVertex> is one of 'a', 'b' or 'c' ");
+    printf("<nameStartVertex> and <nameEndVertex> is one of 'A', 'B' or 'C' ");
     printf("and <operation> is \n");
     printf("<%d>%s\n", 3, operations[3]);
 
@@ -92,6 +92,15 @@ int parseInteger(const char* arg) {
     return value;
 }
 
+NameOfVertex parseEnum(const char arg) {	    
+    NameOfVertex value = (NameOfVertex)(arg-65);
+	if (value == A || value == B || value == C) {
+    } else {
+        printf("%c is invalid\n", arg);
+        throw "wrong name of vertex";
+    }
+    return value;
+}
 Expression parseArguments(int argc, char** argv) {
     if (argc == 1) {
         help(argv[0]);
@@ -141,15 +150,8 @@ Expression parseArguments(int argc, char** argv) {
             exit(2);
         }
         try {
-            expression.nameOfStartVertex = *argv[3];
-        if (expression.nameOfStartVertex != 'a' &&
-               expression.nameOfStartVertex != 'b' &&
-               expression.nameOfStartVertex != 'c') {
-               printf("Wrong name of vertex!\n");
-               exit(2);
-            } else {
-                printf("%s is valid name of vertex\n", argv[3]);
-            }
+            expression.nameOfStartVertex = parseEnum(*argv[3]);
+            printf("%s is valid name of vertex\n", argv[3]);
         }
         catch(...) {
             printf("Wrong name of vertex!\n");
@@ -169,15 +171,8 @@ Expression parseArguments(int argc, char** argv) {
             exit(3);
         } } else if (argc == 9) {
         try {
-            expression.nameOfStartVertex = *argv[7];
-            if (expression.nameOfStartVertex != 'a' &&
-               expression.nameOfStartVertex != 'b' &&
-               expression.nameOfStartVertex != 'c') {
-               printf("Wrong name of vertex!\n");
-               exit(2);
-            } else {
-                printf("%s is valid name of vertex\n", argv[7]);
-            }
+            expression.nameOfStartVertex = parseEnum(*argv[7]);
+            printf("%s is valid name of vertex\n", argv[7]);
         }
         catch(...) {
             printf("Wrong name of vertex!\n");
@@ -198,19 +193,10 @@ Expression parseArguments(int argc, char** argv) {
         }
     } else if (argc == 10) {
         try {
-            expression.nameOfStartVertex = *argv[7];
-            expression.nameOfEndVertex = *argv[8];
-            if ((expression.nameOfStartVertex != 'a' &&
-               expression.nameOfStartVertex != 'b' &&
-               expression.nameOfStartVertex != 'c') ||
-               (expression.nameOfEndVertex != 'a' &&
-               expression.nameOfEndVertex != 'b' &&
-               expression.nameOfEndVertex != 'c')) {
-               printf("Wrong name of vertex!\n");
-               exit(2);
-            } else {
-                printf("%s is valid name of vertex\n", argv[7]);
-            }
+            expression.nameOfStartVertex = parseEnum(*argv[7]);
+            expression.nameOfEndVertex = parseEnum(*argv[8]);
+            printf("%s is valid name of vertex\n", argv[7]);
+            printf("%s is valid name of vertex\n", argv[8]);
         }
         catch(...) {
             printf("Wrong name of vertex!\n");
@@ -234,6 +220,11 @@ Expression parseArguments(int argc, char** argv) {
 }
 
 int main(int argc, char** argv) {
+	argc = 5;
+	argv[1] = "1";
+	argv[2] = "2";
+	argv[3] = "s";
+	argv[4] = "0";
     Expression expr = parseArguments(argc, argv);
     Triangle triangle(expr.A, expr.B, expr.C);
     PointXY result;

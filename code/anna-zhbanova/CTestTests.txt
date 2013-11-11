@@ -29,7 +29,7 @@ set_tests_properties (can_Check_Number_Of_Arguments
 add_test(
     NAME can_Detect_Wrong_Number_Format
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 1 1,1 a 0
+    COMMAND ${appname} 1 1,1 A 0
 )
 set_tests_properties (can_Detect_Wrong_Number_Format 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
@@ -37,7 +37,7 @@ set_tests_properties (can_Detect_Wrong_Number_Format
 add_test(
     NAME can_Detect_Wrong_Operation_Format
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 1 1 a +trash
+    COMMAND ${appname} 1 1 A +trash
 )
 set_tests_properties (can_Detect_Wrong_Operation_Format 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong operation format!")
@@ -53,7 +53,7 @@ set_tests_properties (can_Detect_Wrong_Name_Of_Vertex
 add_test(
     NAME can_Detect_Wrong_Operation
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 1 1 a 1
+    COMMAND ${appname} 1 1 A 1
 )
 set_tests_properties (can_Detect_Wrong_Operation
   PROPERTIES PASS_REGULAR_EXPRESSION "- Wrong operation!")
@@ -61,35 +61,35 @@ set_tests_properties (can_Detect_Wrong_Operation
 add_test(
     NAME can_Set_Positive_Numbers
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 2 3 a 0
+    COMMAND ${appname} 2 3 A 0
 )
 set_tests_properties (can_Set_Positive_Numbers
-  PROPERTIES PASS_REGULAR_EXPRESSION "[Result a = (2.00, 3.00)]")
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result A = (2.00, 3.00)]")
 
 add_test(
     NAME can_Get_Positive_Numbers
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 1 1 2 2 6 6 b 1
+    COMMAND ${appname} 1 1 2 2 6 6 B 1
 )
 set_tests_properties (can_Get_Positive_Numbers
-  PROPERTIES PASS_REGULAR_EXPRESSION "[Result b = (2.00, 2.00)]")
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result B = (2.00, 2.00)]")
 
 
 add_test(
     NAME can_Set_Negative_Numbers
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} -20 -30 c 0
+    COMMAND ${appname} -20 -30 C 0
 )
 set_tests_properties (can_Set_Negative_Numbers
-  PROPERTIES PASS_REGULAR_EXPRESSION "[Result c = (-20.00, -30.00)]")
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result C = (-20.00, -30.00)]")
 
 add_test(
     NAME can_Get_Negative_Numbers
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} -1 -1 -2.22 -3.22 -0.2 -0.3 a 1
+    COMMAND ${appname} -1 -1 -2.22 -3.22 -0.2 -0.3 A 1
 )
 set_tests_properties (can_Get_Negative_Numbers
-  PROPERTIES PASS_REGULAR_EXPRESSION "[Result a = (-1.00, -1.00)]")
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result A = (-1.00, -1.00)]")
 
 add_test(
     NAME can_Detect_Wrong_Triangle
@@ -143,19 +143,19 @@ set_tests_properties (can_Detect_Not_Isosceles_Triangle
 add_test(
     NAME can_Calculate_Side
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 0 0 3 7 5 3 a b 3 
+    COMMAND ${appname} 0 0 3 7 5 3 A B 3 
 )
 set_tests_properties (can_Calculate_Side
-  PROPERTIES PASS_REGULAR_EXPRESSION "[Result ab = 7.62]")
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result AB = 7.62]")
 
 
 add_test(
     NAME can_Calculate_Angle
     WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 0 0 5 0 2.5 4.33012719 a 2
+    COMMAND ${appname} 0 0 5 0 2.5 4.33012719 A 2
 )
 set_tests_properties (can_Calculate_Angle
-  PROPERTIES PASS_REGULAR_EXPRESSION "[Result Angle a = 60.00]")
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result Angle A = 60.00]")
 
 
 add_test(

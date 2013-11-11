@@ -4,14 +4,16 @@
 
 #include <PointXY.h>
 
+enum NameOfVertex {A, B, C};
+
 class Triangle {
  public :
     Triangle(PointXY a, PointXY b, PointXY c);
     Triangle();
     virtual ~Triangle(void);
 
-    float Length(char nameOfStartVertex, char nameOfEndVertex);
-    float Angle(char nameOfVertexAngle);
+    float Length(NameOfVertex nameOfStartVertex, NameOfVertex nameOfEndVertex);
+    float Angle(NameOfVertex nameOfVertexAngle);
 
     float Square();
     float Perimeter();
@@ -20,8 +22,8 @@ class Triangle {
     int IsEquilateral();
     int IsIsosceles();
 
-    PointXY Get(char nameVertex);
-    void Set(char nameVertex, PointXY coordinates);
+    PointXY Get(NameOfVertex nameVertex);
+    void Set(NameOfVertex nameVertex, PointXY coordinates);
  private :
     PointXY a;
     PointXY b;

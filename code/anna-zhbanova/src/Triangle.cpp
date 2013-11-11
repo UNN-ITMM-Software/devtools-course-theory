@@ -12,27 +12,27 @@ Triangle::Triangle(): a(PointXY()), b(PointXY()), c(PointXY()) {
 Triangle::~Triangle(void) {
 }
 
-float Triangle::Length(char nameOfStartVertex, char nameOfEndVertex) {
+float Triangle::Length(NameOfVertex nameOfStartVertex, NameOfVertex nameOfEndVertex) {
     PointXY StartVertex = Get(nameOfStartVertex);
     PointXY EndVertex = Get(nameOfEndVertex);
     return Length(StartVertex, EndVertex);
 }
 
-float Triangle::Angle(char nameOfVertexAngle) {
+float Triangle::Angle(NameOfVertex nameOfVertexAngle) {
     PointXY vertexOfAngle = Get(nameOfVertexAngle);
     PointXY endP1, endP2;
     switch (nameOfVertexAngle) {
-    case 'a':
-        endP1 = Get('b');
-        endP2 = Get('c');
+    case A:
+        endP1 = Get(B);
+        endP2 = Get(C);
         break;
-    case 'b':
-        endP1 = Get('b');
-        endP2 = Get('c');
+    case B:
+        endP1 = Get(A);
+        endP2 = Get(C);
         break;
-    case 'c':
-        endP1 = Get('b');
-        endP2 = Get('c');
+    case C:
+        endP1 = Get(B);
+        endP2 = Get(C);
         break;
     }
     return Angle(endP1, vertexOfAngle, endP2);
@@ -55,23 +55,23 @@ float Triangle::Square() {
 float Triangle::Perimeter() {
     float p = -1;
     if ( IsCorrect() )
-        p = Length('a', 'b') + Length('a', 'c') + Length('b', 'c');
+        p = Length(a, b) + Length(a, c) + Length(b, c);
     return p;
 }
 
 bool Triangle::IsCorrect() {
-    if ((Length('a', 'b') + Length('a', 'c') <= Length('b', 'c')) ||
-        (Length('a', 'b') + Length('b', 'c') <= Length('a', 'c')) ||
-        (Length('b', 'c') + Length('a', 'c') <= Length('a', 'b')))
+    if ((Length(a, b) + Length(a, c) <= Length(b, c)) ||
+        (Length(a, b) + Length(b, c) <= Length(a, c)) ||
+        (Length(b, c) + Length(a, c) <= Length(a, b)))
         return false;
     return true;
 }
 int Triangle::IsEquilateral() {
     if ( IsCorrect() ) {
         float eps = static_cast <float>(0.0001);
-        if ((fabs(Length('a', 'b') - Length('b', 'c'))) < eps ||
-            (fabs(Length('a', 'b') - Length('a', 'c'))) < eps ||
-            (fabs(Length('b', 'c') - Length('a', 'c'))) < eps)
+        if ((fabs(Length(a, b) - Length(b, c))) < eps ||
+            (fabs(Length(a, b) - Length(a, c))) < eps ||
+            (fabs(Length(b, c) - Length(a, c))) < eps)
             return 1;
     } else {
         return -1;
@@ -81,8 +81,8 @@ int Triangle::IsEquilateral() {
 int Triangle::IsIsosceles() {
     if ( IsCorrect() ) {
         float eps = static_cast <float>(0.0001);
-        if ((fabs(Length('a', 'b') - Length('b', 'c'))) < eps &&
-            (fabs(Length('a', 'b') - Length('a', 'c'))) < eps)
+        if ((fabs(Length(a, b) - Length(b, c))) < eps &&
+            (fabs(Length(a, b) - Length(a, c))) < eps)
             return 1;
     } else {
         return -1;
@@ -90,31 +90,31 @@ int Triangle::IsIsosceles() {
     return 0;
 }
 
-PointXY Triangle::Get(char nameVertex) {
+PointXY Triangle::Get(NameOfVertex nameVertex) {
     PointXY coordinates;
     switch (nameVertex) {
-    case 'a':
+    case A:
         coordinates = a;
         break;
-    case 'b':
+    case B:
         coordinates = b;
         break;
-    case 'c':
+    case C:
         coordinates = c;
         break;
     }
     return coordinates;
 }
 
-void Triangle::Set(char nameVertex, PointXY coordinates) {
+void Triangle::Set(NameOfVertex nameVertex, PointXY coordinates) {
     switch (nameVertex) {
-    case 'a':
+    case A:
         a = coordinates;
         break;
-    case 'b':
+    case B:
         b = coordinates;
         break;
-    case 'c':
+    case C:
         c = coordinates;
         break;
     }
