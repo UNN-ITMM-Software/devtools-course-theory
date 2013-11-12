@@ -27,7 +27,8 @@ TemperatureUnit toUnit) {
     outTemperature.value = 1 / a[toUnit] * (inCelsius.value - b[toUnit]);
     return outTemperature;
 }
-Temperature TemperatureConvertor::Convert(Temperature t, TemperatureUnit newUnit) {
+Temperature TemperatureConvertor::Convert(Temperature t,
+TemperatureUnit newUnit) {
     if (((t.unit == Celsius)&&(t.value < -273.15))||
        ((t.unit == Kelvin)&&(t.value < 0))||
        ((t.unit == Fahrenheit)&&(t.value < -459.67))||
