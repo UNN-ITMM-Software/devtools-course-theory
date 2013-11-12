@@ -2,10 +2,12 @@
 #ifndef CODE_PAVEL_KOROTAEV_INCLUDE_WEIGHTCONVERTOR_H_
 #define CODE_PAVEL_KOROTAEV_INCLUDE_WEIGHTCONVERTOR_H_
 enum WeightUnit {Ounce, Pound, Stone, Grams, Kilograms, Hundredweight, Ton};
-struct Weight {
+#pragma pack(push, 1)
+typedef struct {
     double value;
     WeightUnit unit;
-};
+} Weight;
+#pragma pack(pop)
 class WeightConvertor {
  public:
     WeightConvertor(void);
