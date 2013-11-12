@@ -1,18 +1,15 @@
 /* Copyright 2013 Aleksey Kostrov */
 #include <Dichotomy_Search.h>
 
-#ifndef _CRT_RAND_S
-#define _CRT_RAND_S
-#endif
-#include <stdlib.h>
-
 #define SIZE_FOR_PRINT 25
 #define LEFT_BORDER_RANDOM 1
 #define RIGHT_BORDER_RANDOM 50
 
 #if defined _WIN32 || defined _WIN64
 #define rand_r rand_s
+#define _CRT_RAND_S
 #endif
+#include <stdlib.h>
 
 #pragma pack(push, 1)
 typedef struct {
