@@ -33,7 +33,7 @@ add_test(
     COMMAND ${appname} 100 Metr Kelvin
 )
 set_tests_properties (can_Detect_Wrong_oldUnit_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong unit!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
 
 add_test(
     NAME can_Detect_Wrong_newUnit_Format
@@ -41,7 +41,7 @@ add_test(
     COMMAND ${appname} 100 Celsius Pound
 )
 set_tests_properties (can_Detect_Wrong_newUnit_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong unit!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
 
 add_test(
     NAME can_Detect_Wrong_Value_Format_for_Celsius

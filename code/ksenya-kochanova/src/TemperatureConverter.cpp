@@ -12,29 +12,34 @@ TemperatureConvertor::~TemperatureConvertor(void) {}
 
 Temperature TemperatureConvertor::ConvertToCelsius(Temperature
 fromTemperature) {
-    double a[4] = {1, 1, 5/9, 100/33};
+    double a[4] = {1, 1, 0.5555555555555556, 3.0303030303030303};
     double b[4] = {0, -273.15, -32, 0};
     Temperature inCelsius;
     inCelsius.value = a[fromTemperature.unit] * fromTemperature.value
 + b[fromTemperature.unit];
     return inCelsius;
 }
-Temperature TemperatureConvertor:: ConvertFromCelsius(Temperature inCelsius,
+Temperature TemperatureConvertor::ConvertFromCelsius(Temperature inCelsius,
 TemperatureUnit toUnit) {
-    double a[4] = {1, 1, 5/9, 100/33};
+    double a[4] = {1, 1, 0.5555555555555556, 3.0303030303030303};
     double b[4] = {0, -273.15, -32, 0};
     Temperature outTemperature;
     outTemperature.value = 1 / a[toUnit] * (inCelsius.value - b[toUnit]);
     return outTemperature;
 }
-Temperature TemperatureConvertor:: Convert(Temperature temperature,
-TemperatureUnit toUnit) {
-    Temperature temp;
-    Temperature (TemperatureConvertor::*ConvertToCelsius)(Temperature);
-    Temperature (TemperatureConvertor::*ConvertFromCelsius)(Temperature ,
-TemperatureUnit);
-    ConvertToCelsius = &TemperatureConvertor::ConvertToCelsius;
-    ConvertFromCelsius = &TemperatureConvertor::ConvertFromCelsius;
-    temp = (this->*ConvertToCelsius)(temperature);
-    return (this->*ConvertFromCelsius)(temp, toUnit);
+Temperature TemperatureConvertor::Convert(Temperature t,TemperatureUnit newUnit)
+{
+    if (((t.unit == Celsius)&&(t.value < -273.15))||
+       ((t.unit == Kelvin)&&(t.value < 0))||
+       ((t.unit == Fahrenheit)&&(t.value < -459.67))||
+       ((t.unit == Newton)&&(t.value < -90.14))||
+       ((t.unit < Celsius) || (t.unit > Newton)) ||
+       ((newUnit < Celsius) || (newUnit > Newton)))
+    {
+        printf("Wrong value or unit!\n");
+        exit(0);
+    } else {
+           Temperature temp = ConvertToCelsius(t);
+           return ConvertFromCelsius(temp, newUnit);
+    }
 }
