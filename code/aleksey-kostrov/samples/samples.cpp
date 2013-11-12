@@ -1,5 +1,7 @@
 /* Copyright 2013 Aleksey Kostrov */
 #include <Dichotomy_Search.h>
+#define  _CRT_RAND_S
+#include <stdlib.h>
 
 #define SIZE_FOR_PRINT 25
 #define LEFT_BORDER_RANDOM 1
