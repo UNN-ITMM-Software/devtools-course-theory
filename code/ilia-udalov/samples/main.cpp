@@ -2,40 +2,33 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <string>
 
 #include "../include/regex.h"
 
-#define BUF_SIZE 100
-
 int main(int argc, char* argv[]) {
-    FILE *inp;
-    char buf[BUF_SIZE];
-    std::string regex, substr, text;
-
-    if ((inp = fopen(argv[1], "r")) == NULL) {
-        printf("Input error\n");
+    if (argc < 4) {
+        printf("This is a simple handler for regexps and substrings.\n");
+        printf("Please provide arguments in the following format:\n\n");
+        printf("  $ %s <regexp> <substring> <text>\n\n", argv[0]);
+        return 0;
+    } else if (argc > 4) {
+        printf("ERROR: Too much arguments!\n");
         return 0;
     }
 
-    while ((inp != NULL) && (fgets(buf, BUF_SIZE, inp))) {
-        regex = buf;
-        regex = regex.substr(0, regex.size()-1);
-        if (!fgets(buf, BUF_SIZE, inp))
-            exit(0);
-        substr = buf;
-        substr = substr.substr(0, substr.size()-1);
-        if (!fgets(buf, BUF_SIZE, inp))
-            exit(0);
-        text = buf;
-        text = text.substr(0, text.size()-1);
-
-        printf("Text: %s\n", text.c_str());
-        printf("Regex: %s; is match: %d\n", regex.c_str(), match(regex, text));
-        printf("Find: %s; Substring position: %d\n",
-            substr.c_str(), find(substr, text));
+    int is_match = match(argv[1], argv[3]);
+    if (is_match) {
+        printf("Regexp: match.\n");
+    } else {
+        printf("Regexp: does not match.\n");
     }
 
-    fclose(inp);
+    int pos = find(argv[2], argv[3]);
+    if (pos != -1) {
+        printf("Substring: first pos is: %d.\n", pos);
+    } else {
+        printf("Substring: does not found.\n");
+    }
+
     return 0;
 }

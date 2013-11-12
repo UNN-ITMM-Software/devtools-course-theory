@@ -1,4 +1,4 @@
-CC=g++
+#CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=
 
@@ -7,16 +7,19 @@ SAMPLE_DIR=samples
 SCR_DIR=src
 
 all: pre main.o regex.o
-	$(CC) $(LDFLAGS) $(BUILD_DIR)/main.o $(BUILD_DIR)/regex.o -o $(BUILD_DIR)/regex
+	$(CXX) $(LDFLAGS) $(BUILD_DIR)/main.o $(BUILD_DIR)/regex.o -o $(BUILD_DIR)/regex
 
 test: all
-	$(BUILD_DIR)/regex ./test/example
+	$(BUILD_DIR)/regex
+	$(BUILD_DIR)/regex '.*' 'A' 'Any string!'
+	$(BUILD_DIR)/regex '^Yes' 'top' 'No the top of the world'
+	$(BUILD_DIR)/regex 'happy' 'sad' 'happyness'
 
 main.o: $(SAMPLE_DIR)/main.cpp
-	$(CC) $(CFLAGS) $(SAMPLE_DIR)/main.cpp -o $(BUILD_DIR)/main.o
+	$(CXX) $(CFLAGS) $(SAMPLE_DIR)/main.cpp -o $(BUILD_DIR)/main.o
 
 regex.o: $(SCR_DIR)/regex.cpp
-	$(CC) $(CFLAGS) $(SCR_DIR)/regex.cpp -o $(BUILD_DIR)/regex.o
+	$(CXX) $(CFLAGS) $(SCR_DIR)/regex.cpp -o $(BUILD_DIR)/regex.o
 
 pre:
 	mkdir -p $(BUILD_DIR)
