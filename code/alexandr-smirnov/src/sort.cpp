@@ -1,6 +1,7 @@
 /* Copyright 2013 Alexandr Smirnov */
 
 #include <sort.h>
+#include <Windows.h>
 
 class Sorter::SortImplementation {
  public :
