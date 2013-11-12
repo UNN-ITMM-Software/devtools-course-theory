@@ -1,96 +1,137 @@
 ﻿/* Copyright 2013 Anna Zhbanova */
 
-#define _USE_MATH_DEFINES
 #include <Triangle.h>
 #include <math.h>
 
-Triangle::Triangle(PointXY a_, PointXY b_, PointXY c_) {
-    a = a_;
-    b = b_;
-    c = c_;
+const double PI = 3.1415926535;
+
+Triangle::Triangle(PointXY a_, PointXY b_, PointXY c_): a(a_), b(b_), c(c_) {
+}
+Triangle::Triangle(): a(PointXY()), b(PointXY()), c(PointXY()) {
 }
 Triangle::~Triangle(void) {
 }
 
-float Triangle::AB() {
-    return Length(a, b);
-}
-float Triangle::BC() {
-    return Length(b, c);
-}
-float Triangle::AC() {
-    return Length(a, c);
+float Triangle::Length(NameOfVertex nameOfStartVertex,
+                       NameOfVertex nameOfEndVertex) {
+    PointXY StartVertex = Get(nameOfStartVertex);
+    PointXY EndVertex = Get(nameOfEndVertex);
+    return Length(StartVertex, EndVertex);
 }
 
-float Triangle::AngleA() {
-    return Angle(b, a, c);
-}
-float Triangle::AngleB() {
-    return Angle(a, b, c);
-}
-float Triangle::AngleC() {
-    return Angle(a, c, b);
+float Triangle::Angle(NameOfVertex nameOfVertexAngle) {
+    PointXY vertexOfAngle = Get(nameOfVertexAngle);
+    PointXY endP1, endP2;
+    switch (nameOfVertexAngle) {
+    case A:
+        endP1 = Get(B);
+        endP2 = Get(C);
+        break;
+    case B:
+        endP1 = Get(A);
+        endP2 = Get(C);
+        break;
+    case C:
+        endP1 = Get(B);
+        endP2 = Get(C);
+        break;
+    }
+    return Angle(endP1, vertexOfAngle, endP2);
 }
 
 float Triangle::Square() {
     float s = -1;
-    if ( IsCorrect() )
-        s = AB() * AC() * sin(AngleA()) / 2;
+    if ( IsCorrect() ) {
+        float side1 = Length(a, b);
+        float side2 = Length(a, c);
+        float side3 = Length(b, c);
+
+        float sinA = static_cast<float>(sqrt(1 - ((side1 * side1 + side2 * side2
+           - side3 * side3)/(2 * side1 * side2))*((side1 * side1 + side2 * side2
+           - side3 * side3)/(2 * side1 * side2))));
+        s = side1 * side2 * sinA / 2;
+    }
     return s;
 }
 float Triangle::Perimeter() {
     float p = -1;
     if ( IsCorrect() )
-        p = AB() + AC() + BC();
+        p = Length(a, b) + Length(a, c) + Length(b, c);
     return p;
 }
 
 bool Triangle::IsCorrect() {
-    if (AB() + AC() <= BC() || AB() + BC() <= AC() || BC() + AC() <= AB())
+    if ((Length(a, b) + Length(a, c) <= Length(b, c)) ||
+        (Length(a, b) + Length(b, c) <= Length(a, c)) ||
+        (Length(b, c) + Length(a, c) <= Length(a, b)))
         return false;
     return true;
 }
-bool Triangle::IsEquilateral() {
-    if (AB() == BC() || AB() == AC() || BC() == AC())
-        return true;
-    return false;
+int Triangle::IsEquilateral() {
+    if ( IsCorrect() ) {
+        float eps = static_cast <float>(0.0001);
+        if ((fabs(Length(a, b) - Length(b, c))) < eps ||
+            (fabs(Length(a, b) - Length(a, c))) < eps ||
+            (fabs(Length(b, c) - Length(a, c))) < eps)
+            return 1;
+    } else {
+        return -1;
+    }
+    return 0;
 }
-bool Triangle::IsIsosceles() {
-    if (AB() == BC() && AB() == AC())
-        return true;
-    return false;
+int Triangle::IsIsosceles() {
+    if ( IsCorrect() ) {
+        float eps = static_cast <float>(0.0001);
+        if ((fabs(Length(a, b) - Length(b, c))) < eps &&
+            (fabs(Length(a, b) - Length(a, c))) < eps)
+            return 1;
+    } else {
+        return -1;
+    }
+    return 0;
 }
 
-PointXY Triangle::GetA() {
-    return a;
-}
-PointXY Triangle::GetB() {
-    return b;
-}
-PointXY Triangle::GetC() {
-    return c;
+PointXY Triangle::Get(NameOfVertex nameVertex) {
+    PointXY coordinates;
+    switch (nameVertex) {
+    case A:
+        coordinates = a;
+        break;
+    case B:
+        coordinates = b;
+        break;
+    case C:
+        coordinates = c;
+        break;
+    }
+    return coordinates;
 }
 
-void Triangle::SetA(PointXY a_) {
-    a = a_;
-}
-void Triangle::SetB(PointXY b_) {
-    b = b_;
-}
-void Triangle::SetC(PointXY c_) {
-    c = c_;
+void Triangle::Set(NameOfVertex nameVertex, PointXY coordinates) {
+    switch (nameVertex) {
+    case A:
+        a = coordinates;
+        break;
+    case B:
+        b = coordinates;
+        break;
+    case C:
+        c = coordinates;
+        break;
+    }
 }
 
 float Triangle::Length(PointXY point1, PointXY point2) {
-    return sqrt ( (point1.x - point2.x) * (point1.x - point2.x) +
-        (point1.y - point2.y) * (point1.y - point2.y) );
+    return static_cast <float>(sqrt ( (point1.x - point2.x) *
+        (point1.x - point2.x) + (point1.y - point2.y) *
+        (point1.y - point2.y) ));
 }
 
-float Triangle::Angle(PointXY end_p1, PointXY vertex_of_angle, PointXY end_p2) {
-    float side1 = Length(end_p1, vertex_of_angle);
-    float side2 = Length(end_p2, vertex_of_angle);
-    float side3 = Length(end_p1, end_p2);
+float Triangle::Angle(PointXY endP1, PointXY vertexOfAngle, PointXY endP2) {
+    float side1 = Length(endP1, vertexOfAngle);
+    float side2 = Length(endP2, vertexOfAngle);
+    float side3 = Length(endP1, endP2);
 
-    return 180 * acos((side1 * side1 + side2 * side2 - side3 * side3)
-                       /(2 * side1 * side2)) / M_PI;
+    return static_cast <float>(180 * acos((side1 * side1 + side2 * side2
+                              - side3 * side3)/(2 * side1 * side2)) / PI);
 }

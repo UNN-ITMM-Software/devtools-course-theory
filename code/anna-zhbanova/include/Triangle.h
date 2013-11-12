@@ -4,40 +4,33 @@
 
 #include <PointXY.h>
 
+enum NameOfVertex {A, B, C};
+
 class Triangle {
  public :
-    Triangle(PointXY a_ = 0, PointXY b_ = 0, PointXY c_ = 0);
+    Triangle(PointXY a, PointXY b, PointXY c);
+    Triangle();
     virtual ~Triangle(void);
 
-    float AB();
-    float BC();
-    float AC();
-
-    float AngleA();
-    float AngleB();
-    float AngleC();
+    float Length(NameOfVertex nameOfStartVertex, NameOfVertex nameOfEndVertex);
+    float Angle(NameOfVertex nameOfVertexAngle);
 
     float Square();
     float Perimeter();
 
     bool IsCorrect();
-    bool IsEquilateral();
-    bool IsIsosceles();
+    int IsEquilateral();
+    int IsIsosceles();
 
-    PointXY GetA();
-    PointXY GetB();
-    PointXY GetC();
-
-    void SetA(PointXY a_);
-    void SetB(PointXY b_);
-    void SetC(PointXY c_);
+    PointXY Get(NameOfVertex nameVertex);
+    void Set(NameOfVertex nameVertex, PointXY coordinates);
  private :
     PointXY a;
     PointXY b;
     PointXY c;
 
     float Length(PointXY point1, PointXY point2);
-    float Angle(PointXY end_p1, PointXY vertex_of_angle, PointXY end_p2);
+    float Angle(PointXY endP1, PointXY vertexOfAngle, PointXY endP2);
 };
 
 #endif  // CODE_ANNA_ZHBANOVA_INCLUDE_TRIANGLE_H_

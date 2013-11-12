@@ -15,41 +15,31 @@
 
 .. code-block:: cpp
 
-	class Triangle
-	{
-	public:
-		Triangle(PointXY a_ = 0, PointXY b_ = 0, PointXY c_ = 0);
-		virtual ~Triangle(void);
-		
-		float AB();
-		float BC();
-		float AC();
-	
-		float AngleA();
-		float AngleB();
-		float AngleC();
-	
-		float Square();
-		float Perimeter();
-	
-		bool IsCorrect();
-		bool IsEquilateral();
-		bool IsIsosceles();
-	
-		PointXY GetA();
-		PointXY GetB();
-		PointXY GetC();
-	
-		void SetA(PointXY a_);
-		void SetB(PointXY b_);
-		void SetC(PointXY c_);
-	private:
-		PointXY a;
-		PointXY b;
-		PointXY c;
-	
-		float Length (PointXY point1, PointXY point2);
-		float Angle (PointXY end_point1, PointXY vertex_of_angle, PointXY end_point2);
+	class Triangle {
+	public :
+	    Triangle(PointXY a, PointXY b, PointXY c);
+	    Triangle();
+	    virtual ~Triangle(void);
+
+	    float Length(char nameOfStartVertex, char nameOfEndVertex);
+	    float Angle(char nameOfVertexAngle);
+
+	    float Square();
+	    float Perimeter();
+
+	    bool IsCorrect();
+	    int IsEquilateral();
+	    int IsIsosceles();
+
+	    PointXY Get(char nameVertex);
+	    void Set(char nameVertex, PointXY coordinates);
+	 private :
+	    PointXY a;
+	    PointXY b;
+	    PointXY c;
+
+	    float Length(PointXY point1, PointXY point2);
+	    float Angle(PointXY endP1, PointXY vertexOfAngle, PointXY endP2);
 	};
 
 
@@ -63,13 +53,13 @@
 
 	if (triangle_obj.IsCorrect())
 	{
-		printf("Длина стороны AB %f\n", triangle_obj.AB());
+		printf("Длина стороны AB %f\n", triangle_obj.Length('a', 'b'));
 
 		float AngleA = triangle_obj.AngleA();
 					 
 		float Square = triangle_obj.Square();
 		
-		bool Equilateral = triangle_obj.IsEquilateral();
+		int Equilateral = triangle_obj.IsEquilateral();
 		
 	}
 	else
