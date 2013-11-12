@@ -1,6 +1,9 @@
 /* Copyright 2013 Aleksey Kostrov */
 #include <Dichotomy_Search.h>
-#define  _CRT_RAND_S
+
+#ifndef _CRT_RAND_S
+#define _CRT_RAND_S
+#endif
 #include <stdlib.h>
 
 #define SIZE_FOR_PRINT 25
