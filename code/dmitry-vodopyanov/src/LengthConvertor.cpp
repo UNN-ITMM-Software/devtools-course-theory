@@ -10,8 +10,8 @@ Length LengthConvertor::Convert(Length length, LengthUnit UnitOutput) {
                                  1609.34401, 1, 1000, 0.01};
     if (length.value >= 0) {
         length.value = multiplierMeter[length.UnitInput]/
-                       multiplierMeter[length.UnitOutput]*length.value;
-        length.UnitInput = length.UnitOutput;
+                       multiplierMeter[UnitOutput]*length.value;
+        length.UnitInput = UnitOutput;
     } else {
         length.value = -1;
     }
