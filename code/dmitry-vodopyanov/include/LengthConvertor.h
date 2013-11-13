@@ -4,7 +4,7 @@
 
 enum LengthUnit {Inch, Foot, Yard, Mile, Meter, KMeter, CMeter};
 
-#pragma pack(1);
+#pragma pack(1)
 struct Length {
     double value;
     LengthUnit UnitInput;
