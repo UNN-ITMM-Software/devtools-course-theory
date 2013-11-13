@@ -106,7 +106,7 @@ int main(int argc, char** argv) {
     length.value = expr.value;
     length.UnitInput = expr.UnitInput;
     LengthUnit UnitOutput = expr.UnitOutput;
-    printf("%lf %d to %d = ", length.value,
+    printf("%lf %s to %s = ", length.value,
                               length.UnitInput, UnitOutput);
     length = convertor.Convert(length, UnitOutput);
     printf("%lf", length.value);
