@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
-#include <Windows.h>
 
 void help(const char* appname);
 void parseArguments(int argc, char** argv);
@@ -82,7 +81,6 @@ int main(int argc, char** argv) {
     for (int i = 0; i < N; i++)
       printf("%d ", a[i]);
 
-    if (a != NULL)
-      delete [] a;
+    delete [] a;
     return 0;
 }

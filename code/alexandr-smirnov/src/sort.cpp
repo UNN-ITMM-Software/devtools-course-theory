@@ -1,7 +1,6 @@
 /* Copyright 2013 Alexandr Smirnov */
 
 #include <sort.h>
-#include <Windows.h>
 
 class Sorter::SortImplementation {
  public :
@@ -20,15 +19,13 @@ Sorter::Sorter(void): pImpl(new SortImplementation) {
 }
 
 Sorter::Sorter(const Sorter& sorter) {
-    if (pImpl != NULL)
-      delete pImpl;
+    delete pImpl;
     pImpl = new SortImplementation;
     pImpl = sorter.pImpl;
 }
 
 Sorter::~Sorter(void) {
-    if (pImpl != NULL)
-      delete pImpl;
+    delete pImpl;
 }
 
 void Sorter::Sort(int *Array, int size, SortMethod method) {
