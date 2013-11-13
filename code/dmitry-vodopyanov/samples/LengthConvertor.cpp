@@ -17,7 +17,7 @@ typedef struct {
 
 void help(const char* appname);
 double parseDouble(const char* arg);
-int64_t parseInteger(const char* arg);
+int64_t parseUnit(const char* arg);
 Expression parseArguments(int argc, char** argv);
 
 void help(const char* appname) {
@@ -26,8 +26,8 @@ void help(const char* appname) {
     printf("  $ %s <value> <input unit> <output unit>\n\n", appname);
     printf("Where <value> is double number, ");
     printf("and both units are one of\n");
-    printf("0 = Inch, 1 = Foot, 2 = Yard, 3 = Mile,\n");
-    printf("4 = Meter, 5 = KMeter, 6 = CMeter.\n");
+    printf("Inch, Foot, Yard, Mile,\n");
+    printf("Meter, KMeter, CMeter.\n");
 }
 
 double parseDouble(const char* value) {
@@ -44,17 +44,34 @@ double parseDouble(const char* value) {
     return num;
 }
 
-int64_t parseInteger(const char* arg) {
-    char* end;
-    int64_t value = strtol(arg, &end, 10);
-
-    if (!end[0]) {
-        printf("%s is valid\n", arg);
+int64_t parseUnit(const char* arg) {
+    Unit unit;
+    if ((strcmp(arg, "inch") == 0) | (strcmp(arg, "in") == 0)) {
+        unit = Inch;
+        printf("%s is valid\n", value);
+    } else if ((strcmp(arg, "foot") == 0) | (strcmp(arg, "ft") == 0)) {
+        unit = Foot;
+        printf("%s is valid\n", value);
+    } else if ((strcmp(arg, "yard") == 0) | (strcmp(arg, "yd") == 0)) {
+        unit = Yard;
+        printf("%s is valid\n", value);
+    } else if ((strcmp(arg, "mile") == 0) | (strcmp(arg, "ml") == 0)) {
+        unit = Mile;
+        printf("%s is valid\n", value);
+    } else if ((strcmp(arg, "meter") == 0) | (strcmp(arg, "m") == 0)) {
+        unit = Meter;
+        printf("%s is valid\n", value);
+    } else if ((strcmp(arg, "kmeter") == 0) | (strcmp(arg, "km") == 0)) {
+        unit = KMeter;
+        printf("%s is valid\n", value);
+    } else if ((strcmp(arg, "cmeter") == 0) | (strcmp(arg, "cm") == 0)) {
+        unit = CMeter;
+        printf("%s is valid\n", value);
     } else {
-        printf("%s is invalid\n", arg);
-        throw "wrong format";
+        printf("%s is invalid\n", value);
+        throw "wrong format"
     }
-
+    
     return value;
 }
 
@@ -88,9 +105,9 @@ int main(int argc, char** argv) {
     Length length;
     length.value = expr.value;
     length.UnitInput = expr.UnitInput;
-    length.UnitOutput = expr.UnitOutput;
+    UnitOutput = expr.UnitOutput;
     printf("%lf %d to %d = ", length.value,
-                              length.UnitInput, length.UnitOutput);
+                              length.UnitInput, UnitOutput);
     length = convertor.Convert(length);
     printf("%lf", length.value);
     return 0;
