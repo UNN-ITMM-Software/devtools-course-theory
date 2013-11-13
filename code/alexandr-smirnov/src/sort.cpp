@@ -79,9 +79,9 @@ void Sorter::SortImplementation::quickSortProcess(int l, int r) {
 }
 
 void Sorter::SortImplementation::heapSort(int *Array, int size) {
-    elements = Array; 
+    elements = Array;
     int i, tmp;
-    for (i = size / 2; i >= 0; i--) 
+    for (i = size / 2; i >= 0; i--)
         downHeap(elements, i, size-1);
     for (i = size / 2 - 1; i >= 0; i--)
         downHeap(elements, i, size-1);
