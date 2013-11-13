@@ -34,11 +34,8 @@ TemperatureUnit newUnit) {
        ((t.unit == Fahrenheit)&&(t.value < -459.67))||
        ((t.unit == Newton)&&(t.value < -90.14))||
        ((t.unit < Celsius) || (t.unit > Newton)) ||
-       ((newUnit < Celsius) || (newUnit > Newton))) {
-        printf("Wrong value or unit!\n");
-        exit(0);
-    } else {
+       ((newUnit < Celsius) || (newUnit > Newton)))
+           throw "wrong";
            Temperature temp = ConvertToCelsius(t);
            return ConvertFromCelsius(temp, newUnit);
-    }
 }
