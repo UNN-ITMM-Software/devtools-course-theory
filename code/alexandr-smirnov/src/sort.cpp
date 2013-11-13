@@ -19,13 +19,11 @@ Sorter::Sorter(void): pImpl(new SortImplementation) {
 }
 
 Sorter::Sorter(const Sorter& sorter) {
-    delete pImpl;
     pImpl = new SortImplementation;
     pImpl = sorter.pImpl;
 }
 
 Sorter::~Sorter(void) {
-    delete pImpl;
 }
 
 void Sorter::Sort(int *Array, int size, SortMethod method) {
