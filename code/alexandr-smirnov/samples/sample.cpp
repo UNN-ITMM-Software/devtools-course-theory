@@ -8,6 +8,7 @@
 void help(const char* appname);
 void parseArguments(int argc, char** argv);
 int64_t parseInteger(const char* arg);
+bool canCompute(const char* expr);
 
 void help(const char* appname) {
     printf("This is an application of sorting arrays of integer numbers.\n\n");
