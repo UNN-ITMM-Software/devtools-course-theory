@@ -69,9 +69,9 @@ int64_t parseUnit(const char* arg) {
         printf("%s is valid\n", value);
     } else {
         printf("%s is invalid\n", value);
-        throw "wrong format"
+        throw "wrong format";
     }
-    
+
     return value;
 }
 

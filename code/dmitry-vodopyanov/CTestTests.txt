@@ -63,7 +63,7 @@ add_test(
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 5 yd in
 )
-set_tests_properties (can_Convert_KMeters_to_Meters
+set_tests_properties (can_Convert_Yards_to_Inches
   PROPERTIES PASS_REGULAR_EXPRESSION "180\\.000000")
 
 add_test(
@@ -71,5 +71,5 @@ add_test(
     WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} -5 in m  
 )
-set_tests_properties (can_Convert_KMeters_to_Meters
+set_tests_properties (can_Detect_Negative_Number
   PROPERTIES PASS_REGULAR_EXPRESSION "-1\\.000000")
