@@ -21,6 +21,28 @@ void help(const char* appname) {
     printf("h - if you want to sort this by HEAPSORT \n\n");
     printf("m - if you want to sort this by MERGESORT \n\n");
 }
+
+bool canCompute(const char* expr) {
+  int arg = static_cast<int>(parseInteger(expr));
+  if (arg == static_cast<int>(parseInteger(expr))) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+int64_t parseInteger(const char* arg) {
+    char* end;
+    int64_t value = strtol(arg, &end, 10);
+    if (!end[0]) {
+        printf("%s is valid\n", arg);
+    } else {
+        printf("%s is invalid\n", arg);
+        throw "wrong number format";
+    }
+    return value;
+}
+
 void parseArguments(int argc, char** argv) {
     if (argc == 1) {
         help(argv[0]);
@@ -34,7 +56,7 @@ void parseArguments(int argc, char** argv) {
       }
       try {
         for (int i = 2; i < argc; i++) {
-        static_cast<int>(parseInteger(argv[i]));
+        canCompute(argv[i]);
         }
       }
       catch(...) {
@@ -42,20 +64,6 @@ void parseArguments(int argc, char** argv) {
         exit(2);
       }
     }
-}
-
-int64_t parseInteger(const char* arg) {
-    char* end;
-    int64_t value = strtol(arg, &end, 10);
-
-    if (!end[0]) {
-        printf("%s is valid\n", arg);
-    } else {
-        printf("%s is invalid\n", arg);
-        throw "wrong number format";
-    }
-
-    return value;
 }
 
 int main(int argc, char** argv) {
