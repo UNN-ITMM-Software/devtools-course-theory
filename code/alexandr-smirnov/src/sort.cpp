@@ -19,7 +19,6 @@ Sorter::Sorter(void): pImpl(new SortImplementation) {
 }
 
 Sorter::Sorter(const Sorter& sorter) {
-    pImpl = new SortImplementation;
     pImpl = sorter.pImpl;
 }
 
@@ -45,14 +44,12 @@ void Sorter::Sort(int *Array, int size, SortMethod method) {
 const Sorter& Sorter::operator=(const Sorter& sorter) {
     if (this != &sorter) {
       delete pImpl;
-      pImpl = new SortImplementation;
       pImpl = sorter.pImpl;
     }
     return *this;
 }
 
 void Sorter::SortImplementation::quickSort(int *Array, int size) {
-    elements = new int[size];
     elements = Array;
     quickSortProcess(0, size - 1);
 }
@@ -81,17 +78,18 @@ void Sorter::SortImplementation::quickSortProcess(int l, int r) {
 }
 
 void Sorter::SortImplementation::heapSort(int *Array, int size) {
-      elements = new int[size];
-      elements = Array;
-      int i, tmp;
-      for (i = size / 2 - 1; i >= 0; i--)
-          downHeap(elements, i, size-1);
-      for (i = size - 1; i > 0; i--) {
-          tmp = elements[i];
-          elements[i] = elements[0];
-          elements[0] = tmp;
-          downHeap(elements, 0, i - 1);
-      }
+    elements = Array; 
+    int i, tmp;
+    for (i = size / 2; i >= 0; i--) 
+        downHeap(elements, i, size-1);
+    for (i = size / 2 - 1; i >= 0; i--)
+        downHeap(elements, i, size-1);
+    for (i = size - 1; i > 0; i--) {
+        tmp = elements[i];
+        elements[i] = elements[0];
+        elements[0] = tmp;
+        downHeap(elements, 0, i - 1);
+    }
 }
 
 void Sorter::SortImplementation::downHeap(int *mass, int K, int N) {
@@ -109,7 +107,6 @@ void Sorter::SortImplementation::downHeap(int *mass, int K, int N) {
 }
 
 void Sorter::SortImplementation::mergeSort(int *Array, int size) {
-    elements = new int[size];
     elements = Array;
     mergeSortProcess(0, size - 1);
 }
