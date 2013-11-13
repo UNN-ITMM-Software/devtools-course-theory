@@ -45,34 +45,34 @@ double parseDouble(const char* value) {
 }
 
 int64_t parseUnit(const char* arg) {
-    Unit unit;
+    LengthUnit unit;
     if ((strcmp(arg, "inch") == 0) | (strcmp(arg, "in") == 0)) {
         unit = Inch;
-        printf("%s is valid\n", value);
+        printf("%s is valid\n", arg);
     } else if ((strcmp(arg, "foot") == 0) | (strcmp(arg, "ft") == 0)) {
         unit = Foot;
-        printf("%s is valid\n", value);
+        printf("%s is valid\n", arg);
     } else if ((strcmp(arg, "yard") == 0) | (strcmp(arg, "yd") == 0)) {
         unit = Yard;
-        printf("%s is valid\n", value);
+        printf("%s is valid\n", arg);
     } else if ((strcmp(arg, "mile") == 0) | (strcmp(arg, "ml") == 0)) {
         unit = Mile;
-        printf("%s is valid\n", value);
+        printf("%s is valid\n", arg);
     } else if ((strcmp(arg, "meter") == 0) | (strcmp(arg, "m") == 0)) {
         unit = Meter;
-        printf("%s is valid\n", value);
+        printf("%s is valid\n", arg);
     } else if ((strcmp(arg, "kmeter") == 0) | (strcmp(arg, "km") == 0)) {
         unit = KMeter;
-        printf("%s is valid\n", value);
+        printf("%s is valid\n", arg);
     } else if ((strcmp(arg, "cmeter") == 0) | (strcmp(arg, "cm") == 0)) {
         unit = CMeter;
-        printf("%s is valid\n", value);
+        printf("%s is valid\n", arg);
     } else {
-        printf("%s is invalid\n", value);
+        printf("%s is invalid\n", arg);
         throw "wrong format";
     }
 
-    return value;
+    return unit;
 }
 
 Expression parseArguments(int argc, char** argv) {
@@ -88,8 +88,8 @@ Expression parseArguments(int argc, char** argv) {
     Expression expression;
     try {
         expression.value = static_cast<double>(parseDouble(argv[1]));
-        expression.UnitInput = static_cast<LengthUnit>(parseInteger(argv[2]));
-        expression.UnitOutput = static_cast<LengthUnit>(parseInteger(argv[3]));
+        expression.UnitInput = static_cast<LengthUnit>(parseUnit(argv[2]));
+        expression.UnitOutput = static_cast<LengthUnit>(parseUnit(argv[3]));
     }
     catch(...) {
         printf("Wrong format!");
@@ -105,10 +105,10 @@ int main(int argc, char** argv) {
     Length length;
     length.value = expr.value;
     length.UnitInput = expr.UnitInput;
-    UnitOutput = expr.UnitOutput;
+    LengthUnit UnitOutput = expr.UnitOutput;
     printf("%lf %d to %d = ", length.value,
                               length.UnitInput, UnitOutput);
-    length = convertor.Convert(length);
+    length = convertor.Convert(length, UnitOutput);
     printf("%lf", length.value);
     return 0;
 }
