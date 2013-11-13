@@ -23,6 +23,7 @@ Sorter::Sorter(const Sorter& sorter) {
 }
 
 Sorter::~Sorter(void) {
+    delete pImpl;
 }
 
 void Sorter::Sort(int *Array, int size, SortMethod method) {
