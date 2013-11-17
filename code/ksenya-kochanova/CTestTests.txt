@@ -1,0 +1,107 @@
+#############################################
+##### Testing
+#############################################
+
+enable_testing()
+
+add_test( 
+    NAME can_Run
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+
+add_test( 
+    NAME can_Print_Help_Without_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+set_tests_properties (can_Print_Help_Without_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "This is a temperature convertor.")
+
+add_test(
+    NAME can_Check_Number_Of_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 100 Celsius
+)
+set_tests_properties (can_Check_Number_Of_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be 3 arguments: value, oldunit, newunit.")
+
+
+add_test(
+    NAME can_Detect_Wrong_oldUnit_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 100 Metr Kelvin
+)
+set_tests_properties (can_Detect_Wrong_oldUnit_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
+
+add_test(
+    NAME can_Detect_Wrong_newUnit_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 100 Celsius Pound
+)
+set_tests_properties (can_Detect_Wrong_newUnit_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
+
+add_test(
+    NAME can_Detect_Wrong_Value_Format_for_Celsius
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -280 Celsius Kelvin
+)
+set_tests_properties (can_Detect_Wrong_Value_Format_for_Celsius 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong data!")
+
+add_test(
+    NAME can_Detect_Wrong_Value_Format_for_Kelvin
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -5 Kelvin Fahrenheit
+)
+set_tests_properties (can_Detect_Wrong_Value_Format_for_Kelvin 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong data!")
+
+add_test(
+    NAME can_Detect_Wrong_Value_Format_for_Fahrenheit
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -500 Fahrenheit Kelvin
+)
+set_tests_properties (can_Detect_Wrong_Value_Format_for_Fahrenheit 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong data!")
+
+add_test(
+    NAME can_Detect_Wrong_Value_Format_for_Newton
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -100 Newton Kelvin
+)
+set_tests_properties (can_Detect_Wrong_Value_Format_for_Newton 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong data!")
+add_test(
+    NAME can_Convert_Correct_Value_Kelvin_to_Celsius
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0 Kelvin Celsius
+)
+set_tests_properties (can_Convert_Correct_Value_Kelvin_to_Celsius  
+  PROPERTIES PASS_REGULAR_EXPRESSION "-273.150000")
+
+add_test(
+    NAME can_Convert_Correct_Value_Celsius_Newton
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 5 Celsius Newton
+)
+set_tests_properties (can_Convert_Correct_Value_Celsius_Newton
+  PROPERTIES PASS_REGULAR_EXPRESSION "1.650000")
+
+add_test(
+    NAME can_Convert_Correct_Value_Fahrenheit_Celsius
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 10 Fahrenheit Celsius
+)
+set_tests_properties (can_Convert_Correct_Value_Fahrenheit_Celsius
+  PROPERTIES PASS_REGULAR_EXPRESSION "-26.444444")
+
+add_test(
+    NAME can_Convert_Correct_Value_Newton_Fahrenheit
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0 Newton Fahrenheit
+)
+set_tests_properties (can_Convert_Correct_Value_Newton_Fahrenheit
+  PROPERTIES PASS_REGULAR_EXPRESSION "57.600000")
