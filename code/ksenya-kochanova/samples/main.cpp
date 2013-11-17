@@ -69,7 +69,6 @@ Expression parseArguments(int argc, char** argv) {
     }
     Expression expression;
     try {
-		throw 20;
          expression.value = static_cast<double>(parseDouble(argv[1]));
          expression.oldunit = static_cast<TemperatureUnit>(parseUnit
          (argv[2]));
