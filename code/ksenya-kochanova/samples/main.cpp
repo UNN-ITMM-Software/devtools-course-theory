@@ -75,7 +75,7 @@ Expression parseArguments(int argc, char** argv) {
          expression.newunit = static_cast<TemperatureUnit>(parseUnit
          (argv[3]));
          }
-    catch(int param) {
+    catch(...) {
         printf("Wrong format!");
         exit(2);
         }
