@@ -90,13 +90,13 @@ int main(int argc, char** argv) {
     temperature.unit = expr.oldunit;
     newUnit = expr.newunit;
     try {
-    Temperature outTemperature = convertor.Convert(temperature,newUnit);
+    Temperature outTemperature = convertor.Convert(temperature, newUnit);
     printf("Input: %lf %d \n", temperature.value, temperature.unit);
     printf("Output: ? %d\n", newUnit);
     printf("Result: %lf\n", outTemperature.value);
     }
-    catch (...) {
-    printf ("Wrong data!");
+    catch(...) {
+    printf("Wrong data!");
     }
     return 0;
 }
