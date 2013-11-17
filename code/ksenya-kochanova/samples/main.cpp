@@ -69,13 +69,14 @@ Expression parseArguments(int argc, char** argv) {
     }
     Expression expression;
     try {
+		throw 20;
          expression.value = static_cast<double>(parseDouble(argv[1]));
          expression.oldunit = static_cast<TemperatureUnit>(parseUnit
          (argv[2]));
          expression.newunit = static_cast<TemperatureUnit>(parseUnit
          (argv[3]));
          }
-    catch(...) {
+    catch(int param) {
         printf("Wrong format!");
         exit(2);
         }
@@ -89,9 +90,14 @@ int main(int argc, char** argv) {
     temperature.value = expr.value;
     temperature.unit = expr.oldunit;
     newUnit = expr.newunit;
-    Temperature outTemperature = convertor.Convert(temperature, newUnit);
+    try {
+    Temperature outTemperature = convertor.Convert(temperature,newUnit);
     printf("Input: %lf %d \n", temperature.value, temperature.unit);
     printf("Output: ? %d\n", newUnit);
     printf("Result: %lf\n", outTemperature.value);
+    }
+    catch (...) {
+    printf ("Wrong data!");
+    }
     return 0;
 }
