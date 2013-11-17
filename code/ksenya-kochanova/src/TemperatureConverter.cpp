@@ -32,9 +32,7 @@ TemperatureUnit newUnit) {
     if (((t.unit == Celsius)&&(t.value < -273.15))||
        ((t.unit == Kelvin)&&(t.value < 0))||
        ((t.unit == Fahrenheit)&&(t.value < -459.67))||
-       ((t.unit == Newton)&&(t.value < -90.14))||
-       ((t.unit < Celsius) || (t.unit > Newton)) ||
-       ((newUnit < Celsius) || (newUnit > Newton)))
+       ((t.unit == Newton)&&(t.value < -90.14)))
            throw "wrong";
            Temperature temp = ConvertToCelsius(t);
            return ConvertFromCelsius(temp, newUnit);
