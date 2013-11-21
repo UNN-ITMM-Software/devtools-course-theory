@@ -75,8 +75,7 @@ function MakeTest {
 }
 
 function BuildCMakeProject {
-    # Build common CMake project
-    Header "Test common CMake project"
+    Header "Build common CMake project"
 
     cmake_build_dir="../build_cmake"
     $dir=$cmake_build_dir
@@ -86,7 +85,18 @@ function BuildCMakeProject {
 }
 
 function CTest {
+    Header "Run all CTest tests"
     try ctest --output-on-failure
+}
+
+function GoogleTest {
+    Header "Run all GoogleTest tests"
+
+    for test in $(ls -1 ./bin/*-test) # for each directory
+    do
+        Header "Testing $test"
+        try $test
+    done
 }
 
 function Main {
@@ -94,6 +104,7 @@ function Main {
     MakeTest
     BuildCMakeProject
     CTest
+    GoogleTest
 }
 
 Main
