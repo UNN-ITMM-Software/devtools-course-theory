@@ -18,7 +18,7 @@ function Header {
     echo ""
 }
 
-function CheckGoogleStyle {
+function CheckGoogleStyleInDir {
     retCode=0
 
     hpp_files=`find . -name "*.hpp"`
@@ -42,31 +42,58 @@ function CheckGoogleStyle {
     return $retCode
 }
 
-# Go through all directories, check Google style and run 'make test'
-for dir in */;
-do
-    cd $dir
+function CheckGoogleStyle {
+    # Go through all directories and check Google style
+    for dir in */;
+    do
+        cd $dir
 
-    Header "Check \"Google C++ Style\" in $dir"
-    try CheckGoogleStyle
+        Header "Check \"Google C++ Style\" in $dir"
+        try CheckGoogleStyleInDir
 
-    Header "Build and Test $dir"
-    if [ -f Makefile ];
-    then
-       echo "Makefile exists"
-       try make test
-    else
-       echo "No Makefile"
-    fi
+        cd ..
+    done
+}
 
-    cd ..
-done
+function MakeTest {
+    # Go through all directories and run 'make test'
+    for dir in */;
+    do
+        cd $dir
 
-# Build common CMake project
-Header "Test common CMake project"
+        Header "Build and Test $dir"
+        if [ -f Makefile ];
+        then
+           echo "Makefile exists"
+           try make test
+        else
+           echo "No Makefile"
+        fi
 
-cmake_build_dir="../build_cmake"
-$dir=$cmake_build_dir
-mkdir $cmake_build_dir
-cd $cmake_build_dir
-try cmake ../code && make && ctest --output-on-failure
+        cd ..
+    done
+}
+
+function BuildCMakeProject {
+    # Build common CMake project
+    Header "Test common CMake project"
+
+    cmake_build_dir="../build_cmake"
+    $dir=$cmake_build_dir
+    mkdir $cmake_build_dir
+    cd $cmake_build_dir
+    try cmake ../code && make
+}
+
+function CTest {
+    try ctest --output-on-failure
+}
+
+function Main {
+    CheckGoogleStyle
+    MakeTest
+    BuildCMakeProject
+    CTest
+}
+
+Main
