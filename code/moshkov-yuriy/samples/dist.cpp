@@ -12,8 +12,7 @@
 
 #if defined(_MSC_VER)
     #define mystrncpy proxy_func
-    void proxy_func(char *strDest, const char *strSource, size_t count)
-    {
+    void proxy_func(char *strDest, const char *strSource, size_t count) {
         strncpy_s(strDest, 256, strSource, count);
     }
 #else
