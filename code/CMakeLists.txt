@@ -1,15 +1,15 @@
 cmake_minimum_required(VERSION 2.8.6)
+project (DevTools)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/")
 include(../cmake/general.cmake)
 
-# add gtest
+# Add Google Test to include
 set(gtest "gtest")
-add_lib_static(${gtest} "3rdparty/gtest")
 add_dir_inc("3rdparty")
 
 # Build our projects
-add_all_sub_dir("${CMAKE_SOURCE_DIR}")
+add_all_sub_dir("${CMAKE_SOURCE_DIR}")  
 
 # Enable testing
 enable_testing()

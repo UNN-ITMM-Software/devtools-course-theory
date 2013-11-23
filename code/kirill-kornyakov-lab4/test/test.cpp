@@ -1,5 +1,8 @@
 // Copyright 2013 Kirill Kornyakov
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wglobal-constructors"
+
 #include <gtest/gtest.h>
 
 TEST(MathTest, TwoPlusTwoEqualsFour) {
@@ -10,3 +13,5 @@ int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+
+#pragma GCC diagnostic pop
