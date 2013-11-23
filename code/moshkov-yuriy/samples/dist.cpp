@@ -7,7 +7,17 @@
 #include <float.h>
 
 #if defined _WIN32 || defined _WIN64
-#define strtok_r strtok_s
+    #define strtok_r strtok_s
+#endif
+
+#if defined(_MSC_VER)
+    #define mystrncpy proxy_func
+    void proxy_func(char *strDest, const char *strSource, size_t count)
+    {
+        strncpy_s(strDest, 256, strSource, count);
+    }
+#else
+    #define mystrncpy strncpy
 #endif
 
 #pragma pack(push, 1)
@@ -73,7 +83,7 @@ float* getVector(char* str, int sizeVector) {
         char* strWithBracket = new char[strlen(str) - 2 + 1];
         char* rest;
         strWithBracket[strlen(str) - 2] = '\0';
-        strncpy(strWithBracket, str + 1, strlen(str) - 2);
+        mystrncpy(strWithBracket, str + 1, strlen(str) - 2);
         char* charElem = strtok_r(strWithBracket, ",", &rest);
         int indElem = 0;
         while (charElem != NULL) {

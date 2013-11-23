@@ -48,11 +48,13 @@
 // registration from Barthelemy Dagenais' (barthelemy@prologique.com)
 // easyUnit framework.
 
-#pragma GCC diagnostic push
+#if defined(__GNUC__) || defined(__clang__)
+    #pragma GCC diagnostic push
 
-#pragma GCC diagnostic ignored "-Wundef"
-#pragma GCC diagnostic ignored "-Wpadded"
-#pragma GCC diagnostic ignored "-Wmissing-noreturn"
+    #pragma GCC diagnostic ignored "-Wundef"
+    #pragma GCC diagnostic ignored "-Wpadded"
+    #pragma GCC diagnostic ignored "-Wmissing-noreturn"
+#endif
 
 #if defined(__clang__)
     #pragma GCC diagnostic ignored "-Wweak-vtables"
@@ -20076,4 +20078,6 @@ inline int RUN_ALL_TESTS() {
 
 #endif  // GTEST_INCLUDE_GTEST_GTEST_H_
 
-#pragma GCC diagnostic pop
+#if defined(__GNUC__) || defined(__clang__)
+    #pragma GCC diagnostic pop
+#endif

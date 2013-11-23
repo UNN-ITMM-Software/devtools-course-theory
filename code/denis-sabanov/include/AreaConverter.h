@@ -4,7 +4,7 @@
 
 enum AreaType {sKilometer, hectare, ar, acre, sMeter, sFoot};
 
-#pragma pack(1)
+#pragma pack(push, 1)
 class AreaConverter {
  public:
     AreaConverter(double _value, AreaType _type);
@@ -22,5 +22,6 @@ class AreaConverter {
 
     void ConvertToMeters();
 };
+#pragma pack(pop)
 
 #endif  // CODE_DENIS_SABANOV_INCLUDE_AREACONVERTER_H_
