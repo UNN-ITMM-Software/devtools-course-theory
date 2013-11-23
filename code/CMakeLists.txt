@@ -7,9 +7,6 @@ include(../cmake/general.cmake)
 # Add Google Test includes and define some variables
 add_dir_inc("3rdparty")
 set(gtest "gtest")
-if(CXX_GCC OR CXX_CLANG)
-    set(Pthread "-pthread")
-endif()
 
 # Include subprojects
 add_all_sub_dir("${CMAKE_SOURCE_DIR}")  
