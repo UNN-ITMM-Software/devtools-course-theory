@@ -62,6 +62,8 @@
     #pragma GCC diagnostic ignored "-Wc++98-compat-pedantic"
 #endif
 
+#define _VARIADIC_MAX 10
+
 #ifndef GTEST_INCLUDE_GTEST_GTEST_H_
 #define GTEST_INCLUDE_GTEST_GTEST_H_
 

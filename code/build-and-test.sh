@@ -82,10 +82,11 @@ function BuildCMakeProject {
     Header "Build common CMake project"
 
     cmake_build_dir="../build_cmake"
-    $dir=$cmake_build_dir
+    dir=$cmake_build_dir
     mkdir $cmake_build_dir
     cd $cmake_build_dir
-    try cmake ../code && make
+    try cmake ../code
+    try make
 }
 
 function CTest {
@@ -96,7 +97,7 @@ function CTest {
 function GoogleTest {
     Header "Run all GoogleTest tests"
 
-    for test in $(ls -1 ./bin/*-test) # for each directory
+    for test in $(ls -1 ./bin/*-test)
     do
         Header "Testing $test"
         try $test

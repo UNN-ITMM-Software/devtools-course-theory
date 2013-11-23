@@ -3,9 +3,10 @@
 #pragma GCC diagnostic push
 
 #pragma GCC diagnostic ignored "-Weffc++"
-#pragma GCC diagnostic ignored "-Werror=ctor-dtor-privacy"
 #if defined(__clang__)
     #pragma GCC diagnostic ignored "-Wglobal-constructors"
+#elif defined(__GNUC__)
+    #pragma GCC diagnostic ignored "-Wctor-dtor-privacy"
 #endif
 
 #include <gtest/gtest.h>

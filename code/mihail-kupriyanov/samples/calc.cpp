@@ -55,7 +55,7 @@ static void MakeCalc(MathQuanCalc* mqCalc,
 
 static double ParseDouble(const char* arg) {
     char* end;
-    double value = strtof(arg, &end);
+    double value = strtod(arg, &end);
 
     if (!end[0]) {
         printf("%s is valid\n", arg);

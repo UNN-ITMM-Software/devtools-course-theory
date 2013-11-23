@@ -14,7 +14,7 @@ endif()
 
 unset(current_compiler_name)
 
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
 	set(CXX_CLANG 1)
   set(current_compiler_name "clang")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
