@@ -6,6 +6,7 @@ include(../cmake/general.cmake)
 
 # Add Google Test to include
 set(gtest "gtest")
+set(Pthread "-pthread")
 add_dir_inc("3rdparty")
 
 # Build our projects
