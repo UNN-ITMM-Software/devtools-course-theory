@@ -44,7 +44,7 @@ set_option(ENABLE_AVX2                  "Enable AVX2 instructions"              
 set_option(ENABLE_OPTIMIZATION          "Enable optimization"                                         OFF  )
 
 set_option(ENABLE_ALLWARNING            "Show all warnings even if they are too noisy"                ON   )
-set_option(ENABLE_WARNINGS_ARE_ERRORS   "Treat warnings as errors"                                    OFF  )
+set_option(ENABLE_WARNINGS_ARE_ERRORS   "Treat warnings as errors"                                    ON  )
 
 #set_option(ENABLE_OPENMP                "Enamble OpenMP"                                              ON   IF (CXX_MS OR CXX_GCC OR CXX_INTEL) )
 set_option(ENABLE_DEBUG_INFO            "Add debug info"                                              ON   )

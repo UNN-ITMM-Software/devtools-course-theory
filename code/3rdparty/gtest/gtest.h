@@ -49,14 +49,18 @@
 // easyUnit framework.
 
 #pragma GCC diagnostic push
+
 #pragma GCC diagnostic ignored "-Wundef"
 #pragma GCC diagnostic ignored "-Wpadded"
-#pragma GCC diagnostic ignored "-Wweak-vtables"
-#pragma GCC diagnostic ignored "-Wglobal-constructors"
-#pragma GCC diagnostic ignored "-Wused-but-marked-unused"
-#pragma GCC diagnostic ignored "-Wshift-sign-overflow"
 #pragma GCC diagnostic ignored "-Wmissing-noreturn"
-#pragma GCC diagnostic ignored "-Wc++98-compat-pedantic"
+
+#if defined(__clang__)
+    #pragma GCC diagnostic ignored "-Wweak-vtables"
+    #pragma GCC diagnostic ignored "-Wglobal-constructors"
+    #pragma GCC diagnostic ignored "-Wused-but-marked-unused"
+    #pragma GCC diagnostic ignored "-Wshift-sign-overflow"
+    #pragma GCC diagnostic ignored "-Wc++98-compat-pedantic"
+#endif
 
 #ifndef GTEST_INCLUDE_GTEST_GTEST_H_
 #define GTEST_INCLUDE_GTEST_GTEST_H_
