@@ -46,6 +46,10 @@ function CheckGoogleStyle {
     # Go through all directories and check Google style
     for dir in */;
     do
+        if [ "$dir" == "3rdparty/" ]; then
+            continue
+        fi
+
         cd $dir
 
         Header "Check \"Google C++ Style\" in $dir"
