@@ -1,7 +1,10 @@
 // Copyright 2013 Kirill Kornyakov
 
 #pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wglobal-constructors"
+
+#if defined(__clang__)
+    #pragma GCC diagnostic ignored "-Wglobal-constructors"
+#endif
 
 #include <gtest/gtest.h>
 

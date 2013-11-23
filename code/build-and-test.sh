@@ -28,10 +28,10 @@ function CheckGoogleStyleInDir {
         retCode=1
     fi
 
+    echo "Checking $dir"
     sources=`find . -name "*.hpp" -or -name "*.h" -or -name "*.cpp"`
     for file in $sources;
     do
-        echo "Analysing $file"
         python ../cpplint.py $file
         status=$?
         if [ $status -ne 0 ]; then
@@ -44,6 +44,8 @@ function CheckGoogleStyleInDir {
 
 function CheckGoogleStyle {
     # Go through all directories and check Google style
+    Header "Check \"Google C++ Style\""
+
     for dir in */;
     do
         if [ "$dir" == "3rdparty/" ]; then
@@ -51,11 +53,9 @@ function CheckGoogleStyle {
         fi
 
         cd $dir
-
-        Header "Check \"Google C++ Style\" in $dir"
         try CheckGoogleStyleInDir
-
         cd ..
+        echo ""
     done
 }
 
