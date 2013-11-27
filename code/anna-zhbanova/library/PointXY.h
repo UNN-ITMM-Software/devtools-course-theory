@@ -1,6 +1,6 @@
 ﻿/* Copyright 2013 Anna Zhbanova */
-#ifndef CODE_ANNA_ZHBANOVA_INCLUDE_POINTXY_H_
-#define CODE_ANNA_ZHBANOVA_INCLUDE_POINTXY_H_
+#ifndef CODE_ANNA_ZHBANOVA_LIBRARY_POINTXY_H_
+#define CODE_ANNA_ZHBANOVA_LIBRARY_POINTXY_H_
 
 struct PointXY {
     float x;
@@ -12,4 +12,4 @@ struct PointXY {
     }
 };
 
-#endif  // CODE_ANNA_ZHBANOVA_INCLUDE_POINTXY_H_
+#endif  // CODE_ANNA_ZHBANOVA_LIBRARY_POINTXY_H_
