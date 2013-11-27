@@ -4,12 +4,15 @@ project (DevTools)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/")
 include(../cmake/general.cmake)
 
-# Add Google Test includes and define some variables
-add_dir_inc("3rdparty")
-set(gtest "gtest")
+# Google Test
+include_directories(SYSTEM "3rdparty")
+add_subdirectory("3rdparty")
+
+clear_dependency()
+add_local_dependency("gtest")
 
 # Include subprojects
-add_all_sub_dir("${CMAKE_SOURCE_DIR}")  
+add_all_sub_dir("${CMAKE_SOURCE_DIR}" except "3rdparty")
 
 # Enable testing
 enable_testing()

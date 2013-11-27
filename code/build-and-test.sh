@@ -1,6 +1,8 @@
+cmake_build_dir="../build_cmake"
+
+function try {
 # This function executes command and stops 
 # exectution if return status wasn't 0
-function try {
     "$@"
     status=$?
     if [ $status -ne 0 ]; then
@@ -81,7 +83,6 @@ function MakeTest {
 function BuildCMakeProject {
     Header "Build common CMake project"
 
-    cmake_build_dir="../build_cmake"
     dir=$cmake_build_dir
     mkdir $cmake_build_dir
     cd $cmake_build_dir
@@ -104,7 +105,12 @@ function GoogleTest {
     done
 }
 
+function Clean {
+    rm -rf $cmake_build_dir
+}
+
 function Main {
+    Clean
     CheckGoogleStyle
     MakeTest
     BuildCMakeProject
