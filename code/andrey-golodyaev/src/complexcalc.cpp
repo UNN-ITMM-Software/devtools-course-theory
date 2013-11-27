@@ -5,6 +5,16 @@
 #include <stdio.h>
 #include <string>
 #include <sstream>
+
+#if defined(_MSC_VER)
+    #define mystrncpy proxy_func
+    void proxy_func(char *strDest, const char *strSource, size_t count) {
+        strncpy_s(strDest, 256, strSource, count);
+    }
+#else
+    #define mystrncpy strncpy
+#endif
+
 ComplexCalculator::ComplexCalculator(): real(0), imaginary(0) {
 }
 ComplexCalculator::ComplexCalculator(double _real,
@@ -128,7 +138,7 @@ void ComplexCalculator::Output(char *str) {
     }
     if (real < ep && real > -ep &&
         imaginary < ep && imaginary > -ep) str1 = "0";
-    strncpy(str, (str1.c_str()), str1.length());
+    mystrncpy(str, (str1.c_str()), str1.length());
 }
 ComplexCalculator ComplexCalculator::Add(ComplexCalculator first,
                                          ComplexCalculator second) {
