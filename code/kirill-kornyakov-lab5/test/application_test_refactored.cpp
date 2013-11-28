@@ -1,8 +1,10 @@
 // Copyright 2013 Kirill Kornyakov
 
+#include <gtest/gtest.h>
+
 #include <string>
+
 #include "library/calc_application.h"
-#include "gtest/gtest.h"
 
 using ::testing::internal::RE;
 

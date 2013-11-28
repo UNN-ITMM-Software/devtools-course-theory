@@ -1,8 +1,10 @@
 // Copyright 2013 Kirill Kornyakov
 
+#include <gtest/gtest.h>
+
 #include <limits.h>
 #include <string>
-#include "gtest/gtest.h"
+
 #include "library/simplecalc.h"
 
 class CalculatorTest : public ::testing::Test {
