@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Weffc++"
 #pragma GCC diagnostic ignored "-Wundef"
 #pragma GCC diagnostic ignored "-Wpadded"
 #pragma GCC diagnostic ignored "-Wmissing-noreturn"
