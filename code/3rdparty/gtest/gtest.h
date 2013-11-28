@@ -48,22 +48,7 @@
 // registration from Barthelemy Dagenais' (barthelemy@prologique.com)
 // easyUnit framework.
 
-#if defined(__GNUC__) || defined(__clang__)
-    #pragma GCC diagnostic push
-
-    #pragma GCC diagnostic ignored "-Wundef"
-    #pragma GCC diagnostic ignored "-Wpadded"
-    #pragma GCC diagnostic ignored "-Wmissing-noreturn"
-#endif
-
-#if defined(__clang__)
-    #pragma GCC diagnostic ignored "-Wweak-vtables"
-    #pragma GCC diagnostic ignored "-Wglobal-constructors"
-    #pragma GCC diagnostic ignored "-Wused-but-marked-unused"
-    #pragma GCC diagnostic ignored "-Wshift-sign-overflow"
-    #pragma GCC diagnostic ignored "-Wc++98-compat-pedantic"
-#endif
-
+#include "disable_warnings.h"
 #define _VARIADIC_MAX 10
 
 #ifndef GTEST_INCLUDE_GTEST_GTEST_H_
@@ -20077,7 +20062,3 @@ inline int RUN_ALL_TESTS() {
 }
 
 #endif  // GTEST_INCLUDE_GTEST_GTEST_H_
-
-#if defined(__GNUC__) || defined(__clang__)
-    #pragma GCC diagnostic pop
-#endif
