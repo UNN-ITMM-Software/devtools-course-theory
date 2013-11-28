@@ -52,15 +52,15 @@ TEST_F(TriangleTest, Can_Calculate_Side) {
 
 TEST_F(TriangleTest, Can_Calculate_Angle) {
     SetValue(0, 0, 5, 0, 2.5, static_cast<float>(4.33012719));
-    EXPECT_EQ(60, triangle.Angle(A));
+    EXPECT_TRUE(fabs(triangle.Angle(A) - 60) <= 0.01);
 }
 
 TEST_F(TriangleTest, Can_Calculate_Square) {
     SetValue(0, 6, 3, 0, 0, 0);
-    EXPECT_EQ(9, triangle.Square());
+    EXPECT_TRUE(fabs(triangle.Square() - 9) <= 0.01);
 }
 
 TEST_F(TriangleTest, Can_Calculate_Perimeter) {
     SetValue(0, 3, 0, 0, 4, 0);
-    EXPECT_EQ(12, triangle.Perimeter());
+    EXPECT_TRUE(fabs(triangle.Perimeter() - 12) <= 0.01);
 }
