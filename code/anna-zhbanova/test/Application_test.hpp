@@ -4,7 +4,6 @@
 #include "library/Triangle_application.h"
 #include "gtest/gtest.h"
 
-#include <conio.h>
 using ::testing::internal::RE;
 
 class AppTestR : public ::testing::Test {
