@@ -31,7 +31,7 @@ void TriangleApplication::help(const char* appname) {
             + "and <operation> is \n"
             + "<";
     char ch[10];
-    itoa(0, ch, 10);
+    snprintf(ch, 10, "%d", 0);
     message += std::string(ch) + ">" + operations[0] + "\n\n"
 
             + "  $ " + appname + " <x1> <y1> <x2> <y2> <x3> <y3>"
@@ -39,7 +39,7 @@ void TriangleApplication::help(const char* appname) {
             + "\n\nWhere all arguments are float numbers, "
             + "<nameOfVertex> is one of 'A', 'B' or 'C' and <operation> is \n";
     for (int i = 1; i < 3; i++) {
-        itoa(i, ch, 10);
+        snprintf(ch, 10, "%d", i);
         message += std::string("<") + ch + ">" + operations[i] + "\n";
     }
 
@@ -49,7 +49,7 @@ void TriangleApplication::help(const char* appname) {
             + "<nameStartVertex> and <nameEndVertex> is one of 'A', 'B' or 'C'"
             + " and <operation> is \n"
             + "<";
-    itoa(3, ch, 10);
+    snprintf(ch, 10, "%d", 3);
     message += std::string(ch) + ">" + operations[3] + "\n"
 
             + "\n  $ " + appname
@@ -57,7 +57,7 @@ void TriangleApplication::help(const char* appname) {
             + "Where all arguments are float numbers, "
             + "and <operation> is one of\n";
     for (int i = 4; i < 9; i++) {
-         itoa(3, ch, 10);
+         snprintf(ch, 10, "%d", i);
          message += std::string("<") + ch + ">" + operations[i] + "\n";
     }
 }
