@@ -1,6 +1,6 @@
 ﻿/* Copyright 2013 Anna Zhbanova */
 
-#include "library/Triangle_application.h"
+#include "library/Triangle_application.hpp"
 
 #include <stdio.h>
 #include <string>

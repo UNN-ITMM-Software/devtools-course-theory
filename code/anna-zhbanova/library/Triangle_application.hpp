@@ -4,7 +4,7 @@
 #define CODE_ANNA_ZHBANOVA_LIBRARY_TRIANGLE_APPLICATION_H_
 
 #include <string>
-#include "Triangle.h"
+#include "Triangle.hpp"
 
 #pragma pack(push, 1)
 struct Expression {

@@ -4,7 +4,7 @@
 #include <math.h>
 #include <string>
 #include "gtest/gtest.h"
-#include "library/Triangle.h"
+#include "library/Triangle.hpp"
 
 class TriangleTest : public ::testing::Test {
  protected:

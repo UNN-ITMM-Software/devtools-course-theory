@@ -1,7 +1,7 @@
 /* Copyright 2013 Anna Zhbanova */
 
 #include <string>
-#include "library/Triangle_application.h"
+#include "library/Triangle_application.hpp"
 #include <gtest/gtest.h>
 
 #include <conio.h>
@@ -9,7 +9,6 @@ using ::testing::internal::RE;
 
 class AppTestR : public ::testing::Test {
  protected:
-
     void RunApp(int argc, const char* argv[]) {
         output_ = app_(argc, argv);
     }
