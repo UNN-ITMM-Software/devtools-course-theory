@@ -23,12 +23,12 @@ function Header {
 function CheckGoogleStyleInDir {
     retCode=0
 
-    hpp_files=`find . -name "*.hpp"`
-    if [ $hpp_files ]; then
-        echo "ERROR: Please use *.h extension instead of *.hpp:"
-        echo " - $hpp_files"
-        retCode=1
-    fi
+    # hpp_files=`find . -name "*.hpp"`
+    # if [[ $hpp_files ]]; then
+    #     echo "ERROR: Please use *.h extension instead of *.hpp:"
+    #     echo " - $hpp_files"
+    #     retCode=1
+    # fi
 
     echo "Checking $dir"
     sources=`find . -name "*.hpp" -or -name "*.h" -or -name "*.cpp"`
