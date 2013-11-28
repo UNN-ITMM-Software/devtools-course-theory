@@ -12,18 +12,16 @@ class AppTestR : public ::testing::Test {
     // virtual void SetUp() {}
     // virtual void TearDown() {}
 
-    void RunApp(int argc, const char* args[]) {
-        char** argv = const_cast<char**>(args);
-        output_ = app(argc, argv);
+    void RunApp(int argc, const char* argv[]) {
+        output_ = app_(argc, argv);
     }
 
     void Check(std::string expected) {
-        EXPECT_TRUE(RE::PartialMatch(
-                        output_,
-                        RE(expected)));
+        // printf("OUTPUT = %s\n", output_.c_str());
+        EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-    CalculatorApplication app;
+    CalculatorApplication app_;
     std::string output_;
 };
 
@@ -52,4 +50,31 @@ TEST_F(AppTestR, Can_Detect_Wrong_Number_Format) {
     RunApp(argc, argv);
 
     Check("Wrong number format!.*");
+}
+
+TEST_F(AppTestR, Can_Detect_Wrong_Operation_Format) {
+    int argc = 4;
+    const char* argv[] = {"appname", "1", "1", "garbage"};
+
+    RunApp(argc, argv);
+
+    Check("Wrong operation!");
+}
+
+TEST_F(AppTestR, Can_Add_Positive_Numbers) {
+    int argc = 4;
+    const char* argv[] = {"appname", "2", "3", "+"};
+
+    RunApp(argc, argv);
+
+    Check("Result = 5");
+}
+
+TEST_F(AppTestR, Can_Sub_Large_Negative_Numbers) {
+    int argc = 4;
+    const char* argv[] = {"appname", "-200000", "-3000000", "-"};
+
+    RunApp(argc, argv);
+
+    Check("Result = 2800000");
 }

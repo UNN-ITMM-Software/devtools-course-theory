@@ -7,45 +7,41 @@
 #include <stdint.h>
 #include <string.h>
 #include <string>
+#include <sstream>
 
 #include "library/simplecalc.h"
 
-void help(const char* appname);
-int64_t parseInteger(const char* arg);
-Expression parseArguments(int argc, char** argv);
+CalculatorApplication::CalculatorApplication() : message_("") {}
 
 void CalculatorApplication::help(const char* appname) {
-    message += std::string("This is a simple calculator application.\n\n")
-            + "Please provide arguments in the following format:\n\n"
-            + "  $ " + appname + " <argument1> <argument2> <operation>\n\n"
-            + "Where both arguments are integer numbers, "
-            + "and <operation> is one of '+' or '-'.\n";
+    message_ += std::string("This is a simple calculator application.\n\n")
+             + "Please provide arguments in the following format:\n\n"
+             + "  $ " + appname + " <argument1> <argument2> <operation>\n\n"
+             + "Where both arguments are integer numbers, "
+             + "and <operation> is one of '+' or '-'.\n";
 }
 
+int64_t parseInteger(const char* arg);
 int64_t parseInteger(const char* arg) {
     char* end;
     int64_t value = strtol(arg, &end, 10);
 
-    if (!end[0]) {
-        printf("%s is valid\n", arg);
-    } else {
-        printf("%s is invalid\n", arg);
-        throw "wrong number format";
+    if (end[0]) {
+        throw "Wrong number format";
     }
 
     return value;
 }
 
-Expression CalculatorApplication::parseArguments(int argc, char** argv) {
-    Expression expression;
-
+bool CalculatorApplication::parseArguments(int argc, const char** argv,
+                                           Expression& expression) {
     if (argc == 1) {
         help(argv[0]);
-        return expression;
+        return false;
     } else if (argc != 4) {
-        message = "ERROR: Should be 3 arguments.\n\n";
+        message_ = "ERROR: Should be 3 arguments.\n\n";
         help(argv[0]);
-        return expression;
+        return false;
     }
 
     try {
@@ -53,44 +49,42 @@ Expression CalculatorApplication::parseArguments(int argc, char** argv) {
         expression.arg2 = static_cast<int>(parseInteger(argv[2]));
     }
     catch(...) {
-        message = "Wrong number format!\n";
-        return expression;
+        message_ = "Wrong number format!\n";
+        return false;
     }
 
     expression.operation = *argv[3];
     if ((strlen(argv[3]) != 1) ||
         (expression.operation != '+' && expression.operation != '-')) {
-        message = std::string(argv[3]) + " - Wrong operation!\n";
-        return expression;
-    } else {
-        printf("%s is valid operation\n", argv[3]);
+        message_ = std::string(argv[3]) + " - Wrong operation!\n";
+        return false;
     }
 
-    return expression;
+    return true;
 }
 
-CalculatorApplication::CalculatorApplication() : message("") {}
+std::string CalculatorApplication::operator()(int argc, const char** argv) {
+    Expression expr;
 
-std::string CalculatorApplication::operator()(int argc, char** argv) {
-    Expression expr = parseArguments(argc, argv);
-
-    if (message != "")
-        return message;
+    bool returnCode = parseArguments(argc, argv, expr);
+    if (returnCode != true)
+        return message_;
 
     SimpleCalculator calc;
-    const int MAX_LEN = 256;
-    char buff[MAX_LEN];
+
+    std::ostringstream stream;
+    stream << "Result = ";
 
     switch (expr.operation) {
      case '+':
-        snprintf(buff, MAX_LEN, "Result = %d\n",
-                 calc.Add(expr.arg1, expr.arg2));
+        stream << calc.Add(expr.arg1, expr.arg2);
         break;
      case '-':
-        snprintf(buff, MAX_LEN, "Result = %d\n",
-                 calc.Sub(expr.arg1, expr.arg2));
+        stream << calc.Sub(expr.arg1, expr.arg2);
         break;
     }
 
-    return std::string(buff);
+    message_ = stream.str();
+
+    return message_;
 }

@@ -9,9 +9,8 @@ using ::testing::internal::RE;
 TEST(AppTest, Do_Print_Help_Without_Arguments) {
     // Arrange
     CalculatorApplication app;
-    const char* args[] = {"appname"};
     int argc = 1;
-    char** argv = const_cast<char**>(args);
+    const char* argv[] = {"appname"};
 
     // Act
     std::string output = app(argc, argv);
@@ -23,13 +22,15 @@ TEST(AppTest, Do_Print_Help_Without_Arguments) {
 }
 
 TEST(AppTest, Is_Checking_Number_Of_Arguments) {
+    // Arrange
     CalculatorApplication app;
-    const char* args[] = {"appname", "1", "2"};
-
     int argc = 3;
-    char** argv = const_cast<char**>(args);
+    const char* argv[] = {"appname", "1", "2"};
+
+    // Act
     std::string output = app(argc, argv);
 
+    // Assert
     EXPECT_TRUE(RE::PartialMatch(
                     output,
                     RE("ERROR: Should be 3 arguments\\..*")));
@@ -38,9 +39,8 @@ TEST(AppTest, Is_Checking_Number_Of_Arguments) {
 TEST(AppTest, Can_Detect_Wrong_Number_Format) {
     // Arrange
     CalculatorApplication app;
-    const char* args[] = {"appname", "1", "2werwe", "+"};
     int argc = 4;
-    char** argv = const_cast<char**>(args);
+    const char* argv[] = {"appname", "1", "2werwe", "+"};
 
     // Act
     std::string output = app(argc, argv);
@@ -54,9 +54,8 @@ TEST(AppTest, Can_Detect_Wrong_Number_Format) {
 TEST(AppTest, Can_Detect_Wrong_Operation_Format) {
     // Arrange
     CalculatorApplication app;
-    const char* args[] = {"appname", "1", "2", "g"};
     int argc = 4;
-    char** argv = const_cast<char**>(args);
+    const char* argv[] = {"appname", "1", "2", "g"};
 
     // Act
     std::string output = app(argc, argv);

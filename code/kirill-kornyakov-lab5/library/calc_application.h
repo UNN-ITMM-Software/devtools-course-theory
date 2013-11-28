@@ -17,13 +17,13 @@ class CalculatorApplication {
  public:
     CalculatorApplication();
 
-    std::string operator()(int argc, char** argv);
+    std::string operator()(int argc, const char** argv);
 
  private:
-    std::string message;
+    std::string message_;
 
     void help(const char* appname);
-    Expression parseArguments(int argc, char** argv);
+    bool parseArguments(int argc, const char** argv, Expression& expression);
 };
 
 #endif  // CODE_KIRILL_KORNYAKOV_LAB5_LIBRARY_CALC_APPLICATION_H_

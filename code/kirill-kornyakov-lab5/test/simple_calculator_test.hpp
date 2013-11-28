@@ -7,7 +7,7 @@
 
 class CalculatorTest : public ::testing::Test {
  protected:
-    // NOTE: here you can find your init/deinit code
+    // NOTE: here you can put your init/deinit code
     // virtual void SetUp() {}
     // virtual void TearDown() {}
 
