@@ -1,7 +1,7 @@
 /* Copyright 2013 Anna Zhbanova */
 
 #include <string>
-#include "library/Triangle_application.hpp"
+#include "library/Triangle_application.h"
 #include <gtest/gtest.h>
 
 #include <conio.h>

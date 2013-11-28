@@ -1,6 +1,6 @@
 /* Copyright 2013 Anna Zhbanova */
 
-#include "library/Triangle_application.hpp"
+#include "library/Triangle_application.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,7 +9,7 @@
 #include <string>
 #include <sstream>
 
-#include "library/Triangle.hpp"
+#include "library/Triangle.h"
 
 extern const char* operations[9];
 

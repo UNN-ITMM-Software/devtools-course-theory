@@ -2,7 +2,7 @@
 #ifndef CODE_ANNA_ZHBANOVA_LIBRARY_TRIANGLE_H_
 #define CODE_ANNA_ZHBANOVA_LIBRARY_TRIANGLE_H_
 
-#include "PointXY.hpp"
+#include "PointXY.h"
 
 enum NameOfVertex {A, B, C};
 

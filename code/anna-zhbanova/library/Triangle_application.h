@@ -1,10 +1,10 @@
 /* Copyright 2013 Anna Zhbanova */
 
-#ifndef CODE_ANNA_ZHBANOVA_LIBRARY_TRIANGLE_APPLICATION_H_
-#define CODE_ANNA_ZHBANOVA_LIBRARY_TRIANGLE_APPLICATION_H_
+#ifndef CODE_ANNA_ZHBANOVA_LIBRARY_TRIANGLE_APPLICATION_HPP_
+#define CODE_ANNA_ZHBANOVA_LIBRARY_TRIANGLE_APPLICATION_HPP_
 
 #include <string>
-#include "Triangle.hpp"
+#include "Triangle.h"
 
 #pragma pack(push, 1)
 struct Expression {
@@ -38,4 +38,4 @@ class TriangleApplication {
     NameOfVertex parseEnum(const char arg);
 };
 
-#endif  // CODE_ANNA_ZHBANOVA_LIBRARY_TRIANGLE_APPLICATION_H_
+#endif  // CODE_ANNA_ZHBANOVA_LIBRARY_TRIANGLE_APPLICATION_HPP_

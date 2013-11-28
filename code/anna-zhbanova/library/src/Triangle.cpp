@@ -1,6 +1,6 @@
 ﻿/* Copyright 2013 Anna Zhbanova */
 
-#include "library/Triangle.hpp"
+#include "library/Triangle.h"
 #include <math.h>
 
 const double PI = 3.1415926535;
