@@ -9,6 +9,7 @@
 class TriangleTest : public ::testing::Test {
  protected:
     Triangle triangle;
+    TriangleTest() : triangle() {}
     void SetValue(float Ax, float Ay, float Bx, float By, float Cx, float Cy) {
         triangle = Triangle(PointXY(Ax, Ay), PointXY(Bx, By),
                             PointXY(Cx, Cy));
