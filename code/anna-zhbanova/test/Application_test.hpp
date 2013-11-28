@@ -15,9 +15,6 @@ class AppTestR : public ::testing::Test {
     }
 
     void Check(std::string expected) {
-        //std::cout << output_ << std::endl;
-        //std::cout << expected << std::endl;
-
         EXPECT_TRUE(RE::PartialMatch(
                         output_,
                         RE(expected)));
@@ -92,7 +89,8 @@ TEST_F(AppTestR, Can_Set_Positive_Numbers) {
 
 TEST_F(AppTestR, Can_Get_Positive_Numbers) {
     int argc = 9;
-    const char* argv[] = {"appname", "1", "1", "2", "2", "6", "6", "B", "1"};
+    const char* argv[] = {"appname", "1", "1", "2", "2", "6", "6",
+                          "B", "1"};
 
     RunApp(argc, argv);
 
@@ -110,7 +108,8 @@ TEST_F(AppTestR, Can_Set_Negative_Numbers) {
 
 TEST_F(AppTestR, Can_Get_Negative_Numbers) {
     int argc = 9;
-    const char* argv[] = {"appname", "-1", "-1", "-2.22", "-3.22", "-0.2", "-0.3", "A", "1"};
+    const char* argv[] = {"appname", "-1", "-1", "-2.22", "-3.22",
+                          "-0.2", "-0.3", "A", "1"};
 
     RunApp(argc, argv);
 
@@ -155,7 +154,8 @@ TEST_F(AppTestR, Can_Detect_Not_Equilateral_Triangle) {
 
 TEST_F(AppTestR, Can_Detect_Isosceles_Triangle) {
     int argc = 8;
-    const char* argv[] = {"appname", "0", "0", "5", "0", "2.5", "4.33012719", "6"};
+    const char* argv[] = {"appname", "0", "0", "5", "0", "2.5",
+                          "4.33012719", "6"};
 
     RunApp(argc, argv);
 
@@ -173,7 +173,8 @@ TEST_F(AppTestR, Can_Detect_Not_Isosceles_Triangle) {
 
 TEST_F(AppTestR, Can_Calculate_Side) {
     int argc = 10;
-    const char* argv[] = {"appname", "0", "0", "3", "7", "5", "3", "A", "B", "3"};
+    const char* argv[] = {"appname", "0", "0", "3", "7", "5", "3",
+                          "A", "B", "3"};
 
     RunApp(argc, argv);
 
@@ -182,7 +183,8 @@ TEST_F(AppTestR, Can_Calculate_Side) {
 
 TEST_F(AppTestR, Can_Calculate_Angle) {
     int argc = 9;
-    const char* argv[] = {"appname", "0", "0", "5", "0", "2.5", "4.33012719", "A", "2"};
+    const char* argv[] = {"appname", "0", "0", "5", "0", "2.5",
+                          "4.33012719", "A", "2"};
 
     RunApp(argc, argv);
 

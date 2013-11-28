@@ -38,8 +38,7 @@ void TriangleApplication::help(const char* appname) {
             + " <nameOfVertex> <operation>"
             + "\n\nWhere all arguments are float numbers, "
             + "<nameOfVertex> is one of 'A', 'B' or 'C' and <operation> is \n";
-    for (int i = 1; i < 3; i++)
-    {
+    for (int i = 1; i < 3; i++) {
         itoa(i, ch, 10);
         message += std::string("<") + ch + ">" + operations[i] + "\n";
     }
@@ -57,8 +56,7 @@ void TriangleApplication::help(const char* appname) {
             + " <x1> <y1> <x2> <y2> <x3> <y3> <operation>\n\n"
             + "Where all arguments are float numbers, "
             + "and <operation> is one of\n";
-    for (int i = 4; i < 9; i++)
-    {
+    for (int i = 4; i < 9; i++) {
          itoa(3, ch, 10);
          message += std::string("<") + ch + ">" + operations[i] + "\n";
     }
@@ -206,10 +204,10 @@ std::string TriangleApplication::operator()(int argc, const char** argv) {
     const char *enum_name[] = {"A", "B", "C"};
     Expression expr;
     bool returnCode = parseArguments(argc, argv, &expr);
-    if(returnCode != true)
+    if (returnCode != true)
          return message;
 
-    if(message != "")
+    if (message != "")
         return message;
 
     Triangle triangle(expr.A, expr.B, expr.C);
