@@ -23,7 +23,7 @@ class CalculatorApplication {
     std::string message_;
 
     void help(const char* appname);
-    bool parseArguments(int argc, const char** argv, Expression& expression);
+    bool parseArguments(int argc, const char** argv, Expression* expr);
 };
 
 #endif  // CODE_KIRILL_KORNYAKOV_LAB5_LIBRARY_CALC_APPLICATION_H_

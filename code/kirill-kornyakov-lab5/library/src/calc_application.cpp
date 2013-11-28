@@ -34,7 +34,7 @@ int64_t parseInteger(const char* arg) {
 }
 
 bool CalculatorApplication::parseArguments(int argc, const char** argv,
-                                           Expression& expression) {
+                                           Expression* expression) {
     if (argc == 1) {
         help(argv[0]);
         return false;
@@ -45,19 +45,20 @@ bool CalculatorApplication::parseArguments(int argc, const char** argv,
     }
 
     try {
-        expression.arg1 = static_cast<int>(parseInteger(argv[1]));
-        expression.arg2 = static_cast<int>(parseInteger(argv[2]));
+        expression->arg1 = static_cast<int>(parseInteger(argv[1]));
+        expression->arg2 = static_cast<int>(parseInteger(argv[2]));
     }
     catch(...) {
         message_ = "Wrong number format!\n";
         return false;
     }
 
-    expression.operation = *argv[3];
-    if ((strlen(argv[3]) != 1) ||
-        (expression.operation != '+' && expression.operation != '-')) {
-        message_ = std::string(argv[3]) + " - Wrong operation!\n";
+    const char* op = argv[3];
+    if ((strlen(op) != 1) || (*op != '+' && *op != '-')) {
+        message_ = std::string(op) + " - Wrong operation!\n";
         return false;
+    } else {
+        expression->operation = *op;
     }
 
     return true;
@@ -66,7 +67,7 @@ bool CalculatorApplication::parseArguments(int argc, const char** argv,
 std::string CalculatorApplication::operator()(int argc, const char** argv) {
     Expression expr;
 
-    bool returnCode = parseArguments(argc, argv, expr);
+    bool returnCode = parseArguments(argc, argv, &expr);
     if (returnCode != true)
         return message_;
 
