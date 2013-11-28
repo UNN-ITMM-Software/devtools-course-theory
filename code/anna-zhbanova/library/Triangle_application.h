@@ -26,13 +26,13 @@ class TriangleApplication {
  public:
     TriangleApplication();
 
-    std::string operator()(int argc, char** argv);
+    std::string operator()(int argc, const char** argv);
 
  private:
     std::string message;
 
     void help(const char* appname);
-    Expression parseArguments(int argc, char** argv);
+    bool parseArguments(int argc, const char** argv, Expression* expr);
     float parseFloat(const char* arg);
     int parseInteger(const char* arg);
     NameOfVertex parseEnum(const char arg);

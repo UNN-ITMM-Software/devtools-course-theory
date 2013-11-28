@@ -22,6 +22,7 @@ int main(int argc, char **argv) {
 // NOTE: we include tests, so noisy warnings disabling from above
 // shouldn't be duplicated in the files below
 #include "Application_test.h"
+#include "Triangle_test.h"
 
 #if defined(__GNUC__) || defined(__clang__)
     #pragma GCC diagnostic pop

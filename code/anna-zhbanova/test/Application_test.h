@@ -10,21 +10,20 @@ using ::testing::internal::RE;
 class AppTestR : public ::testing::Test {
  protected:
 
-    void RunApp(int argc, const char* args[]) {
-        char** argv = const_cast<char**>(args);
-        output_ = app(argc, argv);
+    void RunApp(int argc, const char* argv[]) {
+        output_ = app_(argc, argv);
     }
 
     void Check(std::string expected) {
-        std::cout << output_ << std::endl;
-        std::cout << expected << std::endl;
+        //std::cout << output_ << std::endl;
+        //std::cout << expected << std::endl;
 
         EXPECT_TRUE(RE::PartialMatch(
                         output_,
                         RE(expected)));
     }
 
-    TriangleApplication app;
+    TriangleApplication app_;
     std::string output_;
 };
 
@@ -88,7 +87,7 @@ TEST_F(AppTestR, Can_Set_Positive_Numbers) {
 
     RunApp(argc, argv);
 
-    Check("Result A = \\(2\\.00, 3\\.00\\)");
+    Check("Result A = \\(2, 3\\)");
 }
 
 TEST_F(AppTestR, Can_Get_Positive_Numbers) {
@@ -97,7 +96,7 @@ TEST_F(AppTestR, Can_Get_Positive_Numbers) {
 
     RunApp(argc, argv);
 
-    Check("Result B = \\(2\\.00, 2\\.00\\).*");
+    Check("Result B = \\(2, 2\\).*");
 }
 
 TEST_F(AppTestR, Can_Set_Negative_Numbers) {
@@ -106,7 +105,7 @@ TEST_F(AppTestR, Can_Set_Negative_Numbers) {
 
     RunApp(argc, argv);
 
-    Check("Result C = \\(-20\\.00, -30\\.00\\).*");
+    Check("Result C = \\(-20, -30\\).*");
 }
 
 TEST_F(AppTestR, Can_Get_Negative_Numbers) {
@@ -115,7 +114,7 @@ TEST_F(AppTestR, Can_Get_Negative_Numbers) {
 
     RunApp(argc, argv);
 
-    Check("Result A = \\(-1\\.00, -1\\.00\\).*");
+    Check("Result A = \\(-1, -1\\).*");
 }
 
 TEST_F(AppTestR, Can_Detect_Wrong_Triangle) {
@@ -178,7 +177,7 @@ TEST_F(AppTestR, Can_Calculate_Side) {
 
     RunApp(argc, argv);
 
-    Check("Result AB = 7\\.62.*");
+    Check("Result Length AB = 7\\.62.*");
 }
 
 TEST_F(AppTestR, Can_Calculate_Angle) {
@@ -187,7 +186,7 @@ TEST_F(AppTestR, Can_Calculate_Angle) {
 
     RunApp(argc, argv);
 
-    Check("Result Angle A = 60\\.00.*");
+    Check("Result Angle A = 60.*");
 }
 
 TEST_F(AppTestR, Can_Calculate_Square) {
@@ -196,7 +195,7 @@ TEST_F(AppTestR, Can_Calculate_Square) {
 
     RunApp(argc, argv);
 
-    Check("Result square = 9\\.00.*");
+    Check("Result square = 9.*");
 }
 
 TEST_F(AppTestR, Can_Calculate_Perimeter) {
@@ -205,5 +204,5 @@ TEST_F(AppTestR, Can_Calculate_Perimeter) {
 
     RunApp(argc, argv);
 
-    Check("Result perimeter = 12\\.00.*");
+    Check("Result perimeter = 12.*");
 }
