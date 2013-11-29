@@ -61,7 +61,7 @@ bool FractionCalculatorApplication::parseArguments(int argc, const char** argv,
     }
 
     const char* operation = argv[5];
-    if ((strlen(operation) != 1) || 
+    if ((strlen(operation) != 1) ||
         (*operation != '+' && *operation != '-' &&
         *operation != '*' && *operation != '/')) {
         message = std::string(operation) + " - Wrong operation!\n";
@@ -73,9 +73,9 @@ bool FractionCalculatorApplication::parseArguments(int argc, const char** argv,
     return true;
 }
 
-std::string FractionCalculatorApplication::operator()(int argc, const char** argv) {
+std::string FractionCalculatorApplication::operator()(int argc,
+                                             const char** argv) {
     Expression expr;
-    
 
     bool returnCode = parseArguments(argc, argv, &expr);
     if (returnCode != true)

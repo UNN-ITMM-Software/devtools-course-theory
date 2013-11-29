@@ -3,7 +3,7 @@
 #include "library/fractcalc_application.h"
 
 #include <stdio.h>
-#include <string>
+#include <string.h>
 
 int main(int argc, const char** argv) {
     FractionCalculatorApplication app;

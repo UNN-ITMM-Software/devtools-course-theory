@@ -12,9 +12,9 @@ class AppTest : public ::testing::Test {
  protected:
     AppTest() : app(), output("") {}
     void RunAndCheck(int argc, const char* argv[], std::string expected) {
-        //Act
+        // Act
         output = app(argc, argv);
-        //Assert
+        // Assert
         EXPECT_TRUE(RE::PartialMatch(output, RE(expected)));
     }
 
@@ -23,7 +23,6 @@ class AppTest : public ::testing::Test {
 };
 
 TEST(AppTest, can_Print_Help_Without_Arguments) {
-
     FractionCalculatorApplication app;
     int argc = 1;
     const char* argv[] = {"appname"};
@@ -32,7 +31,6 @@ TEST(AppTest, can_Print_Help_Without_Arguments) {
 }
 
 TEST(AppTest, can_Check_Number_Of_Arguments) {
-
     FractionCalculatorApplication app;
     int argc = 5;
     const char* argv[] = {"appname", "5", "6", "8", "9"};
@@ -41,7 +39,6 @@ TEST(AppTest, can_Check_Number_Of_Arguments) {
 }
 
 TEST(AppTest, can_Detect_Wrong_Number_Format) {
-
     FractionCalculatorApplication app;
     int argc = 6;
     const char* argv[] = {"appname", "2", "6", "7", "n", "-"};
@@ -50,7 +47,6 @@ TEST(AppTest, can_Detect_Wrong_Number_Format) {
 }
 
 TEST(AppTest, can_Detect_Wrong_Operation_Format) {
-
     FractionCalculatorApplication app;
     int argc = 6;
     const char* argv[] = {"appname", "1", "7", "3", "8", "r"};
@@ -59,7 +55,6 @@ TEST(AppTest, can_Detect_Wrong_Operation_Format) {
 }
 
 TEST(AppTest, can_Add_Positive_Fractions) {
-
     FractionCalculatorApplication app;
     int argc = 6;
     const char* argv[] = {"appname", "1", "3", "1", "2", "+"};
@@ -68,7 +63,6 @@ TEST(AppTest, can_Add_Positive_Fractions) {
 }
 
 TEST(AppTest, can_Sub_Positive_Fractions) {
-
     FractionCalculatorApplication app;
     int argc = 6;
     const char* argv[] = {"appname", "1", "4", "3", "5", "-"};
@@ -77,7 +71,6 @@ TEST(AppTest, can_Sub_Positive_Fractions) {
 }
 
 TEST(AppTest, can_Mult_Positive_Fractions) {
-
     FractionCalculatorApplication app;
     int argc = 6;
     const char* argv[] = {"appname", "2", "3", "3", "4", "*"};
@@ -86,7 +79,6 @@ TEST(AppTest, can_Mult_Positive_Fractions) {
 }
 
 TEST(AppTest, can_Div_Positive_Fractions) {
-
     FractionCalculatorApplication app;
     int argc = 6;
     const char* argv[] = {"appname", "1", "3", "2", "3", "/"};
@@ -95,7 +87,6 @@ TEST(AppTest, can_Div_Positive_Fractions) {
 }
 
 TEST(AppTest, can_Add_Negative_Fractions) {
-
     FractionCalculatorApplication app;
     int argc = 6;
     const char* argv[] = {"appname", "-1", "3", "-1", "2", "+"};
@@ -104,7 +95,6 @@ TEST(AppTest, can_Add_Negative_Fractions) {
 }
 
 TEST(AppTest, can_Sub_Negative_Fractions) {
-
     FractionCalculatorApplication app;
     int argc = 6;
     const char* argv[] = {"appname", "-1", "4", "-3", "5", "-"};
@@ -113,7 +103,6 @@ TEST(AppTest, can_Sub_Negative_Fractions) {
 }
 
 TEST(AppTest, can_Mult_Negative_Fractions) {
-
     FractionCalculatorApplication app;
     int argc = 6;
     const char* argv[] = {"appname", "-2", "3", "-3", "4", "*"};
@@ -122,7 +111,6 @@ TEST(AppTest, can_Mult_Negative_Fractions) {
 }
 
 TEST(AppTest, can_Div_Negative_Fractions) {
-
     FractionCalculatorApplication app;
     int argc = 6;
     const char* argv[] = {"appname", "-1", "3", "-2", "3", "/"};
@@ -131,7 +119,6 @@ TEST(AppTest, can_Div_Negative_Fractions) {
 }
 
 TEST(AppTest, can_Enter_Fractions_With_Negative_Denominator) {
-
     FractionCalculatorApplication app;
     int argc = 6;
     const char* argv[] = {"appname", "1", "-3", "2", "-3", "*"};
@@ -140,7 +127,6 @@ TEST(AppTest, can_Enter_Fractions_With_Negative_Denominator) {
 }
 
 TEST(AppTest, can_not_Enter_Fractions_With_Zero_Denominator) {
-
     FractionCalculatorApplication app;
     int argc = 6;
     const char* argv[] = {"appname", "1", "0", "2", "-3", "*"};
@@ -149,7 +135,6 @@ TEST(AppTest, can_not_Enter_Fractions_With_Zero_Denominator) {
 }
 
 TEST(AppTest, can_not_Div_Fractions_With_Zero_Divisor) {
-
     FractionCalculatorApplication app;
     int argc = 6;
     const char* argv[] = {"appname", "1", "2", "0", "1", "/"};

@@ -7,7 +7,7 @@
 
 class FractionTest : public ::testing::Test {
  protected:
-    void SetUpResultFraction(int num1,int denom1,
+    void SetUpResultFraction(int num1, int denom1,
             int num2, int denom2, char operation) {
         fract1.SetNumenator(num1);
         fract1.SetDenominator(denom1);
@@ -87,7 +87,8 @@ TEST_F(FractionTest, can_Enter_Fractions_With_Negative_Denominator) {
     EXPECT_TRUE(CheckResult(2, 9, result));
 }
 
-TEST_F(FractionTest, Do_Throw_Exception_When_Enter_Fractions_With_Zero_Denominator) {
+TEST_F(FractionTest,
+    Do_Throw_Exception_When_Enter_Fractions_With_Zero_Denominator) {
     SetUpResultFraction(1, 0, 2, -3, '*');
     EXPECT_THROW(CheckResult(2, 9, result), std::string);
 }
