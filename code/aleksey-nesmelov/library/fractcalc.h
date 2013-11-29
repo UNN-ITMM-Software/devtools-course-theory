@@ -1,9 +1,10 @@
 /* Copyright 2013 Nesmelov Aleksey */
-#ifndef CODE_ALEKSEY_NESMELOV_INCLUDE_FRACTCALC_H_
-#define CODE_ALEKSEY_NESMELOV_INCLUDE_FRACTCALC_H_
+#ifndef CODE_ALEKSEY_NESMELOV_LIBRARY_FRACTCALC_H_
+#define CODE_ALEKSEY_NESMELOV_LIBRARY_FRACTCALC_H_
 class Fraction {
  public:
     Fraction(int numenator, int denominator);
+    Fraction();
     ~Fraction(void);
 
     int GetNumenator();
@@ -23,5 +24,5 @@ class Fraction {
     void CutFraction();
 };
 
-#endif  // CODE_ALEKSEY_NESMELOV_INCLUDE_FRACTCALC_H_
+#endif  // CODE_ALEKSEY_NESMELOV_LIBRARY_FRACTCALC_H_
 

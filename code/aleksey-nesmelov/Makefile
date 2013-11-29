@@ -1,6 +1,6 @@
 all:
 	mkdir -p ./build
-	$(CXX) -o ./build/fractcalc ./src/fractcalc.cpp ./samples/Fraction.cpp -I./include 
+	$(CXX) -o ./build/fractcalc ./library/src/fractcalc.cpp ./sample/Fraction.cpp ./library/src/fractcalc_application.cpp -I./ 
 
 
 test: all

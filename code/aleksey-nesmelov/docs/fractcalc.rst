@@ -11,6 +11,7 @@
     {
         public:
             Fraction(int numenator, int denominator);
+            Fraction();
             ~Fraction();
 
             int GetNumenator();

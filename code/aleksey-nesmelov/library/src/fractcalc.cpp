@@ -1,5 +1,5 @@
 /* Copyright 2013 Nesmelov Aleksey */
-#include <fractcalc.h>
+#include "library/fractcalc.h"
 #include <stdlib.h>
 #include <stdio.h>
 Fraction::Fraction(int _numenator,
@@ -13,6 +13,8 @@ Fraction::Fraction(int _numenator,
             denominator = abs(denominator);
         }
     }
+}
+Fraction::Fraction(): numenator(), denominator() {
 }
 Fraction::~Fraction() {}
 int Fraction::NOD() {
