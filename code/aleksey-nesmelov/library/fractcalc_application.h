@@ -4,6 +4,7 @@
 #define CODE_ALEKSEY_NESMELOV_LIBRARY_FRACTCALC_APPLICATION_H_
 
 #include <string>
+#include "library/fractcalc.h"
 
 #pragma pack(push, 1)
 typedef struct {
