@@ -96,7 +96,8 @@ TEST_F(AppTest, Can_Calculate_Distance_In_L1) {
 
 TEST_F(AppTest, can_Calculate_Distance_In_L2) {
     int argc = 4;
-    const char* argv[] = {"appname", "4", "{3.1,10.2,9.83,8.8}", "{3.11,1.2,0.9,9.1}", "L2"};
+    const char* argv[] = {"appname", "4", "{3.1,10.2,9.83,8.8}",
+                          "{3.11,1.2,0.9,9.1}", "L2"};
 
     RunApp(argc, argv);
 
@@ -105,7 +106,8 @@ TEST_F(AppTest, can_Calculate_Distance_In_L2) {
 
 TEST_F(AppTest, can_Calculate_Distance_In_L3) {
     int argc = 4;
-    const char* argv[] = {"appname", "5", "{31,102,98.3,1.4,2.4}", "{31.1,12,1.03,3.05,5}", "L3"};
+    const char* argv[] = {"appname", "5", "{31,102,98.3,1.4,2.4}",
+                          "{31.1,12,1.03,3.05,5}", "L3"};
 
     RunApp(argc, argv);
 
@@ -114,7 +116,8 @@ TEST_F(AppTest, can_Calculate_Distance_In_L3) {
 
 TEST_F(AppTest, can_Calculate_Large_Distance_In_L4) {
     int argc = 4;
-    const char* argv[] = {"appname", "3", "{200000,20001.22222,1000000.1}", "{120001.03,300000.05,500000}", "L4"};
+    const char* argv[] = {"appname", "3", "{200000,20001.22222,1000000.1}",
+                          "{120001.03,300000.05,500000}", "L4"};
 
     RunApp(argc, argv);
 
@@ -123,7 +126,8 @@ TEST_F(AppTest, can_Calculate_Large_Distance_In_L4) {
 
 TEST_F(AppTest, can_Calculate_Distance_In_LInfinity) {
     int argc = 4;
-    const char* argv[] = {"appname", "2", "{20000,10000.108}", "{300000.05,50000}", "LInfinity"};
+    const char* argv[] = {"appname", "2", "{20000,10000.108}",
+                          "{300000.05,50000}", "LInfinity"};
 
     RunApp(argc, argv);
 
