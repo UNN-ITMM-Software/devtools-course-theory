@@ -12,7 +12,7 @@ class AppTest : public ::testing::Test {
  protected:
     AppTest() : app_(), output_("") {}
 
-   void RunAndCheck(int argc, const char* argv[], std::string expected) {
+    void RunAndCheck(int argc, const char* argv[], std::string expected) {
         // Act
         output_ = app_(argc, argv);
         // Assert

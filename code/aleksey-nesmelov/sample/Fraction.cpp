@@ -1,9 +1,9 @@
 // Copyright 2013 Aleksey Nesmelov
 
-#include "library/fractcalc_application.h"
-
 #include <stdio.h>
 #include <string>
+
+#include "library/fractcalc_application.h"
 
 int main(int argc, const char** argv) {
     FractionCalculatorApplication app;
