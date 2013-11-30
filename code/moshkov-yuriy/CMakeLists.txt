@@ -26,6 +26,10 @@ add_lib_static(${libname} "library" "library/src")
 add_local_dependency(${libname})
 add_app(${appname} "samples")
 
+# Declare unit tests
+add_app(${testname} "test")
+target_link_libraries(${testname})
+
 #############################################
 ##### Testing
 #############################################
