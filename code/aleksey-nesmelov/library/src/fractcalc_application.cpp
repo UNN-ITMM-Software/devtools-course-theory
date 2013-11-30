@@ -99,18 +99,21 @@ std::string FractionCalculatorApplication::operator()(int argc,
     switch (expr.operation) {
      case '+':
         result = Fraction::Add(fract1, fract2);
-        stream << result.GetNumenator() + " / " +
-        result.GetDenominator();
+        stream << result.GetNumenator();
+        stream << " / ";
+        stream << result.GetDenominator();
         break;
      case '-':
         result = Fraction::Subtract(fract1, fract2);
-        stream << result.GetNumenator() + " / " +
-        result.GetDenominator();
+        stream << result.GetNumenator();
+        stream << " / ";
+        stream << result.GetDenominator();
         break;
      case '*':
         result = Fraction::Multiply(fract1, fract2);
-        stream << result.GetNumenator() + " / " +
-        result.GetDenominator();
+        stream << result.GetNumenator();
+        stream << " / ";
+        stream << result.GetDenominator();
         break;
      case '/':
         try {
@@ -120,8 +123,9 @@ std::string FractionCalculatorApplication::operator()(int argc,
         message = "Wrong divisor!";
         return message;
         }
-        stream << result.GetNumenator() + " / " +
-        result.GetDenominator();
+        stream << result.GetNumenator();
+        stream << " / ";
+        stream << result.GetDenominator();
         break;
     }
 
