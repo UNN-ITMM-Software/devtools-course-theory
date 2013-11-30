@@ -40,7 +40,7 @@ float parseFloat(const char* arg) {
     char* end;
     float value = static_cast<float>(strtod(arg, &end));
     if (!end[0] && ((((value < FLT_MAX) && (value > FLT_MIN)) ||
-        ((value > -FLT_MAX) && (value < -FLT_MIN))) || (value == 0))) {
+        ((value > -FLT_MAX) && (value < -FLT_MIN))) || (value == 0.0))) {
           printf("%s is valid\n", arg);
      } else {
          printf("%s is invalid\n", arg);
@@ -61,6 +61,7 @@ int parseInt(const char* arg) {
     return value;
 }
 
+float* getVector(char* str, int sizeVector);
 float* getVector(char* str, int sizeVector) {
     float* vector = NULL;
     if ((str[0] == '{') && (str[strlen(str) - 1] == '}')) {
