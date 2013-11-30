@@ -1,4 +1,4 @@
-// Copyright 2013 Kirill Kornyakov
+// Copyright 2013 Aleksey Nesmelov
 
 #include <gtest/gtest.h>
 #include <string>
