@@ -89,11 +89,10 @@ TEST_F(FractionTest, can_Enter_Fractions_With_Negative_Denominator) {
 
 TEST_F(FractionTest,
     Do_Throw_Exception_When_Enter_Fractions_With_Zero_Denominator) {
-    SetUpResultFraction(1, 0, 2, -3, '*');
-    EXPECT_THROW(CheckResult(2, 9, result), std::string);
+    EXPECT_THROW(result.SetDenominator(0), std::string);
 }
 
 TEST_F(FractionTest, Do_Throw_Exception_When_Div_Fractions_With_Zero_Divisor) {
-    SetUpResultFraction(1, 2, 0, 1, '/');
-    EXPECT_THROW(CheckResult(2, 9, result), std::string);
+    fract2.SetNumenator(0);
+    EXPECT_THROW(Fraction::Divide(fract1, fract2), std::string);
 }
