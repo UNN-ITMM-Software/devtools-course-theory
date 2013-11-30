@@ -61,9 +61,9 @@ int parseInt(const char* arg) {
     return value;
 }
 
-float* getVector(char* str, int sizeVector);
-float* getVector(char* str, int sizeVector) {
-    float* vector = NULL;
+float* getVector(const char* str, int sizeVector);
+float* getVector(const char* str, int sizeVector) {
+    float* vector = NULL;	
     if ((str[0] == '{') && (str[strlen(str) - 1] == '}')) {
         vector = new float[sizeVector];
         char* strWithBracket = new char[strlen(str) - 2 + 1];
@@ -93,7 +93,7 @@ float* getVector(char* str, int sizeVector) {
     return vector;
 }
 
-bool DistApplication::parseArguments(int argc, char** argv,
+bool DistApplication::parseArguments(int argc, const char** argv,
                                            Expression* expression) {
     if (argc == 1) {
         help(argv[0]);
@@ -137,7 +137,7 @@ bool DistApplication::parseArguments(int argc, char** argv,
     return true;
 }
 
-std::string DistApplication::operator()(int argc, char** argv) {
+std::string DistApplication::operator()(int argc, const char** argv) {
     Expression expression;
 
     bool returnCode = parseArguments(argc, argv, &expression);

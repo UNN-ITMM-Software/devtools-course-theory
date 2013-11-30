@@ -20,13 +20,13 @@ class DistApplication {
  public:
     DistApplication();
 
-    std::string operator()(int argc, char** argv);
+    std::string operator()(int argc, const char** argv);
 
  private:
     std::string message_;
 
     void help(const char* appname);
-    bool parseArguments(int argc, char** argv, Expression* expr);
+    bool parseArguments(int argc, const char** argv, Expression* expr);
 };
 
 #endif  // CODE_MOSHKOV_YURIY_LIBRARY_DISTAPPLICATION_H_
