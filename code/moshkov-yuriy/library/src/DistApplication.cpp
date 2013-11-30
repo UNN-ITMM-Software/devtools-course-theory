@@ -63,7 +63,7 @@ int parseInt(const char* arg) {
 
 float* getVector(const char* str, int sizeVector);
 float* getVector(const char* str, int sizeVector) {
-    float* vector = NULL;	
+    float* vector = NULL;
     if ((str[0] == '{') && (str[strlen(str) - 1] == '}')) {
         vector = new float[sizeVector];
         char* strWithBracket = new char[strlen(str) - 2 + 1];
