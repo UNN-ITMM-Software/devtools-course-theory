@@ -28,7 +28,7 @@ TEST_F(AppTest, Do_Print_Help_Without_Arguments) {
 
     RunApp(argc, argv);
 
-    Check("This is an application\\..*");
+    Check("This is an application.*");
 }
 
 TEST_F(AppTest, Is_Checking_Number_Of_Arguments) {
@@ -37,7 +37,7 @@ TEST_F(AppTest, Is_Checking_Number_Of_Arguments) {
 
     RunApp(argc, argv);
 
-    Check("ERROR: Should be 4 arguments\\..*");
+    Check("ERROR: Should be 4 arguments.*");
 }
 
 TEST_F(AppTest, Can_Detect_Wrong_Vector_Format) {
@@ -46,7 +46,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Vector_Format) {
 
     RunApp(argc, argv);
 
-    Check("Wrong vector's format!\\..*");
+    Check("Wrong vector's format!.*");
 }
 
 TEST_F(AppTest, Can_Detect_Wrong_Number_Format_Size_Vector) {
@@ -55,7 +55,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Number_Format_Size_Vector) {
 
     RunApp(argc, argv);
 
-    Check("Wrong number format of size vector!\\..*");
+    Check("Wrong number format of size vector!.*");
 }
 
 TEST_F(AppTest, Can_Detect_Wrong_Number_Format_Vector_Elements) {
@@ -64,7 +64,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Number_Format_Vector_Elements) {
 
     RunApp(argc, argv);
 
-    Check("Wrong number format of vector's elements!\\..*");
+    Check("Wrong number format of vector's elements!.*");
 }
 
 TEST_F(AppTest, Can_Detect_Wrong_Input_Size_Vector) {
@@ -73,7 +73,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Input_Size_Vector) {
 
     RunApp(argc, argv);
 
-    Check("Wrong input size vector!\\..*");
+    Check("Wrong input size vector!.*");
 }
 
 TEST_F(AppTest, Can_Detect_Wrong_Format_Type_Metric) {
@@ -82,7 +82,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Format_Type_Metric) {
 
     RunApp(argc, argv);
 
-    Check("Wrong format of type metric!\\..*");
+    Check("Wrong format of type metric!.*");
 }
 
 TEST_F(AppTest, Can_Calculate_Distance_In_L1) {
