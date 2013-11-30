@@ -15,14 +15,13 @@ typedef struct {
 } Expression;
 #pragma pack(pop)
 
-class DistApplication
-{
-public:
+class DistApplication {
+ public:
     DistApplication();
 
     std::string operator()(int argc, char** argv);
 
-private:
+ private:
     std::string message_;
 
     void help(const char* appname);

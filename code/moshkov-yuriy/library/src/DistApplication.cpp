@@ -1,9 +1,11 @@
+/* Copyright 2013 Moshkov Yuriy */
+
 #include "library/DistApplication.h"
+
 #include <sstream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "library/DistanceBetweenVectors.h"
 
 
 #if defined _WIN32 || defined _WIN64
@@ -20,7 +22,8 @@ void DistApplication::help(const char* appname) {
     message_ += std::string("This is an application ")
              + "for calculate distance between vectors.\n\n"
              + "Please provide arguments in the following format:\n\n"
-             + "  $ " + appname + " <sizeVector> <vector1> <vector2> <typeMetric>\n\n"
+             + "  $ " + appname + " <sizeVector> <vector1> <vector2> "
+			 + "<typeMetric>\n\n"
              + "Where sizeVector is integer and > 0, both vectors have this "
              + "form: {element_1,...,element_sizeVector} "
              + "where all elements are float "
@@ -30,12 +33,11 @@ void DistApplication::help(const char* appname) {
 }
 
 float parseFloat(const char* arg);
-float parseFloat(const char* arg)
-{
+float parseFloat(const char* arg) {
     char* end;
     float value = static_cast<float>(strtod(arg, &end));
-    if (!end[0] && ((((value < FLT_MAX) && (value > FLT_MIN)) || ((value > -FLT_MAX)
-        && (value < -FLT_MIN))) || (value == 0))) {
+    if (!end[0] && ((((value < FLT_MAX) && (value > FLT_MIN)) ||
+        ((value > -FLT_MAX) && (value < -FLT_MIN))) || (value == 0))) {
           printf("%s is valid\n", arg);
      } else {
          printf("%s is invalid\n", arg);
@@ -56,8 +58,7 @@ int parseInt(const char* arg) {
     return value;
 }
 
-float* getVector(char* str, int sizeVector)
-{
+float* getVector(char* str, int sizeVector) {
     float* vector = NULL;
     if ((str[0] == '{') && (str[strlen(str) - 1] == '}'))
     {
@@ -112,7 +113,7 @@ bool DistApplication::parseArguments(int argc, char** argv,
     if (expression->sizeVector <= 0)    {
         message_ = "Wrong input size vector!\n";
         return false;
-    }    
+    }
     for (int i = 0; i < 5; i++)
         if (strcmp(argv[4], arrTypeMetric[i]) == 0)    {
             expression->typeMetric = static_cast<TypeMetric>(i + 1);
@@ -141,10 +142,10 @@ std::string DistApplication::operator()(int argc, char** argv) {
 
     bool returnCode = parseArguments(argc, argv, &expression);
     if (returnCode != true)
-        return message_;    
-    float distance = DistanceBetweenVectors::CalculateDistance(expression.vect1, expression.vect2,
-        expression.typeMetric, expression.sizeVector);
-    
+        return message_;  
+    float distance = DistanceBetweenVectors::CalculateDistance(
+                expression.vect1, expression.vect2,
+                expression.typeMetric, expression.sizeVector);
     std::ostringstream stream;
     stream << distance;
     message_ = stream.str();

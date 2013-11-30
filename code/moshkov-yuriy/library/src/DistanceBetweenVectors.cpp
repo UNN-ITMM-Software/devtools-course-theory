@@ -1,11 +1,11 @@
 /* Copyright 2013 Moshkov Yuriy */
 #include "library/DistanceBetweenVectors.h"
+
 #include <string>
 #include <float.h>
 
 void CheckRange(float result) {
-    if (result != 0.0)
-    {
+    if (result != 0.0) {
         if (result > FLT_MAX)
             throw std::string("The result is larger than FLT_MAX");
         else if (result < -FLT_MAX)
