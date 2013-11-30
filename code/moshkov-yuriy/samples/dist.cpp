@@ -1,5 +1,6 @@
 /* Copyright 2013 Moshkov Yuriy */
 #include "library/DistApplication.h"
+
 #include <string>
 
 int main(int argc, char* argv[]) {

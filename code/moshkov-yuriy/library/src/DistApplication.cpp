@@ -2,11 +2,11 @@
 
 #include "library/DistApplication.h"
 
-#include <sstream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <sstream>
+#include <string>
 
 #if defined _WIN32 || defined _WIN64
 #define strtok_r strtok_s
@@ -23,7 +23,7 @@ void DistApplication::help(const char* appname) {
              + "for calculate distance between vectors.\n\n"
              + "Please provide arguments in the following format:\n\n"
              + "  $ " + appname + " <sizeVector> <vector1> <vector2> "
-			 + "<typeMetric>\n\n"
+             + "<typeMetric>\n\n"
              + "Where sizeVector is integer and > 0, both vectors have this "
              + "form: {element_1,...,element_sizeVector} "
              + "where all elements are float "
@@ -60,8 +60,7 @@ int parseInt(const char* arg) {
 
 float* getVector(char* str, int sizeVector) {
     float* vector = NULL;
-    if ((str[0] == '{') && (str[strlen(str) - 1] == '}'))
-    {
+    if ((str[0] == '{') && (str[strlen(str) - 1] == '}')) {
         vector = new float[sizeVector];
         char* strWithBracket = new char[strlen(str) - 2 + 1];
         strWithBracket[strlen(str) - 2] = '\0';
@@ -71,8 +70,7 @@ float* getVector(char* str, int sizeVector) {
         int indElem = 0;
         while (charElem != NULL)
         {
-            if (indElem == sizeVector)
-            {
+            if (indElem == sizeVector) {
                 indElem++;
                 break;
             }
@@ -84,8 +82,7 @@ float* getVector(char* str, int sizeVector) {
             }
             charElem = strtok_r(rest, ",", &rest);
         }
-        if (indElem != sizeVector)
-        {
+        if (indElem != sizeVector) {
             delete []vector;
             vector = NULL;
         }
