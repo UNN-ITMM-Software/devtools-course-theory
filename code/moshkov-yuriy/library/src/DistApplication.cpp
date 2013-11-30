@@ -39,13 +39,10 @@ float parseFloat(const char* arg);
 float parseFloat(const char* arg) {
     char* end;
     float value = static_cast<float>(strtod(arg, &end));
-    if (!end[0] && ((((value < FLT_MAX) && (value > FLT_MIN)) ||
-        ((value > -FLT_MAX) && (value < -FLT_MIN))) || (value == 0.0))) {
-          printf("%s is valid\n", arg);
-     } else {
-         printf("%s is invalid\n", arg);
-         throw "wrong number format";
-     }
+    if (!(!end[0] && ((((value < FLT_MAX) && (value > FLT_MIN)) ||
+        ((value > -FLT_MAX) && (value < -FLT_MIN))) || (value == 0.0)))) {
+        throw "wrong number format";
+    }
     return value;
 }
 
@@ -55,7 +52,6 @@ int parseInt(const char* arg) {
     int value = static_cast<int>(strtol(arg, &end, 10));
     if (!end[0]) {
     } else {
-        printf("%s is invalid\n", arg);
         throw "wrong number format";
     }
     return value;
