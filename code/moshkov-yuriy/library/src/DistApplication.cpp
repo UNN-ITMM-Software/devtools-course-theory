@@ -127,7 +127,7 @@ bool DistApplication::parseArguments(int argc, char** argv,
         expression->vect2 = getVector(argv[3], expression->sizeVector);
     }
     catch(...) {
-        message_ = "Wrong vector's elements format!\n";
+        message_ = "Wrong number format of vector's elements!\n";
         return false;
     }
     if ((expression->vect1 == NULL) || (expression->vect2 == NULL)) {
