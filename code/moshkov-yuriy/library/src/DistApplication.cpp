@@ -68,8 +68,7 @@ float* getVector(char* str, int sizeVector) {
         char *rest;
         char* charElem = strtok_r(strWithBracket, ",", &rest);
         int indElem = 0;
-        while (charElem != NULL)
-        {
+        while (charElem != NULL) {
             if (indElem == sizeVector) {
                 indElem++;
                 break;
@@ -140,8 +139,8 @@ std::string DistApplication::operator()(int argc, char** argv) {
     bool returnCode = parseArguments(argc, argv, &expression);
     if (returnCode != true)
         return message_;  
-    float distance = DistanceBetweenVectors::CalculateDistance(
-                expression.vect1, expression.vect2,
+    float distance = DistanceBetweenVectors::CalculateDistance
+                (expression.vect1, expression.vect2,
                 expression.typeMetric, expression.sizeVector);
     std::ostringstream stream;
     stream << distance;

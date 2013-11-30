@@ -1,8 +1,8 @@
 /* Copyright 2013 Moshkov Yuriy */
 #include "library/DistanceBetweenVectors.h"
 
-#include <string>
 #include <float.h>
+#include <string>
 
 void CheckRange(float result) {
     if (result != 0.0) {
