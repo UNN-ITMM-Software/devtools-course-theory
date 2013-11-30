@@ -1,7 +1,7 @@
 /* Copyright 2013 Moshkov Yuriy */
-#include "library/DistApplication.h"
-
 #include <string>
+
+#include "library/DistanceBetweenVectors.h"
 
 int main(int argc, char* argv[]) {
     DistApplication app;

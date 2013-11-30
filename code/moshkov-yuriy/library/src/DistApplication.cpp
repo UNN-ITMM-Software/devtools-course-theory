@@ -140,7 +140,7 @@ std::string DistApplication::operator()(int argc, char** argv) {
 
     bool returnCode = parseArguments(argc, argv, &expression);
     if (returnCode != true)
-        return message_;  
+        return message_;
     float distance = DistanceBetweenVectors::CalculateDistance(expression.vect1
                 , expression.vect2, expression.typeMetric,
                 expression.sizeVector);
