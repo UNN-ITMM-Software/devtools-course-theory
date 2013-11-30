@@ -2,11 +2,12 @@
 #include "library/fractcalc.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string>
 Fraction::Fraction(int _numenator,
                    int _denominator): numenator(_numenator),
                                       denominator(_denominator) {
     if (_denominator == 0) {
-    throw "wrong denominator";
+    throw std::string("wrong denominator");
     } else {
         if (denominator < 0) {
             numenator = -numenator;
@@ -56,7 +57,7 @@ void Fraction::SetNumenator(int value) {
 void Fraction::SetDenominator(int value) {
     if (value == 0) {
         printf("Denominator cannot be zero!\n");
-        throw "wrong denominator";
+        throw std::string("wrong denominator");
     } else {
     denominator = value;
     }
@@ -85,7 +86,7 @@ Fraction Fraction::Multiply(Fraction a, Fraction b) {
 Fraction Fraction::Divide(Fraction a, Fraction b) {
     Fraction res(0, 1);
     if (b.numenator == 0) {
-        throw "wrong divisor";
+        throw std::string("wrong divisor");
     } else {
         res.SetNumenator(a.numenator * b.denominator);
         res.SetDenominator(a.denominator * b.numenator);
