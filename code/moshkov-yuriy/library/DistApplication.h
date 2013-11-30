@@ -5,6 +5,8 @@
 
 #include <string>
 
+#include "library/DistanceBetweenVectors.h"
+
 #pragma pack(push, 1)
 typedef struct {
     int sizeVector;
