@@ -46,7 +46,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Vector_Format) {
 
     RunApp(argc, argv);
 
-    Check("Wrong vector's format.*");
+    Check("Wrong vector's format!");
 }
 
 TEST_F(AppTest, Can_Detect_Wrong_Number_Format_Size_Vector) {
@@ -55,7 +55,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Number_Format_Size_Vector) {
 
     RunApp(argc, argv);
 
-    Check("Wrong number format of size vector.*");
+    Check("Wrong number format of size vector!");
 }
 
 TEST_F(AppTest, Can_Detect_Wrong_Number_Format_Vector_Elements) {
@@ -64,7 +64,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Number_Format_Vector_Elements) {
 
     RunApp(argc, argv);
 
-    Check("Wrong number format of vector's elements.*");
+    Check("Wrong number format of vector's elements!");
 }
 
 TEST_F(AppTest, Can_Detect_Wrong_Input_Size_Vector) {
@@ -73,7 +73,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Input_Size_Vector) {
 
     RunApp(argc, argv);
 
-    Check("Wrong input size vector.*");
+    Check("Wrong input size vector!");
 }
 
 TEST_F(AppTest, Can_Detect_Wrong_Format_Type_Metric) {
@@ -82,7 +82,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Format_Type_Metric) {
 
     RunApp(argc, argv);
 
-    Check("Wrong format of type metric.*");
+    Check("Wrong format of type metric!");
 }
 
 TEST_F(AppTest, Can_Calculate_Distance_In_L1) {
@@ -91,7 +91,7 @@ TEST_F(AppTest, Can_Calculate_Distance_In_L1) {
 
     RunApp(argc, argv);
 
-    Check("distance = 7.8.*");
+    Check("distance = 7\\.8");
 }
 
 TEST_F(AppTest, can_Calculate_Distance_In_L2) {
@@ -101,7 +101,7 @@ TEST_F(AppTest, can_Calculate_Distance_In_L2) {
 
     RunApp(argc, argv);
 
-    Check("distance = 12.6821.*");
+    Check("distance = 12\\.6821");
 }
 
 TEST_F(AppTest, can_Calculate_Distance_In_L3) {
@@ -111,7 +111,7 @@ TEST_F(AppTest, can_Calculate_Distance_In_L3) {
 
     RunApp(argc, argv);
 
-    Check("distance = 118.151.*");
+    Check("distance = 118\\.151");
 }
 
 TEST_F(AppTest, can_Calculate_Large_Distance_In_L4) {
@@ -121,7 +121,7 @@ TEST_F(AppTest, can_Calculate_Large_Distance_In_L4) {
 
     RunApp(argc, argv);
 
-    Check("distance = 511940.*");
+    Check("distance = 511940");
 }
 
 TEST_F(AppTest, can_Calculate_Distance_In_LInfinity) {
@@ -131,5 +131,5 @@ TEST_F(AppTest, can_Calculate_Distance_In_LInfinity) {
 
     RunApp(argc, argv);
 
-    Check("distance = 280000.*");
+    Check("distance = 280000");
 }
