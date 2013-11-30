@@ -147,7 +147,7 @@ std::string DistApplication::operator()(int argc, const char** argv) {
                 , expression.vect2, expression.typeMetric,
                 expression.sizeVector);
     std::ostringstream stream;
-	message_ = "distance = ";
+    message_ = "distance = ";
     stream << distance;
     message_ += stream.str();
 
