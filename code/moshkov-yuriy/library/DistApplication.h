@@ -4,7 +4,6 @@
 #define CODE_MOSHKOV_YURIY_LIBRARY_DISTAPPLICATION_H_
 
 #include <string>
-#include "library/DistanceBetweenVectors.h"
 
 #pragma pack(push, 1)
 typedef struct {

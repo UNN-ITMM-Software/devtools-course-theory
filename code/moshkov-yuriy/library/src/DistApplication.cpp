@@ -8,6 +8,8 @@
 #include <sstream>
 #include <string>
 
+#include "library/DistanceBetweenVectors.h"
+
 #if defined _WIN32 || defined _WIN64
 #define strtok_r strtok_s
 #endif
@@ -139,9 +141,9 @@ std::string DistApplication::operator()(int argc, char** argv) {
     bool returnCode = parseArguments(argc, argv, &expression);
     if (returnCode != true)
         return message_;  
-    float distance = DistanceBetweenVectors::CalculateDistance
-                (expression.vect1, expression.vect2,
-                expression.typeMetric, expression.sizeVector);
+    float distance = DistanceBetweenVectors::CalculateDistance(expression.vect1
+                , expression.vect2, expression.typeMetric,
+                expression.sizeVector);
     std::ostringstream stream;
     stream << distance;
     message_ = stream.str();
