@@ -1,5 +1,9 @@
 /* Copyright 2013 Moshkov Yuriy */
 
+#if defined _WIN32 || defined _WIN64
+#define strtok_r strtok_s
+#endif
+
 #include "library/DistApplication.h"
 
 #include <stdio.h>
@@ -10,10 +14,6 @@
 #include <string>
 
 #include "library/DistanceBetweenVectors.h"
-
-#if defined _WIN32 || defined _WIN64
-#define strtok_r strtok_s
-#endif
 
 extern const char* arrTypeMetric[5];
 

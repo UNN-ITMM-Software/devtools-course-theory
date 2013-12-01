@@ -41,16 +41,16 @@ TEST_F(AppTest, Is_Checking_Number_Of_Arguments) {
 }
 
 TEST_F(AppTest, Can_Detect_Wrong_Vector_Format) {
-    int argc = 4;
+    int argc = 5;
     const char* argv[] = {"appname", "3", "{3,4,1}", "4,3,2", "L1"};
 
     RunApp(argc, argv);
 
-    Check("Wrong vector's format!");
+    Check("Wrong vector's format!.*");
 }
 
 TEST_F(AppTest, Can_Detect_Wrong_Number_Format_Size_Vector) {
-    int argc = 4;
+    int argc = 5;
     const char* argv[] = {"appname", "a", "{1.1,2.1}", "{2.1,1}", "L2"};
 
     RunApp(argc, argv);
@@ -59,7 +59,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Number_Format_Size_Vector) {
 }
 
 TEST_F(AppTest, Can_Detect_Wrong_Number_Format_Vector_Elements) {
-    int argc = 4;
+    int argc = 5;
     const char* argv[] = {"appname", "2", "{1.a,2.1}", "{2.1,1}", "L2"};
 
     RunApp(argc, argv);
@@ -68,7 +68,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Number_Format_Vector_Elements) {
 }
 
 TEST_F(AppTest, Can_Detect_Wrong_Input_Size_Vector) {
-    int argc = 4;
+    int argc = 5;
     const char* argv[] = {"appname", "-1", "{1.2,2.1}", "{2.1,1}", "L2"};
 
     RunApp(argc, argv);
@@ -77,7 +77,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Input_Size_Vector) {
 }
 
 TEST_F(AppTest, Can_Detect_Wrong_Format_Type_Metric) {
-    int argc = 4;
+    int argc = 5;
     const char* argv[] = {"appname", "3", "{1.2,2.1,3}", "{4,5.1,1}", "a"};
 
     RunApp(argc, argv);
@@ -86,7 +86,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Format_Type_Metric) {
 }
 
 TEST_F(AppTest, Can_Calculate_Distance_In_L1) {
-    int argc = 4;
+    int argc = 5;
     const char* argv[] = {"appname", "3", "{1.2,2.1,3}", "{4,5.1,1}", "L1"};
 
     RunApp(argc, argv);
@@ -95,7 +95,7 @@ TEST_F(AppTest, Can_Calculate_Distance_In_L1) {
 }
 
 TEST_F(AppTest, can_Calculate_Distance_In_L2) {
-    int argc = 4;
+    int argc = 5;
     const char* argv[] = {"appname", "4", "{3.1,10.2,9.83,8.8}",
                           "{3.11,1.2,0.9,9.1}", "L2"};
 
@@ -105,7 +105,7 @@ TEST_F(AppTest, can_Calculate_Distance_In_L2) {
 }
 
 TEST_F(AppTest, can_Calculate_Distance_In_L3) {
-    int argc = 4;
+    int argc = 5;
     const char* argv[] = {"appname", "5", "{31,102,98.3,1.4,2.4}",
                           "{31.1,12,1.03,3.05,5}", "L3"};
 
@@ -115,21 +115,21 @@ TEST_F(AppTest, can_Calculate_Distance_In_L3) {
 }
 
 TEST_F(AppTest, can_Calculate_Large_Distance_In_L4) {
-    int argc = 4;
+    int argc = 5;
     const char* argv[] = {"appname", "3", "{200000,20001.22222,1000000.1}",
                           "{120001.03,300000.05,500000}", "L4"};
 
     RunApp(argc, argv);
 
-    Check("distance = 511940");
+    Check("distance = 511940.*");
 }
 
 TEST_F(AppTest, can_Calculate_Distance_In_LInfinity) {
-    int argc = 4;
+    int argc = 5;
     const char* argv[] = {"appname", "2", "{20000,10000.108}",
                           "{300000.05,50000}", "LInfinity"};
 
     RunApp(argc, argv);
 
-    Check("distance = 280000");
+    Check("distance = 280000.*");
 }
