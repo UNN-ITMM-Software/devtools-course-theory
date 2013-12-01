@@ -7,13 +7,13 @@
 void CheckRange(float result);
 void CheckRange(float result) {
     if (result != 0.0) {
-        if (result > FLT_MAX)
+        if (result >= FLT_MAX)
             throw std::string("The result is larger than FLT_MAX");
-        else if (result < -FLT_MAX)
+        else if (result <= -FLT_MAX)
             throw std::string("The result is less than -FLT_MAX");
-        else if (result < FLT_MIN && result > 0.0)
+        else if (result <= FLT_MIN && result > 0.0)
             throw std::string("The result is less than FLT_MIN and larger 0");
-        else if (result > -FLT_MIN && result < 0.0)
+        else if (result >= -FLT_MIN && result < 0.0)
             throw std::string("The result is larger than -FLT_MIN and less 0");
     }
 }

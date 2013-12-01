@@ -20,22 +20,22 @@ TEST_F(DistanceTest, Can_CalculteDistance_In_L1) {
 TEST_F(DistanceTest, Can_CalculteDistance_In_L2) {
     float vect1[] = {1, 7.0, 51, 40};
     float vect2[] = {3.f, 99.11f, -30.f, 0.0f};
-    EXPECT_EQ(129.031982f, DistanceBetweenVectors::CalculateDistance(vect1, vect2,
-                                                              L2, 4));
+    EXPECT_EQ(129.031982f, DistanceBetweenVectors::CalculateDistance(vect1,
+                                                             vect2, L2, 4));
 }
 
 TEST_F(DistanceTest, Can_CalculteDistance_In_L3) {
     float vect1[] = {7.99f, 40.f};
     float vect2[] = {3.f, 11.11f};
-    EXPECT_EQ(28.939541f, DistanceBetweenVectors::CalculateDistance(vect1, vect2,
-                                                              L3, 2));
+    EXPECT_EQ(28.939541f, DistanceBetweenVectors::CalculateDistance(vect1,
+                                                             vect2, L3, 2));
 }
 
 TEST_F(DistanceTest, Can_CalculteDistance_In_L4) {
     float vect1[] = {0, 4.0};
     float vect2[] = {0.0, 1.0};
-    EXPECT_EQ(3.000000f, DistanceBetweenVectors::CalculateDistance(vect1, vect2,
-                                                              L4, 2));
+    EXPECT_EQ(3.000000f, DistanceBetweenVectors::CalculateDistance(vect1,
+                                                             vect2, L4, 2));
 }
 
 TEST_F(DistanceTest, Can_CalculteDistance_In_LInfinity) {
