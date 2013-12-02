@@ -3,8 +3,8 @@
 #define CODE_KSENYA_KOCHANOVA_LIBRARY_TEMPCONV_APPLICATION_H_
 
 #include <string>
-#include "TemperatureConverter.h"
 
+enum TemperatureUnit {Celsius, Kelvin, Fahrenheit, Newton};
 #pragma pack(push, 1)
 typedef struct {
     double value;
