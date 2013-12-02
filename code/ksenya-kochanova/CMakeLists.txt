@@ -3,7 +3,7 @@
 #############################################
 
 set(libname "ksenya-kochanova-temperatureConv-library")
-set(appname "ksenya-kochanova-temperatureConv-sample")
+set(appname "ksenya-kochanova-temperatureConv-samples")
 set(appname "ksenya-kochanova-temperatureConv-test")
 
 message("")
@@ -33,3 +33,5 @@ target_link_libraries(${testname} ${gtest})
 #############################################
 ##### Testing
 #############################################
+
+include("CTestTests.txt")
