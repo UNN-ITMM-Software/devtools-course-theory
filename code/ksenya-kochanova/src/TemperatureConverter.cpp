@@ -1,4 +1,5 @@
 /* Copyright 2013 Ksenya Kochanova */
+/* Copyright 2013 Ksenya Kochanova */
 #include <TemperatureConverter.h>
 
 #include <stdio.h>
@@ -27,13 +28,21 @@ TemperatureUnit toUnit) {
     outTemperature.value = 1 / a[toUnit] * (inCelsius.value - b[toUnit]);
     return outTemperature;
 }
-Temperature TemperatureConvertor::Convert(Temperature t,
-TemperatureUnit newUnit) {
-    if (((t.unit == Celsius)&&(t.value < -273.15))||
-       ((t.unit == Kelvin)&&(t.value < 0))||
-       ((t.unit == Fahrenheit)&&(t.value < -459.67))||
-       ((t.unit == Newton)&&(t.value < -90.14)))
-           throw "wrong";
-           Temperature temp = ConvertToCelsius(t);
-           return ConvertFromCelsius(temp, newUnit);
+Temperature TemperatureConvertor::Convert (double value,
+                           TemperatureUnit fromUnit,TemperatureUnit toUnit)
+{
+    Temperature t;
+        if (((value < -273.15))&&(fromUnit == Celsius)||
+            ((value < 0)&&(fromUnit == Kelvin))||
+            ((value < -459.67)&&(fromUnit == Fahrenheit))||
+            ((value < -90.14)&&(fromUnit == Newton))||
+            ((fromUnit < Celsius) || (fromUnit > Newton)) ||
+            ((toUnit < Celsius) || (toUnit > Newton)))
+        {
+            throw "wrong data";
+        }
+        t.value = value;
+        t.unit = fromUnit;
+      Temperature temp = ConvertToCelsius(t);
+        return ConvertFromCelsius(temp, toUnit);
 }
