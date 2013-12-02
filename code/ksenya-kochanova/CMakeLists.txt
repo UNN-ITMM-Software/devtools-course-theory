@@ -28,7 +28,7 @@ add_app(${appname} "samples")
 
 # Declare unit test
 add_app(${app_name} "test")
-target_link_libraries(${testname})
+target_link_libraries(${testname} ${gtest})
 
 #############################################
 ##### Testing
