@@ -6,8 +6,8 @@
 
 #pragma pack(push, 1)
 typedef struct {
-   double value;
-   TemperatureUnit unit;
+    double value;
+    TemperatureUnit unit;
 } Expression;
 #pragma pack(pop)
 

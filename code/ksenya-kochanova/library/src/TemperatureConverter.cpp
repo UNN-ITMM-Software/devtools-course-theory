@@ -1,5 +1,4 @@
 /* Copyright 2013 Ksenya Kochanova */
-#include "library/TempConv_application.h"
 #include "library/TemperatureConverter.h"
 
 #include <stdio.h>
@@ -8,6 +7,8 @@
 #include <string.h>
 #include <string>
 #include <sstream>
+
+#include "library/TempConv_application.h"
 
 TempConv::TempConv() : message_("") {}
 
