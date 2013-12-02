@@ -4,11 +4,14 @@
 
 #include <string>
 
+#include "library/TemperatureConverter.h"
+
 enum TemperatureUnit {Celsius, Kelvin, Fahrenheit, Newton};
 #pragma pack(push, 1)
 typedef struct {
     double value;
-    TemperatureUnit unit;
+    TemperatureUnit oldunit;
+	TemperatureUnit newunit;
 } Expression;
 #pragma pack(pop)
 
