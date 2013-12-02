@@ -11,7 +11,7 @@ typedef struct {
 } Expression;
 #pragma pack(pop)
 
-class TempConv {
+class TempConvApp {
   public:
     TempConv();
     std::string operator()(int argc, const char** argv);

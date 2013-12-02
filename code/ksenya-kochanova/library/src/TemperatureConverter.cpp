@@ -1,97 +1,47 @@
 /* Copyright 2013 Ksenya Kochanova */
+// Copyright 2013 Kirill Kornyakov
+
+
+
 #include "library/TemperatureConverter.h"
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <stdint.h>
-#include <string.h>
+#include <limits.h>
 #include <string>
-#include <sstream>
 
-#include "library/TempConv_application.h"
+TemperatureConvertor::TemperatureConvertor() {}
+TemperatureConvertor::~TemperatureConvertor() {}
 
-TempConv::TempConv() : message_("") {}
-
-void TempConv::help(const char* appname) {
-    message_ = std::string("This is a temperature convertor application.\n\n")
-
-              "Please provide arguments in the following format:\n\n"
-
-              "  $ "  appname  " <value> <currentUnit> <newUnit>\n\n";
+Temperature TemperatureConvertor::ConvertToCelsius(Temperature
+fromTemperature) {
+    double a[4] = {1, 1, 0.5555555555555556, 3.0303030303030303};
+    double b[4] = {0, -273.15, -32, 0};
+    Temperature inCelsius;
+    inCelsius.value = a[fromTemperature.unit] * fromTemperature.value
++ b[fromTemperature.unit];
+    return inCelsius;
 }
-
-double parseInteger(const char* arg);
-TemperatureUnit parseUnit(const char* arg);
-
-double parseDouble(const char* arg) {
-    char* end;
-    double value = strtod(arg, &end);
-    if (!end[0]) {
-        printf("%s is valid\n", arg);
-    } else {
-        printf("%s is invalid\n", arg);
-        throw "wrong number format";
-    }
-    return value;
+Temperature TemperatureConvertor::ConvertFromCelsius(Temperature inCelsius,
+TemperatureUnit toUnit) {
+    double a[4] = {1, 1, 0.5555555555555556, 3.0303030303030303};
+    double b[4] = {0, -273.15, -32, 0};
+    Temperature outTemperature;
+    outTemperature.value = 1 / a[toUnit] * (inCelsius.value - b[toUnit]);
+    return outTemperature;
 }
-
-TemperatureUnit parseUnit(const char* arg) {
-     TemperatureUnit unit;
-     if (strcmp(arg, "Celsius") == 0) {
-       unit = Celsius;
-       printf("%s is valid\n", arg);
-     } else if (strcmp(arg, "Kelvin") == 0) {
-       unit = Kelvin;
-       printf("%s is valid\n", arg);
-     } else if (strcmp(arg, "Fahrenheit") == 0) {
-       unit = Fahrenheit;
-       printf("%s is valid\n", arg);
-     } else if (strcmp(arg, "Newton") == 0) {
-       unit = Newton;
-       printf("%s is valid\n", arg);
-     } else {
-         printf("%s is invalid\n", arg);
-         throw "Wrong format";
-     }
-     return unit;
-}
-
-bool Calculator::parseArguments(int argc, const char** argv,
-                                           Expression* expression) {
-    if (argc == 1) {
-        help(argv[0]);
-        return false;
-    } else if (argc != 4) {
-        message_ = "ERROR: Should be 3 arguments.\n\n";
-        help(argv[0]);
-        return false;
-    }
-
-        try {
-             expression.value = static_cast<double>(parseDouble(argv[1]));
-             expression.oldunit = static_cast<TemperatureUnit>(parseUnit
-             (argv[2]));
-             expression.newunit = static_cast<TemperatureUnit>(parseUnit
-             (argv[3]));
-             }
-        catch(...) {
-            printf("Wrong format!");
-            return false;
-            }
-    return true;
-}
-
-std::string TempConv::operator()(int argc, const char** argv) {
-    Expression expr;
-    bool returnCode = parseArguments(argc, argv, &expr);
-    if (returnCode != true)
-        return message_;
-    TempConv tempconv;
-    std::ostringstream stream;
-    stream << "Result = ";
-    stream << tempconv.Temperature Convert(expr.value, expr.oldUnit,
-    expr.newUnit);
-        break;
-    message_ = stream.str();
-    return message_;
+Temperature TemperatureConvertor::Convert(double value,
+                           TemperatureUnit fromUnit, TemperatureUnit toUnit) {
+    Temperature t;
+        if (((value < -273.15))&&(fromUnit == Celsius)||
+            ((value < 0)&&(fromUnit == Kelvin))||
+            ((value < -459.67)&&(fromUnit == Fahrenheit))||
+            ((value < -90.14)&&(fromUnit == Newton))||
+            ((fromUnit < Celsius) || (fromUnit > Newton)) ||
+            ((toUnit < Celsius) || (toUnit > Newton))) {
+            throw "wrong data";
+        }
+        t.value = value;
+        t.unit = fromUnit;
+      Temperature temp = ConvertToCelsius(t);
+        return ConvertFromCelsius(temp, toUnit);
 }
