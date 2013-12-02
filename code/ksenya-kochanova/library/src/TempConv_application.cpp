@@ -18,7 +18,7 @@ void TempConvApp::help(const char* appname) {
 
               "Please provide arguments in the following format:\n\n"
 
-              "  $ "  appname  " <value> <currentUnit> <newUnit>\n\n";
+              " <value> <currentUnit> <newUnit>\n\n";
 }
 
 double parseInteger(const char* arg);

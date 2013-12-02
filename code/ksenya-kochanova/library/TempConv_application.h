@@ -11,7 +11,7 @@ enum TemperatureUnit {Celsius, Kelvin, Fahrenheit, Newton};
 typedef struct {
     double value;
     TemperatureUnit oldunit;
-	TemperatureUnit newunit;
+    TemperatureUnit newunit;
 } Expression;
 #pragma pack(pop)
 
