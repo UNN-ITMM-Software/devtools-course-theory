@@ -8,7 +8,6 @@
 using ::testing::internal::RE;
 
 TEST(AppTest, Do_Print_Help_Without_Arguments) {
-
     // Arrange
     TempConv app;
     int argc = 1;
@@ -22,7 +21,6 @@ TEST(AppTest, Do_Print_Help_Without_Arguments) {
 }
 
 TEST(AppTest, Is_Checking_Number_Of_Arguments) {
-
     // Arrange
     TempConv app;
     int argc = 3;
@@ -36,7 +34,6 @@ TEST(AppTest, Is_Checking_Number_Of_Arguments) {
 }
 
 TEST(AppTest, Can_Detect_Wrong_Value_Format) {
-
     // Arrange
     TempConv app;
     int argc = 4;

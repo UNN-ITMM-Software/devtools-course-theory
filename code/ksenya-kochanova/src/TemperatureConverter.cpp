@@ -28,17 +28,15 @@ TemperatureUnit toUnit) {
     outTemperature.value = 1 / a[toUnit] * (inCelsius.value - b[toUnit]);
     return outTemperature;
 }
-Temperature TemperatureConvertor::Convert (double value,
-                           TemperatureUnit fromUnit,TemperatureUnit toUnit)
-{
+Temperature TemperatureConvertor::Convert(double value,
+                           TemperatureUnit fromUnit, TemperatureUnit toUnit) {
     Temperature t;
         if (((value < -273.15))&&(fromUnit == Celsius)||
             ((value < 0)&&(fromUnit == Kelvin))||
             ((value < -459.67)&&(fromUnit == Fahrenheit))||
             ((value < -90.14)&&(fromUnit == Newton))||
             ((fromUnit < Celsius) || (fromUnit > Newton)) ||
-            ((toUnit < Celsius) || (toUnit > Newton)))
-        {
+            ((toUnit < Celsius) || (toUnit > Newton))) {
             throw "wrong data";
         }
         t.value = value;

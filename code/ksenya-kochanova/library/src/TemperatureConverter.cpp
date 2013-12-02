@@ -1,5 +1,6 @@
 /* Copyright 2013 Ksenya Kochanova */
-#include "library/TempConv_application.h"
+#include "library/TempConv_application.h
+#include "library/TemperatureConverter.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,13 +9,9 @@
 #include <string>
 #include <sstream>
 
-
-#include "library/TemperatureConverter.h"
-
 TempConv::TempConv() : message_("") {}
 
 void TempConv::help(const char* appname) {
-
     message_ = std::string("This is a temperature convertor application.\n\n")
 
               "Please provide arguments in the following format:\n\n"
@@ -84,7 +81,6 @@ bool Calculator::parseArguments(int argc, const char** argv,
 }
 
 std::string TempConv::operator()(int argc, const char** argv) {
-
     Expression expr;
     bool returnCode = parseArguments(argc, argv, &expr);
     if (returnCode != true)
@@ -92,7 +88,8 @@ std::string TempConv::operator()(int argc, const char** argv) {
     TempConv tempconv;
     std::ostringstream stream;
     stream << "Result = ";
-    stream << tempconv.Temperature Convert(expr.value, expr.oldUnit, expr.newUnit);
+    stream << tempconv.Temperature Convert(expr.value, expr.oldUnit,
+    expr.newUnit);
         break;
     message_ = stream.str();
     return message_;

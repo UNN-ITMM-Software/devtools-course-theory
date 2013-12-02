@@ -15,9 +15,9 @@ class TempConvTest : public ::testing::Test {
     TempConv tempconv;
 };
 
-//TEST_F(TempConvTest, Can_Convert_Correct_Data) {
+// TEST_F(TempConvTest, Can_Convert_Correct_Data) {
 //    EXPECT_EQ(0 Kelvin Celsius, tempconv.Convert(0, Kelvin, Celsius));
-//}
+// }
 
 TEST_F(TempConvTest, Do_Throw_Exception_When_oldUnit_Is_Wrong) {
     EXPECT_THROW(tempconv.Convert(0, K, Celsius), std::string);

@@ -1,6 +1,6 @@
 /* Copyright 2013 Ksenya Kochanova */
-#ifndef CODE_KSENYA_KOCHANOVA_LIBRARY_TEMPERATURECONVERTER_H_
-#define CODE_KSENYA_KOCHANOVA_LIBRARY_TEMPERATURECONVERTER_H_
+#ifndef CODE_KSENYA_KOCHANOVA_INCLUDE_TEMPERATURECONVERTER_H_
+#define CODE_KSENYA_KOCHANOVA_INCLUDE_TEMPERATURECONVERTER_H_
 
 enum TemperatureUnit {Celsius, Kelvin, Fahrenheit, Newton};
 #pragma pack(push, 1)
@@ -15,7 +15,8 @@ class TemperatureConvertor {
     :
         TemperatureConvertor(void);
         ~TemperatureConvertor(void);
-        Temperature Convert (double value, TemperatureUnit fromUnit,TemperatureUnit toUnit);
+        Temperature Convert(double value, TemperatureUnit fromUnit,
+        TemperatureUnit toUnit);
     private
     :
         Temperature ConvertToCelsius(Temperature fromTemperature);
@@ -23,4 +24,4 @@ class TemperatureConvertor {
 TemperatureUnit toUnit);
     };
 
-#endif  // CODE_KSENYA_KOCHANOVA_LIBRARY_TEMPERATURECONVERTER_H_
+#endif  // CODE_KSENYA_KOCHANOVA_INCLUDE_TEMPERATURECONVERTER_H_
