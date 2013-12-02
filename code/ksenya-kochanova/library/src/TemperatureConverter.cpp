@@ -1,5 +1,5 @@
 /* Copyright 2013 Ksenya Kochanova */
-#include "library/TempConv_application.h
+#include "library/TempConv_application.h"
 #include "library/TemperatureConverter.h"
 
 #include <stdio.h>
