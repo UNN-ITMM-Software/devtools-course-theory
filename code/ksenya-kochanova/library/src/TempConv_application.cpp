@@ -14,7 +14,7 @@
 TempConvApp::TempConvApp() : message_("") {}
 
 void TempConvApp::help(const char* appname) {
-    message_ = std::string("This is a temperature convertor application.\n\n")
+    message_ = std::string("This is a temperature convertor application.\n\n");
 
               "Please provide arguments in the following format:\n\n"
 
@@ -69,10 +69,10 @@ bool TempConvApp::parseArguments(int argc, const char** argv,
     }
 
         try {
-             expression.value = static_cast<double>(parseDouble(argv[1]));
-             expression.oldunit = static_cast<TemperatureUnit>(parseUnit
+             expression->value = static_cast<double>(parseDouble(argv[1]));
+             expression->oldunit = static_cast<TemperatureUnit>(parseUnit
              (argv[2]));
-             expression.newunit = static_cast<TemperatureUnit>(parseUnit
+             expression->newunit = static_cast<TemperatureUnit>(parseUnit
              (argv[3]));
              }
         catch(...) {
@@ -92,7 +92,6 @@ std::string TempConvApp::operator()(int argc, const char** argv) {
     stream << "Result = ";
     stream << tempconv.Temperature Convert(expr.value, expr.oldUnit,
     expr.newUnit);
-        break;
     message_ = stream.str();
     return message_;
 }

@@ -1,7 +1,4 @@
 /* Copyright 2013 Ksenya Kochanova */
-// Copyright 2013 Kirill Kornyakov
-
-
 
 #include "library/TemperatureConverter.h"
 

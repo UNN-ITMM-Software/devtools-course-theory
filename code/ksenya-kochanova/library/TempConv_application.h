@@ -3,6 +3,7 @@
 #define CODE_KSENYA_KOCHANOVA_LIBRARY_TEMPCONV_APPLICATION_H_
 
 #include <string>
+#include "TemperatureConverter.h"
 
 #pragma pack(push, 1)
 typedef struct {
@@ -13,7 +14,7 @@ typedef struct {
 
 class TempConvApp {
   public:
-    TempConv();
+    TempConvApp();
     std::string operator()(int argc, const char** argv);
   private:
     std::string message_;
