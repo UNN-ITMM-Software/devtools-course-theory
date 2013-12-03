@@ -3,9 +3,7 @@
 #include "library/LengthConvertorApp.h"
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
+#include <string>
 
 int main(int argc, char** argv) {
     LengthConvertorApp app;
