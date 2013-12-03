@@ -1,7 +1,7 @@
 /* Copyright 2013 Dmitry Vodopyanov */
 
-#include <stdio.h>
 #include <string>
+#include <stdio.h>
 
 #include "library/LengthConvertorApp.h"
 
