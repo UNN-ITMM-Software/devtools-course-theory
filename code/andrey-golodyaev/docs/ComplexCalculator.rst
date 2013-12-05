@@ -13,7 +13,7 @@
 			double imaginary;
 		public:
 			ComplexCalculator(double _real=0, double _imaginary=0);
-			virtual ~ComplexCalculator();
+			~ComplexCalculator();
 			
 			double GetReal();
 			double GetImaginary();

@@ -6,13 +6,11 @@ enable_testing()
 
 add_test( 
     NAME calc_can_Run
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname}
 )
 
 add_test( 
     NAME calc_can_Print_Help_Without_Arguments
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname}
 )
 set_tests_properties (calc_can_Print_Help_Without_Arguments 
@@ -20,7 +18,6 @@ set_tests_properties (calc_can_Print_Help_Without_Arguments
 
 add_test(
     NAME calc_can_Check_Number_Of_Arguments
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 1+2*i 2+3*i
 )
 set_tests_properties (calc_can_Check_Number_Of_Arguments 
@@ -28,7 +25,6 @@ set_tests_properties (calc_can_Check_Number_Of_Arguments
 
 add_test(
     NAME calc_can_Detect_Wrong_Number_Format
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 1+3**i 2 +
 )
 set_tests_properties (calc_can_Detect_Wrong_Number_Format 
@@ -36,7 +32,6 @@ set_tests_properties (calc_can_Detect_Wrong_Number_Format
 
 add_test(
     NAME calc_can_Detect_Wrong_Operation_Format
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 1 1 ++
 )
 set_tests_properties (calc_can_Detect_Wrong_Operation_Format 
@@ -44,7 +39,6 @@ set_tests_properties (calc_can_Detect_Wrong_Operation_Format
 
 add_test(
     NAME calc_can_Add_Numbers1
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 1+2*i 2-3i +
 )
 set_tests_properties (calc_can_Add_Numbers1
@@ -52,7 +46,6 @@ set_tests_properties (calc_can_Add_Numbers1
 
 add_test(
     NAME calc_can_Add_Numbers2
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 1+i2 2-i*3 +
 )
 set_tests_properties (calc_can_Add_Numbers2 
@@ -60,7 +53,6 @@ set_tests_properties (calc_can_Add_Numbers2
 
 add_test(
     NAME calc_can_Add_Numbers3
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} -2*i+1 i3+2 +
 )
 set_tests_properties (calc_can_Add_Numbers3
@@ -68,7 +60,6 @@ set_tests_properties (calc_can_Add_Numbers3
 
 add_test(
     NAME calc_can_Sub_Numbers
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} i 1-i -
 )
 set_tests_properties (calc_can_Sub_Numbers 
@@ -76,7 +67,6 @@ set_tests_properties (calc_can_Sub_Numbers
 
 add_test(
     NAME calc_can_Mul_Numbers
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 1+i 1+i *
 )
 set_tests_properties (calc_can_Mul_Numbers 
@@ -84,7 +74,6 @@ set_tests_properties (calc_can_Mul_Numbers
 
 add_test(
     NAME calc_can_Div_Numbers
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 1+i i /
 )
 set_tests_properties (calc_can_Div_Numbers 

@@ -1,6 +1,6 @@
 /* Copyright 2013 Andrey Golodyaev */
-#ifndef CODE_ANDREY_GOLODYAEV_INCLUDE_COMPLEXCALC_H_
-#define CODE_ANDREY_GOLODYAEV_INCLUDE_COMPLEXCALC_H_
+#ifndef CODE_ANDREY_GOLODYAEV_LIBRARY_COMPLEXCALC_H_
+#define CODE_ANDREY_GOLODYAEV_LIBRARY_COMPLEXCALC_H_
 
 class ComplexCalculator {
  public :
@@ -27,4 +27,4 @@ class ComplexCalculator {
     double imaginary;
 };
 
-#endif  // CODE_ANDREY_GOLODYAEV_INCLUDE_COMPLEXCALC_H_
+#endif  // CODE_ANDREY_GOLODYAEV_LIBRARY_COMPLEXCALC_H_
