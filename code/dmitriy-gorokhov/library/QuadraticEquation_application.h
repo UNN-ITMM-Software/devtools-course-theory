@@ -27,4 +27,4 @@ class QuadraticEquationApplication {
     bool parseArguments(int argc, const char** argv, Expression* expr);
 };
 
-#endif  //CODE_DMITRIY_GOROKHOV_LIBRARY_QUADRATICEQUATION_APPLICATION_H_
+#endif  // CODE_DMITRIY_GOROKHOV_LIBRARY_QUADRATICEQUATION_APPLICATION_H_
