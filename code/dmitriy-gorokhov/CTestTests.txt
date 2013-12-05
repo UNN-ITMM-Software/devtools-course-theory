@@ -49,7 +49,7 @@ add_test(
     COMMAND ${appname} 1.7 6.95 -2.3
 )
 set_tests_properties (can_Solve_Equation_With_Real_Coefficients
-  PROPERTIES PASS_REGULAR_EXPRESSION "Result = Root1 = 0\.307766, Root2 = -4\.396")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = Root1 = 0\\.307766, Root2 = -4\\.396")
 
 add_test(
     NAME can_Solve_Equation_With_Zero_Third_Coefficient
