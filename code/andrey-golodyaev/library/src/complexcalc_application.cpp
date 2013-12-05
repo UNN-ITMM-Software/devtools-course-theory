@@ -87,7 +87,7 @@ std::string ComplexCalculatorApplication::operator()(int argc,
         calc = ComplexCalculator::Div(expr.arg1, expr.arg2);
         }
         catch(...) {
-        message_ = "divizion by zero";
+        message_ = "division by zero";
         return message_;
         }
         calc.Output(str);
