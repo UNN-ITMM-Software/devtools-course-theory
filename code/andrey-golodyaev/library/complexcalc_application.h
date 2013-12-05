@@ -24,7 +24,6 @@ class ComplexCalculatorApplication {
 
     std::string operator()(int argc, const char** argv);
 
-
  private:
     std::string message_;
 

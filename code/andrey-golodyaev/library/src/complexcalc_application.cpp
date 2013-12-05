@@ -35,7 +35,6 @@ bool ComplexCalculatorApplication::parseArguments(int argc, const char** argv,
               message_ = "ERROR: Should be 3 arguments.\n\n";
               return false;
     }
-    Expression expression;
     bool b1 = expression->arg1.Input(argv[1]);
     bool b2 = expression->arg2.Input(argv[2]);
     if (b1 == false || b2 == false) {
@@ -69,29 +68,29 @@ std::string ComplexCalculatorApplication::operator()(int argc,
 
     switch (expr.operation) {
      case '+' :
-        c = ComplexCalculator::Add(expr.arg1, expr.arg2);
-        c.Output(str);
+        calc = ComplexCalculator::Add(expr.arg1, expr.arg2);
+        calc.Output(str);
         stream << "A+B = ";
         break;
      case '-' :
-        c = ComplexCalculator::Sub(expr.arg1, expr.arg2);
-        c.Output(str);
+        calc = ComplexCalculator::Sub(expr.arg1, expr.arg2);
+        calc.Output(str);
         stream << "A-B = ";
         break;
      case '*' :
-        c = ComplexCalculator::Multi(expr.arg1, expr.arg2);
-        c.Output(str);
+        calc = ComplexCalculator::Multi(expr.arg1, expr.arg2);
+        calc.Output(str);
         stream << "A*B = ";
         break;
      case '/' :
         try {
-        c = ComplexCalculator::Div(expr.arg1, expr.arg2);
+        calc = ComplexCalculator::Div(expr.arg1, expr.arg2);
         }
         catch(...) {
         message_ = "divizion by zero";
         return message_;
         }
-        c.Output(str);
+        calc.Output(str);
         stream << "A/B = ";
         break;
     }
