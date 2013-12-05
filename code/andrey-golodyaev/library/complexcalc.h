@@ -12,7 +12,7 @@ class ComplexCalculator {
     double GetImaginary();
     void SetReal(double _real);
     void SetImaginary(double _imaginary);
-    bool Input(char *str);
+    bool Input(const char *str);
     void Output(char* str);
     static ComplexCalculator Add(ComplexCalculator first,
                                  ComplexCalculator second);

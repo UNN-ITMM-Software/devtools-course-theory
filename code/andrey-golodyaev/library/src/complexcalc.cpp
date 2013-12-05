@@ -25,7 +25,7 @@ void ComplexCalculator::SetReal(double _real) {
 void ComplexCalculator::SetImaginary(double _imaginary) {
     imaginary = _imaginary;
 }
-bool ComplexCalculator::Input(char *str) {
+bool ComplexCalculator::Input(const char *str) {
     std::string s = str;
     std::string i = "";
     std::basic_string<char>::size_type n = 1;

@@ -14,7 +14,7 @@
 
 ComplexCalculatorApplication::ComplexCalculatorApplication() : message_("") {}
 
-void ComplexCalculatorApplication::help(char* appname) {
+void ComplexCalculatorApplication::help(const char* appname) {
     message_ += std::string("This is a calculator of complex numbers.\n\n")
              + "Please provide arguments in the following format:\n\n"
              + "  $ " + appname + " <argument1> <argument2> <operation>\n\n"
@@ -26,7 +26,7 @@ void ComplexCalculatorApplication::help(char* appname) {
              + "<operation> is one of '+', '-', '*' or '/'.\n";
 }
 
-bool ComplexCalculatorApplication::parseArguments(int argc, char** argv,
+bool ComplexCalculatorApplication::parseArguments(int argc, const char** argv,
                                                   Expression* expression) {
     if (argc == 1) {
         help(argv[0]);
@@ -53,7 +53,7 @@ bool ComplexCalculatorApplication::parseArguments(int argc, char** argv,
 }
 
 std::string ComplexCalculatorApplication::operator()(int argc,
-                                                     char** argv) {
+                                                     const char** argv) {
     Expression expr;
 
     bool returnCode = parseArguments(argc, argv, &expr);

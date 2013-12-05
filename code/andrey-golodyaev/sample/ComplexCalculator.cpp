@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string>
 
-int main(int argc, char** argv) {
+int main(int argc, const char** argv) {
     ComplexCalculatorApplication app;
     std::string output = app(argc, argv);
     printf("%s\n", output.c_str());
