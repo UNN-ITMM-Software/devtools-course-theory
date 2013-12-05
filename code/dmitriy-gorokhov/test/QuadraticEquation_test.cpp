@@ -47,10 +47,3 @@ TEST_F(QuadraticEquationTest, can_Solve_Equation_With_Big_Coefficients) {
     EXPECT_EQ(7.426149773176359, Root1);
     EXPECT_EQ(-9.426149773176359, Root2);
 }
-
-TEST_F(QuadraticEquationTest, can_Solve_Equation_With_Small_Coefficients) {
-    quadEq.SetCoefficients(0.000001, 0.0000076, -0.0000193);
-    quadEq.Solve(&Root1, &Root2);
-    EXPECT_EQ(2.008614292583042, Root1);
-    EXPECT_EQ(-9.608614292583043, Root2);
-}
