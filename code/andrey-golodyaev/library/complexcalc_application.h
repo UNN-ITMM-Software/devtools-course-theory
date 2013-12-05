@@ -22,13 +22,13 @@ class ComplexCalculatorApplication {
  public:
     ComplexCalculatorApplication();
 
-    std::string operator()(int argc, const char** argv);
+    std::string operator()(int argc, char** argv);
 
  private:
     std::string message_;
 
-    void help(const char* appname);
-    bool parseArguments(int argc, const char** argv, Expression* expr);
+    void help(char* appname);
+    bool parseArguments(int argc, char** argv, Expression* expr);
 };
 
 #endif  // CODE_ANDREY_GOLODYAEV_LIBRARY_COMPLEXCALC_APPLICATION_H_
