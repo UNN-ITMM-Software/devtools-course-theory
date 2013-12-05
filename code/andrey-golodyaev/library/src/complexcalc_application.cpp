@@ -1,6 +1,6 @@
 /* Copyright 2013 Andrey Golodyaev */
 
-#include "library/complecalc_application.h"
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,6 +9,7 @@
 #include <string>
 #include <sstream>
 
+#include "library/complecalc_application.h"
 #include "library/complexcalc.h"
 
 ComplexCalculatorApplication::ComplexCalculatorApplication() : message_("") {}

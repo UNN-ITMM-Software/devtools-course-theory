@@ -10,7 +10,7 @@ class ComplexTest : public ::testing::Test {
      void GetResult(char *sa, char *sb, char operation) {
          a.Input(sa);
          b.Input(sb);
-         
+
          switch (operation) {
           case '+':
               result = ComplexCalculator::Add(a, b);
@@ -65,6 +65,3 @@ TEST_F(ComplexTest, calc_can_not_Div_by_Zero) {
     ComplexCalculator b(0, 0);
     EXPECT_THROW(ComplexCalculator::Div(a, b), std::string);
 }
- 
-
- 
