@@ -30,7 +30,8 @@ class ComplexTest : public ::testing::Test {
          ComplexCalculator aa;
          aa.Input(sa);
          bool returnCode = true;
-         if (aa.GetReal() != bb.GetReal() || aa.GetImaginary() != bb.GetImaginary())
+         if (aa.GetReal() != bb.GetReal() ||
+             aa.GetImaginary() != bb.GetImaginary())
              returnCode = false;
          return returnCode;
      }
