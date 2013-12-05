@@ -3,7 +3,7 @@
 #ifndef CODE_ANDREY_GOLODYAEV_LIBRARY_COMPLEXCALC_APPLICATION_H_
 #define CODE_ANDREY_GOLODYAEV_LIBRARY_COMPLEXCALC_APPLICATION_H_
 
-#include <complexcalc.h>
+#include <library/complexcalc.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>

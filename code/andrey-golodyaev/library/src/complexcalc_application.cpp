@@ -9,7 +9,7 @@
 #include <string>
 #include <sstream>
 
-#include "library/complecalc_application.h"
+#include "library/complexcalc_application.h"
 #include "library/complexcalc.h"
 
 ComplexCalculatorApplication::ComplexCalculatorApplication() : message_("") {}
