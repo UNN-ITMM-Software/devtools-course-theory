@@ -24,6 +24,7 @@ class QuadraticEquationApplication {
     std::string message;
 
     void help(const char* appname);
+    double parseDouble(const char* arg);
     bool parseArguments(int argc, const char** argv, Expression* expr);
 };
 

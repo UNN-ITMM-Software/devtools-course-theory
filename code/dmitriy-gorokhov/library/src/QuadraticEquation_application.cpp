@@ -19,7 +19,7 @@ void QuadraticEquationApplication::help(const char* appname) {
        + "Where all coefficients are real numbers.\n";
 }
 
-double parseDouble(const char* arg) {
+double QuadraticEquationApplication::parseDouble(const char* arg) {
     char* end;
     double value = static_cast<double>(strtod(arg, &end));
 
