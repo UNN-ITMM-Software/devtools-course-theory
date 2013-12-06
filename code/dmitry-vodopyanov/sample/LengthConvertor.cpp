@@ -1,8 +1,8 @@
 /* Copyright 2013 Dmitry Vodopyanov */
 
+#include <stdio.h>
 #include <string>
 #include "library/LengthConvertorApp.h"
-#include <stdio.h>
 
 int main(int argc, char** argv) {
     LengthConvertorApp app;
