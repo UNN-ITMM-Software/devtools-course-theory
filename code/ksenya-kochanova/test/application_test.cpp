@@ -19,7 +19,6 @@ class AppTest: public ::testing::Test {
     }
 
     void Check(std::string expected) {
-        // printf("OUTPUT = %s\n", output_.c_str());
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 

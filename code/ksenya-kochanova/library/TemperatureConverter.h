@@ -15,12 +15,12 @@ class TemperatureConvertor {
     :
         TemperatureConvertor(void);
         ~TemperatureConvertor(void);
-       Temperature Convert(double value, TemperatureUnit fromUnit,
+       double Convert(double value, TemperatureUnit fromUnit,
        TemperatureUnit toUnit);
     private
     :
         Temperature ConvertToCelsius(Temperature fromTemperature);
-        Temperature ConvertFromCelsius(Temperature inCelsius,
+        double ConvertFromCelsius(Temperature inCelsius,
 TemperatureUnit toUnit);
     };
 

@@ -18,15 +18,15 @@ fromTemperature) {
 + b[fromTemperature.unit];
     return inCelsius;
 }
-Temperature TemperatureConvertor::ConvertFromCelsius(Temperature inCelsius,
+double TemperatureConvertor::ConvertFromCelsius(Temperature inCelsius,
 TemperatureUnit toUnit) {
     double a[4] = {1, 1, 0.5555555555555556, 3.0303030303030303};
     double b[4] = {0, -273.15, -32, 0};
     Temperature outTemperature;
     outTemperature.value = 1 / a[toUnit] * (inCelsius.value - b[toUnit]);
-    return outTemperature;
+    return outTemperature.value;
 }
-Temperature TemperatureConvertor::Convert(double value,
+double TemperatureConvertor::Convert(double value,
                            TemperatureUnit fromUnit, TemperatureUnit toUnit) {
     Temperature t;
         if (((value < -273.15)&&(fromUnit == Celsius))||
