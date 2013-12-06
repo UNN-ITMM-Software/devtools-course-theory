@@ -41,7 +41,7 @@ TEST_F(AppTest, can_Check_Number_Of_Arguments) {
 
     RunApp(argc, argv);
 
-    Check("ERROR: Should be 3 arguments: value, oldunit, newunit\\..*");
+    Check("ERROR: Should be 3 arguments\\..*");
 }
 
 TEST_F(AppTest, can_Detect_Wrong_Value_Format_for_Celsius) {
@@ -50,7 +50,7 @@ TEST_F(AppTest, can_Detect_Wrong_Value_Format_for_Celsius) {
 
     RunApp(argc, argv);
 
-    Check("Wrong data!.*");
+    Check("Wrong data!");
 }
 
 TEST_F(AppTest, can_Detect_Wrong_Value_Format_for_Kelvin) {
@@ -59,7 +59,7 @@ TEST_F(AppTest, can_Detect_Wrong_Value_Format_for_Kelvin) {
 
     RunApp(argc, argv);
 
-    Check("Wrong data!.*");
+    Check("Wrong data!");
 }
 
 TEST_F(AppTest, can_Detect_Wrong_Value_Format_for_Newton) {
@@ -68,7 +68,7 @@ TEST_F(AppTest, can_Detect_Wrong_Value_Format_for_Newton) {
 
     RunApp(argc, argv);
 
-    Check("Wrong data!.*");
+    Check("Wrong data!");
 }
 
 TEST_F(AppTest, can_Detect_Wrong_Value_Format_for_Fahrenheit) {
@@ -77,7 +77,7 @@ TEST_F(AppTest, can_Detect_Wrong_Value_Format_for_Fahrenheit) {
 
     RunApp(argc, argv);
 
-    Check("Wrong data!.*");
+    Check("Wrong data!");
 }
 TEST_F(AppTest, can_Detect_Wrong_oldUnit_Format) {
     int argc = 4;
@@ -85,7 +85,7 @@ TEST_F(AppTest, can_Detect_Wrong_oldUnit_Format) {
 
     RunApp(argc, argv);
 
-    Check("Wrong format!");
+    Check("Wrong data!");
 }
 
 TEST_F(AppTest, can_Detect_Wrong_newUnit_Format) {
@@ -94,7 +94,7 @@ TEST_F(AppTest, can_Detect_Wrong_newUnit_Format) {
 
     RunApp(argc, argv);
 
-    Check("Wrong format!");
+    Check("Wrong data!");
 }
 
 TEST_F(AppTest, can_Convert_Correct_Value_Kelvin_to_Celsius) {
@@ -106,25 +106,25 @@ TEST_F(AppTest, can_Convert_Correct_Value_Kelvin_to_Celsius) {
     Check("Result = -273.15");
 }
 
-TEST_F(AppTest, can_Convert_Correct_Value_Celsius_Newton) {
+TEST_F(AppTest, can_Convert_Correct_Value_Celsius_to_Newton) {
     int argc = 4;
-    const char* argv[] = {"appname", "0", "Celsius", "Newton"};
+    const char* argv[] = {"appname", "5", "Celsius", "Newton"};
 
     RunApp(argc, argv);
 
     Check("Result = 1.65");
 }
 
-TEST_F(AppTest, can_Convert_Correct_Value_Fahrenheit_Celsius) {
+TEST_F(AppTest, can_Convert_Correct_Value_Fahrenheit_to_Celsius) {
     int argc = 4;
-    const char* argv[] = {"appname", "0", "Fahrenheit", "Celsius"};
+    const char* argv[] = {"appname", "10", "Fahrenheit", "Celsius"};
 
     RunApp(argc, argv);
 
     Check("Result = -26.4444");
 }
 
-TEST_F(AppTest, can_Convert_Correct_Value_Newton_Fahrenheit) {
+TEST_F(AppTest, can_Convert_Correct_Value_Newton_to_Fahrenheit) {
     int argc = 4;
     const char* argv[] = {"appname", "0", "Newton", "Fahrenheit"};
 
