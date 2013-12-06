@@ -29,7 +29,7 @@ double parseDouble(const char* arg) {
         printf("%s is valid\n", arg);
     } else {
         printf("%s is invalid\n", arg);
-        throw "wrong number format";
+        throw "Wrong data!";
     }
     return value;
 }
@@ -50,7 +50,7 @@ TemperatureUnit parseUnit(const char* arg) {
        printf("%s is valid\n", arg);
      } else {
          printf("%s is invalid\n", arg);
-         throw "Wrong format";
+         throw "Wrong data!";
      }
      return unit;
 }
@@ -74,7 +74,7 @@ bool TempConvApp::parseArguments(int argc, const char** argv,
              (argv[3]));
              }
         catch(...) {
-            printf("Wrong format!");
+            printf("Wrong data!");
             return false;
             }
     return true;
