@@ -93,10 +93,10 @@ std::string TempConvApp::operator()(int argc, const char** argv) {
     std::ostringstream stream;
     stream << "Result = ";
     stream << t.value;
-    message_ = stream.str();
-    return message_;
     }
     catch(...) {
         printf("WRONG DATA");
     }
+    message_ = stream.str();
+    return message_;
 }
