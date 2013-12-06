@@ -103,7 +103,7 @@ TEST_F(AppTest, can_Convert_Correct_Value_Kelvin_to_Celsius) {
 
     RunApp(argc, argv);
 
-    Check("Result = -273.150000");
+    Check("Result = -273.15");
 }
 
 TEST_F(AppTest, can_Convert_Correct_Value_Celsius_Newton) {
@@ -112,7 +112,7 @@ TEST_F(AppTest, can_Convert_Correct_Value_Celsius_Newton) {
 
     RunApp(argc, argv);
 
-    Check("Result = 1.650000");
+    Check("Result = 1.65");
 }
 
 TEST_F(AppTest, can_Convert_Correct_Value_Fahrenheit_Celsius) {
@@ -121,7 +121,7 @@ TEST_F(AppTest, can_Convert_Correct_Value_Fahrenheit_Celsius) {
 
     RunApp(argc, argv);
 
-    Check("Result = -26.444444");
+    Check("Result = -26.4444");
 }
 
 TEST_F(AppTest, can_Convert_Correct_Value_Newton_Fahrenheit) {
@@ -130,5 +130,5 @@ TEST_F(AppTest, can_Convert_Correct_Value_Newton_Fahrenheit) {
 
     RunApp(argc, argv);
 
-    Check("Result = 57.600000");
+    Check("Result = 57.6");
 }
