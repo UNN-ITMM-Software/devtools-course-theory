@@ -1,8 +1,8 @@
 // Copyright 2013 Dmitry Vodopyanov
 
 #include <gtest/gtest.h>
-#include <string>
 #include <float.h>
+#include <string>
 #include "library/LengthConvertor.h"
 
 class LengthConvertorTest : public ::testing::Test {
