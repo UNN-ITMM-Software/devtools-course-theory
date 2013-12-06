@@ -99,7 +99,7 @@ std::string LengthConvertorApp::operator()(int argc, const char** argv) {
     std::ostringstream stream;
     stream << "Result = ";
 
-    stream << convertor.Convert(length, UnitOutput);
+    stream << convertor.Convert(length, UnitOutput).value;
 
     message_ = stream.str();
 

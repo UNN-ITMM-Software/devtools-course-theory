@@ -4,6 +4,7 @@
 #define CODE_DMITRY_VODOPYANOV_LIBRARY_LENGTHCONVERTORAPP_H_
 
 #include <string>
+#include "library/LengthConvertor.h"
 
 #pragma pack(push, 1)
 typedef struct {
