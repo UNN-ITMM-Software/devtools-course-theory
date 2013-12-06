@@ -40,14 +40,14 @@ set_tests_properties (can_Detect_Wrong_newUnit_Format
 
 add_test(
     NAME can_Detect_Wrong_Value_Format_for_Celsius
-    COMMAND ${appname} -280 Celsius Kelvin
+    COMMAND ${appname} -300 Celsius Kelvin
 )
 set_tests_properties (can_Detect_Wrong_Value_Format_for_Celsius 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong data!")
 
 add_test(
     NAME can_Detect_Wrong_Value_Format_for_Kelvin
-    COMMAND ${appname} -5 Kelvin Fahrenheit
+    COMMAND ${appname} -10 Kelvin Newton
 )
 set_tests_properties (can_Detect_Wrong_Value_Format_for_Kelvin 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong data!")
@@ -70,25 +70,25 @@ add_test(
     COMMAND ${appname} 0 Kelvin Celsius
 )
 set_tests_properties (can_Convert_Correct_Value_Kelvin_to_Celsius  
-  PROPERTIES PASS_REGULAR_EXPRESSION "Result = -273.150000")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = -273.15")
 
 add_test(
     NAME can_Convert_Correct_Value_Celsius_Newton
     COMMAND ${appname} 5 Celsius Newton
 )
 set_tests_properties (can_Convert_Correct_Value_Celsius_Newton
-  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 1.650000")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 1.65")
 
 add_test(
     NAME can_Convert_Correct_Value_Fahrenheit_Celsius
     COMMAND ${appname} 10 Fahrenheit Celsius
 )
 set_tests_properties (can_Convert_Correct_Value_Fahrenheit_Celsius
-  PROPERTIES PASS_REGULAR_EXPRESSION "Result = -26.444444")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = -26.4444")
 
 add_test(
     NAME can_Convert_Correct_Value_Newton_Fahrenheit
     COMMAND ${appname} 0 Newton Fahrenheit
 )
 set_tests_properties (can_Convert_Correct_Value_Newton_Fahrenheit
-  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 57.600000")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 57.6")
