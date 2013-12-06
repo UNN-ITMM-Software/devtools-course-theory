@@ -27,8 +27,8 @@ add_local_dependency(${libname})
 add_app(${appname} "samples")
 
 # Declare unit test
-add_app(${app_name} "test")
-target_link_libraries(${testname} ${gtest})
+add_app(${testname} "test")
+target_link_libraries(${testname})
 
 #############################################
 ##### Testing
