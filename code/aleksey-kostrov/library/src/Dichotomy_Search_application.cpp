@@ -70,7 +70,7 @@ std::string DichotomySearchApplication::operator()(int argc,
                                                   const char** argv) {
     Expression expression;
     bool parseCode = parseArguments(argc, argv, &expression);
-    if(parseCode != true)
+    if (parseCode != true)
         return message;
     std::ostringstream stream;
     const int ELEM_NOT_FOUND = -1;
