@@ -11,14 +11,6 @@ class TempConvTest : public ::testing::Test {
     TemperatureConvertor tempconv;
 };
 
-TEST_F(TempConvTest, Do_Throw_Exception_When_oldUnit_Is_Wrong) {
-    EXPECT_THROW(tempconv.Convert(0, jjj, Celsius), std::string);
-}
-
-TEST_F(TempConvTest, Do_Throw_Exception_When_newUnit_Is_Wrong) {
-    EXPECT_THROW(tempconv.Convert(0, Kelvin, iii), std::string);
-}
-
 TEST_F(TempConvTest, Do_Throw_Exception_When_Value_For_Celsius_Is_Wrong) {
     EXPECT_THROW(tempconv.Convert(-300, Celsius, Newton), std::string);
 }
