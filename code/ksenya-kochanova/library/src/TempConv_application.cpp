@@ -95,7 +95,7 @@ std::string TempConvApp::operator()(int argc, const char** argv) {
     stream << t.value;
     }
     catch(...) {
-        printf("WRONG DATA");
+        printf("Wrong data!");
     }
     message_ = stream.str();
     return message_;
