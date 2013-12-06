@@ -23,7 +23,7 @@ class AppTestR : public ::testing::Test {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-    CalculatorApplication app_;
+    TempConvApp app_;
     std::string output_;
 };
 
