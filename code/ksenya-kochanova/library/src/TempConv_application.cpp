@@ -74,7 +74,7 @@ bool TempConvApp::parseArguments(int argc, const char** argv,
              (argv[3]));
              }
         catch(...) {
-            printf("Wrong data!");
+            message_ = "Wrong data!";
             return false;
             }
     return true;
@@ -95,7 +95,7 @@ std::string TempConvApp::operator()(int argc, const char** argv) {
     stream << t.value;
     }
     catch(...) {
-        printf("Wrong data!");
+        message_ = "Wrong data!";
     }
     message_ = stream.str();
     return message_;

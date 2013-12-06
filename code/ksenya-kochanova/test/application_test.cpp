@@ -10,9 +10,6 @@ using ::testing::internal::RE;
 
 class AppTest: public ::testing::Test {
  protected:
-    // NOTE: here you can put your init/deinit code
-    // virtual void SetUp() {}
-    // virtual void TearDown() {}
 
     void RunApp(int argc, const char* argv[]) {
         output_ = app_(argc, argv);
@@ -81,7 +78,7 @@ TEST_F(AppTest, can_Detect_Wrong_Value_Format_for_Fahrenheit) {
 }
 TEST_F(AppTest, can_Detect_Wrong_oldUnit_Format) {
     int argc = 4;
-    const char* argv[] = {"appname", "10", "jjj", "Kelvin"};
+    const char* argv[] = {"appname", "100", "Metr", "Kelvin"};
 
     RunApp(argc, argv);
 
@@ -90,7 +87,7 @@ TEST_F(AppTest, can_Detect_Wrong_oldUnit_Format) {
 
 TEST_F(AppTest, can_Detect_Wrong_newUnit_Format) {
     int argc = 4;
-    const char* argv[] = {"appname", "10", "Newton", "iii"};
+    const char* argv[] = {"appname", "100", "Celsius", "Pound"};
 
     RunApp(argc, argv);
 
