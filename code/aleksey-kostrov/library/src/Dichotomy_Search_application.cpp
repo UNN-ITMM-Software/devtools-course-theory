@@ -59,7 +59,7 @@ bool DichotomySearchApplication::parseArguments(int argc,
     }
 
     if (expr->size <= 0) {
-        printf("Size of array must be more than zero!\n");
+        message = "Size of array must be more than zero!\n";
         return false;
     }
 
