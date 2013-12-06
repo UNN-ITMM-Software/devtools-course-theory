@@ -14,11 +14,9 @@
 TempConvApp::TempConvApp() : message_("") {}
 
 void TempConvApp::help(const char* appname) {
-    message_ = std::string("This is a temperature convertor application.\n\n");
-
-              "Please provide arguments in the following format:\n\n"
-
-              " <value> <currentUnit> <newUnit>\n\n";
+   message_ += std::string("This is a temperature convertor application.\n\n")
+             + "Please provide arguments in the following format:\n\n"
+             + " $ " + appname + " <value> <currentUnit> <newUnit>\n\n";
 }
 
 double parseInteger(const char* arg);
