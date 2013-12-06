@@ -87,7 +87,7 @@ std::string TempConvApp::operator()(int argc, const char** argv) {
         return message_;
     TemperatureConvertor tempconv;
     Temperature t;
-	try {
+    try {
     t.value = tempconv.Convert(expr.value, expr.oldunit,
     expr.newunit);
     std::ostringstream stream;
@@ -96,7 +96,7 @@ std::string TempConvApp::operator()(int argc, const char** argv) {
     message_ = stream.str();
     return message_;
     }
-    catch (...) {
-        printf ("WRONG DATA");
+    catch(...) {
+        printf("WRONG DATA");
     }
 }
