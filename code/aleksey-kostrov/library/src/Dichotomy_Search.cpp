@@ -1,5 +1,5 @@
 /* Copyright 2013 Aleksey Kostrov */
-#include <Dichotomy_Search.h>
+#include <library/Dichotomy_Search.h>
 
 DichotomySearch::DichotomySearch() {}
 
