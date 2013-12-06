@@ -18,7 +18,7 @@ class LengthConvertorApp {
  public:
     LengthConvertorApp();
 
-    std::string operator()(int argc, const char** argv);
+    std::string operator()(int argc, char** argv);
 
  private:
     std::string message_;

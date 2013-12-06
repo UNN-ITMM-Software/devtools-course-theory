@@ -83,7 +83,7 @@ bool LengthConvertorApp::parseArguments(int argc, const char** argv,
     return true;
 }
 
-std::string LengthConvertorApp::operator()(int argc, const char** argv) {
+std::string LengthConvertorApp::operator()(int argc, char** argv) {
     Expression expr;
 
     bool returnCode = parseArguments(argc, argv, &expr);
