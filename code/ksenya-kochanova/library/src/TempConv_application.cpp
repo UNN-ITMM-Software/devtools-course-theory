@@ -87,7 +87,7 @@ std::string TempConvApp::operator()(int argc, const char** argv) {
         return message_;
     TemperatureConvertor tempconv;
     Temperature t;
-	t.value = tempconv.Convert(expr.value, expr.oldunit,
+    t.value = tempconv.Convert(expr.value, expr.oldunit,
     expr.newunit);
     std::ostringstream stream;
     stream << "Result = ";
