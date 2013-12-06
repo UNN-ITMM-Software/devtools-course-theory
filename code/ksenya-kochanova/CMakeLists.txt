@@ -4,7 +4,7 @@
 
 set(libname "ksenya-kochanova-temperatureConv-library")
 set(appname "ksenya-kochanova-temperatureConv-samples")
-set(appname "ksenya-kochanova-temperatureConv-test")
+set(testname "ksenya-kochanova-temperatureConv-test")
 
 message("")
 message("############################################")
