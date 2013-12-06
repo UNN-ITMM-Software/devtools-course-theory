@@ -16,6 +16,8 @@
 #define LEFT_BORDER_RANDOM 1
 #define RIGHT_BORDER_RANDOM 50
 
+void randomInitialize(int*& array, int size);
+
 void randomInitialize(int*& array, int size) {
     array = new int[size];
     unsigned int seed = static_cast<unsigned int>(time(NULL));
