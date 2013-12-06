@@ -40,8 +40,8 @@ int DichotomySearchApplication::parseInteger(const char *arg) {
 
 bool DichotomySearchApplication::parseArguments(int argc,
                                                 const char** argv,
-												Expression* expr) {
-	if (argc == 1) {
+                                                Expression* expr) {
+    if (argc == 1) {
         help(argv[0]);
         return false;
     } else if (argc != 3) {
@@ -49,8 +49,7 @@ bool DichotomySearchApplication::parseArguments(int argc,
         help(argv[0]);
         return false;
     }
-	
-	try {
+    try {
         expr->size = static_cast<int>(parseInteger(argv[1]));
         expr->element = static_cast<int>(parseInteger(argv[2]));
     }
@@ -69,15 +68,12 @@ bool DichotomySearchApplication::parseArguments(int argc,
 
 std::string DichotomySearchApplication::operator()(int argc,
                                                   const char** argv) {
-	Expression expression;
-	
-	bool parseCode = parseArguments(argc, argv, &expression);
-	if(parseCode != true)
-	    return message;
-		
-	std::ostringstream stream;
-	
-	const int ELEM_NOT_FOUND = -1;
+    Expression expression;
+    bool parseCode = parseArguments(argc, argv, &expression);
+    if(parseCode != true)
+        return message;
+    std::ostringstream stream;
+    const int ELEM_NOT_FOUND = -1;
     int * array;
     int returnCode;
     array = new int[expression.size];
@@ -94,17 +90,16 @@ std::string DichotomySearchApplication::operator()(int argc,
     } else if (expression.size > 0) {
         stream << "Array was generated automatically!\n";
     }
-        DichotomySearch example1;
-        returnCode = example1.Search(array, expression.element, expression.size);
-        if (returnCode == ELEM_NOT_FOUND) {
-            stream << "Element not found!\n";
-        } else {
-            stream << "Index of search element: "; 
-			stream << returnCode+1;
-		}
+    DichotomySearch example1;
+    returnCode = example1.Search(array, expression.element, expression.size);
+    if (returnCode == ELEM_NOT_FOUND) {
+        stream << "Element not found!\n";
+    } else {
+        stream << "Index of search element: ";
+        stream << returnCode+1;
+    }
     delete [] array;
-	
-	message = stream.str();
+    message = stream.str();
 
     return message;
 }
