@@ -52,7 +52,7 @@ TEST_F(AppTest, Can_Detect_Wrong_Number_Format) {
 
 TEST_F(AppTest, Can_Detect_Incorrect_First_Argument) {
     int argc = 3;
-    const char* argv[] = {"appname", "-1", "5"};
+    const char* argv[] = {"appname", "-1", "-5"};
 
     RunApp(argc, argv);
 

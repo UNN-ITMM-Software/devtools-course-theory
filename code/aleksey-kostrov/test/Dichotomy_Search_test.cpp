@@ -42,5 +42,5 @@ TEST_F(DichotomySearchTest, can_Detect_Not_Found_Element) {
 TEST_F(DichotomySearchTest, can_Detect_Element) {
     int* array;
     randomInitialize(array, 50);
-    EXPECT_EQ(1, example1.Search(array, 54, 50));
+    EXPECT_EQ(0, example1.Search(array, 54, 50));
 }
