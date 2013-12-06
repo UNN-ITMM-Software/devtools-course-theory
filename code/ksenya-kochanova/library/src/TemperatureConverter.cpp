@@ -27,7 +27,7 @@ TemperatureUnit toUnit) {
 Temperature TemperatureConvertor::Convert(double value,
                            TemperatureUnit fromUnit, TemperatureUnit toUnit) {
     Temperature t;
-        if ((value < -273.15)&&(fromUnit == Celsius)||
+        if (((value < -273.15)&&(fromUnit == Celsius))||
             ((value < 0)&&(fromUnit == Kelvin))||
             ((value < -459.67)&&(fromUnit == Fahrenheit))||
             ((value < -90.14)&&(fromUnit == Newton))||
