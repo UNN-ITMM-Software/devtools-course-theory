@@ -82,6 +82,7 @@ bool TempConvApp::parseArguments(int argc, const char** argv,
 
 std::string TempConvApp::operator()(int argc, const char** argv) {
     Expression expr;
+    std::ostringstream stream;
     bool returnCode = parseArguments(argc, argv, &expr);
     if (returnCode != true)
         return message_;
@@ -90,7 +91,6 @@ std::string TempConvApp::operator()(int argc, const char** argv) {
     try {
     t.value = tempconv.Convert(expr.value, expr.oldunit,
     expr.newunit);
-    std::ostringstream stream;
     stream << "Result = ";
     stream << t.value;
     }
