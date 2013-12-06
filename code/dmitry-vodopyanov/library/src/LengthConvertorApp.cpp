@@ -23,7 +23,7 @@ void LengthConvertorApp::help(const char* appname) {
 }
 
 double parseDouble(const char* value);
-int64_t parseUnit(const char* arg);
+LengthUnit parseUnit(const char* arg);
 
 double parseDouble(const char* value) {
     char* end;
@@ -36,7 +36,7 @@ double parseDouble(const char* value) {
     return num;
 }
 
-int64_t parseUnit(const char* arg) {
+LengthUnit parseUnit(const char* arg) {
     LengthUnit unit;
     if ((strcmp(arg, "inch") == 0) | (strcmp(arg, "in") == 0)) {
         unit = Inch;
@@ -83,7 +83,7 @@ bool LengthConvertorApp::parseArguments(int argc, const char** argv,
     return true;
 }
 
-std::string LengthConvertorApp::operator()(int argc, char** argv) {
+std::string LengthConvertorApp::operator()(int argc, const char** argv) {
     Expression expr;
 
     bool returnCode = parseArguments(argc, argv, &expr);
