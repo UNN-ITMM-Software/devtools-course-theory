@@ -85,7 +85,6 @@ std::string TempConvApp::operator()(int argc, const char** argv) {
     std::ostringstream stream;
     bool returnCode = parseArguments(argc, argv, &expr);
     if (returnCode != true) {
-        return message_;
         stream << "Wrong data!";
     }
     TemperatureConvertor tempconv;
