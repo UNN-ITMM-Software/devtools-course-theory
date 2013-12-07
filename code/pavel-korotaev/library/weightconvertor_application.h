@@ -15,12 +15,12 @@ typedef struct {
 #pragma pack(pop)
 
 class WeightConvertorApplication {
-  public:
+ public:
     WeightConvertorApplication();
 
     std::string operator()(int argc, const char** argv);
 
-private:
+ private:
     std::string message_;
 
     void help(const char* appname);

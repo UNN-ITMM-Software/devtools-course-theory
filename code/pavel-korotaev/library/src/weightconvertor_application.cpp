@@ -97,7 +97,8 @@ bool WeightConvertorApplication::parseArguments(int argc, const char** argv,
     return true;
 }
 
-std::string WeightConvertorApplication::operator()(int argc, const char** argv) {
+std::string WeightConvertorApplication::operator()(int argc,
+                                                   const char** argv) {
     Expression expr;
 
     bool returnCode = parseArguments(argc, argv, &expr);

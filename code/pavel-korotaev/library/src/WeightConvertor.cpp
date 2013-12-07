@@ -24,7 +24,8 @@ Weight WeightConvertor::ConvertTo(Weight weight, WeightUnit UnitOutput) {
         weight.value = multiplierKilogram[weight.unit]/
              multiplierKilogram[UnitOutput]*weight.value;
         CheckRange(weight.value);
-    } else
+    } else {
         weight.value = -1;
+    }
     return static_cast<Weight>(weight);
 }
