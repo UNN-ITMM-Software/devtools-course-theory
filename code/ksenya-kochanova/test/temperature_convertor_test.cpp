@@ -29,7 +29,7 @@ TEST_F(TempConvTest, Can_Convert_Kelvin_To_Celsius) {
 }
 
 TEST_F(TempConvTest, Can_Convert_Celsius_To_Newton) {
-    double CtoF =  5 *  1 / 3.0303030303030303;
+    double CtoF =  5 *  1 / 3.030303030302;
     EXPECT_EQ(CtoF, tempconv.Convert(5, Celsius, Newton));
 }
 

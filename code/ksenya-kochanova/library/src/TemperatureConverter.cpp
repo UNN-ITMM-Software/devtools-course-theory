@@ -11,7 +11,7 @@ TemperatureConvertor::~TemperatureConvertor() {}
 
 Temperature TemperatureConvertor::ConvertToCelsius(Temperature
 fromTemperature) {
-    double a[4] = {1, 1, 0.5555555555555556, 3.0303030303030303};
+    double a[4] = {1, 1, 0.5555555555555556, 3.030303030302};
     double b[4] = {0, -273.15, -32, 0};
     Temperature inCelsius;
     inCelsius.value = a[fromTemperature.unit] * fromTemperature.value
@@ -20,7 +20,7 @@ fromTemperature) {
 }
 double TemperatureConvertor::ConvertFromCelsius(Temperature inCelsius,
 TemperatureUnit toUnit) {
-    double a[4] = {1, 1, 0.5555555555555556, 3.0303030303030303};
+    double a[4] = {1, 1, 0.5555555555555556, 3.030303030302};
     double b[4] = {0, -273.15, -32, 0};
     Temperature outTemperature;
     outTemperature.value = 1 / a[toUnit] * (inCelsius.value - b[toUnit]);
