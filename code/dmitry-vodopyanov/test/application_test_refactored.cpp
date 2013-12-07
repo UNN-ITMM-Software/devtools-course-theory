@@ -42,7 +42,7 @@ TEST_F(AppTestR, Is_Checking_Number_Of_Arguments) {
 
     RunApp(argc, argv);
 
-    Check("ERROR: Should be 3 arguments\\..*");
+    Check("ERROR: Should be 3 arguments.");
 }
 
 TEST_F(AppTestR, Can_Detect_Wrong_Unit_Format) {
@@ -51,10 +51,10 @@ TEST_F(AppTestR, Can_Detect_Wrong_Unit_Format) {
 
     RunApp(argc, argv);
 
-    Check("Wrong unit format.*");
+    Check("Wrong unit format");
 }
 
-TEST_F(AppTestR, Can_Add_Positive_Numbers) {
+TEST_F(AppTestR, Can_Convert_Yard_To_Inch) {
     int argc = 4;
     const char* argv[] = {"appname", "5", "yd", "in"};
 
