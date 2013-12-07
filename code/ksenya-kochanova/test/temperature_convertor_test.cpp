@@ -25,17 +25,17 @@ TEST_F(TempConvTest, Do_Throw_Exception_When_Value_For_Fahrenheit_Is_Wrong) {
 }
 
 TEST_F(TempConvTest, Can_Convert_Kelvin_To_Celsius) {
-    EXPECT_EQ(-273.150000, tempconv.Convert(0, Kelvin, Celsius));
+    EXPECT_EQ(-273.15, tempconv.Convert(0, Kelvin, Celsius));
 }
 
 TEST_F(TempConvTest, Can_Convert_Celsius_To_Newton) {
-    EXPECT_EQ(1.650000, tempconv.Convert(5, Celsius, Newton));
+    EXPECT_EQ(1.65, tempconv.Convert(5, Celsius, Newton));
 }
 
-TEST_F(TempConvTest, Can_Convert_Fahrenheit_Celsius) {
-    EXPECT_EQ(-26.444444, tempconv.Convert(10, Fahrenheit, Celsius));
+TEST_F(TempConvTest, Can_Convert_Fahrenheit_To_Celsius) {
+    EXPECT_EQ(-26.4444, tempconv.Convert(10, Fahrenheit, Celsius));
 }
 
-TEST_F(TempConvTest, Can_Convert_Newton_Fahrenheit) {
-    EXPECT_EQ(57.600000, tempconv.Convert(0, Newton, Fahrenheit));
+TEST_F(TempConvTest, Can_Convert_Newton_To_Fahrenheit) {
+    EXPECT_EQ(57.6, tempconv.Convert(0, Newton, Fahrenheit));
 }

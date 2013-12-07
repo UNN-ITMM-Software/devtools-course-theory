@@ -29,7 +29,7 @@ double parseDouble(const char* arg) {
         printf("%s is valid\n", arg);
     } else {
         printf("%s is invalid\n", arg);
-        throw "Wrong data!";
+        throw std::string("Wrong data!");
     }
     return value;
 }
@@ -50,7 +50,7 @@ TemperatureUnit parseUnit(const char* arg) {
        printf("%s is valid\n", arg);
      } else {
          printf("%s is invalid\n", arg);
-         throw "Wrong data!";
+         throw std::string("Wrong data!");
      }
      return unit;
 }
@@ -84,8 +84,10 @@ std::string TempConvApp::operator()(int argc, const char** argv) {
     Expression expr;
     std::ostringstream stream;
     bool returnCode = parseArguments(argc, argv, &expr);
-    if (returnCode != true)
+    if (returnCode != true) {
         return message_;
+        stream << "Wrong data!";
+    }
     TemperatureConvertor tempconv;
     Temperature t;
     try {

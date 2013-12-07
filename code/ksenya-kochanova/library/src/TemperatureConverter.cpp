@@ -35,7 +35,7 @@ double TemperatureConvertor::Convert(double value,
             ((value < -90.14)&&(fromUnit == Newton))||
             ((fromUnit < Celsius) || (fromUnit > Newton)) ||
             ((toUnit < Celsius) || (toUnit > Newton))) {
-            throw "Wrong data!";
+            throw std::string("Wrong data!");
         }
         t.value = value;
         t.unit = fromUnit;
