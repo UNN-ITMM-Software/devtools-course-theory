@@ -37,6 +37,15 @@ TEST_F(AppTestR, Do_Print_Help_Without_Arguments) {
     Check("This is a weight convertor application");
 }
 
+TEST_F(AppTestR, Can_Check_Number_Of_Arguments) {
+    int argc = 3;
+    const char* argv[] = {"appname",  "3", "Ton"};
+
+    RunApp(argc, argv);
+
+    Check("ERROR: Should be 3 arguments\\..*");
+}
+
 TEST_F(AppTestR, Can_Detect_Wrong_UnitInput_Format) {
     int argc = 4;
     const char* argv[] = {"appname", "20", "qw", "Stone"};
