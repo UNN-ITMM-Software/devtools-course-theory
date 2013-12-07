@@ -23,21 +23,6 @@ TEST(AppTest, Do_Print_Help_Without_Arguments) {
                     RE("This is a length")));
 }
 
-TEST(AppTest, Is_Checking_Number_Of_Arguments) {
-    // Arrange
-    LengthConvertorApp app;
-    int argc = 3;
-    const char* argv[] = {"appname", "5", "Meter"};
-
-    // Act
-    std::string output = app(argc, argv);
-
-    // Assert
-    EXPECT_TRUE(RE::PartialMatch(
-                    output,
-                    RE("ERROR: Should be 3 arguments\\..")));
-}
-
 TEST(AppTest, Can_Detect_Wrong_Number_Format) {
     // Arrange
     LengthConvertorApp app;

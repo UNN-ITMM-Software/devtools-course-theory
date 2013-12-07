@@ -36,15 +36,6 @@ TEST_F(AppTestR, Do_Print_Help_Without_Arguments) {
     Check("This is a length");
 }
 
-TEST_F(AppTestR, Is_Checking_Number_Of_Arguments) {
-    int argc = 3;
-    const char* argv[] = {"appname",  "15", "Inch"};
-
-    RunApp(argc, argv);
-
-    Check("ERROR: Should be 3 arguments\\..");
-}
-
 TEST_F(AppTestR, Can_Detect_Wrong_Unit_Format) {
     int argc = 4;
     const char* argv[] = {"appname", "1", "kkk", "m"};
@@ -61,4 +52,31 @@ TEST_F(AppTestR, Can_Convert_Yard_To_Inch) {
     RunApp(argc, argv);
 
     Check("Result = 180");
+}
+
+TEST_F(AppTestR, Can_Convert_KMeter_To_Meter) {
+    int argc = 4;
+    const char* argv[] = {"appname", "6", "km", "m"};
+
+    RunApp(argc, argv);
+
+    Check("Result = 6000");
+}
+
+TEST_F(AppTestR, Can_Convert_Mile_To_Yard) {
+    int argc = 4;
+    const char* argv[] = {"appname", "8", "ml", "yd"};
+
+    RunApp(argc, argv);
+
+    Check("Result = 14080");
+}
+
+TEST_F(AppTestR, Can_Convert_CMeter_To_KMeter) {
+    int argc = 4;
+    const char* argv[] = {"appname", "800000", "yd", "in"};
+
+    RunApp(argc, argv);
+
+    Check("Result = 8");
 }
