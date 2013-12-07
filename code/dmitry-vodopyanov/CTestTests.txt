@@ -49,18 +49,18 @@ add_test(
     COMMAND ${appname} 1.3 km meter
 )
 set_tests_properties (can_Convert_KMeters_to_Meters
-  PROPERTIES PASS_REGULAR_EXPRESSION "1300\\.000000")
+  PROPERTIES PASS_REGULAR_EXPRESSION "1300\.000000")
 
 add_test(
     NAME can_Convert_Yards_to_Inches
     COMMAND ${appname} 5 yd in
 )
 set_tests_properties (can_Convert_Yards_to_Inches
-  PROPERTIES PASS_REGULAR_EXPRESSION "180\\.000001")
+  PROPERTIES PASS_REGULAR_EXPRESSION "180\.000001")
 
 add_test(
     NAME can_Detect_Negative_Number
     COMMAND ${appname} -5 in m  
 )
 set_tests_properties (can_Detect_Negative_Number
-  PROPERTIES PASS_REGULAR_EXPRESSION "-1\\.000000")
+  PROPERTIES PASS_REGULAR_EXPRESSION "-1\.000000")
