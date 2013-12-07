@@ -76,7 +76,7 @@ bool LengthConvertorApp::parseArguments(int argc, const char** argv,
         expression->UnitOutput = static_cast<LengthUnit>(parseUnit(argv[3]));
     }
     catch(...) {
-        message_ = "Wrong number format!\n";
+        message_ = "Wrong data format!\n";
         return false;
     }
 

@@ -42,7 +42,7 @@ TEST_F(AppTestR, Is_Checking_Number_Of_Arguments) {
 
     RunApp(argc, argv);
 
-    Check("ERROR: Should be 3 arguments.");
+    Check("ERROR: Should be 3 arguments\\..*");
 }
 
 TEST_F(AppTestR, Can_Detect_Wrong_Unit_Format) {
@@ -51,7 +51,7 @@ TEST_F(AppTestR, Can_Detect_Wrong_Unit_Format) {
 
     RunApp(argc, argv);
 
-    Check("Wrong unit format");
+    Check("Wrong data format!");
 }
 
 TEST_F(AppTestR, Can_Convert_Yard_To_Inch) {

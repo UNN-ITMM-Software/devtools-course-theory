@@ -26,8 +26,8 @@ TEST(AppTest, Do_Print_Help_Without_Arguments) {
 TEST(AppTest, Is_Checking_Number_Of_Arguments) {
     // Arrange
     LengthConvertorApp app;
-    int argc = 2;
-    const char* argv[] = {"appname", "5"};
+    int argc = 3;
+    const char* argv[] = {"appname", "5", "km"};
 
     // Act
     std::string output = app(argc, argv);
@@ -35,7 +35,7 @@ TEST(AppTest, Is_Checking_Number_Of_Arguments) {
     // Assert
     EXPECT_TRUE(RE::PartialMatch(
                     output,
-                    RE("ERROR: Should be 3 arguments.")));
+                    RE("ERROR: Should be 3 arguments\\..*")));
 }
 
 TEST(AppTest, Can_Detect_Wrong_Number_Format) {
@@ -50,7 +50,7 @@ TEST(AppTest, Can_Detect_Wrong_Number_Format) {
     // Assert
     EXPECT_TRUE(RE::PartialMatch(
                     output,
-                    RE("Wrong number format")));
+                    RE("Wrong data format!")));
 }
 
 TEST(AppTest, Can_Detect_Wrong_Operation_Format) {
@@ -65,5 +65,5 @@ TEST(AppTest, Can_Detect_Wrong_Operation_Format) {
     // Assert
     EXPECT_TRUE(RE::PartialMatch(
                     output,
-                    RE("Wrong unit format")));
+                    RE("Wrong data format!")));
 }
