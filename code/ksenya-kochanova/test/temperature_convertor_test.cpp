@@ -29,13 +29,13 @@ TEST_F(TempConvTest, Can_Convert_Kelvin_To_Celsius) {
 }
 
 TEST_F(TempConvTest, Can_Convert_Celsius_To_Newton) {
-    EXPECT_EQ(1.65, tempconv.Convert(5, Celsius, Newton));
+    EXPECT_EQ(1.650000, tempconv.Convert(5, Celsius, Newton));
 }
 
 TEST_F(TempConvTest, Can_Convert_Fahrenheit_To_Celsius) {
-    EXPECT_EQ(-26.4444, tempconv.Convert(10, Fahrenheit, Celsius));
+    EXPECT_EQ(-26.444444, tempconv.Convert(10, Fahrenheit, Celsius));
 }
 
 TEST_F(TempConvTest, Can_Convert_Newton_To_Fahrenheit) {
-    EXPECT_EQ(57.6, tempconv.Convert(0, Newton, Fahrenheit));
+    EXPECT_EQ(57.600000, tempconv.Convert(0, Newton, Fahrenheit));
 }
