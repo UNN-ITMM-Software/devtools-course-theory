@@ -18,11 +18,13 @@ TEST_F(LengthConvertorTest, Can_Convert_KMeters_to_Meters) {
     EXPECT_EQ(1300.000000, convertor.Convert({1.3, km}, m).value);
 }
 
-TEST_F(LengthConvertorTest, Do_Throw_Exception_When_Value_Is_Larger_Than_DBL_MAX) {
+TEST_F(LengthConvertorTest,
+       Do_Throw_Exception_When_Value_Is_Larger_Than_DBL_MAX) {
     EXPECT_THROW(convertor.Convert({DBL_MAX, m}, in), std::string);
 }
 
-TEST_F(LengthConvertorTest, Do_Throw_Excep_When_Value_Is_Less_Than_Minus_DBL_MAX) {
+TEST_F(LengthConvertorTest,
+	   Do_Throw_Exception_When_Value_Is_Less_Than_Minus_DBL_MAX) {
     EXPECT_THROW(convertor.Convert({-DBL_MAX, m}, in), std::string);
 }
 
