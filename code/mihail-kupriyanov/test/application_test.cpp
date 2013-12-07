@@ -1,10 +1,10 @@
-// Copyright 2013 Kirill Kornyakov
+// Copyright 2013 Michail Kupriyanov
 
 #include <gtest/gtest.h>
 
 #include <string>
 
-#include "library/calc_application.h"
+#include "library/mathquancalc_application.h"
 
 using ::testing::internal::RE;
 

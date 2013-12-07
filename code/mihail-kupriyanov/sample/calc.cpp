@@ -1,9 +1,9 @@
 // Copyright 2013 Michail Kupriyanov
 
-#include "library/calc_application.h"
-
 #include <stdio.h>
 #include <string>
+
+#include "library/mathquancalc_application.h"
 
 int main(int argc, const char** argv) {
     MathQuanCalcApplication app;
