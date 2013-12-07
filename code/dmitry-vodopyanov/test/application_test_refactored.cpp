@@ -74,7 +74,7 @@ TEST_F(AppTestR, Can_Convert_Mile_To_Yard) {
 
 TEST_F(AppTestR, Can_Convert_CMeter_To_KMeter) {
     int argc = 4;
-    const char* argv[] = {"appname", "800000", "yd", "in"};
+    const char* argv[] = {"appname", "800000", "cm", "m"};
 
     RunApp(argc, argv);
 
