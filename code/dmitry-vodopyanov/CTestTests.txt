@@ -28,21 +28,21 @@ add_test(
     COMMAND ${appname} a km m
 )
 set_tests_properties (can_Detect_Wrong_Number_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong data format!")
 
 add_test(
     NAME can_Detect_Wrong_UnitOutput_Format
     COMMAND ${appname} 1 in rubbish
 )
 set_tests_properties (can_Detect_Wrong_UnitOutput_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong data format!")
 
 add_test(
     NAME can_Detect_Wrong_UnitInput_Format
     COMMAND ${appname} 1 rubbish cm
 )
 set_tests_properties (can_Detect_Wrong_UnitInput_Format 
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong data format!")
 
 add_test(
     NAME can_Convert_KMeters_to_Meters
