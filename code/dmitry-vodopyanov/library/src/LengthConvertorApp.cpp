@@ -65,7 +65,7 @@ bool LengthConvertorApp::parseArguments(int argc, const char** argv,
         help(argv[0]);
         return false;
     } else if (argc != 4) {
-        printf("ERROR: Should be 3 arguments.\n\n");
+        printf("ERROR: Should be 3 arguments.");
         help(argv[0]);
         return false;
     }
