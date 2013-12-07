@@ -35,7 +35,7 @@ TEST(AppTest, Is_Checking_Number_Of_Arguments) {
     // Assert
     EXPECT_TRUE(RE::PartialMatch(
                     output,
-                    RE("ERROR: Should be 3 arguments.")));
+                    RE("ERROR: Should be 3 arguments\\.")));
 }
 
 TEST(AppTest, Can_Detect_Wrong_Number_Format) {
