@@ -26,8 +26,7 @@ TEST_F(LengthConvertorTest,
 
 TEST_F(LengthConvertorTest,
        Do_Throw_Exception_When_Value_Is_Less_Than_Minus_DBL_MAX) {
-    EXPECT_EQ(-1.000000, convertor.Convert({-DBL_MAX, KMeter}, Meter).value,
-                 std::string);
+    EXPECT_EQ(-1.000000, convertor.Convert({-DBL_MAX, KMeter}, Meter).value);
 }
 
 TEST_F(LengthConvertorTest, Can_Detect_Negative_Number) {
