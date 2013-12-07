@@ -38,11 +38,11 @@ TEST_F(AppTestR, Do_Print_Help_Without_Arguments) {
 
 TEST_F(AppTestR, Is_Checking_Number_Of_Arguments) {
     int argc = 3;
-    const char* argv[] = {"appname",  "1", "in"};
+    const char* argv[] = {"appname",  "15", "Inch"};
 
     RunApp(argc, argv);
 
-    Check("ERROR: Should be 3");
+    Check("ERROR: Should be 3\\..*");
 }
 
 TEST_F(AppTestR, Can_Detect_Wrong_Unit_Format) {
