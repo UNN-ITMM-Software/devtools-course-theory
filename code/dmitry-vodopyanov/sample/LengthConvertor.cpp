@@ -4,7 +4,7 @@
 #include <string>
 #include "library/LengthConvertorApp.h"
 
-int main(int argc, char** argv) {
+int main(int argc, const char** argv) {
     LengthConvertorApp app;
     std::string output = app(argc, argv);
     printf("%s\n", output.c_str());
