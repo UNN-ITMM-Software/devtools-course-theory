@@ -20,13 +20,13 @@ TEST_F(LengthConvertorTest, Can_Convert_KMeters_to_Meters) {
 
 TEST_F(LengthConvertorTest,
        Do_Throw_Exception_When_Value_Is_Larger_Than_DBL_MAX) {
-    EXPECT_THROW(convertor.Convert({DBL_MAX+99999999999, KMeter}, Meter).value,
+    EXPECT_THROW(convertor.Convert({DBL_MAX+9999999999, KMeter}, Meter).value,
                  std::string);
 }
 
 TEST_F(LengthConvertorTest,
        Do_Throw_Exception_When_Value_Is_Less_Than_Minus_DBL_MAX) {
-    EXPECT_THROW(convertor.Convert({-DBL_MAX-99999999999, KMeter}, Meter).value,
+    EXPECT_EQ(-1.000000, convertor.Convert({-DBL_MAX, KMeter}, Meter).value,
                  std::string);
 }
 

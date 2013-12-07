@@ -27,7 +27,7 @@ TEST(AppTest, Is_Checking_Number_Of_Arguments) {
     // Arrange
     LengthConvertorApp app;
     int argc = 3;
-    const char* argv[] = {"appname", "5", "km"};
+    const char* argv[] = {"appname", "5", "Meter"};
 
     // Act
     std::string output = app(argc, argv);
