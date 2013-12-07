@@ -19,7 +19,7 @@ void TempConvApp::help(const char* appname) {
              + " $ " + appname + " <value> <currentUnit> <newUnit>\n\n";
 }
 
-double parseInteger(const char* arg);
+double parseDouble(const char* arg);
 TemperatureUnit parseUnit(const char* arg);
 
 double parseDouble(const char* arg) {
