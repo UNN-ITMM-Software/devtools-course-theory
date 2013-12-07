@@ -42,7 +42,7 @@ add_test(
     COMMAND ${appname} -14 Grams Stone
 )
 set_tests_properties (can_Detect_Negative_Number 
-  PROPERTIES PASS_REGULAR_EXPRESSION "-1\\.000")
+  PROPERTIES PASS_REGULAR_EXPRESSION "-1")
 
 add_test(
     NAME can_Detect_Wrong_UnitInput_Format
@@ -63,11 +63,11 @@ add_test(
     COMMAND ${appname} 2.5 Ton Hundredweight
 )
 set_tests_properties (can_Convert_Ton_to_Hundredweight 
-  PROPERTIES PASS_REGULAR_EXPRESSION "25\\.000")
+  PROPERTIES PASS_REGULAR_EXPRESSION "25")
 
 add_test(
     NAME can_Convert_Pound_to_Stone
     COMMAND ${appname} 100 Pound Stone
 )
 set_tests_properties (can_Convert_Pound_to_Stone 
-  PROPERTIES PASS_REGULAR_EXPRESSION "7\\.142")
+  PROPERTIES PASS_REGULAR_EXPRESSION "7.142")
