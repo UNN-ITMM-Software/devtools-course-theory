@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "../include/regex.h"
+#include "library/regex.h"
 
 static int matchStar(int c, const std::string& regex,
     const std::string& text, size_t r, size_t t);
@@ -23,11 +23,14 @@ int match(const std::string& regex, const std::string& text) {
 }
 
 int find(const std::string& substring, const std::string& text) {
+    if (text.size() < substring.size()) {
+        return -1;
+    }
+
     size_t i, j;
-    for (i = 0; i < text.size() - substring.size(); i++) {
+    for (i = 0; i < text.size() - substring.size() + 1; i++) {
         for (j = 0; j < substring.size(); j++) {
-            if (static_cast<wchar_t>(substring[j])
-                != static_cast<wchar_t>(text[i + j])) {
+            if (substring[j] != text[i + j]) {
                 break;
             }
         }
