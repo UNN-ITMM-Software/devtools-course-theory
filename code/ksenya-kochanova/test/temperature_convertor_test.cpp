@@ -34,7 +34,7 @@ TEST_F(TempConvTest, Can_Convert_Celsius_To_Newton) {
 }
 
 TEST_F(TempConvTest, Can_Convert_Fahrenheit_To_Celsius) {
-    double FtoC = 0.5555555555555556 * 10 - 32 
+    double FtoC = 0.5555555555555556 * 10 - 32;
     EXPECT_EQ(FtoC, tempconv.Convert(10, Fahrenheit, Celsius));
 }
 
