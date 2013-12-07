@@ -6,13 +6,11 @@ enable_testing()
 
 add_test(
     NAME can_Run
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname}
 )
 
 add_test( 
     NAME can_Print_Help_Without_Arguments
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname}
 )
 set_tests_properties (can_Print_Help_Without_Arguments 
@@ -20,7 +18,6 @@ set_tests_properties (can_Print_Help_Without_Arguments
 
 add_test(
     NAME can_Check_Number_Of_Arguments
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 3 Ton
 )
 set_tests_properties (can_Check_Number_Of_Arguments 
@@ -28,7 +25,6 @@ set_tests_properties (can_Check_Number_Of_Arguments
 
 add_test(
     NAME can_Detect_Wrong_Number_Format
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} x Ounce Stone
 )
 set_tests_properties (can_Detect_Wrong_Number_Format 
@@ -36,7 +32,6 @@ set_tests_properties (can_Detect_Wrong_Number_Format
 
 add_test(
     NAME can_Detect_Wrong_Operation_Format
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 1 1 abc
 )
 set_tests_properties (can_Detect_Wrong_Operation_Format 
@@ -44,7 +39,6 @@ set_tests_properties (can_Detect_Wrong_Operation_Format
 
 add_test(
     NAME can_Detect_Negative_Number
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} -14 Grams Stone
 )
 set_tests_properties (can_Detect_Negative_Number 
@@ -52,7 +46,6 @@ set_tests_properties (can_Detect_Negative_Number
 
 add_test(
     NAME can_Detect_Wrong_UnitInput_Format
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 20 qw Stone
 )
 set_tests_properties (can_Detect_Wrong_UnitInput_Format 
@@ -60,7 +53,6 @@ set_tests_properties (can_Detect_Wrong_UnitInput_Format
 
 add_test(
     NAME can_Detect_Wrong_UnitOutput_Format
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 20 Stone we
 )
 set_tests_properties (can_Detect_Wrong_UnitOutput_Format 
@@ -68,7 +60,6 @@ set_tests_properties (can_Detect_Wrong_UnitOutput_Format
 
 add_test(
     NAME can_Convert_Ton_to_Hundredweight
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 2.5 Ton Hundredweight
 )
 set_tests_properties (can_Convert_Ton_to_Hundredweight 
@@ -76,7 +67,6 @@ set_tests_properties (can_Convert_Ton_to_Hundredweight
 
 add_test(
     NAME can_Convert_Pound_to_Stone
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 100 Pound Stone
 )
 set_tests_properties (can_Convert_Pound_to_Stone 
