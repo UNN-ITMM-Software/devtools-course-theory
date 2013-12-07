@@ -29,13 +29,16 @@ TEST_F(TempConvTest, Can_Convert_Kelvin_To_Celsius) {
 }
 
 TEST_F(TempConvTest, Can_Convert_Celsius_To_Newton) {
-    EXPECT_EQ(1.650000, tempconv.Convert(5, Celsius, Newton));
+    double CtoF =  5 *  1 / 3.0303030303030303;
+    EXPECT_EQ(CtoF, tempconv.Convert(5, Celsius, Newton));
 }
 
 TEST_F(TempConvTest, Can_Convert_Fahrenheit_To_Celsius) {
-    EXPECT_EQ(-26.444444, tempconv.Convert(10, Fahrenheit, Celsius));
+    double FtoC = 0.5555555555555556 * 10 - 32 
+    EXPECT_EQ(FtoC, tempconv.Convert(10, Fahrenheit, Celsius));
 }
 
 TEST_F(TempConvTest, Can_Convert_Newton_To_Fahrenheit) {
-    EXPECT_EQ(57.600000, tempconv.Convert(0, Newton, Fahrenheit));
+    double NtoF = 1 / 0.5555555555555556 * 32;
+    EXPECT_EQ(NtoF, tempconv.Convert(0, Newton, Fahrenheit));
 }
