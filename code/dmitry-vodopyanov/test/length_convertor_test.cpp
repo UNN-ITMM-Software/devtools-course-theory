@@ -15,7 +15,7 @@ class LengthConvertorTest : public ::testing::Test {
 };
 
 TEST_F(LengthConvertorTest, Can_Convert_KMeters_to_Meters) {
-    EXPECT_EQ(1300.000000, convertor.Convert({1.3, km}, m).value);
+    EXPECT_EQ(1300.000000, convertor.Convert({1.3, LengthUnit::km}, m).value);
 }
 
 TEST_F(LengthConvertorTest,
