@@ -42,7 +42,7 @@ TEST_F(AppTestR, Is_Checking_Number_Of_Arguments) {
 
     RunApp(argc, argv);
 
-    Check("ERROR: Should be 3 argum");
+    Check("ERROR: Should be 3");
 }
 
 TEST_F(AppTestR, Can_Detect_Wrong_Unit_Format) {
