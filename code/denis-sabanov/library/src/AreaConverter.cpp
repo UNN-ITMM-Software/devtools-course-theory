@@ -1,6 +1,6 @@
 /* Copyright 2013 Denis Sabanov */
-#include "stdafx.h"
-#include "AreaConverter.h"
+
+#include "library/AreaConverter.h"
 
 AreaConverter::AreaConverter(double value_, AreaType type_)
 : value(10), curType(sMeter) {
@@ -82,9 +82,7 @@ double AreaConverter::ConvertToNewType(AreaType newType) {{
         return value = value/10000;
         }
 	default: {
-		printf("Wrong parameters");
-		return 0;
-		}
-	}}}
-	
-
+	printf("Wrong parameters");
+	return 0;
+	}
+}}}
