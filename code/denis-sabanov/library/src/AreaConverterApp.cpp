@@ -1,21 +1,23 @@
-#include "stdafx.h"
+/* Copyright 2013 Denis Sabanov */
+
+#include "library/AreaConverterApp.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <cstdio>
 #include <string>
 #include <sstream>
-#include "AreaConverterApp.h"
 
 AreaConverterApp::AreaConverterApp() : message_("") {}
 
 void AreaConverterApp::help(const char* appname) {
-	message_ += std::string("This is a area convertor application.\n\n")
+    message_ += std::string("This is a area convertor application.\n\n")
     +"Please provide arguments in the following format:\n\n"
     +"  $ " + appname + "  <value> <Current_Unit> <New_Unit>\n\n"
-	+ "<value> is double number, "
+    + "<value> is double number, "
     +"The list of area units: \n"
-    +"\n 0 - sKilometer,\n 1 - hectare,\n 2 - ar, \n 3 - acre \n 4 - sMeter \n 5 - sFoot \n";
+    +"\n 0 - sKilometer,\n 1 - hectare,\n 2 - ar, \n 3 - acre \n" 
+    +"4 - sMeter \n 5 - sFoot \n";
 }
 
 double parseDouble(const char* arg);
@@ -45,7 +47,7 @@ int64_t parseInteger(const char* arg) {
 }
 
 AreaType parseAreaUnit(const char* arg) {
-	AreaType value;
+    AreaType value;
     if (strcmp(arg, "sKilometer") == 0) {
       value = sKilometer;
     } else if (strcmp(arg, "hectare") == 0) {
@@ -78,8 +80,8 @@ bool AreaConverterApp::parseArguments(int argc, char** argv,
 
     try {
         expression->value = static_cast<double>(parseDouble(argv[1]));
-		expression->curUnit = static_cast<AreaType>(parseAreaUnit(argv[2]));
-		expression->newUnit = static_cast<AreaType>
+        expression->curUnit = static_cast<AreaType>(parseAreaUnit(argv[2]));
+        expression->newUnit = static_cast<AreaType>
                                                 (parseAreaUnit(argv[3]));
     }
     catch(...) {
@@ -98,16 +100,16 @@ std::string AreaConverterApp::operator()(int argc,
     if (returnCode != true)
         return message_;
 
-	AreaConverter Converter;
+    AreaConverter Converter;
     AreaType newUnit;
-	Converter.SetValue (expr.value);
-	Converter.SetAreaType (expr.curUnit);
+    Converter.SetValue(expr.value);
+    Converter.SetAreaType(expr.curUnit);
     newUnit = expr.newUnit;
 
     std::ostringstream stream;
     stream << "Result = ";
 
-	stream << Converter.ConvertToNewType(newUnit);
+    stream << Converter.ConvertToNewType(newUnit);
 
     message_ = stream.str();
 
