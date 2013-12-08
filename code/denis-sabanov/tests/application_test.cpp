@@ -18,14 +18,14 @@ TEST(AppTest, Do_Print_Help_Without_Arguments) {
     // Assert
     EXPECT_TRUE(RE::PartialMatch(
                     output,
-                    RE("This is a weight convertor application")));
+                    RE("This is a area convertor application")));
 }
 
 TEST(AppTest, Can_Detect_Wrong_Number_Format) {
     // Arrange
     AreaConverterApp app;
     int argc = 4;
-    char* argv[] = {"appname", "x", "hectare", "ar"};
+    char* argv[] = {"appname", "s", "hectare", "ar"};
 
     // Act
     std::string output = app(argc, argv);
@@ -40,7 +40,7 @@ TEST(AppTest, Can_Detect_Wrong_Operation_Format) {
     // Arrange
     AreaConverterApp app;
     int argc = 4;
-    char* argv[] = {"appname", "1", "1", "abc"};
+    char* argv[] = {"appname", "1", "2", "qwe"};
 
     // Act
     std::string output = app(argc, argv);
