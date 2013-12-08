@@ -1,3 +1,6 @@
+/* Copyright 2013 Denis Sabanov */
+#ifndef CODE_DENIS_SABANOV_INCLUDE_AREACONVERTER_APP_H_
+#define CODE_DENIS_SABANOV_INCLUDE_AREACONVERTER_APP_H_
 
 #include <stdint.h>
 #include <string>
@@ -21,4 +24,5 @@ private:
 
     void help(const char* appname);
     bool parseArguments(int argc, char** argv, Expression* expr);
+#endif // CODE_DENIS_SABANOV_INCLUDE_AREACONVERTER_APP_H_
 };
