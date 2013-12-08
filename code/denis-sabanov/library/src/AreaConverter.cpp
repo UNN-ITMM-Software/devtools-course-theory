@@ -81,8 +81,8 @@ double AreaConverter::ConvertToNewType(AreaType newType) {{
         curType = newType;
         return value = value/10000;
         }
-	default: {
-	printf("Wrong parameters");
-	return 0;
-	}
+        default: {
+        printf("Wrong parameters");
+        return 0;
+        }
 }}}
