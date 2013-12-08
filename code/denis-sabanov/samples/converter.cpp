@@ -1,7 +1,7 @@
 /* Copyright 2013 Denis Sabanov */
 
-#include "library/AreaConverterApp.h"
 #include <string>
+#include "library/AreaConverterApp.h"
 
 int main(int argc, char** argv) {
     AreaConverterApp app;
