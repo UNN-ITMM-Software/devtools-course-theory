@@ -1,6 +1,7 @@
 /* Copyright 2013 Denis Sabanov */
 
 #include "library/AreaConverter.h"
+#include <stdio>
 
 AreaConverter::AreaConverter(double value_, AreaType type_)
 : value(10), curType(sMeter) {
