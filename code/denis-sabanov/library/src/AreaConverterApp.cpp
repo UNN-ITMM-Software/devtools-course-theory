@@ -16,7 +16,7 @@ void AreaConverterApp::help(const char* appname) {
     +"  $ " + appname + "  <value> <Current_Unit> <New_Unit>\n\n"
     + "<value> is double number, "
     +"The list of area units: \n"
-    +"\n 0 - sKilometer,\n 1 - hectare,\n 2 - ar, \n 3 - acre \n" 
+    +"\n 0 - sKilometer,\n 1 - hectare,\n 2 - ar, \n 3 - acre \n"
     +"4 - sMeter \n 5 - sFoot \n";
 }
 
