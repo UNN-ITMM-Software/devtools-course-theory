@@ -27,7 +27,7 @@ double parseDouble(const char* arg) {
     double value = strtod(arg, &end);
 
     if (end[0]) {
-        throw "wrong arguments format";
+        throw "wrong number format";
     }
 
     return value;
