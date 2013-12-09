@@ -1,0 +1,59 @@
+#############################################
+##### Testing
+#############################################
+
+enable_testing()
+
+add_test( 
+    NAME can_Run
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+
+add_test( 
+    NAME can_Print_Help_Without_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+set_tests_properties (can_Print_Help_Without_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "This is a dichotomy search.")
+
+add_test(
+    NAME can_Check_Number_Of_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 10 
+)
+set_tests_properties (can_Check_Number_Of_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be 2 arguments!")
+
+add_test(
+    NAME can_Detect_Wrong_Number_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 10 exa
+)
+set_tests_properties (can_Detect_Wrong_Number_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong arguments format!")
+
+add_test(
+    NAME can_Detect_Incorrect_First_Argument
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -1 5
+)
+set_tests_properties (can_Detect_Incorrect_First_Argument 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Size of array must be more than zero!")
+
+add_test(
+    NAME can_Detect_Not_Found_Element
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 10 -5
+)
+set_tests_properties (can_Detect_Not_Found_Element 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Element not found!")
+
+add_test(
+    NAME can_Detect_Element
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 20 54
+)
+set_tests_properties (can_Detect_Element 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Index of search element: 1")

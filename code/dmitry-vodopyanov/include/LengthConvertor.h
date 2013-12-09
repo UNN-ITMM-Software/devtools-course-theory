@@ -4,14 +4,15 @@
 
 enum LengthUnit {Inch, Foot, Yard, Mile, Meter, KMeter, CMeter};
 
+#pragma pack(push, 1)
 struct Length {
     double value;
     LengthUnit UnitInput;
 };
+#pragma pack(pop)
 
 class LengthConvertor {
-public
-:
+ public:
     LengthConvertor(void);
     virtual ~LengthConvertor(void);
 

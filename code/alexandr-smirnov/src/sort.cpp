@@ -9,13 +9,17 @@ class Sorter::SortImplementation {
     void mergeSort(int *Array, int size);
     void quickSortProcess(int l, int r);
     void downHeap(int *mass, int K, int N);
-    void mergeSortProcess(int *mass, int L, int R);
+    void mergeSortProcess(int L, int R);
     void merge(int *a, int L, int Pivot, int R);
  private :
     int *elements;
 };
 
 Sorter::Sorter(void): pImpl(new SortImplementation) {
+}
+
+Sorter::Sorter(const Sorter& sorter): pImpl(new SortImplementation) {
+    pImpl = sorter.pImpl;
 }
 
 Sorter::~Sorter(void) {
@@ -38,8 +42,15 @@ void Sorter::Sort(int *Array, int size, SortMethod method) {
     }
 }
 
+const Sorter& Sorter::operator=(const Sorter& sorter) {
+    if (this != &sorter) {
+      delete pImpl;
+      pImpl = sorter.pImpl;
+    }
+    return *this;
+}
+
 void Sorter::SortImplementation::quickSort(int *Array, int size) {
-    elements = new int[size];
     elements = Array;
     quickSortProcess(0, size - 1);
 }
@@ -68,17 +79,18 @@ void Sorter::SortImplementation::quickSortProcess(int l, int r) {
 }
 
 void Sorter::SortImplementation::heapSort(int *Array, int size) {
-      elements = new int[size];
-      elements = Array;
-      int i, tmp;
-      for (i = size / 2 - 1; i >= 0; i--)
-          downHeap(elements, i, size-1);
-      for (i = size - 1; i > 0; i--) {
-          tmp = elements[i];
-          elements[i] = elements[0];
-          elements[0] = tmp;
-          downHeap(elements, 0, i - 1);
-      }
+    elements = Array;
+    int i, tmp;
+    for (i = size / 2; i >= 0; i--)
+        downHeap(elements, i, size-1);
+    for (i = size / 2 - 1; i >= 0; i--)
+        downHeap(elements, i, size-1);
+    for (i = size - 1; i > 0; i--) {
+        tmp = elements[i];
+        elements[i] = elements[0];
+        elements[0] = tmp;
+        downHeap(elements, 0, i - 1);
+    }
 }
 
 void Sorter::SortImplementation::downHeap(int *mass, int K, int N) {
@@ -96,17 +108,16 @@ void Sorter::SortImplementation::downHeap(int *mass, int K, int N) {
 }
 
 void Sorter::SortImplementation::mergeSort(int *Array, int size) {
-    elements = new int[size];
     elements = Array;
-    mergeSortProcess(elements, 0, size - 1);
+    mergeSortProcess(0, size - 1);
 }
 
-void Sorter::SortImplementation::mergeSortProcess(int *mass, int L, int R) {
+void Sorter::SortImplementation::mergeSortProcess(int L, int R) {
     int Pivot;
     if (L < R) {
         Pivot = (L + R) / 2;
-        mergeSortProcess(elements, L, Pivot);
-        mergeSortProcess(elements, Pivot + 1, R);
+        mergeSortProcess(L, Pivot);
+        mergeSortProcess(Pivot + 1, R);
         merge(elements, L, Pivot, R);
     }
 }

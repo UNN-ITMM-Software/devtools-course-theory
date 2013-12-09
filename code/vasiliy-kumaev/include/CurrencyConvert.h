@@ -4,10 +4,12 @@
 
 enum Unit {Dollar, Euro, Ruble, Pound};
 
+#pragma pack(push, 1)
 struct Currency {
     Unit unit;
     double value;
 };
+#pragma pack(pop)
 
 class CurrencyConvert {
  public:

@@ -1,0 +1,83 @@
+#############################################
+##### Testing
+#############################################
+
+enable_testing()
+
+add_test( 
+    NAME can_Run
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+
+add_test( 
+    NAME can_Print_Help_Without_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+set_tests_properties (can_Print_Help_Without_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "This is a quadratic equation application.")
+
+add_test(
+    NAME can_Check_Number_Of_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 2
+)
+set_tests_properties (can_Check_Number_Of_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be 3 coefficients!")
+
+add_test(
+    NAME can_Detect_Wrong_Number_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 2 eps
+)
+set_tests_properties (can_Detect_Wrong_Number_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong coefficients format!")
+
+add_test(
+    NAME can_Detect_Zero_First_Coefficient
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0 7.5 5.0
+)
+set_tests_properties (can_Detect_Zero_First_Coefficient 
+  PROPERTIES PASS_REGULAR_EXPRESSION "First coefficient must be non-zero!")
+
+add_test(
+    NAME can_Solve_Equation_With_Integer_Coefficients
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 2 -3
+)
+set_tests_properties (can_Solve_Equation_With_Integer_Coefficients
+  PROPERTIES PASS_REGULAR_EXPRESSION "Root1 = 1\\.000, Root2 = -3\\.000")
+
+add_test(
+    NAME can_Solve_Equation_With_Real_Coefficients
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1.7 6.95 -2.3
+)
+set_tests_properties (can_Solve_Equation_With_Real_Coefficients
+  PROPERTIES PASS_REGULAR_EXPRESSION "Root1 = 0\\.308, Root2 = -4\\.396")
+
+add_test(
+    NAME can_Solve_Equation_With_Zero_Third_Coefficient
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 8 0
+)
+set_tests_properties (can_Solve_Equation_With_Zero_Third_Coefficient
+  PROPERTIES PASS_REGULAR_EXPRESSION "Root1 = 0\\.000, Root2 = -8\\.000")
+
+add_test(
+    NAME can_Solve_Equation_With_One_Real_Root
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 2 1
+)
+set_tests_properties (can_Solve_Equation_With_One_Real_Root
+  PROPERTIES PASS_REGULAR_EXPRESSION "Root1 = -1\\.000, Root2 = -1\\.000")
+
+add_test(
+    NAME can_Detect_Equation_With_No_Real_Roots
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 0 4
+)
+set_tests_properties (can_Detect_Equation_With_No_Real_Roots
+  PROPERTIES PASS_REGULAR_EXPRESSION "No real roots")

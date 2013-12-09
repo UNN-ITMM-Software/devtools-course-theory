@@ -1,0 +1,85 @@
+#############################################
+##### Testing
+#############################################
+
+enable_testing()
+
+add_test( 
+    NAME can_Run
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+
+add_test( 
+    NAME can_Print_Help_Without_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+
+set_tests_properties (can_Print_Help_Without_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "This is a simple handler for regexps and substrings\\.")
+
+add_test(
+    NAME can_Check_Overflow_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 'a' 'b' 'c' 'd'
+)
+
+set_tests_properties (can_Check_Overflow_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Too much arguments!")
+
+add_test(
+    NAME can_Match_Simple_Regexp_And_Same_Substring
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} ".*" ".*" "Any string!"
+)
+
+set_tests_properties (can_Match_Simple_Regexp_And_Same_Substring
+  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: match\\.")
+set_tests_properties (can_Match_Simple_Regexp_And_Same_Substring 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: does not found\\.")
+
+add_test(
+    NAME can_Find_And_Match_Simple_String
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} "top" "top" "top of the list"
+)
+
+set_tests_properties (can_Find_And_Match_Simple_String
+  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: match\\.")
+set_tests_properties (can_Find_And_Match_Simple_String 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: first pos is: 0\\.")
+
+add_test(
+    NAME can_Not_Match
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} "^No" "No" "Yes, No or Maybe"
+)
+
+set_tests_properties (can_Not_Match
+  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: match\\.")
+set_tests_properties (can_Not_Match 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: first pos is: 5\\.")
+
+add_test(
+    NAME can_Not_Find_String_And_Match_Regexpr
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} "find" "find" "faind the dog"
+)
+
+set_tests_properties (can_Not_Find_String_And_Match_Regexpr
+  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: does not match\\.")
+set_tests_properties (can_Not_Find_String_And_Match_Regexpr 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: does not found\\.")
+
+add_test(
+    NAME can_Match_Dif_Regexp
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} "^Le...*s*k*e*l*z*ll$" "Haskell" "Learn your Haskell for great good!"
+)
+
+set_tests_properties (can_Match_Dif_Regexp
+  PROPERTIES PASS_REGULAR_EXPRESSION "Regexp: match\\.")
+set_tests_properties (can_Match_Dif_Regexp 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Substring: first pos is: 11\\.")
+  

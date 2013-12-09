@@ -1,0 +1,176 @@
+#############################################
+##### Testing
+#############################################
+
+enable_testing()
+
+add_test( 
+    NAME can_Run
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+
+add_test( 
+    NAME can_Print_Help_Without_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+set_tests_properties (can_Print_Help_Without_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "This is an application")
+
+add_test(
+    NAME can_Check_Number_Of_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 2
+)
+set_tests_properties (can_Check_Number_Of_Arguments 
+  PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be 4, 7, 8 or 9 arguments")
+
+add_test(
+    NAME can_Detect_Wrong_Number_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 1,1 A 0
+)
+set_tests_properties (can_Detect_Wrong_Number_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
+
+add_test(
+    NAME can_Detect_Wrong_Operation_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 1 A +trash
+)
+set_tests_properties (can_Detect_Wrong_Operation_Format 
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong operation format!")
+
+add_test(
+    NAME can_Detect_Wrong_Name_Of_Vertex
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 1 z 0
+)
+set_tests_properties (can_Detect_Wrong_Name_Of_Vertex
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong name of vertex!")
+
+add_test(
+    NAME can_Detect_Wrong_Operation
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 1 A 1
+)
+set_tests_properties (can_Detect_Wrong_Operation
+  PROPERTIES PASS_REGULAR_EXPRESSION "- Wrong operation!")
+
+add_test(
+    NAME can_Set_Positive_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 2 3 A 0
+)
+set_tests_properties (can_Set_Positive_Numbers
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result A = (2.00, 3.00)]")
+
+add_test(
+    NAME can_Get_Positive_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 1 1 2 2 6 6 B 1
+)
+set_tests_properties (can_Get_Positive_Numbers
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result B = (2.00, 2.00)]")
+
+
+add_test(
+    NAME can_Set_Negative_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -20 -30 C 0
+)
+set_tests_properties (can_Set_Negative_Numbers
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result C = (-20.00, -30.00)]")
+
+add_test(
+    NAME can_Get_Negative_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} -1 -1 -2.22 -3.22 -0.2 -0.3 A 1
+)
+set_tests_properties (can_Get_Negative_Numbers
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result A = (-1.00, -1.00)]")
+
+add_test(
+    NAME can_Detect_Wrong_Triangle
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0 0 5 5 2.5 2.5 4 
+)
+set_tests_properties (can_Detect_Wrong_Triangle
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = Isn't correct")
+
+
+add_test(
+    NAME can_Detect_Correct_Triangle
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0 0 5 5 0 3 4 
+)
+set_tests_properties (can_Detect_Correct_Triangle
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = Is correct")
+
+add_test(
+    NAME can_Detect_Equilateral_Triangle
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0 0 3 5 5 3 5 
+)
+set_tests_properties (can_Detect_Equilateral_Triangle
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = Is equilateral")
+
+add_test(
+    NAME can_Detect_Not_Equilateral_Triangle
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0 0 3 7 5 3 5 
+)
+set_tests_properties (can_Detect_Not_Equilateral_Triangle
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = Isn't equilateral")
+
+add_test(
+    NAME can_Detect_Isosceles_Triangle
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0 0 5 0 2.5 4.33012719 6 
+)
+set_tests_properties (can_Detect_Isosceles_Triangle
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = Is isosceles")
+
+add_test(
+    NAME can_Detect_Not_Isosceles_Triangle
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0 0 3 7 5 3 6 
+)
+set_tests_properties (can_Detect_Not_Isosceles_Triangle
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = Isn't isosceles")
+
+add_test(
+    NAME can_Calculate_Side
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0 0 3 7 5 3 A B 3 
+)
+set_tests_properties (can_Calculate_Side
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result AB = 7.62]")
+
+
+add_test(
+    NAME can_Calculate_Angle
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0 0 5 0 2.5 4.33012719 A 2
+)
+set_tests_properties (can_Calculate_Angle
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result Angle A = 60.00]")
+
+
+add_test(
+    NAME can_Calculate_Square
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0 6 3 0 0 0 7
+)
+set_tests_properties (can_Calculate_Square
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result square = 9.00]")
+
+add_test(
+    NAME can_Calculate_Perimeter
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} 0 3 0 0 4 0 8
+)
+set_tests_properties (can_Calculate_Perimeter
+  PROPERTIES PASS_REGULAR_EXPRESSION "[Result perimeter = 12.00]")
+

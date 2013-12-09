@@ -3,20 +3,21 @@
 #define CODE_KSENYA_KOCHANOVA_INCLUDE_TEMPERATURECONVERTER_H_
 
 enum TemperatureUnit {Celsius, Kelvin, Fahrenheit, Newton};
-
-struct Temperature {
+#pragma pack(push, 1)
+typedef struct {
     double value;
     TemperatureUnit unit;
-};
-
-static double a[4] = {1, 1, 5/9, 100/33};
-static double b[4] = {0, -273.15, -32, 0};
+} Temperature;
+#pragma pack(pop)
 
 class TemperatureConvertor {
     public
     :
         TemperatureConvertor(void);
         ~TemperatureConvertor(void);
+        Temperature Convert(Temperature fromtemp, TemperatureUnit toUnit);
+    private
+    :
         Temperature ConvertToCelsius(Temperature fromTemperature);
         Temperature ConvertFromCelsius(Temperature inCelsius,
 TemperatureUnit toUnit);

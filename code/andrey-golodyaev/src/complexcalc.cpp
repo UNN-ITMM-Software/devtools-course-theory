@@ -5,9 +5,21 @@
 #include <stdio.h>
 #include <string>
 #include <sstream>
-ComplexCalculator::ComplexCalculator(double _real, double _imaginary) {
-    real = _real;
-    imaginary = _imaginary;
+
+#if defined(_MSC_VER)
+    #define mystrncpy proxy_func
+    void proxy_func(char *strDest, const char *strSource, size_t count) {
+        strncpy_s(strDest, 256, strSource, count);
+    }
+#else
+    #define mystrncpy strncpy
+#endif
+
+ComplexCalculator::ComplexCalculator(): real(0), imaginary(0) {
+}
+ComplexCalculator::ComplexCalculator(double _real,
+                                     double _imaginary): real(_real),
+                                     imaginary(_imaginary) {
 }
 ComplexCalculator::~ComplexCalculator() {
 }
@@ -26,30 +38,59 @@ void ComplexCalculator::SetImaginary(double _imaginary) {
 void ComplexCalculator::Input(char *str) {
     std::string s = str;
     std::string i = "";
-    int n = 1;
-    int ii = 0;
+    std::basic_string<char>::size_type n = 1;
+    std::basic_string<char>::size_type ii = 0;
+    int sh = 0;
+    int si = 0;
+    for (std::basic_string<char>::size_type iii = 0;
+         iii < s.length(); iii++) {
+        if (s[iii] == 'i') si++;
+        if (s[iii] == '*' || s[iii] == '/') sh++;
+        if ((si > 1) || (sh > 1) || (((s[iii] < '0') ||(s[iii] > '9'))
+            && (s[iii] != 'i')
+            && (s[iii] != '+') && (s[iii] != '-') && (s[iii] != '*')
+            && (s[iii] != '/'))) {
+            printf("Wrong number format!\n");
+            exit(2);
+        }
+    }
     int qr = 1, qi = 1;
     if (s[0] != '+' && s[0] != '-') s = "+"+s;
+    s = s+' ';
     n = s.find('i');
-    if (n != -1) {
+    if (si > 0 && n > 0) {
         while (s[n-ii] != '+' && s[n-ii] != '-') {
             i = s[n-ii]+i;
             ii++;
         }
         if (s[n-ii] == '-') qi = -1;
         ii = 0;
-        while (s[n+ii] != '+' && s[n+ii] != '-') {
+        while (s[n+ii] != '+' && s[n+ii] != '-' && s[n+ii] != ' ') {
             i = i+s[n+ii];
             ii++;
             if (n+ii == s.length()) break;
         }
         i.erase(i.find('i'), 1);
-        s.erase(s.find(i), i.length());
+        if (i.find("i") > 0 && i.find("i") < i.length()-1) {
+            printf("Wrong number format!\n");
+            exit(2);
+        }
+        s.erase(s.find(i)-1, i.length()+1);
         i.erase(i.find('i'), 1);
-        if (i.find('*') != -1) i.erase(i.find('*'), 1);
+        if (sh > 0) i.erase(i.find('*'), 1);
+        if (sh > 0 && i == "") {
+            printf("Wrong number format!\n");
+            exit(2);
+        }
         if (i == "") imaginary = 1;
         else
-            imaginary = atof(i.c_str());
+            try {
+                imaginary = atof(i.c_str());
+            }
+            catch(...) {
+                printf("Wrong number format!\n");
+                exit(2);
+            }
         imaginary*=qi;
     } else {
         imaginary = 0;
@@ -63,21 +104,28 @@ void ComplexCalculator::Input(char *str) {
     }
     if (s == "") real = 0;
     else
-        real = atof(s.c_str());
+        try {
+            real = atof(s.c_str());
+        }
+        catch(...) {
+                printf("Wrong number format!\n");
+        }
     real*=qr;
 }
 void ComplexCalculator::Output(char *str) {
     std::string str1 = "";
-    if (real != 0) {
+    double ep = 0.00001;
+    double ep2 = 1.0000;
+    if (real > ep || real < -ep) {
         std::ostringstream ss;
         ss << real;
         str1 = ss.str();
     }
-    if (imaginary != 0) {
+    if (imaginary > ep || imaginary < -ep) {
         if (imaginary < 0) str1+='-';
         else
-            if (real != 0) str1+='+';
-        if (imaginary != 1) {
+            if (real > ep || real < -ep) str1+='+';
+        if (imaginary > ep2 || imaginary < -ep2) {
             std::ostringstream sss;
             if (imaginary > 0)
                 sss << (imaginary);
@@ -88,8 +136,9 @@ void ComplexCalculator::Output(char *str) {
         }
         str1+="i";
     }
-    if (real == 0 && imaginary == 0) str1 = "0";
-    strncpy(str, (str1.c_str()), str1.length());
+    if (real < ep && real > -ep &&
+        imaginary < ep && imaginary > -ep) str1 = "0";
+    mystrncpy(str, (str1.c_str()), str1.length());
 }
 ComplexCalculator ComplexCalculator::Add(ComplexCalculator first,
                                          ComplexCalculator second) {
@@ -117,6 +166,14 @@ ComplexCalculator ComplexCalculator::Multi(ComplexCalculator first,
 ComplexCalculator ComplexCalculator::Div(ComplexCalculator first,
                                          ComplexCalculator second) {
     ComplexCalculator temp(0, 0);
+    double ep = 0.00001;
+    if (second.GetReal()*second.GetReal()
+       +second.GetImaginary()*second.GetImaginary() < ep &&
+       second.GetReal()*second.GetReal()
+       +second.GetImaginary()*second.GetImaginary() > -ep) {
+    printf("Division by zero!\n");
+    exit(4);
+    }
     temp.real = (first.GetReal()*second.GetReal()
                 +first.GetImaginary()*second.GetImaginary())/
                 (second.GetReal()*second.GetReal()
