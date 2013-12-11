@@ -89,3 +89,8 @@ TEST_F(FractionTest, Do_Throw_Exception_When_Div_Fractions_With_Zero_Divisor) {
     fract2.SetNumenator(0);
     EXPECT_THROW(Fraction::Divide(fract1, fract2), std::string);
 }
+
+TEST_F(FractionTest, canCompareFractions) {
+    SetUpResultFraction(1, 2, 1, 2, '*');
+    EXPECT_TRUE(fract1 == fract2);
+}

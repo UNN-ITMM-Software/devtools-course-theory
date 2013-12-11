@@ -23,6 +23,8 @@
             static Fraction Subtract(Fraction a, Fraction b);
             static Fraction Multiply(Fraction a, Fraction b);
             static Fraction Divide(Fraction a, Fraction b);
+
+            bool operator==(const Fraction& a) const;
         private :
             int numenator; 
             int denominator;
