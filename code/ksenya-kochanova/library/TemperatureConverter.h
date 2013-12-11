@@ -20,7 +20,7 @@ class TemperatureConvertor {
     :
         static double a[4];
         static double b[4];
-        bool CheckThatHigherThanAbsoluteZero(Temperature t,
+        int CheckThatHigherThanAbsoluteZero(Temperature t,
                                   TemperatureUnit fromUnit);
         Temperature ConvertToCelsius(Temperature fromTemperature);
         Temperature ConvertFromCelsius(Temperature inCelsius,
