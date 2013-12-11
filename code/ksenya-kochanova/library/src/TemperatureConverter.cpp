@@ -8,37 +8,37 @@
 
 TemperatureConvertor::TemperatureConvertor() {}
 TemperatureConvertor::~TemperatureConvertor() {}
-
+double TemperatureConvertor::a[4] = {1, 1, 0.5555555555555556, 3.030303030302};
+double TemperatureConvertor::b[4] = {0, -273.15, -32, 0};
 Temperature TemperatureConvertor::ConvertToCelsius(Temperature
-fromTemperature) {
-    double a[4] = {1, 1, 0.5555555555555556, 3.030303030302};
-    double b[4] = {0, -273.15, -32, 0};
+                                            fromTemperature) {
     Temperature inCelsius;
     inCelsius.value = a[fromTemperature.unit] * fromTemperature.value
-+ b[fromTemperature.unit];
+                                            + b[fromTemperature.unit];
     return inCelsius;
 }
-double TemperatureConvertor::ConvertFromCelsius(Temperature inCelsius,
-TemperatureUnit toUnit) {
-    double a[4] = {1, 1, 0.5555555555555556, 3.030303030302};
-    double b[4] = {0, -273.15, -32, 0};
+Temperature TemperatureConvertor::ConvertFromCelsius(Temperature inCelsius,
+                                                 TemperatureUnit toUnit) {
     Temperature outTemperature;
     outTemperature.value = 1 / a[toUnit] * (inCelsius.value - b[toUnit]);
-    return outTemperature.value;
+    return outTemperature;
 }
-double TemperatureConvertor::Convert(double value,
-                           TemperatureUnit fromUnit, TemperatureUnit toUnit) {
-    Temperature t;
-        if (((value < -273.15)&&(fromUnit == Celsius))||
-            ((value < 0)&&(fromUnit == Kelvin))||
-            ((value < -459.67)&&(fromUnit == Fahrenheit))||
-            ((value < -90.14)&&(fromUnit == Newton))||
-            ((fromUnit < Celsius) || (fromUnit > Newton)) ||
-            ((toUnit < Celsius) || (toUnit > Newton))) {
+bool TemperatureConvertor::CheckThatHigherThanAbsoluteZero (Temperature t,
+                                                 TemperatureUnit toUnit) {
+    if (((t.value < -273.15)&&(t.unit == Celsius))||
+            ((t.value < 0)&&(t.unit == Kelvin))||
+            ((t.value < -459.67)&&(t.unit == Fahrenheit))||
+            ((t.value < -90.14)&&(t.unit == Newton))||
+            ((t.unit < Celsius) || (t.unit > Newton)) ||
+            ((toUnit < Celsius) || (toUnit > Newton)))
+			return false;
+}
+Temperature TemperatureConvertor::Convert(Temperature t,
+                               TemperatureUnit toUnit) {
+    if (!CheckThatHigherThanAbsoluteZero (t, toUnit)){
             throw std::string("Wrong data!");
         }
-        t.value = value;
-        t.unit = fromUnit;
       Temperature temp = ConvertToCelsius(t);
-        return ConvertFromCelsius(temp, toUnit);
+      return ConvertFromCelsius(temp, toUnit);
 }
+

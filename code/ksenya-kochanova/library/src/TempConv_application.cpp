@@ -26,10 +26,8 @@ double parseDouble(const char* arg) {
     char* end;
     double value = strtod(arg, &end);
     if (!end[0]) {
-        printf("%s is valid\n", arg);
     } else {
-        printf("%s is invalid\n", arg);
-        throw std::string("Wrong data!");
+      throw std::string("Wrong data!");
     }
     return value;
 }
@@ -38,19 +36,14 @@ TemperatureUnit parseUnit(const char* arg) {
      TemperatureUnit unit;
      if (strcmp(arg, "Celsius") == 0) {
        unit = Celsius;
-       printf("%s is valid\n", arg);
      } else if (strcmp(arg, "Kelvin") == 0) {
        unit = Kelvin;
-       printf("%s is valid\n", arg);
      } else if (strcmp(arg, "Fahrenheit") == 0) {
        unit = Fahrenheit;
-       printf("%s is valid\n", arg);
      } else if (strcmp(arg, "Newton") == 0) {
        unit = Newton;
-       printf("%s is valid\n", arg);
      } else {
-         printf("%s is invalid\n", arg);
-         throw std::string("Wrong data!");
+       throw std::string("Wrong data!");
      }
      return unit;
 }
@@ -65,19 +58,17 @@ bool TempConvApp::parseArguments(int argc, const char** argv,
         help(argv[0]);
         return false;
     }
-
-        try {
-             expression->value = static_cast<double>(parseDouble(argv[1]));
-             expression->oldunit = static_cast<TemperatureUnit>(parseUnit
-             (argv[2]));
-             expression->newunit = static_cast<TemperatureUnit>(parseUnit
-             (argv[3]));
-             }
-        catch(...) {
-            printf("Wrong data!");
-            message_ = "Wrong data!";
-            return false;
-            }
+    try {
+         expression->value = static_cast<double>(parseDouble(argv[1]));
+         expression->oldunit = static_cast<TemperatureUnit>(parseUnit
+         (argv[2]));
+         expression->newunit = static_cast<TemperatureUnit>(parseUnit
+         (argv[3]));
+    }
+    catch(...) {
+         message_ = "Wrong data!";
+         return false;
+    }
     return true;
 }
 
@@ -89,15 +80,15 @@ std::string TempConvApp::operator()(int argc, const char** argv) {
         return message_;
     }
     TemperatureConvertor tempconv;
-    Temperature t;
+    Temperature oldTemp, t;
+    oldTemp.value = expr.value;
+    oldTemp.unit = expr.oldunit;
     try {
-    t.value = tempconv.Convert(expr.value, expr.oldunit,
-    expr.newunit);
-    stream << "Result = ";
-    stream << t.value;
+        t = tempconv.Convert(oldTemp, expr.newunit);
+        stream << "Result = ";
+        stream << t.value;
     }
     catch(...) {
-        printf("Wrong data!");
         stream << "Wrong data!";
     }
     message_ = stream.str();

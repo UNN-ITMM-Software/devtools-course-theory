@@ -15,13 +15,16 @@ class TemperatureConvertor {
     :
         TemperatureConvertor(void);
         ~TemperatureConvertor(void);
-       double Convert(double value, TemperatureUnit fromUnit,
-       TemperatureUnit toUnit);
+        Temperature Convert(Temperature t, TemperatureUnit toUnit);
     private
-    :
+    :      
+        static double a[4];
+        static double b[4];
+        bool CheckThatHigherThanAbsoluteZero(Temperature t,
+                                  TemperatureUnit fromUnit);
         Temperature ConvertToCelsius(Temperature fromTemperature);
-        double ConvertFromCelsius(Temperature inCelsius,
-TemperatureUnit toUnit);
+		Temperature ConvertFromCelsius(Temperature inCelsius,
+                                     TemperatureUnit toUnit);
     };
 
 #endif  // CODE_KSENYA_KOCHANOVA_LIBRARY_TEMPERATURECONVERTER_H_
