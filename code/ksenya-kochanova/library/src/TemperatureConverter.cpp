@@ -35,7 +35,8 @@ bool TemperatureConvertor::CheckThatHigherThanAbsoluteZero(Temperature t,
 }
 Temperature TemperatureConvertor::Convert(Temperature t,
                                TemperatureUnit toUnit) {
-    if (!CheckThatHigherThanAbsoluteZero(t, toUnit)) {
+    bool returnCode = CheckThatHigherThanAbsoluteZero(t, toUnit);
+    if (returnCode != true) {
             throw std::string("Wrong data!");
         }
       Temperature temp = ConvertToCelsius(t);
