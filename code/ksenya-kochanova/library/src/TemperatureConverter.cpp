@@ -23,7 +23,7 @@ Temperature TemperatureConvertor::ConvertFromCelsius(Temperature inCelsius,
     outTemperature.value = 1 / a[toUnit] * (inCelsius.value - b[toUnit]);
     return outTemperature;
 }
-bool TemperatureConvertor::CheckThatHigherThanAbsoluteZero (Temperature t,
+bool TemperatureConvertor::CheckThatHigherThanAbsoluteZero(Temperature t,
                                                  TemperatureUnit toUnit) {
     if (((t.value < -273.15)&&(t.unit == Celsius))||
             ((t.value < 0)&&(t.unit == Kelvin))||
@@ -31,11 +31,11 @@ bool TemperatureConvertor::CheckThatHigherThanAbsoluteZero (Temperature t,
             ((t.value < -90.14)&&(t.unit == Newton))||
             ((t.unit < Celsius) || (t.unit > Newton)) ||
             ((toUnit < Celsius) || (toUnit > Newton)))
-			return false;
+            return false;
 }
 Temperature TemperatureConvertor::Convert(Temperature t,
                                TemperatureUnit toUnit) {
-    if (!CheckThatHigherThanAbsoluteZero (t, toUnit)){
+    if (!CheckThatHigherThanAbsoluteZero(t, toUnit)) {
             throw std::string("Wrong data!");
         }
       Temperature temp = ConvertToCelsius(t);
