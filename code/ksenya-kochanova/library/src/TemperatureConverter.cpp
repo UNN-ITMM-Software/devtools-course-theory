@@ -25,13 +25,15 @@ Temperature TemperatureConvertor::ConvertFromCelsius(Temperature inCelsius,
 }
 int TemperatureConvertor::CheckThatHigherThanAbsoluteZero(Temperature t,
                                                  TemperatureUnit toUnit) {
+    int code = 0;
     if (((t.value < -273.15)&&(t.unit == Celsius))||
             ((t.value < 0)&&(t.unit == Kelvin))||
             ((t.value < -459.67)&&(t.unit == Fahrenheit))||
             ((t.value < -90.14)&&(t.unit == Newton))||
             ((t.unit < Celsius) || (t.unit > Newton)) ||
             ((toUnit < Celsius) || (toUnit > Newton)))
-            return 1;
+            code = 1;
+     return code;
 }
 Temperature TemperatureConvertor::Convert(Temperature t,
                                TemperatureUnit toUnit) {
