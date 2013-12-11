@@ -18,6 +18,13 @@ Fraction::Fraction(int _numenator,
 Fraction::Fraction(): numenator(), denominator() {
 }
 Fraction::~Fraction() {}
+bool Fraction::operator==(const Fraction a, const Fraction b) {
+    if (a.GetNumenator() == b.GetNumenator() &&
+        a.GetDenominator() == b.GetDenominator()) {
+        return true;
+    }
+    return false;
+}
 int Fraction::NOD() {
     int a = abs(numenator);
     int b = abs(denominator);
