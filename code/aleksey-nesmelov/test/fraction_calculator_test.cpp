@@ -30,13 +30,6 @@ class FractionTest : public ::testing::Test {
         }
     }
 
-    bool CheckResult(int num, int denom, Fraction fract) {
-         bool returnCode = true;
-         if (num != fract.GetNumenator() || denom != fract.GetDenominator())
-             returnCode = false;
-         return returnCode;
-    }
-
     Fraction fract1;
     Fraction fract2;
     Fraction result;
@@ -44,47 +37,47 @@ class FractionTest : public ::testing::Test {
 
 TEST_F(FractionTest, can_Add_Positive_Fractions) {
     SetUpResultFraction(1, 3, 1, 2, '+');
-    EXPECT_TRUE(CheckResult(5, 6, result));
+    EXPECT_EQ(Fraction(5, 6), result);
 }
 
 TEST_F(FractionTest, can_Sub_Positive_Fractions) {
     SetUpResultFraction(1, 4, 3, 5, '-');
-    EXPECT_TRUE(CheckResult(-7, 20, result));
+    EXPECT_EQ(Fraction(-7, 20), result);
 }
 
 TEST_F(FractionTest, can_Mult_Positive_Fractions) {
     SetUpResultFraction(2, 3, 3, 4, '*');
-    EXPECT_TRUE(CheckResult(1, 2, result));
+    EXPECT_EQ(Fraction(1, 2), result);
 }
 
 TEST_F(FractionTest, can_Div_Positive_Fractions) {
     SetUpResultFraction(1, 3, 2, 3, '/');
-    EXPECT_TRUE(CheckResult(1, 2, result));
+    EXPECT_EQ(Fraction(1, 2), result);
 }
 
 TEST_F(FractionTest, can_Add_Negative_Fractions) {
     SetUpResultFraction(-1, 3, -1, 2, '+');
-    EXPECT_TRUE(CheckResult(-5, 6, result));
+    EXPECT_EQ(Fraction(-5, 6), result);
 }
 
 TEST_F(FractionTest, can_Sub_Negative_Fractions) {
     SetUpResultFraction(-1, 4, -3, 5, '-');
-    EXPECT_TRUE(CheckResult(7, 20, result));
+    EXPECT_EQ(Fraction(7, 20), result);
 }
 
 TEST_F(FractionTest, can_Mult_Negative_Fractions) {
     SetUpResultFraction(-2, 3, -3, 4, '*');
-    EXPECT_TRUE(CheckResult(1, 2, result));
+    EXPECT_EQ(Fraction(1, 2), result);
 }
 
 TEST_F(FractionTest, can_Div_Negative_Fractions) {
     SetUpResultFraction(-1, 3, -2, 3, '/');
-    EXPECT_TRUE(CheckResult(1, 2, result));
+    EXPECT_TRUE(Fraction(1, 2), result);
 }
 
 TEST_F(FractionTest, can_Enter_Fractions_With_Negative_Denominator) {
     SetUpResultFraction(1, -3, 2, -3, '*');
-    EXPECT_TRUE(CheckResult(2, 9, result));
+    EXPECT_EQ(Fraction(2, 9), result);
 }
 
 TEST_F(FractionTest,
