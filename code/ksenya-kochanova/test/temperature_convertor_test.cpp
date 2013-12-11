@@ -26,7 +26,7 @@ TEST_F(TempConvTest, Do_Throw_Exception_When_Value_For_Fahrenheit_Is_Wrong) {
 
 TEST_F(TempConvTest, Can_Convert_Kelvin_To_Celsius) {
     Temperature KtoC;
-    KtoC.value = -273.15;
+    KtoC.value = 0 - 273.15;
     EXPECT_EQ(KtoC.value, tempconv.Convert({0, Kelvin}, Celsius));
 }
 
