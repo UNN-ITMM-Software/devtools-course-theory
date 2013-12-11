@@ -56,7 +56,6 @@ void Fraction::SetNumenator(int value) {
 }
 void Fraction::SetDenominator(int value) {
     if (value == 0) {
-        printf("Denominator cannot be zero!\n");
         throw std::string("wrong denominator");
     } else {
     denominator = value;
