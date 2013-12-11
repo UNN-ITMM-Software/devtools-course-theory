@@ -17,7 +17,7 @@ class Fraction {
     static Fraction Multiply(Fraction a, Fraction b);
     static Fraction Divide(Fraction a, Fraction b);
 
-    bool operator==(Fraction& a);
+    bool operator==(const Fraction& a) const;
  private :
     int numenator;
     int denominator;
