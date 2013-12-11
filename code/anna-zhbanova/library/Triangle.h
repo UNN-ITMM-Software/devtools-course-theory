@@ -1,8 +1,8 @@
 ﻿/* Copyright 2013 Anna Zhbanova */
-#ifndef CODE_ANNA_ZHBANOVA_INCLUDE_TRIANGLE_H_
-#define CODE_ANNA_ZHBANOVA_INCLUDE_TRIANGLE_H_
+#ifndef CODE_ANNA_ZHBANOVA_LIBRARY_TRIANGLE_H_
+#define CODE_ANNA_ZHBANOVA_LIBRARY_TRIANGLE_H_
 
-#include <PointXY.h>
+#include "library/PointXY.h"
 
 enum NameOfVertex {A, B, C};
 
@@ -33,4 +33,4 @@ class Triangle {
     float Angle(PointXY endP1, PointXY vertexOfAngle, PointXY endP2);
 };
 
-#endif  // CODE_ANNA_ZHBANOVA_INCLUDE_TRIANGLE_H_
+#endif  // CODE_ANNA_ZHBANOVA_LIBRARY_TRIANGLE_H_
