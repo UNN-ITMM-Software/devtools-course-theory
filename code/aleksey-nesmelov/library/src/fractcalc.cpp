@@ -18,9 +18,9 @@ Fraction::Fraction(int _numenator,
 Fraction::Fraction(): numenator(), denominator() {
 }
 Fraction::~Fraction() {}
-bool Fraction::operator==(const Fraction a, const Fraction b) {
-    if (a.GetNumenator() == b.GetNumenator() &&
-        a.GetDenominator() == b.GetDenominator()) {
+bool Fraction::operator==(Fraction& a) {
+    if (this->GetNumenator() == a.GetNumenator() &&
+        this->GetDenominator() == a.GetDenominator()) {
         return true;
     }
     return false;
