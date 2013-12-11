@@ -83,13 +83,14 @@ std::string FractionCalculatorApplication::operator()(int argc,
 
     Fraction fract1(expr.arg1, 1);
     Fraction fract2(expr.arg3, 1);
+
     try {
-    fract1.SetDenominator(expr.arg2);
-    fract2.SetDenominator(expr.arg4);
+        fract1.SetDenominator(expr.arg2);
+        fract2.SetDenominator(expr.arg4);
     }
     catch(...) {
-    message = "Wrong denominator!";
-    return message;
+        message = "Wrong denominator!";
+        return message;
     }
     Fraction result(0, 1);
 

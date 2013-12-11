@@ -72,7 +72,7 @@ TEST_F(FractionTest, can_Mult_Negative_Fractions) {
 
 TEST_F(FractionTest, can_Div_Negative_Fractions) {
     SetUpResultFraction(-1, 3, -2, 3, '/');
-    EXPECT_TRUE(Fraction(1, 2), result);
+    EXPECT_EQ(Fraction(1, 2), result);
 }
 
 TEST_F(FractionTest, can_Enter_Fractions_With_Negative_Denominator) {
