@@ -68,20 +68,20 @@ std::string ComplexCalculatorApplication::operator()(int argc,
 
     switch (expr.operation) {
      case '+' :
-        num = ComplexCalculator::Add(expr.arg1, expr.arg2);
+        num = ComplexNumber::Add(expr.arg1, expr.arg2);
         stream << "A+B = ";
         break;
      case '-' :
-        num = ComplexCalculator::Sub(expr.arg1, expr.arg2);
+        num = ComplexNumber::Sub(expr.arg1, expr.arg2);
         stream << "A-B = ";
         break;
      case '*' :
-        num = ComplexCalculator::Mul(expr.arg1, expr.arg2);
+        num = ComplexNumber::Mul(expr.arg1, expr.arg2);
         stream << "A*B = ";
         break;
      case '/' :
         try {
-        num = ComplexCalculator::Div(expr.arg1, expr.arg2);
+        num = ComplexNumber::Div(expr.arg1, expr.arg2);
         }
         catch(...) {
         message_ = "division by zero";
