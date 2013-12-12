@@ -8,40 +8,39 @@
 class ComplexTest : public ::testing::Test {
  protected:
      void GetResult(const char *sa, const char *sb, char operation) {
+         ComplexNumber a;
+         ComplexNumber b;
          a.Input(sa);
          b.Input(sb);
 
          switch (operation) {
           case '+':
-              result = ComplexCalculator::Add(a, b);
+              result = ComplexNumber::Add(a, b);
               break;
           case '-':
-              result = ComplexCalculator::Sub(a, b);
+              result = ComplexNumber::Sub(a, b);
               break;
           case '*':
-              result = ComplexCalculator::Multi(a, b);
+              result = ComplexNumber::Mul(a, b);
               break;
           case '/':
-              result = ComplexCalculator::Div(a, b);
+              result = ComplexNumber::Div(a, b);
               break;
          }
      }
-     bool CheckResult(const char *sa, ComplexCalculator bb) {
-         ComplexCalculator aa;
-         aa.Input(sa);
+     bool CheckResult(const char *sa, ComplexNumber b) {
+         ComplexNumber a;
+         a.Input(sa);
          bool returnCode = true;
-         double ep = 0.00001;
-         if ((aa.GetReal() - bb.GetReal()) > ep ||
-             (aa.GetReal() - bb.GetReal()) < -ep ||
-             (aa.GetImaginary() - bb.GetImaginary()) > ep ||
-             (aa.GetImaginary() - bb.GetImaginary()) < -ep)
+         const double eps = 0.00001;
+         if ((a.GetReal() - b.GetReal()) > eps ||
+             (a.GetReal() - b.GetReal()) < -eps ||
+             (a.GetImaginary() - b.GetImaginary()) > eps ||
+             (a.GetImaginary() - b.GetImaginary()) < -eps)
              returnCode = false;
          return returnCode;
      }
-
-     ComplexCalculator a;
-     ComplexCalculator b;
-     ComplexCalculator result;
+     ComplexNumber result;
 };
 
 TEST_F(ComplexTest, calc_can_Add_Numbers) {
@@ -65,7 +64,7 @@ TEST_F(ComplexTest, calc_can_Div_Numbers) {
 }
 
 TEST_F(ComplexTest, calc_can_not_Div_by_Zero) {
-    ComplexCalculator aa(1, 1);
-    ComplexCalculator bb(0, 0);
-    EXPECT_THROW(ComplexCalculator::Div(aa, bb), std::string);
+    ComplexNumber a(1, 1);
+    ComplexNumber b(0, 0);
+    EXPECT_THROW(ComplexNumber::Div(a, b), std::string);
 }

@@ -60,7 +60,7 @@ std::string ComplexCalculatorApplication::operator()(int argc,
     if (returnCode != true)
         return message_;
 
-    ComplexCalculator calc;
+    ComplexNumber num;
 
     std::ostringstream stream;
 
@@ -68,33 +68,30 @@ std::string ComplexCalculatorApplication::operator()(int argc,
 
     switch (expr.operation) {
      case '+' :
-        calc = ComplexCalculator::Add(expr.arg1, expr.arg2);
-        calc.Output(str);
+        num = ComplexCalculator::Add(expr.arg1, expr.arg2);
         stream << "A+B = ";
         break;
      case '-' :
-        calc = ComplexCalculator::Sub(expr.arg1, expr.arg2);
-        calc.Output(str);
+        num = ComplexCalculator::Sub(expr.arg1, expr.arg2);
         stream << "A-B = ";
         break;
      case '*' :
-        calc = ComplexCalculator::Multi(expr.arg1, expr.arg2);
-        calc.Output(str);
+        num = ComplexCalculator::Mul(expr.arg1, expr.arg2);
         stream << "A*B = ";
         break;
      case '/' :
         try {
-        calc = ComplexCalculator::Div(expr.arg1, expr.arg2);
+        num = ComplexCalculator::Div(expr.arg1, expr.arg2);
         }
         catch(...) {
         message_ = "division by zero";
         return message_;
         }
-        calc.Output(str);
         stream << "A/B = ";
         break;
     }
 
+    num.Output(str);
     stream << str;
     message_ = stream.str();
 

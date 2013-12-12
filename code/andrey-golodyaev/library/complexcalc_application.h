@@ -10,8 +10,8 @@
 
 #pragma pack(push, 1)
 typedef struct Exp {
-    ComplexCalculator arg1;
-    ComplexCalculator arg2;
+    ComplexNumber arg1;
+    ComplexNumber arg2;
     char operation;
     Exp(): arg1(), arg2(), operation('+') {
     }

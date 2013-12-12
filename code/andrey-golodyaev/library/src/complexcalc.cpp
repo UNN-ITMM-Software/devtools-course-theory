@@ -1,31 +1,31 @@
 /* Copyright 2013 Andrey Golodyaev */
-#include <library/complexcalc.h>
+#include "library/complexcalc.h"
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
 #include <sstream>
-ComplexCalculator::ComplexCalculator(): real(0), imaginary(0) {
+ComplexNumber::ComplexNumber(): real(0), imaginary(0) {
 }
-ComplexCalculator::ComplexCalculator(double _real,
+ComplexNumber::ComplexNumber(double _real,
                                      double _imaginary): real(_real),
                                      imaginary(_imaginary) {
 }
-ComplexCalculator::~ComplexCalculator() {
+ComplexNumber::~ComplexNumber() {
 }
-double ComplexCalculator::GetReal() {
+double ComplexNumber::GetReal() {
     return real;
 }
-double ComplexCalculator::GetImaginary() {
+double ComplexNumber::GetImaginary() {
     return imaginary;
 }
-void ComplexCalculator::SetReal(double _real) {
+void ComplexNumber::SetReal(double _real) {
     real = _real;
 }
-void ComplexCalculator::SetImaginary(double _imaginary) {
+void ComplexNumber::SetImaginary(double _imaginary) {
     imaginary = _imaginary;
 }
-bool ComplexCalculator::Input(const char *str) {
+bool ComplexNumber::Input(const char *str) {
     std::string s = str;
     std::string i = "";
     std::basic_string<char>::size_type n = 1;
@@ -99,7 +99,7 @@ bool ComplexCalculator::Input(const char *str) {
     real*=qr;
     return true;
 }
-void ComplexCalculator::Output(char *str) {
+void ComplexNumber::Output(char *str) {
     std::string str1 = "";
     double ep = 0.00001;
     double ep2 = 1.0000;
@@ -127,32 +127,32 @@ void ComplexCalculator::Output(char *str) {
         imaginary < ep && imaginary > -ep) str1 = "0";
     strncpy(str, (str1.c_str()), str1.length());
 }
-ComplexCalculator ComplexCalculator::Add(ComplexCalculator first,
-                                         ComplexCalculator second) {
-    ComplexCalculator temp(0, 0);
+ComplexNumber ComplexNumber::Add(ComplexNumber first,
+                                         ComplexNumber second) {
+    ComplexNumber temp(0, 0);
     temp.real = first.GetReal()+second.GetReal();
     temp.imaginary = first.GetImaginary()+second.GetImaginary();
     return temp;
 }
-ComplexCalculator ComplexCalculator::Sub(ComplexCalculator first,
-                                         ComplexCalculator second) {
-    ComplexCalculator temp(0, 0);
+ComplexNumber ComplexNumber::Sub(ComplexNumber first,
+                                         ComplexNumber second) {
+    ComplexNumber temp(0, 0);
     temp.real = first.GetReal()-second.GetReal();
     temp.imaginary = first.GetImaginary()-second.GetImaginary();
     return temp;
 }
-ComplexCalculator ComplexCalculator::Multi(ComplexCalculator first,
-                                           ComplexCalculator second) {
-    ComplexCalculator temp(0, 0);
+ComplexNumber ComplexNumber::Mul(ComplexNumber first,
+                                           ComplexNumber second) {
+    ComplexNumber temp(0, 0);
     temp.real = first.GetReal()*second.GetReal()
                 -first.GetImaginary()*second.GetImaginary();
     temp.imaginary = first.GetReal()*second.GetImaginary()
                      +first.GetImaginary()*second.GetReal();
     return temp;
 }
-ComplexCalculator ComplexCalculator::Div(ComplexCalculator first,
-                                         ComplexCalculator second) {
-    ComplexCalculator temp(0, 0);
+ComplexNumber ComplexNumber::Div(ComplexNumber first,
+                                         ComplexNumber second) {
+    ComplexNumber temp(0, 0);
     double ep = 0.00001;
     if (second.GetReal()*second.GetReal()
        +second.GetImaginary()*second.GetImaginary() < ep &&

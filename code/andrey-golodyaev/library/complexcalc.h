@@ -2,11 +2,11 @@
 #ifndef CODE_ANDREY_GOLODYAEV_LIBRARY_COMPLEXCALC_H_
 #define CODE_ANDREY_GOLODYAEV_LIBRARY_COMPLEXCALC_H_
 
-class ComplexCalculator {
+class ComplexNumber {
  public :
-    ComplexCalculator();
-    ComplexCalculator(double _real, double _imaginary);
-    ~ComplexCalculator();
+    ComplexNumber();
+    ComplexNumber(double _real, double _imaginary);
+    ~ComplexNumber();
 
     double GetReal();
     double GetImaginary();
@@ -14,14 +14,14 @@ class ComplexCalculator {
     void SetImaginary(double _imaginary);
     bool Input(const char *str);
     void Output(char* str);
-    static ComplexCalculator Add(ComplexCalculator first,
-                                 ComplexCalculator second);
-    static ComplexCalculator Sub(ComplexCalculator first,
-                                 ComplexCalculator second);
-    static ComplexCalculator Multi(ComplexCalculator first,
-                                   ComplexCalculator second);
-    static ComplexCalculator Div(ComplexCalculator first,
-                                 ComplexCalculator second);
+    static ComplexNumber Add(ComplexNumber first,
+                                 ComplexNumber second);
+    static ComplexNumber Sub(ComplexNumber first,
+                                 ComplexNumber second);
+    static ComplexNumber Mul(ComplexNumber first,
+                                   ComplexNumber second);
+    static ComplexNumber Div(ComplexNumber first,
+                                 ComplexNumber second);
  private :
     double real;
     double imaginary;
