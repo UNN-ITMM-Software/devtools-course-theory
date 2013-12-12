@@ -1,6 +1,6 @@
 /* Copyright 2013 Ksenya Kochanova */
-#ifndef CODE_KSENYA_KOCHANOVA_LIBRARY_TEMP_CONV_APP_H_
-#define CODE_KSENYA_KOCHANOVA_LIBRARY_TEMP_CONV_APP_H_
+#ifndef CODE_KSENYA_KOCHANOVA_LIBRARY_TEMPCONVAPP_H_
+#define CODE_KSENYA_KOCHANOVA_LIBRARY_TEMPCONVAPP_H_
 
 #include <string>
 
@@ -24,4 +24,4 @@ class TempConvApp {
     bool parseArguments(int argc, const char** argv, Expression* expr);
 };
 
-#endif  // CODE_KSENYA_KOCHANOVA_LIBRARY_TEMP_CONV_APP_H_
+#endif  // CODE_KSENYA_KOCHANOVA_LIBRARY_TEMPCONVAPP_H_
