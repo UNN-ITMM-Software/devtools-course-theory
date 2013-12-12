@@ -18,14 +18,6 @@ Fraction::Fraction(int _numenator,
 Fraction::Fraction(): numenator(), denominator() {
 }
 Fraction::~Fraction() {}
-
-bool Fraction::operator==(const Fraction& a) const {
-    if (numenator == a.numenator &&
-        denominator == a.denominator) {
-        return true;
-    }
-    return false;
-}
 int Fraction::NOD() {
     int a = abs(numenator);
     int b = abs(denominator);
@@ -69,20 +61,27 @@ void Fraction::SetDenominator(int value) {
     denominator = value;
     }
 }
-Fraction Fraction::Add(Fraction a, Fraction b) {
-    Fraction res(a.numenator * b.denominator + a.denominator * b.numenator,
-        a.denominator * b.denominator);
+bool Fraction::operator==(const Fraction& a) const {
+    if (numenator == a.numenator &&
+        denominator == a.denominator) {
+        return true;
+    }
+    return false;
+}
+Fraction Fraction::operator+(const Fraction& a) const {
+    Fraction res(numenator * a.denominator + denominator * a.numenator,
+        denominator * a.denominator);
     res.CutFraction();
     return res;
 }
-Fraction Fraction::Subtract(Fraction a, Fraction b) {
-    Fraction res(a.numenator * b.denominator - a.denominator * b.numenator,
-        a.denominator * b.denominator);
+Fraction Fraction::operator-(const Fraction& a) const {
+    Fraction res(numenator * a.denominator - denominator * a.numenator,
+        denominator * a.denominator);
     res.CutFraction();
     return res;
 }
-Fraction Fraction::Multiply(Fraction a, Fraction b) {
-    Fraction res(a.numenator * b.numenator, a.denominator * b.denominator);
+Fraction Fraction::operator*(const Fraction& a) const {
+    Fraction res(numenator * a.numenator, denominator * a.denominator);
     res.CutFraction();
     if (res.denominator < 0) {
         res.numenator = - res.numenator;
@@ -90,13 +89,13 @@ Fraction Fraction::Multiply(Fraction a, Fraction b) {
     }
     return res;
 }
-Fraction Fraction::Divide(Fraction a, Fraction b) {
+Fraction Fraction::operator/(const Fraction& a) const {
     Fraction res(0, 1);
-    if (b.numenator == 0) {
+    if (a.numenator == 0) {
         throw std::string("wrong divisor");
     } else {
-        res.SetNumenator(a.numenator * b.denominator);
-        res.SetDenominator(a.denominator * b.numenator);
+        res.SetNumenator(numenator * a.denominator);
+        res.SetDenominator(denominator * a.numenator);
         res.CutFraction();
         if (res.denominator < 0) {
             res.numenator = -res.numenator;

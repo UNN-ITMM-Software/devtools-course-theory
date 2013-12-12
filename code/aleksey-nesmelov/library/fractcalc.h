@@ -12,10 +12,10 @@ class Fraction {
     void SetNumenator(int value);
     void SetDenominator(int value);
 
-    static Fraction Add(Fraction a, Fraction b);
-    static Fraction Subtract(Fraction a, Fraction b);
-    static Fraction Multiply(Fraction a, Fraction b);
-    static Fraction Divide(Fraction a, Fraction b);
+    Fraction operator+(const Fraction& a) const;
+    Fraction operator-(const Fraction& a) const;
+    Fraction operator*(const Fraction& a) const;
+    Fraction operator/(const Fraction& a) const;
 
     bool operator==(const Fraction& a) const;
  private :
