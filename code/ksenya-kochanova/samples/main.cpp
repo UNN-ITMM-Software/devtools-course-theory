@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <string>
-#include "library/temp_conv_app.h"
+#include "library/TempConvApp.h"
 
 int main(int argc, const char** argv) {
     TempConvApp app;

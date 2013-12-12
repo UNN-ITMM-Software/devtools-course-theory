@@ -4,7 +4,7 @@
 
 #include <string>
 
-#include "library/temp_conv_app.h"
+#include "library/TempConvApp.h"
 
 using ::testing::internal::RE;
 
