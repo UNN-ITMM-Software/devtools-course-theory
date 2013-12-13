@@ -1,6 +1,6 @@
 /* Copyright 2013 Dmitriy Gorokhov */
 
-#include "library/QuadraticEquation_application.h"
+#include "library/QuadraticEquationApplication.h"
 
 #include <stdio.h>
 #include <string>

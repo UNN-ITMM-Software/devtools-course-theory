@@ -4,7 +4,7 @@
 
 #include <string>
 
-#include "library/QuadraticEquation_application.h"
+#include "library/QuadraticEquationApplication.h"
 
 using ::testing::internal::RE;
 

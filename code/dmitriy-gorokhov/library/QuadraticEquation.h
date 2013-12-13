@@ -11,6 +11,7 @@ class QuadraticEquation {
     QuadraticEquation();
     QuadraticEquation(double _a, double _b, double _c);
     virtual ~QuadraticEquation();
+
     void SetCoefficients(double _a, double _b, double _c);
     int Solve(double *root1, double *root2);
 
