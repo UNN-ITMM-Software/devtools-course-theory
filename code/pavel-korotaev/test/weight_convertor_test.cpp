@@ -7,10 +7,6 @@
 
 class WeightConvertorTest : public ::testing::Test {
  protected:
-    // NOTE: here you can put your init/deinit code
-    // virtual void SetUp() {}
-    // virtual void TearDown() {}
-
     WeightConvertor Conv;
 };
 

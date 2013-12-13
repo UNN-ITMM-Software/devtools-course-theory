@@ -8,47 +8,98 @@
 
 using ::testing::internal::RE;
 
-TEST(AppTest, Do_Print_Help_Without_Arguments) {
-    // Arrange
-    WeightConvertorApplication app;
+class AppTest : public ::testing::Test {
+ protected:
+    void RunApp(int argc, const char* argv[]) {
+        output_ = app_(argc, argv);
+    }
+
+
+    void Check(std::string expected) {
+        EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
+    }
+
+    WeightConvertorApplication app_;
+    std::string output_;
+};
+
+TEST_F(AppTest, Do_Print_Help_Without_Arguments) {
     int argc = 1;
     const char* argv[] = {"appname"};
 
-    // Act
-    std::string output = app(argc, argv);
+    RunApp(argc, argv);
 
-    // Assert
-    EXPECT_TRUE(RE::PartialMatch(
-                    output,
-                    RE("This is a weight convertor application")));
+    Check("This is a weight convertor application");
 }
 
-TEST(AppTest, Can_Detect_Wrong_Number_Format) {
-    // Arrange
-    WeightConvertorApplication app;
+TEST_F(AppTest, Can_Detect_Wrong_Number_Format) {
     int argc = 4;
     const char* argv[] = {"appname", "x", "Ounce", "Stone"};
 
-    // Act
-    std::string output = app(argc, argv);
+    RunApp(argc, argv);
 
-    // Assert
-    EXPECT_TRUE(RE::PartialMatch(
-                    output,
-                    RE("Wrong number format!")));
+    Check("Wrong number format!");
 }
 
-TEST(AppTest, Can_Detect_Wrong_Operation_Format) {
-    // Arrange
-    WeightConvertorApplication app;
+TEST_F(AppTest, Can_Detect_Wrong_Operation_Format) {
     int argc = 4;
     const char* argv[] = {"appname", "1", "1", "abc"};
 
-    // Act
-    std::string output = app(argc, argv);
+    RunApp(argc, argv);
 
-    // Assert
-    EXPECT_TRUE(RE::PartialMatch(
-                    output,
-                    RE("Wrong number format!")));
+    Check("Wrong number format!");
+}
+
+TEST_F(AppTest, Can_Detect_Wrong_UnitInput_Format) {
+    int argc = 4;
+    const char* argv[] = {"appname", "20", "qw", "Stone"};
+
+    RunApp(argc, argv);
+
+    Check("Wrong number format!");
+}
+
+TEST_F(AppTest, Can_Detect_Wrong_UnitOutput_Format) {
+    int argc = 4;
+    const char* argv[] = {"appname", "20", "Stone", "we"};
+
+    RunApp(argc, argv);
+
+    Check("Wrong number format!");
+}
+
+TEST_F(AppTest, Can_Convert_Ton_to_Hundredweight) {
+    int argc = 4;
+    const char* argv[] = {"appname", "2.5", "Ton", "Hundredweight"};
+
+    RunApp(argc, argv);
+
+    Check("Result = 25");
+}
+
+TEST_F(AppTest, Can_Convert_Pound_to_Stone) {
+    int argc = 4;
+    const char* argv[] = {"appname", "100", "Pound", "Stone"};
+
+    RunApp(argc, argv);
+
+    Check("Result = 7.142");
+}
+
+TEST_F(AppTest, Can_Convert_Grams_to_Kilograms) {
+    int argc = 4;
+    const char* argv[] = {"appname", "4000", "Grams", "Kilograms"};
+
+    RunApp(argc, argv);
+
+    Check("Result = 4");
+}
+
+TEST_F(AppTest, Can_Convert_Ounce_to_Hundredweight) {
+    int argc = 4;
+    const char* argv[] = {"appname", "156", "Ounce", "Hundredweight"};
+
+    RunApp(argc, argv);
+
+    Check("Result = 0.044");
 }
