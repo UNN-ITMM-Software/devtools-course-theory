@@ -10,9 +10,6 @@ using ::testing::internal::RE;
 
 class AppTestR : public ::testing::Test {
  protected:
-    // NOTE: here you can put your init/deinit code
-    // virtual void SetUp() {}
-    // virtual void TearDown() {}
 
     void RunApp(int argc, const char* argv[]) {
         output_ = app_(argc, argv);
@@ -20,7 +17,6 @@ class AppTestR : public ::testing::Test {
 
 
     void Check(std::string expected) {
-        // printf("OUTPUT = %s\n", output_.c_str());
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
@@ -80,4 +76,13 @@ TEST_F(AppTestR, Can_Convert_Grams_to_Kilograms) {
     RunApp(argc, argv);
 
     Check("Result = 4");
+}
+
+TEST_F(AppTestR, Can_Convert_Ounce_to_Hundredweight) {
+    int argc = 4;
+    const char* argv[] = {"appname", "156", "Ounce", "Hundredweight"};
+
+    RunApp(argc, argv);
+
+    Check("Result = 0.044");
 }
