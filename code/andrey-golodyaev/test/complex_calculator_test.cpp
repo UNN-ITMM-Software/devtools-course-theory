@@ -37,7 +37,7 @@ TEST_F(ComplexTest, calc_can_Sub_Numbers) {
     ComplexNumber a(0, 1);
     ComplexNumber b(1, -1);
     ComplexNumber res(-1, 2);
-    GEXPECT_EQ(res, a - b);
+    EXPECT_EQ(res, a - b);
 }
 
 TEST_F(ComplexTest, calc_can_Mul_Numbers) {
