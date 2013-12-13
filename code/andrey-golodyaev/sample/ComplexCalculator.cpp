@@ -1,6 +1,6 @@
 /* Copyright 2013 Andrey Golodyaev */
 
-#include "library/complexcalc_application.h"
+#include <library/complexcalc_application.h>
 
 #include <stdio.h>
 #include <stdlib.h>
