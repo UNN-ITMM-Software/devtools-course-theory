@@ -8,16 +8,16 @@ class ComplexNumber {
     ComplexNumber(double real, double imaginary);
     ~ComplexNumber();
 
-    double GetReal();
-    double GetImaginary();
+    double GetReal() const;
+    double GetImaginary() const;
     void SetReal(double real);
     void SetImaginary(double imaginary);
     bool Input(const char *str);
     void Output(char* str);
-    ComplexNumber operator +(ComplexNumber second);
-    ComplexNumber operator -(ComplexNumber second);
-    ComplexNumber operator *(ComplexNumber second);
-    ComplexNumber operator /(ComplexNumber second);
+    const ComplexNumber operator +(const ComplexNumber &second);
+    const ComplexNumber operator -(const ComplexNumber &second);
+    const ComplexNumber operator *(const ComplexNumber &second);
+    const ComplexNumber operator /(const ComplexNumber &second);
  private :
     double real;
     double imaginary;

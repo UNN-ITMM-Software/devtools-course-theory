@@ -13,10 +13,10 @@ ComplexNumber::ComplexNumber(double _real,
 }
 ComplexNumber::~ComplexNumber() {
 }
-double ComplexNumber::GetReal() {
+double ComplexNumber::GetReal() const {
     return real;
 }
-double ComplexNumber::GetImaginary() {
+double ComplexNumber::GetImaginary() const {
     return imaginary;
 }
 void ComplexNumber::SetReal(double _real) {
@@ -127,19 +127,19 @@ void ComplexNumber::Output(char *str) {
         imaginary < ep && imaginary > -ep) str1 = "0";
     strncpy(str, (str1.c_str()), str1.length());
 }
-ComplexNumber ComplexNumber::operator +(ComplexNumber second) {
+const ComplexNumber ComplexNumber::operator +(const ComplexNumber &second) {
     ComplexNumber temp(0, 0);
     temp.real = GetReal()+second.GetReal();
     temp.imaginary = GetImaginary()+second.GetImaginary();
     return temp;
 }
-ComplexNumber ComplexNumber::operator -(ComplexNumber second) {
+const ComplexNumber ComplexNumber::operator -(const ComplexNumber &second) {
     ComplexNumber temp(0, 0);
     temp.real = GetReal()-second.GetReal();
     temp.imaginary = GetImaginary()-second.GetImaginary();
     return temp;
 }
-ComplexNumber ComplexNumber::operator *(ComplexNumber second) {
+const ComplexNumber ComplexNumber::operator *(const ComplexNumber &second) {
     ComplexNumber temp(0, 0);
     temp.real = GetReal()*second.GetReal()
                 -GetImaginary()*second.GetImaginary();
@@ -147,7 +147,7 @@ ComplexNumber ComplexNumber::operator *(ComplexNumber second) {
                      +GetImaginary()*second.GetReal();
     return temp;
 }
-ComplexNumber ComplexNumber::operator /(ComplexNumber second) {
+const ComplexNumber ComplexNumber::operator /(const ComplexNumber &second) {
     ComplexNumber temp(0, 0);
     double ep = 0.00001;
     if (second.GetReal()*second.GetReal()
