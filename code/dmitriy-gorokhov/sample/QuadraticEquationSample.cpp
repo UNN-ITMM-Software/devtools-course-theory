@@ -1,9 +1,9 @@
 /* Copyright 2013 Dmitriy Gorokhov */
 
-#include "library/QuadraticEquationApplication.h"
-
 #include <stdio.h>
 #include <string>
+
+#include "library/QuadraticEquationApplication.h"
 
 int main(int argc, const char** argv) {
     QuadraticEquationApplication app;
