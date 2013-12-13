@@ -18,7 +18,7 @@ class ComplexNumber {
     const ComplexNumber operator -(const ComplexNumber &second);
     const ComplexNumber operator *(const ComplexNumber &second);
     const ComplexNumber operator /(const ComplexNumber &second);
-    bool operator ==(const ComplexNumber &second);
+    bool operator ==(const ComplexNumber &second) const;
  private :
     double real;
     double imaginary;

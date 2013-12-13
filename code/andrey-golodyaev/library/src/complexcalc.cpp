@@ -165,12 +165,12 @@ const ComplexNumber ComplexNumber::operator /(const ComplexNumber &second) {
                      +second.GetImaginary()*second.GetImaginary());
     return temp;
 }
-bool operator ==(const ComplexNumber &first, const ComplexNumber &second) {
+bool ComplexNumber::operator ==(const ComplexNumber &second) const {
     const double eps = 0.000001;
-    if (first.GetReal()-second.GetReal() < eps &&
-        first.GetReal()-second.GetReal() > -eps &&
-        first.GetImaginary()-second.GetImaginary() < eps &&
-        first.GetImaginary()-second.GetImaginary() > -eps)
+    if (GetReal()-second.GetReal() < eps &&
+        GetReal()-second.GetReal() > -eps &&
+        GetImaginary()-second.GetImaginary() < eps &&
+        GetImaginary()-second.GetImaginary() > -eps)
         return true;
     return false;
 }
