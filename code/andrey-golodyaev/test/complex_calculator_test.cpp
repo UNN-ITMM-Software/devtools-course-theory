@@ -71,7 +71,7 @@ TEST_F(ComplexTest, calc_can_Div_Numbers) {
 TEST_F(ComplexTest, calc_can_not_Div_by_Zero) {
     ComplexNumber a(1, 1);
     ComplexNumber b(0, 0);
-    EXPECT_THROW(ComplexNumber::Div(a, b), std::string);
+    EXPECT_THROW(a / b, std::string);
 }
 
 TEST_F(ComplexTest, calc_can_Parse_Complex_Number) {
