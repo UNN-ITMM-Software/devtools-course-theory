@@ -127,44 +127,40 @@ void ComplexNumber::Output(char *str) {
         imaginary < ep && imaginary > -ep) str1 = "0";
     strncpy(str, (str1.c_str()), str1.length());
 }
-ComplexNumber ComplexNumber::Add(ComplexNumber first,
-                                         ComplexNumber second) {
+ComplexNumber ComplexNumber::operator +(ComplexNumber second) {
     ComplexNumber temp(0, 0);
-    temp.real = first.GetReal()+second.GetReal();
-    temp.imaginary = first.GetImaginary()+second.GetImaginary();
+    temp.real = GetReal()+second.GetReal();
+    temp.imaginary = GetImaginary()+second.GetImaginary();
     return temp;
 }
-ComplexNumber ComplexNumber::Sub(ComplexNumber first,
-                                         ComplexNumber second) {
+ComplexNumber ComplexNumber::operator -(ComplexNumber second) {
     ComplexNumber temp(0, 0);
-    temp.real = first.GetReal()-second.GetReal();
-    temp.imaginary = first.GetImaginary()-second.GetImaginary();
+    temp.real = GetReal()-second.GetReal();
+    temp.imaginary = GetImaginary()-second.GetImaginary();
     return temp;
 }
-ComplexNumber ComplexNumber::Mul(ComplexNumber first,
-                                           ComplexNumber second) {
+ComplexNumber ComplexNumber::operator *(ComplexNumber second) {
     ComplexNumber temp(0, 0);
-    temp.real = first.GetReal()*second.GetReal()
-                -first.GetImaginary()*second.GetImaginary();
-    temp.imaginary = first.GetReal()*second.GetImaginary()
-                     +first.GetImaginary()*second.GetReal();
+    temp.real = GetReal()*second.GetReal()
+                -GetImaginary()*second.GetImaginary();
+    temp.imaginary = GetReal()*second.GetImaginary()
+                     +GetImaginary()*second.GetReal();
     return temp;
 }
-ComplexNumber ComplexNumber::Div(ComplexNumber first,
-                                         ComplexNumber second) {
+ComplexNumber ComplexNumber::operator /(ComplexNumber second) {
     ComplexNumber temp(0, 0);
     double ep = 0.00001;
     if (second.GetReal()*second.GetReal()
        +second.GetImaginary()*second.GetImaginary() < ep &&
        second.GetReal()*second.GetReal()
-       +second.GetImaginary()*second.GetImaginary() > -ep) {
-           throw std::string("division by zero");    }
-    temp.real = (first.GetReal()*second.GetReal()
-                +first.GetImaginary()*second.GetImaginary())/
+       +second.GetImaginary()*second.GetImaginary() > -ep)
+           throw std::string("division by zero");
+    temp.real = (GetReal()*second.GetReal()
+                +GetImaginary()*second.GetImaginary())/
                 (second.GetReal()*second.GetReal()
                 +second.GetImaginary()*second.GetImaginary());
-    temp.imaginary = (first.GetImaginary()*second.GetReal()
-                     -first.GetReal()*second.GetImaginary())/
+    temp.imaginary = (GetImaginary()*second.GetReal()
+                     -GetReal()*second.GetImaginary())/
                      (second.GetReal()*second.GetReal()
                      +second.GetImaginary()*second.GetImaginary());
     return temp;

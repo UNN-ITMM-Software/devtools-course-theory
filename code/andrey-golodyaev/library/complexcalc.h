@@ -5,23 +5,19 @@
 class ComplexNumber {
  public :
     ComplexNumber();
-    ComplexNumber(double _real, double _imaginary);
+    ComplexNumber(double real, double imaginary);
     ~ComplexNumber();
 
     double GetReal();
     double GetImaginary();
-    void SetReal(double _real);
-    void SetImaginary(double _imaginary);
+    void SetReal(double real);
+    void SetImaginary(double imaginary);
     bool Input(const char *str);
     void Output(char* str);
-    static ComplexNumber Add(ComplexNumber first,
-                                 ComplexNumber second);
-    static ComplexNumber Sub(ComplexNumber first,
-                                 ComplexNumber second);
-    static ComplexNumber Mul(ComplexNumber first,
-                                   ComplexNumber second);
-    static ComplexNumber Div(ComplexNumber first,
-                                 ComplexNumber second);
+    ComplexNumber operator +(ComplexNumber second);
+    ComplexNumber operator -(ComplexNumber second);
+    ComplexNumber operator *(ComplexNumber second);
+    ComplexNumber operator /(ComplexNumber second);
  private :
     double real;
     double imaginary;

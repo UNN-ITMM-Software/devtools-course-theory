@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
+//#include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
@@ -68,20 +68,20 @@ std::string ComplexCalculatorApplication::operator()(int argc,
 
     switch (expr.operation) {
      case '+' :
-        num = ComplexNumber::Add(expr.arg1, expr.arg2);
+        num = expr.arg1 + expr.arg2;
         stream << "A+B = ";
         break;
      case '-' :
-        num = ComplexNumber::Sub(expr.arg1, expr.arg2);
+        num = expr.arg1 - expr.arg2;
         stream << "A-B = ";
         break;
      case '*' :
-        num = ComplexNumber::Mul(expr.arg1, expr.arg2);
+        num = expr.arg1 * expr.arg2;
         stream << "A*B = ";
         break;
      case '/' :
         try {
-        num = ComplexNumber::Div(expr.arg1, expr.arg2);
+        num = expr.arg1 / expr.arg2;
         }
         catch(...) {
         message_ = "division by zero";

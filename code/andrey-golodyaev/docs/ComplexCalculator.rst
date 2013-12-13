@@ -21,20 +21,20 @@
 			void SetImaginary(double _imaginary);
 			void Input(char *str);
 			void Output(char* str);
-			static ComplexNumber Add(ComplexNumber first, ComplexNumber second);
-			static ComplexNumber Sub(ComplexNumber first, ComplexNumber second);
-			static ComplexNumber Mul(ComplexNumber first, ComplexNumber second);
-			static ComplexNumber Div(ComplexNumber first, ComplexNumber second);
+			ComplexNumber operator +(ComplexNumber second);
+			ComplexNumber operator -(ComplexNumber second);
+			ComplexNumber operator *(ComplexNumber second);
+			ComplexNumber operator /(ComplexNumber second);
 		};
 		
 Пример использования класса ``ComplexNumber`` в пользовательском C++ коде:
 
  .. code-block:: cpp
 		
-		ComplexNumber a(1,1);
-		ComplexNumber b(2,2);
-		ComplexNumber c(0,0);
-		char str[10]="";
-		c=ComplexNumber::Add(a,b);
+		ComplexNumber a(1, 1);
+		ComplexNumber b(2, 2);
+		ComplexNumber c(0, 0);
+		char str[10] = "";
+		c = a + b;
 		c.Output(str);
-		printf("A+B=%s\n",str);
+		printf("A+B = %s\n", str);

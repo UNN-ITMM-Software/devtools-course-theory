@@ -7,30 +7,24 @@
 
 class ComplexTest : public ::testing::Test {
  protected:
-     void GetResult(const char *sa, const char *sb, char operation) {
-         ComplexNumber a;
-         ComplexNumber b;
-         a.Input(sa);
-         b.Input(sb);
+     void GetResult(ComplexNumber a, ComplexNumber b, char operation) {
 
          switch (operation) {
           case '+':
-              result = ComplexNumber::Add(a, b);
+              result = a + b;
               break;
           case '-':
-              result = ComplexNumber::Sub(a, b);
+              result = a - b;
               break;
           case '*':
-              result = ComplexNumber::Mul(a, b);
+              result = a * b;
               break;
           case '/':
-              result = ComplexNumber::Div(a, b);
+              result = a / b;
               break;
          }
      }
-     bool CheckResult(const char *sa, ComplexNumber b) {
-         ComplexNumber a;
-         a.Input(sa);
+     bool CheckResult(ComplexNumber a, ComplexNumber b) {
          bool returnCode = true;
          const double eps = 0.00001;
          if ((a.GetReal() - b.GetReal()) > eps ||
@@ -44,27 +38,47 @@ class ComplexTest : public ::testing::Test {
 };
 
 TEST_F(ComplexTest, calc_can_Add_Numbers) {
-    GetResult("1+2*i", "2-3i", '+');
-    EXPECT_TRUE(CheckResult("3-i", result));
+    ComplexNumber a(1, 2);
+    ComplexNumber b(2, -3);
+    ComplexNumber res(3, -1);
+    GetResult(a, b, '+');
+    EXPECT_TRUE(CheckResult(res, result));
 }
 
 TEST_F(ComplexTest, calc_can_Sub_Numbers) {
-    GetResult("i", "1-i", '-');
-    EXPECT_TRUE(CheckResult("-1+2*i", result));
+    ComplexNumber a(0, 1);
+    ComplexNumber b(1, -1);
+    ComplexNumber res(-1, 2);
+    GetResult(a, b, '-');
+    EXPECT_TRUE(CheckResult(res, result));
 }
 
 TEST_F(ComplexTest, calc_can_Mul_Numbers) {
-    GetResult("1+i", "1+i", '*');
-    EXPECT_TRUE(CheckResult("2*i", result));
+    ComplexNumber a(1, 1);
+    ComplexNumber b(1, 1);
+    ComplexNumber res(0, 2);
+    GetResult(a, b, '*');
+    EXPECT_TRUE(CheckResult(res, result));
 }
 
 TEST_F(ComplexTest, calc_can_Div_Numbers) {
-    GetResult("1+i", "i", '/');
-    EXPECT_TRUE(CheckResult("1-i", result));
+    ComplexNumber a(1, 1);
+    ComplexNumber b(0, 1);
+    ComplexNumber res(1, -1);
+    GetResult(a, b, '/');
+    EXPECT_TRUE(CheckResult(res, result));
 }
 
 TEST_F(ComplexTest, calc_can_not_Div_by_Zero) {
     ComplexNumber a(1, 1);
     ComplexNumber b(0, 0);
     EXPECT_THROW(ComplexNumber::Div(a, b), std::string);
+}
+
+TEST_F(ComplexTest, calc_can_Parse_Complex_Number) {
+    ComplexNumber a;
+    char str[35]="1+i";
+    a.Input(str);
+    ComplexNumber b(1,1);
+    EXPECT_TRUE(CheckResult(a, b));
 }
