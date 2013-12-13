@@ -1,6 +1,6 @@
 all:
 	mkdir -p ./build
-	$(CXX) -o ./build/TempConv ./src/TemperatureConverter.cpp ./samples/main.cpp -I./include 
+	$(CXX) -o ./build/TempConv ./library/src/TemperatureConverter.cpp ./samples/main.cpp ./library/src/TempConvApp.cpp -I./
 
 test: all
 	./build/TempConv

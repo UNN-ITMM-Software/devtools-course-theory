@@ -6,6 +6,14 @@
 
 
 .. code-block:: cpp
+Ксения Кочанова: Конвертор температур
+=====================================
+Класс ``TemperatureConverter`` предназначен для конвертации одной единицы измерения температуры в другую.
+Метод ConvertToCelsius конвертирует введенную величину в градусы по шкале Цельсия.
+Метод ConvertFromCelsius конвертирует из градусов Цельсия в указанную единицу измерения.
+
+
+.. code-block:: cpp
 
 enum TemperatureUnit {Celsius, Kelvin, Fahrenheit, Newton};
 
@@ -40,6 +48,3 @@ TemperatureUnit toUnit);
     temperature.value = 0;
     temperature.unit = Kelvin;
     TemperatureUnit newUnit = Newton;
-    Temperature inCelsius = convertor.ConvertToCelsius(temperature);
-    Temperature outTemperature = convertor.ConvertFromCelsius(inCelsius,
-newUnit);
