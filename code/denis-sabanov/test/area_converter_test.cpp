@@ -19,4 +19,3 @@ TEST_F(AreaConverterTest, Can_Convert_sFoot_to_sMeter) {
     Converter.SetAreaType(sFoot);
     EXPECT_EQ(9.29, Converter.ConvertToNewType(sMeter));
 }
-

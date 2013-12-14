@@ -6,7 +6,7 @@
 
 using ::testing::internal::RE;
 
-class AppTestR : public ::testing::Test {
+class AppTest : public ::testing::Test {
  protected:
     // NOTE: here you can put your init/deinit code
     // virtual void SetUp() {}
@@ -26,7 +26,7 @@ class AppTestR : public ::testing::Test {
     std::string output_;
 };
 
-TEST_F(AppTestR, Do_Print_Help_Without_Arguments) {
+TEST_F(AppTest, Do_Print_Help_Without_Arguments) {
     int argc = 1;
     const char* argv[] = {"appname"};
 
@@ -35,7 +35,26 @@ TEST_F(AppTestR, Do_Print_Help_Without_Arguments) {
     Check("This is a area convertor application");
 }
 
-TEST_F(AppTestR, Can_Detect_Wrong_curUnit_Format) {
+TEST(AppTest, Can_Detect_Wrong_Number_Format) {
+    int argc = 4;
+    char* argv[] = {"appname", "s", "hectare", "ar"};
+	
+	RunApp(argc, argv);
+
+    Check("Wrong number format!");
+}
+
+TEST(AppTest, Can_Detect_Wrong_Operation_Format) {
+    int argc = 4;
+    char* argv[] = {"appname", "1", "2", "qwe"};
+
+    RunApp(argc, argv);
+
+    Check("Wrong number format!");
+}
+
+
+TEST_F(AppTest, Can_Detect_Wrong_curUnit_Format) {
     int argc = 4;
     const char* argv[] = {"appname", "1,5", "qw", "sKilometer"};
 
@@ -44,7 +63,7 @@ TEST_F(AppTestR, Can_Detect_Wrong_curUnit_Format) {
     Check("Wrong number format!");
 }
 
-TEST_F(AppTestR, Can_Detect_Wrong_newUnit_Format) {
+TEST_F(AppTest, Can_Detect_Wrong_newUnit_Format) {
     int argc = 4;
     const char* argv[] = {"appname", "20", "sMeter", "we"};
 
@@ -53,7 +72,7 @@ TEST_F(AppTestR, Can_Detect_Wrong_newUnit_Format) {
     Check("Wrong number format!");
 }
 
-TEST_F(AppTestR, Can_Convert_sMeter_to_ar) {
+TEST_F(AppTest, Can_Convert_sMeter_to_ar) {
     int argc = 4;
     const char* argv[] = {"appname", "100", "sMeter", "ar"};
 
@@ -62,7 +81,7 @@ TEST_F(AppTestR, Can_Convert_sMeter_to_ar) {
     Check("Result = 1");
 }
 
-TEST_F(AppTestR, Can_Convert_sFoot_to_sMeter) {
+TEST_F(AppTest, Can_Convert_sFoot_to_sMeter) {
     int argc = 4;
     const char* argv[] = {"appname", "100", "sFoot", "sMeter"};
 
@@ -71,7 +90,7 @@ TEST_F(AppTestR, Can_Convert_sFoot_to_sMeter) {
     Check("Result = 9.29");
 }
 
-TEST_F(AppTestR, Can_Convert_sKilometer_to_acre) {
+TEST_F(AppTest, Can_Convert_sKilometer_to_acre) {
     int argc = 4;
     const char* argv[] = {"appname", "1.5", "sKilometer", "acre"};
 
