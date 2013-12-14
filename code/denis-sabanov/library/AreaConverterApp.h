@@ -24,5 +24,5 @@ class AreaConverterApp {
 
     void help(const char* appname);
     bool parseArguments(int argc, char** argv, Expression* expr);
-#endif  // CODE_DENIS_SABANOV_LIBRARY_AREACONVERTERAPP_H_
 };
+#endif  // CODE_DENIS_SABANOV_LIBRARY_AREACONVERTERAPP_H_
