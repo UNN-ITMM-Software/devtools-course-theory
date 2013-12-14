@@ -23,7 +23,7 @@ TEST_F(CurrencyConvertorTest, Can_Convert_Pound_to_Ruble) {
 }
 
 TEST_F(CurrencyConvertorTest, Can_Convert_Euro_to_Pound) {
-    EXPECT_EQ(15.358490, Conv.Convert({33, Euro}, Pound).value);
+    EXPECT_EQ(15.358500, Conv.Convert({33, Euro}, Pound).value);
 }
 
 TEST_F(CurrencyConvertorTest,
