@@ -38,8 +38,8 @@ TEST_F(AppTest, Do_Print_Help_Without_Arguments) {
 TEST(AppTest, Can_Detect_Wrong_Number_Format) {
     int argc = 4;
     char* argv[] = {"appname", "s", "hectare", "ar"};
-	
-	RunApp(argc, argv);
+
+    RunApp(argc, argv);
 
     Check("Wrong number format!");
 }
