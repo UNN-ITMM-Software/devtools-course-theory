@@ -7,7 +7,6 @@
 
 class CurrencyConvertorTest : public ::testing::Test {
  protected:
-
     CurrencyConvert Conv;
 };
 

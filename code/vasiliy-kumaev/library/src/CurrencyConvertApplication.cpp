@@ -1,6 +1,6 @@
 /* Copyright 2013 Vasiliy Kumaev */
 
-#include "library/ÑurrencyConvertApplication.h"
+#include "library/CurrencyConvertApplication.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,7 +9,7 @@
 #include <string>
 #include <sstream>
 
-#include "library/CurrencyConvert.h"
+#include "library/CurrenceConvert.h"
 
 CurrencyConvertorApplication::CurrencyConvertorApplication() : message_("") {}
 
