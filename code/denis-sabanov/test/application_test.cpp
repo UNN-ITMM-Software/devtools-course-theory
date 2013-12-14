@@ -8,9 +8,6 @@ using ::testing::internal::RE;
 
 class AppTest : public ::testing::Test {
  protected:
-    // NOTE: here you can put your init/deinit code
-    // virtual void SetUp() {}
-    // virtual void TearDown() {}
 
     void RunApp(int argc, const char* argv[]) {
         output_ = app_(argc, argv);
@@ -18,7 +15,6 @@ class AppTest : public ::testing::Test {
 
 
     void Check(std::string expected) {
-        // printf("OUTPUT = %s\n", output_.c_str());
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
@@ -33,6 +29,15 @@ TEST_F(AppTest, Do_Print_Help_Without_Arguments) {
     RunApp(argc, argv);
 
     Check("This is a area convertor application");
+}
+
+TEST_F(AppTest, can_Check_Number_Of_Arguments) {
+    int argc = 3;
+    const char* argv[] = {"appname", "10", "ar"};
+
+    RunApp(argc, argv);
+
+    Check("ERROR: Should be 3 arguments\\..*");
 }
 
 TEST(AppTest, Can_Detect_Wrong_Number_Format) {
