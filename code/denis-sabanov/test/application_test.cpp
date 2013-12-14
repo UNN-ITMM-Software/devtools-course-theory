@@ -8,7 +8,6 @@ using ::testing::internal::RE;
 
 class AppTest : public ::testing::Test {
  protected:
-
     void RunApp(int argc, const char* argv[]) {
         output_ = app_(argc, argv);
     }
