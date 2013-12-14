@@ -48,3 +48,13 @@ TEST_F(AppTest, Can_Detect_Wrong_Number_Format) {
 
     Check("ERROR: wrong number format.*");
 }
+
+TEST_F(AppTest, Can_Calc_ExpValue_And_Dispersion) {
+    int argc = 9;
+    const char* argv[] = {"appname", "1", "0.15", "2",
+        "0.25", "3", "0.2", "4", "0.4"};
+
+    RunApp(argc, argv);
+
+    Check("Result: \nExpected value:  2.85\nDispersion:  1.2275\n");
+}

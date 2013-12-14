@@ -34,29 +34,42 @@ TEST_F(MathQuanCalcTest, Do_Throw_Exception_When_Put_Wrong_Values) {
 }
 
 TEST_F(MathQuanCalcTest, Can_Calc_Expected_Value) {
-    AddEvent(1, 0.5);
-    AddEvent(2, 0.5);
+    AddEvent(1, 0.15);
+    AddEvent(2, 0.25);
+    AddEvent(3, 0.2);
+    AddEvent(4, 0.4);
     calc.PutSample(sample);
-    EXPECT_EQ(1.5, calc.GetExpectedValue());
+    EXPECT_DOUBLE_EQ(2.85, calc.GetExpectedValue());
 }
 
 TEST_F(MathQuanCalcTest, Can_Calc_Dispersion) {
-    AddEvent(1, 0.5);
-    AddEvent(2, 0.5);
+    AddEvent(1, 0.15);
+    AddEvent(2, 0.25);
+    AddEvent(3, 0.2);
+    AddEvent(4, 0.4);
     calc.PutSample(sample);
-    EXPECT_EQ(0.25, calc.GetDispersion());
+    EXPECT_DOUBLE_EQ(1.2275, calc.GetDispersion());
 }
 
 TEST_F(MathQuanCalcTest, Can_Calc_Primary_Moment_2) {
-    AddEvent(1, 0.5);
-    AddEvent(2, 0.5);
+    AddEvent(1, 0.13);
+    AddEvent(2, 0.07);
+    AddEvent(3, 0.26);
+    AddEvent(4, 0.04);
+    AddEvent(5, 0.31);
+    AddEvent(6, 0.19);
     calc.PutSample(sample);
-    EXPECT_EQ(2.5, calc.GetPrimaryMoment(2));
+    EXPECT_DOUBLE_EQ(17.98, calc.GetPrimaryMoment(2));
 }
 
 TEST_F(MathQuanCalcTest, Can_Calc_Central_Moment_3) {
-    AddEvent(1, 0.5);
-    AddEvent(2, 0.5);
+    AddEvent(1, 0.13);
+    AddEvent(2, 0.07);
+    AddEvent(3, 0.26);
+    AddEvent(4, 0.04);
+    AddEvent(5, 0.31);
+    AddEvent(6, 0.19);
     calc.PutSample(sample);
-    EXPECT_EQ(0, calc.GetCentralMoment(3));
+    EXPECT_DOUBLE_EQ(-1.668, calc.GetCentralMoment(3));
 }
+

@@ -68,7 +68,7 @@ static void MakeCalc(MathQuanCalc* mqCalc,
         double expVal = 0.;
         try {
             expVal = mqCalc->GetExpectedValue();
-            (*stream) << "\nExpected value:  " << expVal << "\n";
+            (*stream) << "Expected value:  " << expVal << "\n";
         }
         catch(const std::string& str) {
             (*stream) << "\n" << str.c_str() << "\n";
@@ -76,7 +76,7 @@ static void MakeCalc(MathQuanCalc* mqCalc,
         double dispersion = 0.;
         try {
             dispersion = mqCalc->GetDispersion();
-            (*stream) << "\n" << "Dispersion:  " << dispersion << "\n";
+            (*stream) << "Dispersion:  " << dispersion << "\n";
         }
         catch(const std::string& str) {
             (*stream) << "\n" << str.c_str() << "\n";
@@ -97,7 +97,7 @@ std::string MathQuanCalcApplication::operator()(int argc, const char** argv) {
     MathQuanCalc calc;
 
     std::ostringstream stream;
-    stream << "Result = ";
+    stream << "Result: \n";
 
     MakeCalc(&calc, &sample, &stream);
 
