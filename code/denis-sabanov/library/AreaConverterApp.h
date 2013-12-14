@@ -18,11 +18,11 @@ class AreaConverterApp {
  public:
     AreaConverterApp();
 
-    std::string operator()(int argc, char** argv);
+    std::string operator()(int argc, const char** argv);
  private:
     std::string message_;
 
     void help(const char* appname);
-    bool parseArguments(int argc, char** argv, Expression* expr);
+    bool parseArguments(int argc, const char** argv, Expression* expr);
 };
 #endif  // CODE_DENIS_SABANOV_LIBRARY_AREACONVERTERAPP_H_
