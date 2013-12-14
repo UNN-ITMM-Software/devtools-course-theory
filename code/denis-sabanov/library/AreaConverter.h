@@ -19,5 +19,5 @@ class AreaConverter {
  private:
     double value;
     AreaType curType;
-#endif  // CODE_DENIS_SABANOV_LIBRARY_AREACONVERTER_H_
 };
+#endif  // CODE_DENIS_SABANOV_LIBRARY_AREACONVERTER_H_
