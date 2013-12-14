@@ -1,6 +1,8 @@
 /* Copyright 2013 Dmitriy Gorokhov */
+
+#include <library/QuadraticEquation.h>
+
 #include <math.h>
-#include <QuadraticEquation.h>
 
 QuadraticEquation::QuadraticEquation(): a(0), b(0), c(0) {
 }
@@ -32,5 +34,3 @@ int QuadraticEquation::Solve(double *root1, double *root2) {
         return(TWOROOTS);
     }
 }
-
-

@@ -3,12 +3,12 @@
 
 Класс ``QuadraticEquation`` предназначен для решения квадратных уравнений.
 Он предоставляет методы задания коэффициентов уравнения и решения уравнения.
-Метод решения возвращает код, описывающий количество корней уравнения или 
-сообщение о неправильных коэффициентах уравнения.
+Метод решения возвращает код, описывающий количество корней уравнения.
 
 .. code-block:: cpp
 
-    enum RootCount {TWOROOTS, ONEROOT, NOREALROOT, ILLEGALEQUATIONFORM};
+    enum RootCount {TWOROOTS, ONEROOT, NOREALROOT};
+    const double EPS = 0.0000001;
 
     class QuadraticEquation
     {
