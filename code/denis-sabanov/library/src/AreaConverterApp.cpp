@@ -67,7 +67,7 @@ AreaType parseAreaUnit(const char* arg) {
     return value;
 }
 
-bool AreaConverterApp::parseArguments(int argc, char** argv,
+bool AreaConverterApp::parseArguments(int argc, const char** argv,
                                                 Expression* expression) {
     if (argc == 1) {
         help(argv[0]);
@@ -93,7 +93,7 @@ bool AreaConverterApp::parseArguments(int argc, char** argv,
 }
 
 std::string AreaConverterApp::operator()(int argc,
-                                                   char** argv) {
+                                            const char** argv) {
     Expression expr;
 
     bool returnCode = parseArguments(argc, argv, &expr);
