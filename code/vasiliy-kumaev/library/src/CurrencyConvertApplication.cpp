@@ -1,6 +1,6 @@
 /* Copyright 2013 Vasiliy Kumaev */
 
-#include "library/currencyconvert_application.h"
+#include "library/ÑurrencyConvertApplication.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,9 +31,7 @@ double parseDouble(const char* value) {
     double number = static_cast<double>(strtod(value, &end));
 
     if (!end[0]) {
-        printf("%s is valid\n", value);
     } else {
-        printf("%s is invalid\n", value);
         throw "Wrong format!";
     }
 
@@ -45,9 +43,7 @@ int64_t parseInteger(const char* arg) {
     int64_t value = strtol(arg, &end, 10);
 
     if (!end[0]) {
-        printf("%s is valid\n", arg);
     } else {
-        printf("%s is invalid\n", arg);
         throw "Wrong format!";
     }
 
@@ -58,18 +54,13 @@ Unit parseUnit(const char* value) {
     Unit un;
     if (strcmp(value, "Ruble") == 0) {
       un = Ruble;
-      printf("%s is valid\n", value);
     } else if (strcmp(value, "Dollar") == 0) {
       un = Dollar;
-      printf("%s is valid\n", value);
     } else if (strcmp(value, "Euro") == 0) {
       un = Euro;
-      printf("%s is valid\n", value);
     } else if (strcmp(value, "Pound") == 0) {
       un = Pound;
-      printf("%s is valid\n", value);
     } else {
-        printf("%s is invalid\n", value);
         throw "Wrong format!";
     }
 
@@ -100,7 +91,7 @@ bool CurrencyConvertorApplication::parseArguments(int argc, const char** argv,
 }
 
 std::string CurrencyConvertorApplication::operator()(int argc,
-                                                   const char** argv) {
+                                                     const char** argv) {
     Expression expr;
     std::ostringstream stream;
 

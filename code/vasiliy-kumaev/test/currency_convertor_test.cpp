@@ -7,9 +7,6 @@
 
 class CurrencyConvertorTest : public ::testing::Test {
  protected:
-    // NOTE: here you can put your init/deinit code
-    // virtual void SetUp() {}
-    // virtual void TearDown() {}
 
     CurrencyConvert Conv;
 };
@@ -22,9 +19,17 @@ TEST_F(CurrencyConvertorTest, Can_Convert_Euro_to_Dollar) {
     EXPECT_EQ(74.000000, Conv.Convert({100, Euro}, Dollar).value);
 }
 
+TEST_F(CurrencyConvertorTest, Can_Convert_Pound_to_Ruble) {
+    EXPECT_EQ(2650.000000, Conv.Convert({50, Pound}, Ruble).value);
+}
+
+TEST_F(CurrencyConvertorTest, Can_Convert_Euro_to_Pound) {
+    EXPECT_EQ(15.358490, Conv.Convert({33, Euro}, Pound).value);
+}
+
 TEST_F(CurrencyConvertorTest,
        Do_Throw_Exception_When_Value_Is_Larger_Than_DBL_MAX) {
-    EXPECT_THROW(Conv.Convert({DBL_MAX+9999999999, Euro}, Ruble),
+    EXPECT_THROW(Conv.Convert({DBL_MAX+1, Euro}, Ruble),
                  std::string);
 }
 
