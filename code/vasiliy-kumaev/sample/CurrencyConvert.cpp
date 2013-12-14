@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <string>
-#include "library/currencyconvert_application.h"
+#include "library/CurrencyConvertApplication.h"
 
 int main(int argc, const char** argv) {
     CurrencyConvertorApplication app;

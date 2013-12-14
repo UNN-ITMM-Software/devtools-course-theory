@@ -9,7 +9,7 @@
 #include <string>
 #include <sstream>
 
-#include "library/CurrenceConvert.h"
+#include "library/CurrencyConvert.h"
 
 CurrencyConvertorApplication::CurrencyConvertorApplication() : message_("") {}
 
