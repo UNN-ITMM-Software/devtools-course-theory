@@ -25,9 +25,6 @@ void DichotomySearch::SetUp(int *&array, int size) {
         array[i] = static_cast<int>(rand_r(&seed) % RIGHT_BORDER_RANDOM)
                 + LEFT_BORDER_RANDOM;
     array[0] = 54;
-    for (int i = 0; i < size; i++) {
-        printf_s("%d", array[i]);
-    }
 }
 
 int **DichotomySearch::Preprocess(int * array, int size) {
