@@ -33,6 +33,6 @@ TEST_F(DichotomySearchTest, can_Work_Preprocess) {
     int** two_dim_array;
     example1.SetUp(array, 20);
     two_dim_array = example1.Preprocess(array, 20);
-    EXPECT_EQ(19, two_dim_array[3]);
+    EXPECT_EQ(19, two_dim_array[3][1]);
     delete [] array;
 }
