@@ -28,7 +28,7 @@ double parseDouble(const char* arg) {
     double value = strtod(arg, &end);
 
     if (end[0]) {
-        throw "wrong number format";
+        throw "Wrong number format!";
     }
 
     return value;
@@ -39,7 +39,7 @@ int64_t parseInteger(const char* arg) {
     int64_t value = strtol(arg, &end, 10);
 
     if (end[0]) {
-        throw "wrong number format";
+        throw "Wrong number format!";
     }
 
     return value;
