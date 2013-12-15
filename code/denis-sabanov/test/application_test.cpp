@@ -31,8 +31,8 @@ TEST_F(AppTest, Do_Print_Help_Without_Arguments) {
 }
 
 TEST_F(AppTest, can_Check_Number_Of_Arguments) {
-    int argc = 2;
-    const char* argv[] = {"appname", "10"};
+    int argc = 3;
+    const char* argv[] = {"appname", "10", "ar"};
 
     RunApp(argc, argv);
 
