@@ -77,11 +77,10 @@ std::string DichotomySearchApplication::operator()(int argc,
     int * array;
     int returnCode;
     array = new int[expression.size];
-    unsigned int seed = 12345;
+    unsigned int seed = 10;
     for (int i = 0; i < expression.size; i++)
         array[i] = static_cast<int>(rand_r(&seed) % RIGHT_BORDER_RANDOM)
                 + LEFT_BORDER_RANDOM;
-    array[0] = 54;
     if (expression.size < SIZE_FOR_PRINT) {
         stream << "Generated array: ";
         for (int i = 0; i < expression.size; i++)

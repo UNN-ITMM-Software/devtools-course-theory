@@ -23,7 +23,7 @@ TEST_F(DichotomySearchTest, can_Detect_Not_Found_Element) {
 
 TEST_F(DichotomySearchTest, can_Detect_Element) {
     int* array;
-    example1.SetUp(array, 50);
-    EXPECT_EQ(0, example1.Search(array, 54, 50));
+    example1.SetUp(array, 20);
+    EXPECT_EQ(3, example1.Search(array, 19, 20));
     delete [] array;
 }

@@ -70,9 +70,9 @@ TEST_F(AppTest, Can_Detect_Not_Found_Element) {
 
 TEST_F(AppTest, Can_Detect_Element) {
     int argc = 3;
-    const char* argv[] = {"appname", "20", "54"};
+    const char* argv[] = {"appname", "20", "19"};
 
     RunApp(argc, argv);
 
-    Check("Index of search element: 1.*");
+    Check("Index of search element: 4.*");
 }
