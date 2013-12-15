@@ -5,6 +5,7 @@
 #define _CRT_RAND_S
 #endif
 
+#include <stdio.h>
 #include <library/Dichotomy_Search.h>
 
 #define ELEM_NOT_FOUND -1
