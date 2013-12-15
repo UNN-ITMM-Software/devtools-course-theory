@@ -14,7 +14,7 @@
 #include "library/Dichotomy_Search_application.h"
 #include "library/Dichotomy_Search.h"
 
-#define SIZE_FOR_PRINT 25
+#define SIZE_FOR_PRINT 100
 #define LEFT_BORDER_RANDOM 1
 #define RIGHT_BORDER_RANDOM 50
 
@@ -77,7 +77,7 @@ std::string DichotomySearchApplication::operator()(int argc,
     int * array;
     int returnCode;
     array = new int[expression.size];
-    unsigned int seed = static_cast<unsigned int>(time(NULL));
+    unsigned int seed = 12345;
     for (int i = 0; i < expression.size; i++)
         array[i] = static_cast<int>(rand_r(&seed) % RIGHT_BORDER_RANDOM)
                 + LEFT_BORDER_RANDOM;
