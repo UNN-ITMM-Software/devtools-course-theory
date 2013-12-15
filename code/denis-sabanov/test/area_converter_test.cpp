@@ -20,12 +20,6 @@ TEST_F(AreaConverterTest, Can_Convert_sFoot_to_sMeter) {
     EXPECT_EQ(9.29, Converter.ConvertToNewType(sMeter));
 }
 
-TEST_F(AreaConverterTest, Can_Convert_Hectare_to_Acre) {
-    Converter.SetValue(1);
-    Converter.SetAreaType(hectare);
-    EXPECT_EQ(107643, Converter.ConvertToNewType(sFoot));
-}
-
 TEST_F(AreaConverterTest, Can_Convert_sMeter_to_ar) {
     Converter.SetValue(100);
     Converter.SetAreaType(sMeter);
