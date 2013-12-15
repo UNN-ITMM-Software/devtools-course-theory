@@ -39,7 +39,7 @@ TEST_F(AppTest, can_Check_Number_Of_Arguments) {
     Check("ERROR: Should be 3 arguments\\..*");
 }
 
-TEST(AppTest, Can_Detect_Wrong_Number_Format) {
+TEST_F(AppTest, Can_Detect_Wrong_Number_Format) {
     int argc = 4;
     const char* argv[] = {"appname", "s", "hectare", "ar"};
 
@@ -48,7 +48,7 @@ TEST(AppTest, Can_Detect_Wrong_Number_Format) {
     Check("Wrong number format!");
 }
 
-TEST(AppTest, Can_Detect_Wrong_Operation_Format) {
+TEST_F(AppTest, Can_Detect_Wrong_Operation_Format) {
     int argc = 4;
     const char* argv[] = {"appname", "1", "2", "qwe"};
 
