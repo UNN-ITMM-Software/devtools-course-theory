@@ -19,3 +19,15 @@ TEST_F(AreaConverterTest, Can_Convert_sFoot_to_sMeter) {
     Converter.SetAreaType(sFoot);
     EXPECT_EQ(9.29, Converter.ConvertToNewType(sMeter));
 }
+
+TEST_F(AreaConverterTest, Can_Convert_sKilometer_to_acre) {
+    Converter.SetValue(1.5);
+    Converter.SetAreaType(sKilometer);
+    EXPECT_EQ(370.645, Converter.ConvertToNewType(acre));
+}
+
+TEST_F(AreaConverterTest, Can_Convert_sMeter_to_ar) {
+    Converter.SetValue(100);
+    Converter.SetAreaType(sMeter);
+    EXPECT_EQ(1, Converter.ConvertToNewType(ar));
+}
