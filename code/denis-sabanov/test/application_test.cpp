@@ -41,7 +41,7 @@ TEST_F(AppTest, can_Check_Number_Of_Arguments) {
 
 TEST(AppTest, Can_Detect_Wrong_Number_Format) {
     int argc = 4;
-    char* argv[] = {"appname", "s", "hectare", "ar"};
+    const char* argv[] = {"appname", "s", "hectare", "ar"};
 
     RunApp(argc, argv);
 
@@ -50,7 +50,7 @@ TEST(AppTest, Can_Detect_Wrong_Number_Format) {
 
 TEST(AppTest, Can_Detect_Wrong_Operation_Format) {
     int argc = 4;
-    char* argv[] = {"appname", "1", "2", "qwe"};
+    const char* argv[] = {"appname", "1", "2", "qwe"};
 
     RunApp(argc, argv);
 
