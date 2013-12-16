@@ -14,10 +14,8 @@ TEST_F(WeightConvertorTest, Can_Convert_Ton_to_Kilograms) {
     EXPECT_EQ(7100.000000, Conv.ConvertTo({7.1, Ton}, Kilograms).value);
 }
 
-TEST_F(WeightConvertorTest,
-       Do_Throw_Exception_When_Value_Is_Larger_Than_DBL_MAX) {
-    EXPECT_THROW(Conv.ConvertTo({DBL_MAX+9999999999, Ton}, Kilograms),
-                 std::string);
+TEST_F(WeightConvertorTest, Can_Convert_Grams_to_Kilograms) {
+    EXPECT_EQ(5.000000, Conv.ConvertTo({5000, Grams}, Kilograms).value);
 }
 
 TEST_F(WeightConvertorTest,
