@@ -28,7 +28,7 @@ TEST_F(AppTestR, Do_Print_Help_Without_Arguments) {
 
     RunApp(argc, argv);
 
-    Check("This is an application of sorting arrays\\..*");
+    Check("This is an application of sorting");
 }
 
 TEST_F(AppTestR, Is_Checking_Number_Of_Arguments) {
@@ -37,7 +37,7 @@ TEST_F(AppTestR, Is_Checking_Number_Of_Arguments) {
 
     RunApp(argc, argv);
 
-    Check("ERROR: The number of arguments must\\..*");
+    Check("ERROR: The number of arguments must");
 }
 
 TEST_F(AppTestR, Can_Detect_Wrong_Number_Format) {
