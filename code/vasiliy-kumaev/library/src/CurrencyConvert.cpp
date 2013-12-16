@@ -10,13 +10,6 @@ CurrencyConvert::CurrencyConvert(void) {}
 
 CurrencyConvert::~CurrencyConvert(void) {}
 
-void CheckRange(double result);
-void CheckRange(double result) {
-    if (result > DBL_MAX)
-        throw std::string("The result is larger than DBL_MAX");
-    else if (result < -DBL_MAX)
-        throw std::string("The result is less than -DBL_MAX");
-}
 
 Currency CurrencyConvert::Convert(Currency currency, Unit UnitOutput) {
     double multiplierToDollar[4] = {1, 0.74, 0.03, 1.59};
@@ -24,7 +17,6 @@ Currency CurrencyConvert::Convert(Currency currency, Unit UnitOutput) {
         currency.value = multiplierToDollar[currency.unit]*
                          currency.value/multiplierToDollar[UnitOutput];
         currency.unit = UnitOutput;
-        CheckRange(currency.value);
     } else {
         currency.value = -1;
     }
