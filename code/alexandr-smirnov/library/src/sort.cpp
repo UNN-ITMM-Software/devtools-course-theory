@@ -18,8 +18,7 @@ class Sorter::SortImplementation {
 Sorter::Sorter(void): pImpl(new SortImplementation) {
 }
 
-Sorter::Sorter(const Sorter& sorter): pImpl(new SortImplementation) {
-    pImpl = sorter.pImpl;
+Sorter::Sorter(const Sorter& sorter): pImpl(sorter.pImpl) {
 }
 
 Sorter::~Sorter(void) {

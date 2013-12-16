@@ -1,7 +1,7 @@
 /* Copyright 2013 Alexandr Smirnov */
 
-#ifndef CODE_ALEXANDR_SMIRNOV_INCLUDE_SORT_H_
-#define CODE_ALEXANDR_SMIRNOV_INCLUDE_SORT_H_
+#ifndef CODE_ALEXANDR_SMIRNOV_LIBRARY_SORT_H_
+#define CODE_ALEXANDR_SMIRNOV_LIBRARY_SORT_H_
 
 enum SortMethod {QUICKSORT, HEAPSORT, MERGESORT};
 
@@ -18,4 +18,4 @@ class Sorter {
     SortImplementation* pImpl;
 };
 
-#endif  // CODE_ALEXANDR_SMIRNOV_INCLUDE_SORT_H_
+#endif  // CODE_ALEXANDR_SMIRNOV_LIBRARY_SORT_H_
