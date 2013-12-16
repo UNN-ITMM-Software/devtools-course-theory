@@ -1,6 +1,6 @@
 /* Copyright 2013 Alexandr Smirnov */
 
-#include <sort.h>
+#include "library/sort.h"
 
 class Sorter::SortImplementation {
  public :

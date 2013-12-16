@@ -1,19 +1,21 @@
 /* Copyright 2013 Alexandr Smirnov */
 
 #include "library/sort_application.h"
-#include "library/sort.h"
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <string.h>
 #include <string>
-#include <stdint.h>
 #include <sstream>
+
+#include "library/sort.h"
 
 SorterApplication::SorterApplication() : message_("") {}
 
 void SorterApplication::help(const char* appname) {
-    message_ += std::string("This is an application of sorting arrays of integer numbers.\n\n")
+    message_ += std::string("This is an application of sorting arrays ")
+             + "of integer numbers.\n\n"
              + "Please provide arguments in the following format:\n\n"
              + "  $ " + appname + " <sort method> <size of array>\n\n"
              + " <element[1]> <element[2]>... <element[size]> \n\n"
