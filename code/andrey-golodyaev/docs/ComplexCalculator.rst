@@ -12,19 +12,19 @@
 			double real;
 			double imaginary;
 		public:
-			ComplexNumber(double _real=0, double _imaginary=0);
+			ComplexNumber(double real=0, double imaginary=0);
 			~ComplexNumber();
 			
-			double GetReal();
-			double GetImaginary();
-			void SetReal(double _real);
-			void SetImaginary(double _imaginary);
+			double GetReal() const;
+			double GetImaginary() const;
+			void SetReal(double real);
+			void SetImaginary(double imaginary);
 			void Input(char *str);
 			void Output(char* str);
-			ComplexNumber operator +(ComplexNumber second);
-			ComplexNumber operator -(ComplexNumber second);
-			ComplexNumber operator *(ComplexNumber second);
-			ComplexNumber operator /(ComplexNumber second);
+			ComplexNumber operator +(const ComplexNumber &second) const;
+			ComplexNumber operator -(const ComplexNumber &second) const;
+			ComplexNumber operator *(const ComplexNumber &second) const;
+			ComplexNumber operator /(const ComplexNumber &second) const;
 		};
 		
 Пример использования класса ``ComplexNumber`` в пользовательском C++ коде:

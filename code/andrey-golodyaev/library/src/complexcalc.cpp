@@ -127,19 +127,19 @@ void ComplexNumber::Output(char *str) {
         imaginary < ep && imaginary > -ep) str1 = "0";
     strncpy(str, (str1.c_str()), str1.length());
 }
-const ComplexNumber ComplexNumber::operator +(const ComplexNumber &second) {
+ComplexNumber ComplexNumber::operator +(const ComplexNumber &second) const {
     ComplexNumber temp(0, 0);
     temp.real = GetReal()+second.GetReal();
     temp.imaginary = GetImaginary()+second.GetImaginary();
     return temp;
 }
-const ComplexNumber ComplexNumber::operator -(const ComplexNumber &second) {
+ComplexNumber ComplexNumber::operator -(const ComplexNumber &second) const {
     ComplexNumber temp(0, 0);
     temp.real = GetReal()-second.GetReal();
     temp.imaginary = GetImaginary()-second.GetImaginary();
     return temp;
 }
-const ComplexNumber ComplexNumber::operator *(const ComplexNumber &second) {
+ComplexNumber ComplexNumber::operator *(const ComplexNumber &second) const {
     ComplexNumber temp(0, 0);
     temp.real = GetReal()*second.GetReal()
                 -GetImaginary()*second.GetImaginary();
@@ -147,7 +147,7 @@ const ComplexNumber ComplexNumber::operator *(const ComplexNumber &second) {
                      +GetImaginary()*second.GetReal();
     return temp;
 }
-const ComplexNumber ComplexNumber::operator /(const ComplexNumber &second) {
+ComplexNumber ComplexNumber::operator /(const ComplexNumber &second) const {
     ComplexNumber temp(0, 0);
     double ep = 0.00001;
     if (second.GetReal()*second.GetReal()

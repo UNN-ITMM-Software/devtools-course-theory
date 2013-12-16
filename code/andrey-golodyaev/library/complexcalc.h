@@ -14,10 +14,10 @@ class ComplexNumber {
     void SetImaginary(double imaginary);
     bool Input(const char *str);
     void Output(char* str);
-    const ComplexNumber operator +(const ComplexNumber &second);
-    const ComplexNumber operator -(const ComplexNumber &second);
-    const ComplexNumber operator *(const ComplexNumber &second);
-    const ComplexNumber operator /(const ComplexNumber &second);
+    ComplexNumber operator +(const ComplexNumber &second) const;
+    ComplexNumber operator -(const ComplexNumber &second) const;
+    ComplexNumber operator *(const ComplexNumber &second) const;
+    ComplexNumber operator /(const ComplexNumber &second) const;
     bool operator ==(const ComplexNumber &second) const;
  private :
     double real;
