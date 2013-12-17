@@ -23,7 +23,9 @@ TEST_F(SorterTest, Can_Sort_Positive_Numbers_By_MergeSort) {
     b[1] = 2;
     b[2] = 4;
     sorter.Sort(a, N, MERGESORT);
-    EXPECT_EQ(a, b);
-    delete [] a;
+    for (int i = 0; i < N; i++) {    
+    EXPECT_EQ(a[i], b[i]);
+    }
     delete [] b;
+    delete [] a;
 }

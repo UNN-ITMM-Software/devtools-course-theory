@@ -46,7 +46,16 @@ TEST_F(AppTestR, Can_Detect_Wrong_Number_Format) {
 
     RunApp(argc, argv);
 
-    Check("Wrong number format!.*");
+    Check("Wrong number format");
+}
+
+TEST_F(AppTestR, Can_Detect_Wrong_Method_Format) {
+    int argc = 5;
+    const char* argv[] = {"appname", "t", "2", "7", "4"};
+
+    RunApp(argc, argv);
+
+    Check("Wrong method format");
 }
 
 TEST_F(AppTestR, Can_Sort_Positive_Numbers_By_MergeSort) {

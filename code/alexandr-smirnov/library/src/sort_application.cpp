@@ -1,6 +1,6 @@
 /* Copyright 2013 Alexandr Smirnov */
 
-#include "library/sort_application.h"
+#include "sort_application.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,7 +9,7 @@
 #include <string>
 #include <sstream>
 
-#include "library/sort.h"
+#include "sort.h"
 
 SorterApplication::SorterApplication() : message_("") {}
 
@@ -27,26 +27,21 @@ void SorterApplication::help(const char* appname) {
              + "m - if you want to sort this by MERGESORT \n\n";
 }
 
-int64_t parseInteger(const char* arg);
-int64_t parseInteger(const char* arg) {
+void parseInteger(const char* arg);
+void parseInteger(const char* arg) {
     char* end;
-    int64_t value = strtol(arg, &end, 10);
+    strtol(arg, &end, 10);
 
     if (end[0]) {
         throw "Wrong number format";
     }
-
-    return value;
 }
 
-bool canCompute(const char* expr);
-bool canCompute(const char* expr) {
-  int arg = static_cast<int>(parseInteger(expr));
-  if (arg == static_cast<int>(parseInteger(expr))) {
-    return true;
-  } else {
-    return false;
-  }
+void parseMethod(const char* arg);
+void parseMethod(const char* arg) {
+   if (arg[0] != 'm' & arg[0] != 'h' & arg[0] != 'q') {
+     throw "Wrong method format";
+   }
 }
 
 bool SorterApplication::parseArguments(int argc, const char** argv) {
@@ -61,8 +56,16 @@ bool SorterApplication::parseArguments(int argc, const char** argv) {
     }
 
     try {
+        parseMethod(argv[1]);
+        }
+    catch(...) {
+        message_ = "Wrong method format!\n";
+        return false;
+    }
+
+    try {
       for (int i = 2; i < argc; i++) {
-        canCompute(argv[i]);
+        parseInteger(argv[i]);
       }
     }
     catch(...) {
@@ -83,6 +86,7 @@ std::string SorterApplication::operator()(int argc, const char** argv) {
 
     for (int i = 0; i < N; i++)
       a[i] = atoi(argv[i + 3]);
+
     Sorter sorter;
 
     if (argv[1][0] == 'q')
@@ -99,7 +103,5 @@ std::string SorterApplication::operator()(int argc, const char** argv) {
         stream << " " << a[i];
 
     message_ = stream.str();
-
-    delete [] a;
     return message_;
 }
