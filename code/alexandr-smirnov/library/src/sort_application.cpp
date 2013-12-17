@@ -1,6 +1,6 @@
 /* Copyright 2013 Alexandr Smirnov */
 
-#include "sort_application.h"
+#include "library/sort_application.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,7 +9,7 @@
 #include <string>
 #include <sstream>
 
-#include "sort.h"
+#include "library/sort.h"
 
 SorterApplication::SorterApplication() : message_("") {}
 
@@ -103,5 +103,7 @@ std::string SorterApplication::operator()(int argc, const char** argv) {
         stream << " " << a[i];
 
     message_ = stream.str();
+
+    delete [] a;
     return message_;
 }
