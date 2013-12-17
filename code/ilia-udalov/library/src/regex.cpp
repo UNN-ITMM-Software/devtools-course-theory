@@ -47,7 +47,7 @@ static int matchHere(const std::string& regex,
         return 1;
     if (regex[r_pos + 1] == '*')
         return matchStar(regex[r_pos], regex, text, r_pos + 2, t_pos);
-    if (regex[r_pos] == '$' && regex.size() == r_pos)
+    if (regex[r_pos] == '$' && regex.size() == (r_pos + 1))
         return t_pos == text.size();
     if (t_pos != text.size() && (regex[r_pos] == '.'
         || regex[r_pos] == text[t_pos]))
