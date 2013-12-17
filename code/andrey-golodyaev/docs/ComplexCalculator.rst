@@ -1,40 +1,40 @@
 ﻿Голодяев Андрей: Калькулятор комплексных чисел
 ==============================================
 
-Класс ``ComplexCalculator`` предназначен для осуществления простых операций с комплексными числами.
+Класс ``ComplexNumber`` предназначен для хранения комплексных чисел и осуществления с ними простых операций.
 В нем представлены методы для сложения, вычитания, умножения и деления комплексных чисел.
 
  .. code-block:: cpp
  
-		class ComplexCalculator
+		class ComplexNumber
 		{
 		private:
 			double real;
 			double imaginary;
 		public:
-			ComplexCalculator(double _real=0, double _imaginary=0);
-			virtual ~ComplexCalculator();
+			ComplexNumber(double real=0, double imaginary=0);
+			~ComplexNumber();
 			
-			double GetReal();
-			double GetImaginary();
-			void SetReal(double _real);
-			void SetImaginary(double _imaginary);
+			double GetReal() const;
+			double GetImaginary() const;
+			void SetReal(double real);
+			void SetImaginary(double imaginary);
 			void Input(char *str);
 			void Output(char* str);
-			static ComplexCalculator Add(ComplexCalculator first, ComplexCalculator second);
-			static ComplexCalculator Sub(ComplexCalculator first, ComplexCalculator second);
-			static ComplexCalculator Multi(ComplexCalculator first, ComplexCalculator second);
-			static ComplexCalculator Div(ComplexCalculator first, ComplexCalculator second);
+			ComplexNumber operator +(const ComplexNumber &second) const;
+			ComplexNumber operator -(const ComplexNumber &second) const;
+			ComplexNumber operator *(const ComplexNumber &second) const;
+			ComplexNumber operator /(const ComplexNumber &second) const;
 		};
 		
-Пример использования класса ``ComplexCalculator`` в пользовательском C++ коде:
+Пример использования класса ``ComplexNumber`` в пользовательском C++ коде:
 
  .. code-block:: cpp
 		
-		ComplexCalculator a(1,1);
-		ComplexCalculator b(2,2);
-		ComplexCalculator c(0,0);
-		char str[10]="";
-		c=ComplexCalculator::Add(a,b);
+		ComplexNumber a(1, 1);
+		ComplexNumber b(2, 2);
+		ComplexNumber c(0, 0);
+		char str[10] = "";
+		c = a + b;
 		c.Output(str);
-		printf("A+B=%s\n",str);
+		printf("A+B = %s\n", str);
