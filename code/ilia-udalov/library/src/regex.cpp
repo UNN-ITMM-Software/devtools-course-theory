@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "../include/regex.h"
+#include "library/regex.h"
 
 static int matchStar(int c, const std::string& regex,
     const std::string& text, size_t r, size_t t);
@@ -23,11 +23,14 @@ int match(const std::string& regex, const std::string& text) {
 }
 
 int find(const std::string& substring, const std::string& text) {
+    if (text.size() < substring.size()) {
+        return -1;
+    }
+
     size_t i, j;
-    for (i = 0; i < text.size() - substring.size(); i++) {
+    for (i = 0; i < text.size() - substring.size() + 1; i++) {
         for (j = 0; j < substring.size(); j++) {
-            if (static_cast<wchar_t>(substring[j])
-                != static_cast<wchar_t>(text[i + j])) {
+            if (substring[j] != text[i + j]) {
                 break;
             }
         }
@@ -44,7 +47,7 @@ static int matchHere(const std::string& regex,
         return 1;
     if (regex[r_pos + 1] == '*')
         return matchStar(regex[r_pos], regex, text, r_pos + 2, t_pos);
-    if (regex[r_pos] == '$' && regex.size() == r_pos)
+    if (regex[r_pos] == '$' && regex.size() == (r_pos + 1))
         return t_pos == text.size();
     if (t_pos != text.size() && (regex[r_pos] == '.'
         || regex[r_pos] == text[t_pos]))
