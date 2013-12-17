@@ -39,7 +39,7 @@ void parseInteger(const char* arg) {
 
 void parseMethod(const char* arg);
 void parseMethod(const char* arg) {
-    if (arg[0] != 'm' & arg[0] != 'h' & arg[0] != 'q') {
+    if ((arg[0] != 'm') & (arg[0] != 'h') & (arg[0] != 'q')) {
       throw "Wrong method format";
     }
 }
