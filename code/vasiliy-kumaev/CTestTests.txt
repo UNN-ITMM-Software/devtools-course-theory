@@ -6,13 +6,11 @@ enable_testing()
 
 add_test( 
     NAME can_Run
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname}
 )
 
 add_test( 
     NAME can_Print_Help_Without_Arguments
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname}
 )
 set_tests_properties (can_Print_Help_Without_Arguments 
@@ -20,7 +18,6 @@ set_tests_properties (can_Print_Help_Without_Arguments
 
 add_test(
     NAME can_Check_Number_Of_Arguments
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 24 Pound
 )
 set_tests_properties (can_Check_Number_Of_Arguments 
@@ -28,7 +25,6 @@ set_tests_properties (can_Check_Number_Of_Arguments
 
 add_test(
     NAME can_Detect_Wrong_Number_Format
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} p Dollar Pound
 )
 set_tests_properties (can_Detect_Wrong_Number_Format 
@@ -36,15 +32,13 @@ set_tests_properties (can_Detect_Wrong_Number_Format
 
 add_test(
     NAME can_Detect_Wrong_Negative_Value
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} -100 Dollar Pound
 )
 set_tests_properties (can_Detect_Wrong_Negative_Value
-  PROPERTIES PASS_REGULAR_EXPRESSION "Negative value!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = -1")
 
 add_test(
     NAME can_Detect_Wrong_oldunit_and_newunit_Formats
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 100 pi Buble
 )
 set_tests_properties (can_Detect_Wrong_oldunit_and_newunit_Formats 
@@ -52,7 +46,6 @@ set_tests_properties (can_Detect_Wrong_oldunit_and_newunit_Formats
 
 add_test(
     NAME can_Detect_Wrong_oldunit_Format
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 100 pi Euro
 )
 set_tests_properties (can_Detect_Wrong_oldunit_Format 
@@ -60,24 +53,21 @@ set_tests_properties (can_Detect_Wrong_oldunit_Format
 
 add_test(
     NAME can_Detect_Wrong_newunit_Format
-    WORKING_DIRECTORY ${bin_dir}
     COMMAND ${appname} 100 Euro X
 )
 set_tests_properties (can_Detect_Wrong_newunit_Format 
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong format!")
 
 add_test(
-    NAME can_Convert_Euro_to_Pound
-    WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 200 Euro Pound
+    NAME can_Convert_Euro_to_Dollar
+    COMMAND ${appname} 200 Euro Dollar
 )
-set_tests_properties (can_Convert_Euro_to_Pound
-  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 93\\.082")
+set_tests_properties (can_Convert_Euro_to_Dollar
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 148")
 
 add_test(
-    NAME can_Convert_Ruble_to_Euro
-    WORKING_DIRECTORY ${bin_dir}
-    COMMAND ${appname} 100 Ruble Euro
+    NAME can_Convert_Ruble_to_Dollar
+    COMMAND ${appname} 300 Ruble Dollar
 )
-set_tests_properties (can_Convert_Ruble_to_Euro
-  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 4\\.054")
+set_tests_properties (can_Convert_Ruble_to_Dollar
+  PROPERTIES PASS_REGULAR_EXPRESSION "Result = 9")
