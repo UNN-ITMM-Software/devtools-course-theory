@@ -1,8 +1,12 @@
 /* Copyright 2013 Dmitry Vodopyanov */
-#include <LengthConvertor.h>
+#include "library/LengthConvertor.h"
+
+#include <stdint.h>
+#include <limits.h>
+#include <float.h>
+#include <string>
 
 LengthConvertor::LengthConvertor(void) {}
-
 LengthConvertor::~LengthConvertor(void) {}
 
 Length LengthConvertor::Convert(Length length, LengthUnit UnitOutput) {
@@ -15,5 +19,5 @@ Length LengthConvertor::Convert(Length length, LengthUnit UnitOutput) {
     } else {
         length.value = -1;
     }
-    return length;
+    return static_cast<Length>(length);
 }
