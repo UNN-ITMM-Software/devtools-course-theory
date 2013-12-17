@@ -26,26 +26,26 @@ TEST_F(AreaConverterTest, Can_Convert_sMeter_to_ar) {
     EXPECT_EQ(1, Converter.ConvertToNewType(ar));
 }
 
-TEST_F(AreaConverterTest, Can_Convert_acre_to_sFoot) {
-    Converter.SetValue(10);
-    Converter.SetAreaType(acre);
-    EXPECT_EQ(435630, Converter.ConvertToNewType(sFoot));
-}
-
 TEST_F(AreaConverterTest, Can_Convert_ar_to_sKilometer) {
     Converter.SetValue(1.65);
     Converter.SetAreaType(ar);
     EXPECT_EQ(0.000165, Converter.ConvertToNewType(sKilometer));
 }
 
-TEST_F(AreaConverterTest, Can_Convert_sFoot_to_hectare) {
-    Converter.SetValue(100);
-    Converter.SetAreaType(sFoot);
-    EXPECT_EQ(0.000929, Converter.ConvertToNewType(hectare));
+TEST_F(AreaConverterTest, Can_Convert_acre_to_sFoot) {
+    Converter.SetValue(1.36);
+    Converter.SetAreaType(acre);
+    EXPECT_EQ(59245.6, Converter.ConvertToNewType(sFoot));
 }
 
-TEST_F(AreaConverterTest, Can_Convert_sKilometer_to_acre) {
-    Converter.SetValue(25);
-    Converter.SetAreaType(sKilometer);
-    EXPECT_EQ(6177.42, Converter.ConvertToNewType(acre));
+TEST_F(AreaConverterTest, Can_Convert_acre_to_sMeter) {
+    Converter.SetValue(10.25);
+    Converter.SetAreaType(acre);
+    EXPECT_EQ(41481.8, Converter.ConvertToNewType(sMeter));
+}
+
+TEST_F(AreaConverterTest, Can_Convert_hectare_to_sFoot) {
+    Converter.SetValue(0.5);
+    Converter.SetAreaType(hectare);
+    EXPECT_EQ(53821.3, Converter.ConvertToNewType(sFoot));
 }
