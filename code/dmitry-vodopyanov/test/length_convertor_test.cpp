@@ -23,7 +23,7 @@ TEST_F(LengthConvertorTest, Can_Convert_CMeters_to_KMeters) {
 }
 
 TEST_F(LengthConvertorTest, Can_Convert_Miles_to_Yards) {
-    EXPECT_EQ(14080.000103, convertor.Convert({8, Mile}, Yard).value);
+    EXPECT_DOUBLE_EQ(14080.00, convertor.Convert({8, Mile}, Yard).value);
 }
 
 TEST_F(LengthConvertorTest,
