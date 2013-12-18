@@ -20,7 +20,7 @@ TEST_F(LengthConvertorTest, Can_Convert_KMeters_to_Meters) {
 }
 
 TEST_F(LengthConvertorTest, Can_Convert_CMeters_to_KMeters) {
-    EXPECT_EQ(8.0, convertor.Convert({800000, CMeter}, KMeter).value,
+    EXPECT_NEAR(8.0, convertor.Convert({800000, CMeter}, KMeter).value,
               0.099999);
 }
 
