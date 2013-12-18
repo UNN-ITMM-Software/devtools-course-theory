@@ -1,30 +1,15 @@
 /* Copyright 2013 Aleksey Kostrov */
 
-#if defined _WIN32 || defined _WIN64
-#define rand_r rand_s
-#define _CRT_RAND_S
-#endif
-
 #include <stdio.h>
 #include <library/Dichotomy_Search.h>
 
 #define ELEM_NOT_FOUND -1
-#define LEFT_BORDER_RANDOM 1
-#define RIGHT_BORDER_RANDOM 50
 
 DichotomySearch::DichotomySearch() {}
 
 DichotomySearch::~DichotomySearch() {}
 
 void DeleteMemory(int ** array, int size);
-
-void DichotomySearch::SetUp(int *&array, int size) {
-    array = new int[size];
-    unsigned int seed = 10;
-    for (int i = 0; i < size; i++)
-        array[i] = static_cast<int>(rand_r(&seed) % RIGHT_BORDER_RANDOM)
-                + LEFT_BORDER_RANDOM;
-}
 
 int **DichotomySearch::Preprocess(int * array, int size) {
     int ** addit_array;

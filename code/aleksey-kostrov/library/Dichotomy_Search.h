@@ -11,7 +11,6 @@ class DichotomySearch {
  public:
     DichotomySearch();
     ~DichotomySearch();
-    void SetUp(int *&array, int size);
     int **Preprocess(int *array, int size);
     int Search(int *array, int element, int size);
 };
