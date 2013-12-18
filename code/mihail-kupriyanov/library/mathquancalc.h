@@ -1,7 +1,7 @@
 // Copyright 2013 Michail Kupriyanov
 
-#ifndef CODE_MIHAIL_KUPRIYANOV_INCLUDE_MATHQUANCALC_H_
-#define CODE_MIHAIL_KUPRIYANOV_INCLUDE_MATHQUANCALC_H_
+#ifndef CODE_MIHAIL_KUPRIYANOV_LIBRARY_MATHQUANCALC_H_
+#define CODE_MIHAIL_KUPRIYANOV_LIBRARY_MATHQUANCALC_H_
 
 #include <vector>
 #include <string>
@@ -12,7 +12,7 @@ class MathQuanCalc {
     MathQuanCalc(const MathQuanCalc&);
     virtual ~MathQuanCalc();
 
-    struct Event  {
+    struct Event {
         double value;
         double probability;
     };
@@ -30,4 +30,4 @@ class MathQuanCalc {
     std::vector<Event> sample;
 };
 
-#endif  // CODE_MIHAIL_KUPRIYANOV_INCLUDE_MATHQUANCALC_H_
+#endif  // CODE_MIHAIL_KUPRIYANOV_LIBRARY_MATHQUANCALC_H_

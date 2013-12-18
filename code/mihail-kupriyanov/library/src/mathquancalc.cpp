@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 
-#include "../include/mathquancalc.h"
+#include "library/mathquancalc.h"
 // #include "mathquancalc.h"
 
 static const char* EXCEPTION_MESSAGE = "ERROR: Wrong sample!";
