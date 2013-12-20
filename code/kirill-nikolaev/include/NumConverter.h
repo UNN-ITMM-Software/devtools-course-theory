@@ -21,8 +21,10 @@ class NumConverter {
     std::string ToDecimal(void);
     std::string ToBinary(void);
  private:
+    #pragma pack(push, 1)
     std::string Val;
     NumSystem NumSys;
+    #pragma pack(pop)
 };
 
 #endif  // CODE_KIRILL_NIKOLAEV_INCLUDE_NUMCONVERTER_H_
