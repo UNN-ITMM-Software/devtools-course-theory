@@ -83,7 +83,7 @@ std::string SorterApplication::operator()(int argc, const char** argv) {
         return message_;
 
     int N = atoi(argv[2]);
-    std::unique_ptr <int[]> a (new int[N]);
+    std::unique_ptr <int[]> a(new int[N]);
 
     for (int i = 0; i < N; i++)
       a[i] = atoi(argv[i + 3]);
