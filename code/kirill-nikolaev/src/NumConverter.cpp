@@ -6,9 +6,6 @@
 #include <cstdlib>
 #include <cstdio>
 
-NumConverter::~NumConverter() {
-}
-
 std::string DecToBin(std::string decNum) {
     std::stack<int> mystack;
     int tmp = atoi(decNum.c_str());
@@ -90,6 +87,9 @@ std::string HexToDec(std::string hexNum) {
     }
     snprintf(buf, sizeof(buf), "%d", tmp0);
     return buf;
+}
+
+NumConverter::~NumConverter() {
 }
 
 std::string NumConverter::ToBinary() {

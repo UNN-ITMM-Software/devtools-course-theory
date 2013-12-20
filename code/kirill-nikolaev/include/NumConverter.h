@@ -15,11 +15,11 @@ class NumConverter {
     NumConverter(NumSystem numsys, std::string val): NumSys(numsys), Val(val) {}
     ~NumConverter();
 
-    std::string GetValue();
-    std::string ToHex();
-    std::string ToOctal();
-    std::string ToDecimal();
-    std::string ToBinary();
+    std::string GetValue(void);
+    std::string ToHex(void);
+    std::string ToOctal(void);
+    std::string ToDecimal(void);
+    std::string ToBinary(void);
  private:
     NumSystem NumSys;
     std::string Val;
