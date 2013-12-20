@@ -6,6 +6,11 @@
 #include <cstdlib>
 #include <cstdio>
 
+std::string DecToBin(std::string decNum);
+std::string BinToDec(std::string binNum);
+std::string OctToDec(std::string octNum);
+std::string HexToDec(std::string hexNum);
+
 std::string DecToBin(std::string decNum) {
     std::stack<int> mystack;
     int tmp = atoi(decNum.c_str());
