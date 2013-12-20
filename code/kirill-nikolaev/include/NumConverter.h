@@ -12,7 +12,7 @@ std::string DecToBin(std::string decNum);
 
 class NumConverter {
  public:
-    NumConverter(NumSystem numsys, std::string val): NumSys(numsys), Val(val) {}
+    NumConverter(std::string val, NumSystem numsys): Val(val), NumSys(numsys) {}
     ~NumConverter();
 
     std::string GetValue(void);

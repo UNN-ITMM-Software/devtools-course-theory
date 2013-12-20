@@ -90,7 +90,7 @@ Argument ParseArgs(int argc, char** argv) {
 int main(int argc, char** argv) {
     Argument arg;
     arg = ParseArgs(argc, argv);
-    NumConverter a(arg.numsys, std::string(arg.number));
+    NumConverter a(std::string(arg.number), arg.numsys);
     switch (arg.numsys) {
         case bin: {
             printf("%s in bin.\n", a.GetValue().c_str());
