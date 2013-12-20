@@ -8,7 +8,7 @@
 #include <string.h>
 #include <string>
 #include <sstream>
-#include <memory>
+#include <vector>
 
 #include "library/sort.h"
 
@@ -83,7 +83,7 @@ std::string SorterApplication::operator()(int argc, const char** argv) {
         return message_;
 
     int N = atoi(argv[2]);
-    std::unique_ptr <int[]> a (new int[N]);
+    std::vector <int> a(N);
 
     for (int i = 0; i < N; i++)
       a[i] = atoi(argv[i + 3]);
@@ -91,11 +91,11 @@ std::string SorterApplication::operator()(int argc, const char** argv) {
     Sorter sorter;
 
     if (argv[1][0] == 'q')
-      sorter.Sort(a, N, QUICKSORT);
+      sorter.Sort(&a[0], N, QUICKSORT);
     if (argv[1][0] == 'h')
-      sorter.Sort(a, N, HEAPSORT);
+      sorter.Sort(&a[0], N, HEAPSORT);
     if (argv[1][0] == 'm')
-      sorter.Sort(a, N, MERGESORT);
+      sorter.Sort(&a[0], N, MERGESORT);
 
     std::ostringstream stream;
     stream << "Result of sorting:";
