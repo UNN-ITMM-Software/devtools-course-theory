@@ -181,7 +181,7 @@ std::string NumConverter::ToHex() {
             s = buf;
         }
         if (NumSys == oct) {
-            s = HexToDec(Val);
+            s = OctToDec(Val);
             int tmp = atoi(s.c_str());
             char buf[32];
             snprintf(buf, sizeof(buf), "%x", tmp);

@@ -22,21 +22,29 @@ void Help(const char* appname) {
 char* ParseNumber(char* num, NumSystem numsys) {
     std::string s(num);
     if (numsys == bin) {
+        if (s.length() > 31)
+            throw "Wrong number format";
         for (unsigned int i = 0; i < s.length(); i++) {
             if (s[i] < 48 || s[i] > 49)
                 throw "Wrong number format";
         }
     } else if (numsys == oct) {
+        if (s.length() > 10)
+            throw "Wrong number format";
         for (unsigned int i = 0; i < s.length(); i++) {
             if (s[i] < 48 || s[i] > 55)
                 throw "Wrong number format";
         }
     } else if (numsys == dec) {
+        if (s.length() > 9)
+            throw "Wrong number format";
         for (unsigned int i = 0; i < s.length(); i++) {
             if (s[i] < 48 || s[i] > 57)
                 throw "Wrong number format";
         }
     } else if (numsys == hex) {
+        if (s.length() > 7)
+            throw "Wrong number format";
         for (unsigned int i = 0; i < s.length(); i++) {
             if (s[i] < 48 || (s[i] > 57 && s[i] < 97) ||
                 s[i] > 102)
@@ -65,7 +73,7 @@ Argument ParseArgs(int argc, char** argv) {
     } else if (strcmp(argv[1], "hex") == 0) {
         arg.numsys = hex;
     } else {
-        printf("Error: %s is a wrong name for a number system.\n", argv[1]);
+        printf("Error: Wrong name for a number system.\n");
         exit(2);
     }
     try {

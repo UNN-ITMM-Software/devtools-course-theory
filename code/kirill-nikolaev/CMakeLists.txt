@@ -25,3 +25,13 @@ add_lib_static(${libname} "src")
 # Declare application
 add_local_dependency(${libname})
 add_app(${appname} "samples")
+
+# Declare unit tests
+add_app(${testname} "test")
+target_link_libraries(${testname})
+
+#############################################
+##### Testing
+#############################################
+
+include("CTestTests.txt")
