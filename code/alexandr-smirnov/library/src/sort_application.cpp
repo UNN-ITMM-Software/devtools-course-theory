@@ -82,8 +82,8 @@ std::string SorterApplication::operator()(int argc, const char** argv) {
     if (returnCode != true)
         return message_;
 
-    unsigned int N = atoi(argv[2]);
-    if (N > 0) {
+    if (atoi(argv[2]) > 0) {
+      unsigned int N = atoi(argv[2]);
       std::vector <int> a(N);
 
       for (int i = 0; i < N; i++)
@@ -103,7 +103,8 @@ std::string SorterApplication::operator()(int argc, const char** argv) {
 
       for (int i = 0; i < N; i++)
         stream << " " << a[i];
-    }
+
     message_ = stream.str();
+    }
     return message_;
 }
