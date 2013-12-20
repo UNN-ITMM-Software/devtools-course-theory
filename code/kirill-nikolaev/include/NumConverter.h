@@ -8,11 +8,11 @@
 enum NumSystem {
     hex, oct, dec, bin};
 
-std::string DecToBin(int decNum);
+std::string DecToBin(std::string decNum);
 
 class NumConverter {
  public:
-    NumConverter(NumSystem numsys, std::string value);
+    NumConverter(NumSystem numsys, std::string val): NumSys(numsys), Val(val) {}
     ~NumConverter();
 
     std::string GetValue();
@@ -22,7 +22,7 @@ class NumConverter {
     std::string ToBinary();
  private:
     NumSystem NumSys;
-    std::string Value;
+    std::string Val;
 };
 
 #endif  // CODE_KIRILL_NIKOLAEV_INCLUDE_NUMCONVERTER_H_
