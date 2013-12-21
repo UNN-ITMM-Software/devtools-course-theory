@@ -93,11 +93,11 @@ std::string SorterApplication::operator()(int argc, const char** argv) {
       Sorter sorter;
 
       if (argv[1][0] == 'q')
-        sorter.Sort(&a[0], N, QUICKSORT);
+        sorter.Sort(&a[0], static_cast<int>N, QUICKSORT);
       if (argv[1][0] == 'h')
-        sorter.Sort(&a[0], N, HEAPSORT);
+        sorter.Sort(&a[0], static_cast<int>N, HEAPSORT);
       if (argv[1][0] == 'm')
-        sorter.Sort(&a[0], N, MERGESORT);
+        sorter.Sort(&a[0], static_cast<int>N, MERGESORT);
 
       std::ostringstream stream;
       stream << "Result of sorting:";
