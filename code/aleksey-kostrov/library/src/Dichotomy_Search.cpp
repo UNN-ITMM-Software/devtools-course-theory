@@ -1,5 +1,9 @@
 /* Copyright 2013 Aleksey Kostrov */
-#include <Dichotomy_Search.h>
+
+#include <stdio.h>
+#include <library/Dichotomy_Search.h>
+
+#define ELEM_NOT_FOUND -1
 
 DichotomySearch::DichotomySearch() {}
 
@@ -40,9 +44,7 @@ int **DichotomySearch::Preprocess(int * array, int size) {
         addit_array[i][1] = B[i][1];
         addit_array[i][0] = B[i][0];
     }
-    for (int i = 0; i < size; i++)
-        delete [] B[i];
-    delete [] B;
+    DeleteMemory(B, size);
     delete [] C;
     return addit_array;
 }
@@ -71,7 +73,7 @@ int DichotomySearch::Search(int * array, int element, int size) {
         }
         if (leftborder > rightborder) {
             DeleteMemory(addit_array, size);
-            return  -1;
+            return  ELEM_NOT_FOUND;
         }
     }
 }
