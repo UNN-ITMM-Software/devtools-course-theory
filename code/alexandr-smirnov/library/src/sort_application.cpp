@@ -83,7 +83,7 @@ std::string SorterApplication::operator()(int argc, const char** argv) {
         return message_;
 
     if (atoi(argv[2]) > 0) {
-      unsigned int N = atoi(argv[2]);
+      unsigned int N = static_cast<unsigned int>(atoi(argv[2]));
       std::vector <int> a(N);
 
       for (int i = 0; i < N; i++)
