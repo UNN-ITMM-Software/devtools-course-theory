@@ -1,0 +1,154 @@
+#############################################
+##### Testing
+#############################################
+
+enable_testing()
+
+add_test( 
+    NAME can_Run
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+
+add_test(
+    NAME can_Print_Help
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname}
+)
+set_tests_properties(can_Print_Help
+    PROPERTIES PASS_REGULAR_EXPRESSION "This is a number converter application.")
+    
+add_test(
+    NAME can_Check_Number_Of_Arguments
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} bin
+)
+set_tests_properties(can_Check_Number_Of_Arguments
+    PROPERTIES PASS_REGULAR_EXPRESSION "Error: Should be 2 arguments.")
+    
+add_test(
+    NAME can_Detect_Wrong_Number_System_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} hexx 10
+)
+set_tests_properties(can_Detect_Wrong_Number_System_Format
+    PROPERTIES PASS_REGULAR_EXPRESSION "Error: Wrong name for a number system.")
+
+add_test(
+    NAME can_Detect_Wrong_Bin_Number_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} bin 2341010
+)
+set_tests_properties(can_Detect_Wrong_Bin_Number_Format
+    PROPERTIES PASS_REGULAR_EXPRESSION "Error: Wrong number format.")
+
+add_test(
+    NAME can_Detect_Wrong_Oct_Number_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} oct 988940
+)
+set_tests_properties(can_Detect_Wrong_Oct_Number_Format
+    PROPERTIES PASS_REGULAR_EXPRESSION "Error: Wrong number format.")
+
+add_test(
+    NAME can_Detect_Wrong_Dec_Number_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} dec abcd9ef
+)
+set_tests_properties(can_Detect_Wrong_Dec_Number_Format
+    PROPERTIES PASS_REGULAR_EXPRESSION "Error: Wrong number format.")
+
+add_test(
+    NAME can_Detect_Wrong_Hex_Number_Format
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} hex a4AcgD
+)
+set_tests_properties(can_Detect_Wrong_Hex_Number_Format
+    PROPERTIES PASS_REGULAR_EXPRESSION "Error: Wrong number format.")
+
+add_test(
+    NAME can_Convert_From_Bin
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} bin 10101010101000001
+)
+set_tests_properties(can_Convert_From_Bin
+    PROPERTIES PASS_REGULAR_EXPRESSION "10101010101000001 in bin.
+Is 15541 in hex.
+Is 252501 in oct.
+Is 87361 in dec.")
+
+add_test(
+    NAME can_Convert_From_Oct
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} oct 252501
+)
+set_tests_properties(can_Convert_From_Oct
+    PROPERTIES PASS_REGULAR_EXPRESSION "252501 in oct.
+Is 15541 in hex.
+Is 87361 in dec.
+Is 10101010101000001 in bin.")
+
+add_test(
+    NAME can_Convert_From_Dec
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} dec 87361
+)
+set_tests_properties(can_Convert_From_Dec
+    PROPERTIES PASS_REGULAR_EXPRESSION "87361 in dec.
+Is 15541 in hex.
+Is 252501 in oct.
+Is 10101010101000001 in bin.")
+
+add_test(
+    NAME can_Convert_From_Hex
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} hex 15541
+)
+set_tests_properties(can_Convert_From_Hex
+    PROPERTIES PASS_REGULAR_EXPRESSION "15541 in hex.
+Is 252501 in oct.
+Is 87361 in dec.
+Is 10101010101000001 in bin.")
+
+add_test(
+    NAME can_Detect
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} hex 15541
+)
+set_tests_properties(can_Convert_From_Hex
+    PROPERTIES PASS_REGULAR_EXPRESSION "15541 in hex.
+Is 252501 in oct.
+Is 87361 in dec.
+Is 10101010101000001 in bin.")
+
+add_test(
+    NAME can_Detect_Large_Bin_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} bin 11111111111111111111111111111110
+)
+set_tests_properties(can_Detect_Large_Bin_Numbers
+    PROPERTIES PASS_REGULAR_EXPRESSION "Error: Wrong number format.")
+
+add_test(
+    NAME can_Detect_Large_Oct_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} oct 77777777771
+)
+set_tests_properties(can_Detect_Large_Oct_Numbers
+    PROPERTIES PASS_REGULAR_EXPRESSION "Error: Wrong number format.")
+
+add_test(
+    NAME can_Detect_Large_Dec_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} dec 9999999992
+)
+set_tests_properties(can_Detect_Large_Dec_Numbers
+    PROPERTIES PASS_REGULAR_EXPRESSION "Error: Wrong number format.")
+
+add_test(
+    NAME can_Detect_Large_Hex_Numbers
+    WORKING_DIRECTORY ${bin_dir}
+    COMMAND ${appname} hex fffffff0
+)
+set_tests_properties(can_Detect_Large_Hex_Numbers
+    PROPERTIES PASS_REGULAR_EXPRESSION "Error: Wrong number format.")

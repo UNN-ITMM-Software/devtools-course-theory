@@ -8,21 +8,23 @@
 enum NumSystem {
     hex, oct, dec, bin};
 
-std::string DecToBin(int decNum);
+std::string DecToBin(std::string decNum);
 
+#pragma pack(push, 1)
 class NumConverter {
  public:
-    NumConverter(NumSystem numsys, std::string value);
+    NumConverter(std::string val, NumSystem numsys): Val(val), NumSys(numsys) {}
     ~NumConverter();
 
-    std::string GetValue();
-    std::string ToHex();
-    std::string ToOctal();
-    std::string ToDecimal();
-    std::string ToBinary();
+    std::string GetValue(void);
+    std::string ToHex(void);
+    std::string ToOctal(void);
+    std::string ToDecimal(void);
+    std::string ToBinary(void);
  private:
+    std::string Val;
     NumSystem NumSys;
-    std::string Value;
 };
+#pragma pack(pop)
 
 #endif  // CODE_KIRILL_NIKOLAEV_INCLUDE_NUMCONVERTER_H_

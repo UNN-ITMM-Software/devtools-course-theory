@@ -1,28 +1,24 @@
 // Copyright 2013 K.Nikolaev
 #include <NumConverter.h>
-#include <string>
 #include <stack>
+#include <string>
 #include <cmath>
 #include <cstdlib>
 #include <cstdio>
 
-NumConverter::NumConverter(NumSystem numsys, std::string value) {
-    NumSys = numsys;
-    Value = value;
-}
+std::string DecToBin(std::string decNum);
+std::string BinToDec(std::string binNum);
+std::string OctToDec(std::string octNum);
+std::string HexToDec(std::string hexNum);
 
-NumConverter::~NumConverter() {
-}
-
-std::string DecToBin(int decNumber) {
+std::string DecToBin(std::string decNum) {
     std::stack<int> mystack;
-    int tmp = decNumber;
+    int tmp = atoi(decNum.c_str());
     do {
         mystack.push(tmp % 2);
         tmp /= 2;
     } while (tmp > 0);
     std::string s;
-    int pos = 0;
     while (!mystack.empty()) {
         if (mystack.top() == 0) {
             s.push_back('0');
@@ -36,44 +32,46 @@ std::string DecToBin(int decNumber) {
 
 std::string BinToDec(std::string binNum) {
     std::string s = binNum;
-    int tmp = 0;
-    char buf[20];
+    int tmp0 = 0;
+    char buf[32];
     for (unsigned int i = 0; i < s.length(); i++) {
         if (s[i] == '0') {
             continue;
         } else {
-            tmp += pow(2, s.length() - 1 - i);
+            double tmp = pow(2.0, static_cast<double>(s.length() - 1 - i));
+            tmp0 += static_cast<int>(tmp);
         }
     }
-    snprintf(buf, sizeof(buf), "%d", tmp);
+    snprintf(buf, sizeof(buf), "%d", tmp0);
     return buf;
 }
 
 std::string OctToDec(std::string octNum) {
     std::string s = octNum;
-    int tmp = 0;
-    char buf[20];
+    int tmp0 = 0;
+    char buf[32];
     for (unsigned int i = 0; i < s.length(); i++) {
        if (s[i] == '0') {
            continue;
        } else {
-          unsigned int digit = s[i] - '0';
-          tmp += pow(8, s.length() - 1 - i)*digit;
+          int digit = s[i] - '0';
+          double tmp = pow(8.0, static_cast<double>(s.length() - 1 - i));
+          tmp0 += static_cast<int>(tmp)*digit;
       }
   }
-  snprintf(buf, sizeof(buf), "%d", tmp);
+  snprintf(buf, sizeof(buf), "%d", tmp0);
   return buf;
 }
 
 std::string HexToDec(std::string hexNum) {
     std::string s = hexNum;
-    int tmp = 0;
-    char buf[20];
+    int tmp0 = 0;
+    char buf[32];
     for (unsigned int i = 0; i < s.length(); i++) {
         if (s[i] == '0') {
             continue;
         } else {
-            unsigned int digit = 0;
+            int digit = 0;
             if (isdigit(s[i]))
                 digit = s[i] - '0';
             if (s[i] == 'a')
@@ -88,119 +86,116 @@ std::string HexToDec(std::string hexNum) {
                 digit = 14;
             if (s[i] == 'f')
                 digit = 15;
-            tmp += pow(16, s.length() - 1 - i)*digit;
+            double tmp = pow(16.0, static_cast<double>(s.length() - 1 - i));
+            tmp0 += static_cast<int>(tmp)*digit;
         }
     }
-    snprintf(buf, sizeof(buf), "%d", tmp);
+    snprintf(buf, sizeof(buf), "%d", tmp0);
     return buf;
 }
 
-std::string NumConverter::GetValue() {
-    return Value;
+NumConverter::~NumConverter() {
 }
 
 std::string NumConverter::ToBinary() {
     if (NumSys == bin) {
-        return Value;
+        return Val;
     } else {
+        std::string s("");
         if (NumSys == dec) {
-            std::string s = Value;
-            int tmp = atoi(s.c_str());
-            s = DecToBin(tmp);
-            return s;
+            s = Val;
+            s = DecToBin(s);
         }
         if (NumSys == oct) {
-            std::string s = OctToDec(Value);
-            int tmp = atoi(s.c_str());
-            s = DecToBin(tmp);
-            return s;
+            s = OctToDec(Val);
+            s = DecToBin(s);
         }
         if (NumSys == hex) {
-            std::string s = HexToDec(Value);
-            int tmp = atoi(s.c_str());
-            s = DecToBin(tmp);
-            return s;
+            s = HexToDec(Val);
+            s = DecToBin(s);
         }
+        return s;
     }
 }
 
 std::string NumConverter::ToDecimal() {
     if (NumSys == dec) {
-        return Value;
+        return Val;
     } else {
+        std::string s("");
         if (NumSys == bin) {
-            std::string s = BinToDec(Value);
-            return s;
+            s = BinToDec(Val);
         }
         if (NumSys == oct) {
-            std::string s = OctToDec(Value);
-            return s;
+            s = OctToDec(Val);
         }
         if (NumSys == hex) {
-            std::string s = HexToDec(Value);
-            return s;
+            s = HexToDec(Val);
         }
+        return s;
     }
 }
 
 std::string NumConverter::ToOctal() {
-    if (NumSys == oct)
-        return Value;
-    {
+    if (NumSys == oct) {
+        return Val;
+    } else {
+        std::string s("");
         if (NumSys == dec) {
-            std::string s = Value;
+            s = Val;
             int tmp = atoi(s.c_str());
-            char buf[20];
+            char buf[32];
             snprintf(buf, sizeof(buf), "%o", tmp);
             s = buf;
-            return s;
         }
         if (NumSys == bin) {
-            std::string s = BinToDec(Value);
+            s = BinToDec(Val);
             int tmp = atoi(s.c_str());
-            char buf[20];
+            char buf[32];
             snprintf(buf, sizeof(buf), "%o", tmp);
             s = buf;
-            return s;
         }
         if (NumSys == hex) {
-            std::string s = HexToDec(Value);
+            s = HexToDec(Val);
             int tmp = atoi(s.c_str());
-            char buf[20];
+            char buf[32];
             snprintf(buf, sizeof(buf), "%o", tmp);
             s = buf;
-            return s;
         }
+        return s;
     }
 }
 
 std::string NumConverter::ToHex() {
-    if (NumSys == hex)
-        return Value;
-    {
+    if (NumSys == hex) {
+        return Val;
+    } else {
+        std::string s("");
         if (NumSys == dec) {
-            std::string s = Value;
+            s = Val;
             int tmp = atoi(s.c_str());
-            char buf[20];
+            char buf[32];
             snprintf(buf, sizeof(buf), "%x", tmp);
             s = buf;
-            return s;
         }
         if (NumSys == bin) {
-            std::string s = BinToDec(Value);
+            s = BinToDec(Val);
             int tmp = atoi(s.c_str());
-            char buf[20];
+            char buf[32];
             snprintf(buf, sizeof(buf), "%x", tmp);
             s = buf;
-            return s;
         }
         if (NumSys == oct) {
-            std::string s = HexToDec(Value);
+            s = OctToDec(Val);
             int tmp = atoi(s.c_str());
-            char buf[20];
+            char buf[32];
             snprintf(buf, sizeof(buf), "%x", tmp);
             s = buf;
-            return s;
         }
+        return s;
     }
+}
+
+std::string NumConverter::GetValue() {
+    return Val;
 }
