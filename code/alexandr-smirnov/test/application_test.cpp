@@ -91,7 +91,7 @@ TEST_F(AppTestR, Do_Print_Error_Message_If_Element_Larger_Than_INT_MAX) {
 
     RunApp(argc, argv);
 
-    Check("ERROR: The number is out of range!");
+    Check("ERROR: The number is out of range");
 }
 
 TEST_F(AppTestR, Do_Print_Error_Message_If_Element_Less_Than_INT_MIN) {
@@ -100,5 +100,5 @@ TEST_F(AppTestR, Do_Print_Error_Message_If_Element_Less_Than_INT_MIN) {
 
     RunApp(argc, argv);
 
-    Check("ERROR: The number is out of range!");
+    Check("ERROR: The number is out of range");
 }
