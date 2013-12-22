@@ -25,7 +25,7 @@ TEST_F(SorterTest, Can_Sort_Positive_Numbers_By_MergeSort) {
     b[1] = 2;
     b[2] = 4;
     sorter.Sort(&a[0], static_cast<int>(N), MERGESORT);
-    for (int i = 0; i < N; i++) {
+    for (i = 0; i < N; i++) {
     EXPECT_EQ(a[i], b[i]);
     }
 }
@@ -44,7 +44,7 @@ TEST_F(SorterTest, Can_Sort_Numbers_By_HeapSort) {
     b[2] = 20;
     b[3] = 43;
     sorter.Sort(&a[0], static_cast<int>(N), HEAPSORT);
-    for (int i = 0; i < N; i++) {
+    for (i = 0; i < N; i++) {
     EXPECT_EQ(a[i], b[i]);
     }
 }
@@ -63,7 +63,7 @@ TEST_F(SorterTest, Can_Sort_Large_Numbers_By_QuickSort) {
     b[2] = 20000000;
     b[3] = 43000000;
     sorter.Sort(&a[0], static_cast<int>(N), QUICKSORT);
-    for (int i = 0; i < N; i++) {
+    for (i = 0; i < N; i++) {
     EXPECT_EQ(a[i], b[i]);
     }
 }
