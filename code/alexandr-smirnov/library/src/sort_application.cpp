@@ -83,25 +83,26 @@ std::string SorterApplication::operator()(int argc, const char** argv) {
         return message_;
 
     if (atoi(argv[2]) > 0) {
-      unsigned int N = atoi(argv[2]);
+      unsigned int N = static_cast<unsigned int>(atoi(argv[2]));
       std::vector <int> a(N);
+      unsigned int i;
 
-      for (int i = 0; i < N; i++)
+      for (i = 0; i < N; i++)
         a[i] = atoi(argv[i + 3]);
 
       Sorter sorter;
 
       if (argv[1][0] == 'q')
-        sorter.Sort(&a[0], N, QUICKSORT);
+        sorter.Sort(&a[0], static_cast<int>(N), QUICKSORT);
       if (argv[1][0] == 'h')
-        sorter.Sort(&a[0], N, HEAPSORT);
+        sorter.Sort(&a[0], static_cast<int>(N), HEAPSORT);
       if (argv[1][0] == 'm')
-        sorter.Sort(&a[0], N, MERGESORT);
+        sorter.Sort(&a[0], static_cast<int>(N), MERGESORT);
 
       std::ostringstream stream;
       stream << "Result of sorting:";
 
-      for (int i = 0; i < N; i++)
+      for (i = 0; i < N; i++)
         stream << " " << a[i];
 
     message_ = stream.str();
