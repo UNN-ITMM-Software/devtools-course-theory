@@ -87,8 +87,14 @@ std::string SorterApplication::operator()(int argc, const char** argv) {
       std::vector <int> a(N);
       unsigned int i;
 
-      for (i = 0; i < N; i++)
-        a[i] = atoi(argv[i + 3]);
+      for (i = 0; i < N; i++) {
+        int temp = atoi(argv[i + 3]);
+        if (temp == INT_MAX || temp == INT_MIN) {
+          message_ = "ERROR: The number is out of range!";
+          return message_;
+        }
+        a[i] = temp;
+      }
 
       Sorter sorter;
 
