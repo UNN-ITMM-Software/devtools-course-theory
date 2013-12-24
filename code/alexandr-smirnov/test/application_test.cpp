@@ -84,3 +84,21 @@ TEST_F(AppTestR, Can_Sort_Large_Numbers_By_HeapSort) {
 
     Check("Result of sorting: -50000000 -10000000");
 }
+
+TEST_F(AppTestR, Do_Print_Error_Message_If_Element_Larger_Than_INT_MAX) {
+    int argc = 5;
+    const char* argv[] = {"appname", "h", "2", "30000000000", "5"};
+
+    RunApp(argc, argv);
+
+    Check("ERROR: The number is out of range");
+}
+
+TEST_F(AppTestR, Do_Print_Error_Message_If_Element_Less_Than_INT_MIN) {
+    int argc = 5;
+    const char* argv[] = {"appname", "q", "2", "-30000000000", "5"};
+
+    RunApp(argc, argv);
+
+    Check("ERROR: The number is out of range");
+}
