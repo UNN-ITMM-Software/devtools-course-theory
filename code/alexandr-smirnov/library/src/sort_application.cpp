@@ -88,7 +88,7 @@ std::string SorterApplication::operator()(int argc, const char** argv) {
       unsigned int i;
 
       for (i = 0; i < N; i++) {
-        long int temp = atol(argv[i + 3]);
+        int64 temp = atol(argv[i + 3]);
         if (temp >= 2147483647 || temp <= -2147483648) {
           message_ = "ERROR: The number is out of range!";
           return message_;
