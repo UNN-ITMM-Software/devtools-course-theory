@@ -1,6 +1,6 @@
 /* Copyright 2013 Alexandr Smirnov */
 
-#include <sort.h>
+#include "library/sort.h"
 
 class Sorter::SortImplementation {
  public :
@@ -18,8 +18,7 @@ class Sorter::SortImplementation {
 Sorter::Sorter(void): pImpl(new SortImplementation) {
 }
 
-Sorter::Sorter(const Sorter& sorter): pImpl(new SortImplementation) {
-    pImpl = sorter.pImpl;
+Sorter::Sorter(const Sorter& sorter): pImpl(sorter.pImpl) {
 }
 
 Sorter::~Sorter(void) {
