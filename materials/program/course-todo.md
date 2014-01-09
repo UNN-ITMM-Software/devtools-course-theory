@@ -21,6 +21,16 @@
   - Запускать статический анализатор
     - cppcheck, <https://scan.coverity.com>, <http://en.wikipedia.org/wiki/SonarQube>
 
+  - Следующий тест падает в проекте-примере:
+```
+add_test(
+    NAME is_Show_Error_On_Very_Large_Numbers
+    COMMAND ${appname} 10000000000 1 +
+)
+set_tests_properties (is_Show_Error_On_Very_Large_Numbers
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
+```
+
 # Оформление лекций
   - В плане для каждой лекции указать резюме, контрольные вопросы
   - Снести все ссылки в конец Markdown-файлов
