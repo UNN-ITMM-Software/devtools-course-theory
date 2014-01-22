@@ -1,35 +1,16 @@
-# General
+# Cache
+  - Разделение на несколько репозиториев
+    - devtools-course, devtools-course-practice, devtools-course-practice-2014
   - Обратную связь собирать в виде Google Form
+
+# General
   - Попросить помощи у студентов с мелкими задачами из этого списка
   - Разработать программу курса, явно выписать цели и задачи курса
 
+# 2014-2015
+  - Перенести на весенний семестр
   - Видеозапись
-  - Где-то в середине написать пост на Habr
-  - Написать копирайты, положить в корень
-
-# Лабораторные работы
-  - Write Lab5 description
-  - Переориентировать курс на QtCreator
-  - Show build status in README (also in agile)
-  - <https://coveralls.io> for
-  - Экранировать точки и скобки в CTest
-  - Сделать так, чтобы тестирующий скрипт работал на Windows (переписать на Python)
-  
-  - CMake подключить как Git подмодуль
-  - Видео для выполнения лабораторных работ
-  - Потребовать более качественной документации на выходе
-  - Запускать статический анализатор
-    - cppcheck, <https://scan.coverity.com>, <http://en.wikipedia.org/wiki/SonarQube>
-
-  - Следующий тест падает в проекте-примере:
-```
-add_test(
-    NAME is_Show_Error_On_Very_Large_Numbers
-    COMMAND ${appname} 10000000000 1 +
-)
-set_tests_properties (is_Show_Error_On_Very_Large_Numbers
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
-```
+  - Перед ним написать пост на Habr
 
 # Оформление лекций
   - В плане для каждой лекции указать резюме, контрольные вопросы
@@ -41,6 +22,10 @@ set_tests_properties (is_Show_Error_On_Very_Large_Numbers
 # Заметки для лекций
 
   - Реогранизация
+    - По всей видимости нужна лекция по стилю, проектированию интерфейса. Это не
+      совсем вписывается в инструменты, но это важная тема. Вероятно это можно
+      совместить с документированием, пакетированием, управлением
+      конфигурациями и так далее.
     - Разделить лекцию по VCS на 2: общую и более Git-специфичную
     - Вынести программирование и метапрограммирование из лекции про проекты
 
@@ -58,6 +43,8 @@ set_tests_properties (is_Show_Error_On_Very_Large_Numbers
     - Полистать Гудлифа
 
   - Представить курс в двух разрезах:
+    - В целом нужно придумать логику преподнесения теории, отдельно продумать
+      практику, а потом согласовать их.
     - я - код, я - команда, я - внешний мир
     - каскадная модель
   - Важные утверждения
@@ -67,7 +54,39 @@ set_tests_properties (is_Show_Error_On_Very_Large_Numbers
     - <http://www.cs.drexel.edu/~kschmidt/CS265/index.html>
     - <https://www.cs.drexel.edu/~jjohnson/2004-05/winter/cs265.html>
 
+# Лабораторные работы
+  - Write Lab5 description
+  - Переориентировать курс на QtCreator
+  - Show build status in README (also in agile)
+  - <https://coveralls.io>
+    - <https://github.com/eddyxu/cpp-coveralls>
+  - Экранировать точки и скобки в CTest
+  - Сделать так, чтобы тестирующий скрипт работал на Windows (переписать на Python)
+  - Вероятно лучше использовать нативный CMake вместо фреймворка Андрея
+
+  - Развитие практики
+    - Создание Python интерфейса (потом тесты и массовые эксперименты)
+    - Использование CPack (сколько и какие пакеты?)
+  
+  - CMake подключить как Git подмодуль
+  - Видео для выполнения лабораторных работ
+  - Потребовать более качественной документации на выходе
+  - Запускать статический анализатор
+    - cppcheck, <https://scan.coverity.com>, <http://en.wikipedia.org/wiki/SonarQube>
+
+  - Следующий тест падает в проекте-примере:
+
+```
+add_test(
+    NAME is_Show_Error_On_Very_Large_Numbers
+    COMMAND ${appname} 10000000000 1 +
+)
+set_tests_properties (is_Show_Error_On_Very_Large_Numbers
+  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
+```
+
 # Инфраструктура
+  - Написать копирайты, положить в корень (как в OpenCV)
   - Собрать это все на Android, и запустить тесты
   - Сделать сайт для курса в виде `gh-pages` (можно, со всякими +1)
   - Вероятно билд-скрипт стоит переписать на что-то типа Python или Ruby
