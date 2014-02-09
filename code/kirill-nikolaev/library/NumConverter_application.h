@@ -8,8 +8,8 @@
 
 #pragma pack(push, 1)
 typedef struct {
-    NumSystem numsys = bin;
-    std::string number = "";
+    NumSystem numsys;
+    std::string number;
 } Argument;
 #pragma pack(pop)
 

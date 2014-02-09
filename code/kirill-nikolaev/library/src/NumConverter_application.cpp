@@ -87,7 +87,7 @@ bool NumConverterApplication::ParseArgs(int argc, const char** argv,
 }
 
 std::string NumConverterApplication::operator()(int argc, const char** argv) {
-    Argument arg;
+    Argument arg = {bin, ""};
     bool returnCode = ParseArgs(argc, argv, &arg);
     if (!returnCode)
         return mess_;
