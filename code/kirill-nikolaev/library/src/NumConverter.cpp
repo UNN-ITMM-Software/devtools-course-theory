@@ -8,12 +8,12 @@
 
 #include "library/NumConverter.h"
 
-std::string DecToBin(std::string decNum);
-std::string BinToDec(std::string binNum);
-std::string OctToDec(std::string octNum);
-std::string HexToDec(std::string hexNum);
+std::string DecToBin(const std::string& decNum);
+std::string BinToDec(const std::string& binNum);
+std::string OctToDec(const std::string& octNum);
+std::string HexToDec(const std::string& hexNum);
 
-std::string DecToBin(std::string decNum) {
+std::string DecToBin(const std::string& decNum) {
     std::stack<int> mystack;
     int tmp = atoi(decNum.c_str());
     do {
@@ -32,7 +32,7 @@ std::string DecToBin(std::string decNum) {
     return s;
 }
 
-std::string BinToDec(std::string binNum) {
+std::string BinToDec(const std::string& binNum) {
     int tmp0 = 0;
     char buf[32];
     for (unsigned int i = 0; i < binNum.length(); i++) {
@@ -47,7 +47,7 @@ std::string BinToDec(std::string binNum) {
     return buf;
 }
 
-std::string OctToDec(std::string octNum) {
+std::string OctToDec(const std::string& octNum) {
     int tmp0 = 0;
     char buf[32];
     for (unsigned int i = 0; i < octNum.length(); i++) {
@@ -63,7 +63,7 @@ std::string OctToDec(std::string octNum) {
   return buf;
 }
 
-std::string HexToDec(std::string hexNum) {
+std::string HexToDec(const std::string& hexNum) {
     int tmp0 = 0;
     char buf[32];
     for (unsigned int i = 0; i < hexNum.length(); i++) {

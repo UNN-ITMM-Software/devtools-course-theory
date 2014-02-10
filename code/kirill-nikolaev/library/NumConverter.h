@@ -8,7 +8,7 @@
 enum NumSystem {
     hex, oct, dec, bin};
 
-std::string DecToBin(std::string decNum);
+std::string DecToBin(const std::string& decNum);
 
 #pragma pack(push, 1)
 class NumConverter {
