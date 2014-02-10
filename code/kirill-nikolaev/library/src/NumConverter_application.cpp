@@ -1,12 +1,12 @@
 // Copyright 2013 K.Nikolaev
 
-#include "library/NumConverter_application.h"
-
 #include <stdlib.h>
 #include <cstdio>
 #include <cstring>
 #include <string>
 #include <sstream>
+
+#include "library/NumConverter_application.h"
 
 NumConverterApplication::NumConverterApplication() : mess_("") {}
 
@@ -96,31 +96,31 @@ std::string NumConverterApplication::operator()(int argc, const char** argv) {
     stream << "";
     switch (arg.numsys) {
         case bin: {
-            stream << a.GetValue() << "in bin.\n";
-            stream << "Is" << a.ToHex() << "in hex.\n";
-            stream << "Is" << a.ToOctal() << "in oct.\n";
-            stream << "Is" << a.ToDecimal() << "in dec.\n";
+            stream << a.GetValue() << " in bin.\n";
+            stream << "Is " << a.ToHex() << " in hex.\n";
+            stream << "Is " << a.ToOctal() << " in oct.\n";
+            stream << "Is " << a.ToDecimal() << " in dec.\n";
             break;
         }
         case oct: {
-            stream << a.GetValue() << "in oct.\n";
-            stream << "Is" << a.ToHex() << "in hex.\n";
-            stream << "Is" << a.ToDecimal() << "in dec.\n";
-            stream << "Is" << a.ToBinary() << "in bin.\n";
+            stream << a.GetValue() << " in oct.\n";
+            stream << "Is " << a.ToHex() << " in hex.\n";
+            stream << "Is " << a.ToDecimal() << " in dec.\n";
+            stream << "Is " << a.ToBinary() << " in bin.\n";
             break;
         }
         case dec: {
-            stream << a.GetValue() << "in dec.\n";
-            stream << "Is" << a.ToHex() << "in hex.\n";
-            stream << "Is" << a.ToOctal() << "in oct.\n";
-            stream << "Is" << a.ToBinary() << "in bin.\n";
+            stream << a.GetValue() << " in dec.\n";
+            stream << "Is " << a.ToHex() << " in hex.\n";
+            stream << "Is " << a.ToOctal() << " in oct.\n";
+            stream << "Is " << a.ToBinary() << " in bin.\n";
             break;
         }
         case hex: {
-            stream << a.GetValue() << "in hex.\n";
-            stream << "Is" << a.ToOctal() << "in oct.\n";
-            stream << "Is" << a.ToDecimal() << "in dec.\n";
-            stream << "Is" << a.ToBinary() << "in bin.\n";
+            stream << a.GetValue() << " in hex.\n";
+            stream << "Is " << a.ToOctal() << " in oct.\n";
+            stream << "Is " << a.ToDecimal() << " in dec.\n";
+            stream << "Is " << a.ToBinary() << " in bin.\n";
             break;
         }
     }

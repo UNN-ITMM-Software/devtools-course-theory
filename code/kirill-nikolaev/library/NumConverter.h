@@ -1,4 +1,4 @@
-/* Copyright 2013 K.Nikolaev */
+// Copyright 2013 K.Nikolaev 
 
 #ifndef CODE_KIRILL_NIKOLAEV_LIBRARY_NUMCONVERTER_H_
 #define CODE_KIRILL_NIKOLAEV_LIBRARY_NUMCONVERTER_H_
@@ -15,6 +15,8 @@ class NumConverter {
  public:
     NumConverter(std::string val, NumSystem numsys): Val(val), NumSys(numsys) {}
     ~NumConverter();
+
+    int CheckLength(std::string val, NumSystem numsys);
 
     std::string GetValue(void);
     std::string ToHex(void);

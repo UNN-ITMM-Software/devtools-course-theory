@@ -108,3 +108,60 @@ TEST_F(AppTest, can_Detect_Large_Hex_Numbers) {
 
     Check("Error: Wrong number format.");
 }
+
+TEST_F(AppTest, can_Convert_From_Bin) {
+    int argc = 3;
+    const char* argv[] = {"appname", "bin",
+    "10101010101000001"};
+    RunApp(argc, argv);
+
+    std::string tmp = "";
+    tmp += std::string("10101010101000001 in bin.\n")
+        + "Is 15541 in hex.\n"
+        + "Is 252501 in oct.\n"
+        + "Is 87361 in dec.\n";
+
+    Check(tmp.c_str());
+}
+
+TEST_F(AppTest, can_Convert_From_Oct) {
+    int argc = 3;
+    const char* argv[] = {"appname", "oct", "252501"};
+    RunApp(argc, argv);
+
+    std::string tmp = "";
+    tmp += std::string("252501 in oct.\n")
+        + "Is 15541 in hex.\n"
+        + "Is 87361 in dec.\n"
+        + "Is 10101010101000001 in bin.\n";
+
+    Check(tmp);
+}
+
+TEST_F(AppTest, can_Convert_From_Dec) {
+    int argc = 3;
+    const char* argv[] = {"appname", "dec", "87361"};
+    RunApp(argc, argv);
+
+    std::string tmp = "";
+    tmp += std::string("87361 in dec.\n")
+        + "Is 15541 in hex.\n"
+        + "Is 252501 in oct.\n"
+        + "Is 10101010101000001 in bin.\n";
+
+    Check(tmp);
+}
+
+TEST_F(AppTest, can_Convert_From_Hex) {
+    int argc = 3;
+    const char* argv[] = {"appname", "hex", "15541"};
+    RunApp(argc, argv);
+
+    std::string tmp = "";
+    tmp += std::string("15541 in hex.\n")
+        + "Is 252501 in oct.\n"
+        + "Is 87361 in dec.\n"
+        + "Is 10101010101000001 in bin.\n";
+
+    Check(tmp);
+}

@@ -1,10 +1,12 @@
 // Copyright 2013 K.Nikolaev
-#include "library/NumConverter.h"
+
 #include <stack>
 #include <string>
 #include <cmath>
 #include <cstdlib>
 #include <cstdio>
+
+#include "library/NumConverter.h"
 
 std::string DecToBin(std::string decNum);
 std::string BinToDec(std::string binNum);
@@ -96,6 +98,9 @@ NumConverter::~NumConverter() {
 }
 
 std::string NumConverter::ToBinary() {
+    int rcode = CheckLength(Val, NumSys);
+    if (rcode != 0 )
+        throw std::string("Wrong format.");
     if (NumSys == bin) {
         return Val;
     } else {
@@ -117,6 +122,9 @@ std::string NumConverter::ToBinary() {
 }
 
 std::string NumConverter::ToDecimal() {
+    int rcode = CheckLength(Val, NumSys);
+    if (rcode != 0 )
+        throw std::string("Wrong format.");
     if (NumSys == dec) {
         return Val;
     } else {
@@ -135,6 +143,9 @@ std::string NumConverter::ToDecimal() {
 }
 
 std::string NumConverter::ToOctal() {
+    int rcode = CheckLength(Val, NumSys);
+    if (rcode != 0 )
+        throw std::string("Wrong format.");
     if (NumSys == oct) {
         return Val;
     } else {
@@ -165,6 +176,9 @@ std::string NumConverter::ToOctal() {
 }
 
 std::string NumConverter::ToHex() {
+    int rcode = CheckLength(Val, NumSys);
+    if (rcode != 0 )
+        throw std::string("Wrong format.");
     if (NumSys == hex) {
         return Val;
     } else {
@@ -196,4 +210,39 @@ std::string NumConverter::ToHex() {
 
 std::string NumConverter::GetValue() {
     return Val;
+}
+
+int NumConverter::CheckLength(std::string val, NumSystem numsys) {
+    int code = 0;
+    if (numsys == bin) {
+        if (val.length() > 31)
+            code = 1;
+        for (unsigned int i = 0; i < val.length(); i++) {
+            if (val[i] < 48 || val[i] > 49)
+                code = 1;
+        }
+    } else if (numsys == oct) {
+        if (val.length() > 10)
+            code = 1;
+        for (unsigned int i = 0; i < val.length(); i++) {
+            if (val[i] < 48 || val[i] > 55)
+                code = 1;
+        }
+    } else if (numsys == dec) {
+        if (val.length() > 9)
+            code = 1;
+        for (unsigned int i = 0; i < val.length(); i++) {
+            if (val[i] < 48 || val[i] > 57)
+                code = 1;
+        }
+    } else if (numsys == hex) {
+        if (val.length() > 7)
+            code = 1;
+        for (unsigned int i = 0; i < val.length(); i++) {
+            if (val[i] < 48 || (val[i] > 57 && val[i] < 97) ||
+                val[i] > 102)
+                code = 1;
+        }
+    }
+    return code;
 }
