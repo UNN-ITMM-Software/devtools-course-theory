@@ -1,17 +1,19 @@
 // Copyright 2013 K.Nikolaev
-#include <NumConverter.h>
+
 #include <stack>
 #include <string>
 #include <cmath>
 #include <cstdlib>
 #include <cstdio>
 
-std::string DecToBin(std::string decNum);
-std::string BinToDec(std::string binNum);
-std::string OctToDec(std::string octNum);
-std::string HexToDec(std::string hexNum);
+#include "library/NumConverter.h"
 
-std::string DecToBin(std::string decNum) {
+std::string DecToBin(const std::string& decNum);
+std::string BinToDec(const std::string& binNum);
+std::string OctToDec(const std::string& octNum);
+std::string HexToDec(const std::string& hexNum);
+
+std::string DecToBin(const std::string& decNum) {
     std::stack<int> mystack;
     int tmp = atoi(decNum.c_str());
     do {
@@ -30,15 +32,14 @@ std::string DecToBin(std::string decNum) {
     return s;
 }
 
-std::string BinToDec(std::string binNum) {
-    std::string s = binNum;
+std::string BinToDec(const std::string& binNum) {
     int tmp0 = 0;
     char buf[32];
-    for (unsigned int i = 0; i < s.length(); i++) {
-        if (s[i] == '0') {
+    for (unsigned int i = 0; i < binNum.length(); i++) {
+        if (binNum[i] == '0') {
             continue;
         } else {
-            double tmp = pow(2.0, static_cast<double>(s.length() - 1 - i));
+            double tmp = pow(2.0, static_cast<double>(binNum.length() - 1 - i));
             tmp0 += static_cast<int>(tmp);
         }
     }
@@ -46,16 +47,15 @@ std::string BinToDec(std::string binNum) {
     return buf;
 }
 
-std::string OctToDec(std::string octNum) {
-    std::string s = octNum;
+std::string OctToDec(const std::string& octNum) {
     int tmp0 = 0;
     char buf[32];
-    for (unsigned int i = 0; i < s.length(); i++) {
-       if (s[i] == '0') {
+    for (unsigned int i = 0; i < octNum.length(); i++) {
+       if (octNum[i] == '0') {
            continue;
        } else {
-          int digit = s[i] - '0';
-          double tmp = pow(8.0, static_cast<double>(s.length() - 1 - i));
+          int digit = octNum[i] - '0';
+          double tmp = pow(8.0, static_cast<double>(octNum.length() - 1 - i));
           tmp0 += static_cast<int>(tmp)*digit;
       }
   }
@@ -63,30 +63,30 @@ std::string OctToDec(std::string octNum) {
   return buf;
 }
 
-std::string HexToDec(std::string hexNum) {
-    std::string s = hexNum;
+std::string HexToDec(const std::string& hexNum) {
     int tmp0 = 0;
     char buf[32];
-    for (unsigned int i = 0; i < s.length(); i++) {
-        if (s[i] == '0') {
+    for (unsigned int i = 0; i < hexNum.length(); i++) {
+        if (hexNum[i] == '0') {
             continue;
         } else {
             int digit = 0;
-            if (isdigit(s[i]))
-                digit = s[i] - '0';
-            if (s[i] == 'a')
+            if (isdigit(hexNum[i]))
+                digit = hexNum[i] - '0';
+            if (hexNum[i] == 'a')
                 digit = 10;
-            if (s[i] == 'b')
+            if (hexNum[i] == 'b')
                 digit = 11;
-            if (s[i] == 'c')
+            if (hexNum[i] == 'c')
                 digit = 12;
-            if (s[i] == 'd')
+            if (hexNum[i] == 'd')
                 digit = 13;
-            if (s[i] == 'e')
+            if (hexNum[i] == 'e')
                 digit = 14;
-            if (s[i] == 'f')
+            if (hexNum[i] == 'f')
                 digit = 15;
-            double tmp = pow(16.0, static_cast<double>(s.length() - 1 - i));
+            double tmp;
+            tmp = pow(16.0, static_cast<double>(hexNum.length() - 1 - i));
             tmp0 += static_cast<int>(tmp)*digit;
         }
     }
@@ -98,6 +98,9 @@ NumConverter::~NumConverter() {
 }
 
 std::string NumConverter::ToBinary() {
+    int rcode = CheckLength(Val, NumSys);
+    if (rcode != 0 )
+        throw std::string("Wrong format.");
     if (NumSys == bin) {
         return Val;
     } else {
@@ -119,6 +122,9 @@ std::string NumConverter::ToBinary() {
 }
 
 std::string NumConverter::ToDecimal() {
+    int rcode = CheckLength(Val, NumSys);
+    if (rcode != 0 )
+        throw std::string("Wrong format.");
     if (NumSys == dec) {
         return Val;
     } else {
@@ -137,6 +143,9 @@ std::string NumConverter::ToDecimal() {
 }
 
 std::string NumConverter::ToOctal() {
+    int rcode = CheckLength(Val, NumSys);
+    if (rcode != 0 )
+        throw std::string("Wrong format.");
     if (NumSys == oct) {
         return Val;
     } else {
@@ -167,6 +176,9 @@ std::string NumConverter::ToOctal() {
 }
 
 std::string NumConverter::ToHex() {
+    int rcode = CheckLength(Val, NumSys);
+    if (rcode != 0 )
+        throw std::string("Wrong format.");
     if (NumSys == hex) {
         return Val;
     } else {
@@ -198,4 +210,39 @@ std::string NumConverter::ToHex() {
 
 std::string NumConverter::GetValue() {
     return Val;
+}
+
+int NumConverter::CheckLength(std::string val, NumSystem numsys) {
+    int code = 0;
+    if (numsys == bin) {
+        if (val.length() > 31)
+            code = 1;
+        for (unsigned int i = 0; i < val.length(); i++) {
+            if (val[i] < 48 || val[i] > 49)
+                code = 1;
+        }
+    } else if (numsys == oct) {
+        if (val.length() > 10)
+            code = 1;
+        for (unsigned int i = 0; i < val.length(); i++) {
+            if (val[i] < 48 || val[i] > 55)
+                code = 1;
+        }
+    } else if (numsys == dec) {
+        if (val.length() > 9)
+            code = 1;
+        for (unsigned int i = 0; i < val.length(); i++) {
+            if (val[i] < 48 || val[i] > 57)
+                code = 1;
+        }
+    } else if (numsys == hex) {
+        if (val.length() > 7)
+            code = 1;
+        for (unsigned int i = 0; i < val.length(); i++) {
+            if (val[i] < 48 || (val[i] > 57 && val[i] < 97) ||
+                val[i] > 102)
+                code = 1;
+        }
+    }
+    return code;
 }
