@@ -1,20 +1,22 @@
-/* Copyright 2013 K.Nikolaev */
+// Copyright 2013 K.Nikolaev
 
-#ifndef CODE_KIRILL_NIKOLAEV_INCLUDE_NUMCONVERTER_H_
-#define CODE_KIRILL_NIKOLAEV_INCLUDE_NUMCONVERTER_H_
+#ifndef CODE_KIRILL_NIKOLAEV_LIBRARY_NUMCONVERTER_H_
+#define CODE_KIRILL_NIKOLAEV_LIBRARY_NUMCONVERTER_H_
 
 #include <string>
 
 enum NumSystem {
     hex, oct, dec, bin};
 
-std::string DecToBin(std::string decNum);
+std::string DecToBin(const std::string& decNum);
 
 #pragma pack(push, 1)
 class NumConverter {
  public:
     NumConverter(std::string val, NumSystem numsys): Val(val), NumSys(numsys) {}
     ~NumConverter();
+
+    int CheckLength(std::string val, NumSystem numsys);
 
     std::string GetValue(void);
     std::string ToHex(void);
@@ -27,4 +29,4 @@ class NumConverter {
 };
 #pragma pack(pop)
 
-#endif  // CODE_KIRILL_NIKOLAEV_INCLUDE_NUMCONVERTER_H_
+#endif  // CODE_KIRILL_NIKOLAEV_LIBRARY_NUMCONVERTER_H_
