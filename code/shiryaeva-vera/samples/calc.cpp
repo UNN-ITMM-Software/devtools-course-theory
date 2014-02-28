@@ -1,7 +1,10 @@
+/* Copyright 2013 Vera Shiryaeva */
+
 #include <BinOctHexCalculator.h>
 #include <stdio.h>
+#include <string>
 
-int main(){
+int main() {
     BinOctHexCalculator calc;
     Notation notation1 = Hex;
     std::string value1 = "10";
