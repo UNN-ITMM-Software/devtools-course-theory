@@ -7,30 +7,20 @@
   * вычитания
   * умножения
   * деления
-Для представления чисел в различных системах счисления используется структура ``Number``, состоящая из собственно значения, представленного строкой символов, и названия системы счисления, представленного переменной перечисляемого типа.
 
 .. code-block:: cpp
 
 	enum Notation {Bin, Oct, Hex};
 
-	struct Number
-	{
-		char* value;
-		Notation notation; 
-	};
+	class BinOctHexCalculator {
+		public:
+			BinOctHexCalculator(void);
+			~BinOctHexCalculator(void);
 
-	class BinOctHexCalculator
-	{
-	public:
-		BinOctHexCalculator(void);
-		virtual ~BinOctHexCalculator(void);
-		Number Add(Number a, Number b, Notation outputNotation);
-		Number Sub(Number a, Number b, Notation outputNotation);
-		Number Mult(Number a, Number b, Notation outputNotation);
-		Number Div(Number a, Number b, Notation outputNotation);
-	private:
-		double NumberToDouble(Number a);
-		Number DoubleToNumber(double a, Notation notation);
+			std::string Add(std::string value1, Notation notation1, std::string value2, Notation notation2, Notation outputNotation);
+			std::string Sub(std::string value1, Notation notation1, std::string value2, Notation notation2, Notation outputNotation);
+			std::string Mult(std::string value1, Notation notation1, std::string value2, Notation notation2, Notation outputNotation);
+			std::string Div(std::string value1, Notation notation1, std::string value2, Notation notation2, Notation outputNotation);
 	};
 
 Пример использования класса в пользовательском C++ коде:
@@ -38,9 +28,11 @@
 .. code-block:: cpp
 
 	BinOctHexCalculator calc;
-	Number a, b;
-	a.Notation = Bin;
-	a.value = "1001";
-	b.Notation = Hex;
-	b.value = "A03B";
-	Number output = calc.Add(a,b);
+	Notation notation1 = Hex;
+	std::string value1 = "10";
+	Notation notation2 = Bin;
+	std::string value2 = "1011";
+	printf("Here is result of %s + %s: %s\n",value1.c_str(), value2.c_str(), calc.Add(value1, notation1, value2, notation2, Bin).c_str());
+	printf("Here is result of %s - %s: %s\n",value1.c_str(), value2.c_str(), calc.Sub(value1, notation1, value2, notation2, Bin).c_str());
+	printf("Here is result of %s * %s: %s\n",value1.c_str(), value2.c_str(), calc.Mult(value1, notation1, value2, notation2, Bin).c_str());
+	printf("Here is result of %s / %s: %s\n",value1.c_str(), value2.c_str(), calc.Div(value1, notation1, value2, notation2, Bin).c_str());
