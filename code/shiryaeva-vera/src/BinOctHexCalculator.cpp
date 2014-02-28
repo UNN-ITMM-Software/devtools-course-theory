@@ -43,7 +43,7 @@ int OctToDec(std::string str) {
 int HexToDec(std::string str) {
     int tmp = 0;
     int num = 0;
-    for (unsigned int i = 0; i < str.length(); i++){
+    for (unsigned int i = 0; i < str.length(); i++) {
         if (str[i] == '0') {
             continue;
         } else {
@@ -136,25 +136,29 @@ BinOctHexCalculator::BinOctHexCalculator(void) {
 BinOctHexCalculator::~BinOctHexCalculator(void) {
 }
 std::string BinOctHexCalculator::Add(std::string value1, Notation notation1,
-                                    std::string value2, Notation notation2, Notation outputNotation) {
+                                    std::string value2, Notation notation2,
+                                    Notation outputNotation) {
     int tmp = NumToDec(value1, notation1)+NumToDec(value2, notation2);
     std::string value = DecToNum(tmp, outputNotation);
     return value;
 }
 std::string BinOctHexCalculator::Sub(std::string value1, Notation notation1,
-                                    std::string value2, Notation notation2, Notation outputNotation) {
+                                    std::string value2, Notation notation2,
+                                    Notation outputNotation) {
     int tmp = NumToDec(value1, notation1)-NumToDec(value2, notation2);
     std::string value = DecToNum(tmp, outputNotation);
     return value;
 }
 std::string BinOctHexCalculator::Mult(std::string value1, Notation notation1,
-                                    std::string value2, Notation notation2, Notation outputNotation) {
+                                    std::string value2, Notation notation2,
+                                    Notation outputNotation) {
     int tmp = NumToDec(value1, notation1)*NumToDec(value2, notation2);
     std::string value = DecToNum(tmp, outputNotation);
     return value;
 }
 std::string BinOctHexCalculator::Div(std::string value1, Notation notation1,
-                                    std::string value2, Notation notation2, Notation outputNotation) {
+                                    std::string value2, Notation notation2,
+                                    Notation outputNotation) {
     int tmp = NumToDec(value1, notation1)/NumToDec(value2, notation2);
     std::string value = DecToNum(tmp, outputNotation);
     return value;
