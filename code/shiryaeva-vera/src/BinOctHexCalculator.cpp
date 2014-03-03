@@ -10,7 +10,7 @@ int BinToDec(std::string str);
 int OctToDec(std::string str);
 int HexToDec(std::string str);
 std::string DecToNum(int number, Notation notation);
-int NumToDec(std::string value, Notation notation);
+int NumToDec(Number num);
 
 int BinToDec(std::string str) {
     int tmp = 0;
@@ -78,17 +78,17 @@ int HexToDec(std::string str) {
     return tmp;
 }
 
-int NumToDec(std::string value, Notation notation) {
+int NumToDec(Number num) {
     int tmp = 0;
-    switch (notation) {
+    switch (num.notation) {
     case Bin :
-        tmp = BinToDec(value);
+        tmp = BinToDec(num.value);
         break;
     case Oct :
-        tmp = OctToDec(value);
+        tmp = OctToDec(num.value);
         break;
     case Hex :
-        tmp = HexToDec(value);
+        tmp = HexToDec(num.value);
         break;
     }
     return tmp;
@@ -135,31 +135,23 @@ BinOctHexCalculator::BinOctHexCalculator(void) {
 }
 BinOctHexCalculator::~BinOctHexCalculator(void) {
 }
-std::string BinOctHexCalculator::Add(std::string value1, Notation notation1,
-                                    std::string value2, Notation notation2,
-                                    Notation outputNotation) {
-    int tmp = NumToDec(value1, notation1)+NumToDec(value2, notation2);
+std::string BinOctHexCalculator::Add(Number num1, Number num2, Notation outputNotation) {
+    int tmp = NumToDec(num1)+NumToDec(num2);
     std::string value = DecToNum(tmp, outputNotation);
     return value;
 }
-std::string BinOctHexCalculator::Sub(std::string value1, Notation notation1,
-                                    std::string value2, Notation notation2,
-                                    Notation outputNotation) {
-    int tmp = NumToDec(value1, notation1)-NumToDec(value2, notation2);
+std::string BinOctHexCalculator::Sub(Number num1, Number num2, Notation outputNotation) {
+    int tmp = NumToDec(num1)-NumToDec(num2);
     std::string value = DecToNum(tmp, outputNotation);
     return value;
 }
-std::string BinOctHexCalculator::Mult(std::string value1, Notation notation1,
-                                    std::string value2, Notation notation2,
-                                    Notation outputNotation) {
-    int tmp = NumToDec(value1, notation1)*NumToDec(value2, notation2);
+std::string BinOctHexCalculator::Mult(Number num1, Number num2, Notation outputNotation) {
+    int tmp = NumToDec(num1)*NumToDec(num2);
     std::string value = DecToNum(tmp, outputNotation);
     return value;
 }
-std::string BinOctHexCalculator::Div(std::string value1, Notation notation1,
-                                    std::string value2, Notation notation2,
-                                    Notation outputNotation) {
-    int tmp = NumToDec(value1, notation1)/NumToDec(value2, notation2);
+std::string BinOctHexCalculator::Div(Number num1, Number num2, Notation outputNotation) {
+    int tmp = NumToDec(num1)/NumToDec(num2);
     std::string value = DecToNum(tmp, outputNotation);
     return value;
 }
