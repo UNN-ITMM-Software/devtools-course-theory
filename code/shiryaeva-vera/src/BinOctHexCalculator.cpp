@@ -135,22 +135,26 @@ BinOctHexCalculator::BinOctHexCalculator(void) {
 }
 BinOctHexCalculator::~BinOctHexCalculator(void) {
 }
-std::string BinOctHexCalculator::Add(Number num1, Number num2, Notation outputNotation) {
+std::string BinOctHexCalculator::Add(Number num1, Number num2,
+                                    Notation outputNotation) {
     int tmp = NumToDec(num1)+NumToDec(num2);
     std::string value = DecToNum(tmp, outputNotation);
     return value;
 }
-std::string BinOctHexCalculator::Sub(Number num1, Number num2, Notation outputNotation) {
+std::string BinOctHexCalculator::Sub(Number num1, Number num2,
+                                    Notation outputNotation) {
     int tmp = NumToDec(num1)-NumToDec(num2);
     std::string value = DecToNum(tmp, outputNotation);
     return value;
 }
-std::string BinOctHexCalculator::Mult(Number num1, Number num2, Notation outputNotation) {
+std::string BinOctHexCalculator::Mult(Number num1, Number num2,
+                                    Notation outputNotation) {
     int tmp = NumToDec(num1)*NumToDec(num2);
     std::string value = DecToNum(tmp, outputNotation);
     return value;
 }
-std::string BinOctHexCalculator::Div(Number num1, Number num2, Notation outputNotation) {
+std::string BinOctHexCalculator::Div(Number num1, Number num2,
+                                    Notation outputNotation) {
     int tmp = NumToDec(num1)/NumToDec(num2);
     std::string value = DecToNum(tmp, outputNotation);
     return value;
