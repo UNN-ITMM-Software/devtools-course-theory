@@ -1,7 +1,11 @@
 # Cache
+  - <https://www.coursera.org/course/startup>
   - Разделение на несколько репозиториев
     - devtools-course, devtools-course-practice, devtools-course-practice-2014
   - Обратную связь собирать в виде Google Form
+  - Примеры shell команд
+    - `find ./ | xargs file -I  | grep iso- | sed 's/:.*//g' | xargs -I{} recode windows-1251..u8 {}`
+    - `find . -type f -name *.m | xargs sed -i '' 's/http:\/\/www.packtpub.com\/to-build-real-time%20computer%20vision%20applications%20for-ios-using-opencv\/book/http:\/\/bit.ly\/OpenCV_for_iOS_book/g'`
 
 # General
   - Попросить помощи у студентов с мелкими задачами из этого списка

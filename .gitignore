@@ -2,3 +2,5 @@ build/
 build_cmake/
 
 *.user
+
+.DS_Store
