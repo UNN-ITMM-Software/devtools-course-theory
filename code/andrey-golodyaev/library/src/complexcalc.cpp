@@ -17,8 +17,7 @@ ComplexNumber::ComplexNumber(const ComplexNumber &other) {
 }
 
 ComplexNumber& ComplexNumber::operator=(const ComplexNumber& z) {
-    if (this != &z) // protect against invalid self-assignment
-    {
+    if (this != &z) {  // protect against invalid self-assignment
         real = z.real;
         imaginary = z.imaginary;
     }

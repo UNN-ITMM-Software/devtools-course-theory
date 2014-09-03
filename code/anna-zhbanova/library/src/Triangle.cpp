@@ -16,8 +16,7 @@ Triangle::Triangle(const Triangle& other) {
     *this = other;
 }
 Triangle& Triangle::operator=(const Triangle &other) {
-    if (this != &other) // protect against invalid self-assignment
-    {
+    if (this != &other) {  // protect against invalid self-assignment
         a = other.a;
         b = other.b;
         c = other.c;
