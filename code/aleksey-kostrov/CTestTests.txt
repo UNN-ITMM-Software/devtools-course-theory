@@ -46,7 +46,7 @@ set_tests_properties (can_Detect_Not_Found_Element
 
 add_test(
     NAME can_Detect_Element
-    COMMAND ${appname} 20 43
+    COMMAND ${appname} 20 19
 )
 set_tests_properties (can_Detect_Element
   PROPERTIES PASS_REGULAR_EXPRESSION "Index of search element: 4")
