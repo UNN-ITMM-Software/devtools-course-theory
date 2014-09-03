@@ -12,7 +12,8 @@ ComplexNumber::ComplexNumber(double _real,
                                      imaginary(_imaginary) {
 }
 
-ComplexNumber::ComplexNumber(const ComplexNumber &other) {
+ComplexNumber::ComplexNumber(const ComplexNumber &other)
+    : real(0), imaginary(0) {
     *this = other;
 }
 
