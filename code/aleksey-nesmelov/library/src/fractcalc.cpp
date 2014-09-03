@@ -17,7 +17,8 @@ Fraction::Fraction(int _numenator,
     }
 }
 
-Fraction::Fraction(const Fraction& other) {
+Fraction::Fraction(const Fraction& other)
+    : numenator(), denominator() {
     *this = other;
 }
 
