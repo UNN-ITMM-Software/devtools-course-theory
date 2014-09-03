@@ -37,13 +37,13 @@ TEST_F(DichotomySearchTest, can_Detect_Not_Found_Element) {
 }
 
 TEST_F(DichotomySearchTest, can_Detect_Element) {
-    EXPECT_EQ(3, example1.Search(array, 43, 20));
+    EXPECT_EQ(3, example1.Search(array, 19, 20));
     delete [] array;
 }
 
 TEST_F(DichotomySearchTest, can_Work_Preprocess) {
     int** two_dim_array;
     two_dim_array = example1.Preprocess(array, 20);
-    EXPECT_EQ(16, two_dim_array[4][1]);
+    EXPECT_EQ(12, two_dim_array[4][1]);
     delete [] array;
 }
