@@ -12,7 +12,8 @@ Triangle::Triangle(): a(PointXY()), b(PointXY()), c(PointXY()) {
 Triangle::~Triangle(void) {
 }
 
-Triangle::Triangle(const Triangle& other): a(PointXY()), b(PointXY()), c(PointXY()) {
+Triangle::Triangle(const Triangle& other):
+    a(PointXY()), b(PointXY()), c(PointXY()) {
     *this = other;
 }
 Triangle& Triangle::operator=(const Triangle &other) {
