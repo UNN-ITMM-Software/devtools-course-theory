@@ -3,7 +3,7 @@
 #define CODE_ALEKSEY_NESMELOV_LIBRARY_FRACTCALC_H_
 
 class Fraction {
-public:
+ public:
     Fraction(int numenator, int denominator);
     Fraction();
     Fraction(const Fraction& fraction);
@@ -22,7 +22,7 @@ public:
     Fraction& operator=(const Fraction& a);
     bool operator==(const Fraction& a) const;
 
-private:
+ private:
     int numenator;
     int denominator;
 
