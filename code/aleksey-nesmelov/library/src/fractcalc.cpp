@@ -70,8 +70,7 @@ void Fraction::SetDenominator(int value) {
 }
 
 Fraction& Fraction::operator=(const Fraction& a) {
-    if (this != &a) // protect against invalid self-assignment
-    {
+    if (this != &a) {  // protect against invalid self-assignment
         numenator = a.numenator;
         denominator = a.denominator;
     }
