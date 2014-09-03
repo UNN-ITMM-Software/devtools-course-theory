@@ -438,7 +438,11 @@ GitHub также позволяет использовать его.
  - Поддерживается редакторами, оброс большим количеством инструментов.
  - Минус: встречаются расхождения в "толковании".
 
-Полезные ссылки:
+# AsciiDoc 
+
+Описание http://www.methods.co.nz/asciidoc/
+
+# Полезные ссылки:
 
   1. [Шпаргалка](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
   1. [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown)
