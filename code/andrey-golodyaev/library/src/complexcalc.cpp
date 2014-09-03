@@ -11,6 +11,21 @@ ComplexNumber::ComplexNumber(double _real,
                                      double _imaginary): real(_real),
                                      imaginary(_imaginary) {
 }
+
+ComplexNumber::ComplexNumber(const ComplexNumber &other) {
+    *this = other;
+}
+
+ComplexNumber& ComplexNumber::operator=(const ComplexNumber& z) {
+    if (this != &z) // protect against invalid self-assignment
+    {
+        real = z.real;
+        imaginary = z.imaginary;
+    }
+    // by convention, always return *this
+    return *this;
+}
+
 ComplexNumber::~ComplexNumber() {
 }
 double ComplexNumber::GetReal() const {
