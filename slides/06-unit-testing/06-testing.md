@@ -2,7 +2,7 @@
 
 ![](./pix/Software-testing-trends-2013.jpg)
 
-Кирилл Корняков (Itseez, ННГУ)  
+Кирилл Корняков (Itseez, ННГУ)\
 Октябрь 2013
 
 <!-- TODO
@@ -83,7 +83,7 @@
      - Метафора тестов: скелет, позволяющий организму двигаться
 
 # Несколько примеров
- 
+
   - Портирование ПО на новые платформы
   - Тестирование новых платформ
 
@@ -119,7 +119,7 @@ public void canMultiplyNumbers()
 
 # Фреймворки для Unit-тестирования
 
-  1. Значительно упрощают создание и запуск unit-тестов,  
+  1. Значительно упрощают создание и запуск unit-тестов,
      позволяют придерживаться единого стиля.
   1. xUnit - часто используемое общее обозначение для подобных фреймворков.
   1. Бесплатно доступны для большинства языков: JUnit, CUnit, CPPUnit, NUnit,
@@ -162,7 +162,7 @@ public void canMultiplyNumbers()
      - Chromium, LLVM компилятор, OpenCV
   1. Написан на C++, строится при помощи CMake
      - Поддерживает: Linux, Mac OS X, Windows, Cygwin, Windows CE, and Symbian
-  1. Как правило используется в консольном режиме,  
+  1. Как правило используется в консольном режиме,
      но существует вспомогательное GUI [приложение](gtest_bar)
 
 # Возможности Google Test
@@ -178,7 +178,7 @@ public void canMultiplyNumbers()
 # Использование Google Test
 
   1. Скомпилировать Google Test в библиотеку.
-  1. Создать новое консольное приложение (оболочку для тестов) и  
+  1. Создать новое консольное приложение (оболочку для тестов) и
      прилинковать к нему библиотеку Google Test.
   1. Добавить тесты.
   1. Скомпилировать приложение с тестами и запустить его.
@@ -221,7 +221,7 @@ Running main() from gtest_main.cc
 
 ```
 #include <gtest/gtest.h>
- 
+
 TEST(MathTest, TwoPlusTwoEqualsFour) {
   EXPECT_EQ(2 + 2, 4);
 }
@@ -257,30 +257,30 @@ TEST(FactorialTest, HandlesPositiveInput) {
 ```
 #include <gtest/gtest.h>
 #include <vector>
- 
+
 using namespace std;
- 
+
 // A new one of these is created for each test
 class VectorTest : public testing::Test {
 public:
   vector<int> m_vector;
- 
+
   virtual void SetUp() {
     m_vector.push_back(1);
     m_vector.push_back(2);
   }
- 
+
   virtual void TearDown() {}
 };
- 
+
 TEST_F(VectorTest, testElementZeroIsOne) {
   EXPECT_EQ(m_vector[0], 1);
 }
- 
+
 TEST_F(VectorTest, testElementOneIsTwo) {
   EXPECT_EQ(m_vector[1], 2);
 }
- 
+
 TEST_F(VectorTest, testSizeIsTwo) {
   EXPECT_EQ(m_vector.size(), (unsigned int)2);
 }
@@ -288,7 +288,7 @@ TEST_F(VectorTest, testSizeIsTwo) {
 
 # Резюме
 
-  1. Создание тестов - это составляющая самого процесса программирования.  
+  1. Создание тестов - это составляющая самого процесса программирования.
      Только тесты могут дать уверенность в работоспособности кода.
   1. Весь продуктовый код должен быть покрыт автоматическими модульными тестами.
   1. Автоматические unit-тесты должны прогоняться при каждом новом добавлении

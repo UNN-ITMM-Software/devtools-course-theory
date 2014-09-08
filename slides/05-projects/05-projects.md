@@ -2,10 +2,10 @@
 
 ![](./pix/ide_screen.jpg)
 
-Александр Шишков (Itseez, ННГУ)  
+Александр Шишков (Itseez, ННГУ)\
 15 октября 2013
 
-<!-- TODO 
+<!-- TODO
   - Убрать отсюда метапрограммирование
     - Подумать не стоит ли и IDE в отдельную лекцию (собственно разработка)
   - Вставить слайд с системами сборки для разных языков
@@ -113,7 +113,7 @@ int main()
 David Abrahams and Aleksey Gurtovoy
 ["C++ Template Metaprogramming"](http://www.boostpro.com/mplbook/)
 
-# cog 
+# cog
 
 <pre>
 ...
@@ -162,7 +162,7 @@ void DoLastThing();
 Языки на основе объектов, когда визуальная среда программирования предоставляет
 графические или символьные элементы, которыми можно манипулировать интерактивным
 образом в соответствии с некоторыми правилами
-    
+
   - Lego Mindstorms
 
 <center>![](./pix/nxt_g.jpg)</center>
@@ -171,7 +171,7 @@ void DoLastThing();
 
 Языки, в интегрированной среде разработки которых на этапе проектирования
 интерфейса применяются формы, с возможностью настройкой их свойств
-  
+
   - Borland C++ Builder
 
 <center>![](./pix/builder.gif)</center>
@@ -195,7 +195,7 @@ cc -c lib.c
 cc -o program main.o lib.o
 </pre>
 
- - make, 1977 год 
+ - make, 1977 год
 
 Makefile:
 
@@ -242,7 +242,7 @@ make
 CMakeLists.txt:
 
 <pre>
-cmake_minimum_required(VERSION 2.8)  
+cmake_minimum_required(VERSION 2.8)
 project(first_sample)
 
 set(SOURCES main.c lib.c)
@@ -291,9 +291,9 @@ CMakeLists.txt:
 cmake_minimum_required(VERSION 2.8)
 project(third_sample)
 
-set(SOURCES main.c) 
+set(SOURCES main.c)
 include_directories(library)
-add_executable(main ${SOURCES}) 
+add_executable(main ${SOURCES})
 
 add_subdirectory(library)
 target_link_libraries(main library)
@@ -346,7 +346,7 @@ target_link_libraries(sample ${OPENCV_LIBRARIES})
   1. Метапрограммирование позволяет динамически создавать однотипный код.
   1. Билд-системы - незаменимый инструмент при разработке кроссплатформенных
      приложений.
-  
+
 # Контрольные вопросы
 
   1. Определение ИСР
