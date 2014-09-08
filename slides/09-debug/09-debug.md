@@ -209,7 +209,7 @@
 
 # Post-mortem отладка использование GDB
 
-```
+```tbd
 $ ulimit -a
 core file size (blocks, -c) unlimited ...
 $ ulimit -c unlimited

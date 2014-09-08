@@ -97,7 +97,7 @@
 
 Пример тестов на Java c использованием JUnit
 
-```
+```cpp
 @Test
 public void canAddNumbers()
 {
@@ -185,7 +185,7 @@ public void canMultiplyNumbers()
 
 # Консольный лог Google Test
 
-```
+```tbd
 [mlong@n6-ws2 x86]$ bin/hellotest
 Running main() from gtest_main.cc
 [==========] Running 4 tests from 2 test cases.
@@ -219,7 +219,7 @@ Running main() from gtest_main.cc
 
 # Пример 1
 
-```
+```cpp
 #include <gtest/gtest.h>
 
 TEST(MathTest, TwoPlusTwoEqualsFour) {
@@ -231,13 +231,13 @@ TEST(MathTest, TwoPlusTwoEqualsFour) {
 
 Функция
 
-```
+```cpp
 int Factorial(int n); // Returns the factorial of n
 ```
 
 Тесты
 
-```
+```cpp
 // Tests factorial of 0.
 TEST(FactorialTest, HandlesZeroInput) {
   EXPECT_EQ(1, Factorial(0));
@@ -254,7 +254,7 @@ TEST(FactorialTest, HandlesPositiveInput) {
 
 # Пример 3
 
-```
+```cpp
 #include <gtest/gtest.h>
 #include <vector>
 

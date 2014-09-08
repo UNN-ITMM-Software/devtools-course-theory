@@ -90,7 +90,7 @@ JetBrains [Resharper](http://www.jetbrains.com/resharper/features/index.html)
 
 # Шаблоны в С++
 
-```
+```cpp
 #include <iostream>
 
 template<int N>
@@ -115,7 +115,7 @@ David Abrahams and Aleksey Gurtovoy
 
 # cog
 
-<pre>
+```tbd
 ...
 /*[[[cog
 import cog
@@ -125,9 +125,9 @@ for fn in fnames:
 ]]]*/
 //[[[end]]]
 ...
-</pre>
+```
 
-<pre>
+```tbd
 ...
 /*[[[cog
 import cog
@@ -140,7 +140,7 @@ void DoAnotherThing();
 void DoLastThing();
 //[[[end]]]
 ...
-</pre>
+```
 
 # lex & yacc
 
@@ -188,18 +188,18 @@ void DoLastThing();
 
 compile.sh:
 
-<pre>
+```tbd
 #!/bin/sh
 cc -c main.c
 cc -c lib.c
 cc -o program main.o lib.o
-</pre>
+```
 
  - make, 1977 год
 
 Makefile:
 
-```
+```tbd
 OBJ = main.o lib.o
 program: $(OBJ)
         cc -o program $(OBJ)
@@ -209,13 +209,13 @@ $(OBJ): defines.h
 # Autotools
 
 Makefile.am:
-<pre>
+```tbd
 bin_PROGRAMS = hello
 hello_SOURCES = main.c lib.c
-</pre>
+```
 
 configure.ac:
-<pre>
+```tbd
 AC_INIT([program], [1.0], [sample@mail.org])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AC_PROG_CC
@@ -224,14 +224,14 @@ AC_CONFIG_FILES([
  Makefile
 ])
 AC_OUTPUT
-</pre>
+```
 
 Для запуска:
-<pre>
+```tbd
 autoreconf --install
 ./configure
 make
-</pre>
+```
 
 # CMake
 
@@ -241,28 +241,28 @@ make
 
 CMakeLists.txt:
 
-<pre>
+```tbd
 cmake_minimum_required(VERSION 2.8)
 project(first_sample)
 
 set(SOURCES main.c lib.c)
 add_executable(main ${SOURCES})
-</pre>
+```
 
 Для запуска:
 
-<pre>
+```tbd
 mkdir ../build
 cd ../build
 cmake ../code/
 make
-</pre>
+```
 
 # Пример сборки библиотеки
 
 CMakeLists.txt:
 
-<pre>
+```tbd
 cmake_minimum_required(VERSION 2.8)
 project(second_sample)
 
@@ -272,22 +272,22 @@ add_library(library STATIC ${SOURCE_LIB})
 set(SOURCES main.c)
 add_executable(main ${SOURCES})
 target_link_libraries(main library)
-</pre>
+```
 
 # Добавление подпроекта
 
 Содержимое каталога:
-<pre>
+```tbd
   - main.c
   - library
     - lib.c
     - lib.h
     - CMakeLists.txt
   - CMakeLists.txt
-</pre>
+```
 
 CMakeLists.txt:
-<pre>
+```tbd
 cmake_minimum_required(VERSION 2.8)
 project(third_sample)
 
@@ -297,21 +297,21 @@ add_executable(main ${SOURCES})
 
 add_subdirectory(library)
 target_link_libraries(main library)
-</pre>
+```
 
 library/CMakeLists.txt:
-<pre>
+```tbd
 cmake_minimum_required(VERSION 2.8)
 project(library)
 
 set(SOURCE_LIB lib.c)
 add_library(library STATIC ${SOURCE_LIB})
-</pre>
+```
 
 # Поиск библиотек
 
 CMakeLists.txt:
-<pre>
+```tbd
 cmake_minimum_required(VERSION 2.8)
 project(sample)
 
@@ -325,7 +325,7 @@ endif()
 
 add_executable(sample main.c)
 target_link_libraries(sample ${OPENCV_LIBRARIES})
-</pre>
+```
 
 # Билд-системы
 

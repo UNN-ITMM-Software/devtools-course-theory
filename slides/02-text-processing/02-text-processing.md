@@ -305,14 +305,14 @@ Authors: Aho, Weinberger, Kernighan
 
   - Суммировать проценты в определенных строках лога
 
-```
+```tbd
 $ grep -nIHR "HPWL impr" ./vlsi.log | sed -n '1,5p' |
  awk '{ print $NF }' | awk '{for (i=1; i<=NF; i++) s=s+$i}; END{print s}'
 ```
  - Слить 2 текстовых файла в один отсортированный.
    Попутно обрезать в одном файле все .0 у координат
 
-```
+```tbd
 $ cat coords1.dat coords2.dat | sort | sed 's/.0//g' > output.dat
 ```
 

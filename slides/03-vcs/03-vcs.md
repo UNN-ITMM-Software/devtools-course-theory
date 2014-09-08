@@ -159,7 +159,7 @@ Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/his
 
 # Git `branch`
 
-```
+```tbd
 $ git branch testing
 ```
 
@@ -171,7 +171,7 @@ $ git branch testing
 
 # Git `checkout`
 
-```
+```tbd
 $ git checkout testing
 ```
 
@@ -179,7 +179,7 @@ $ git checkout testing
 
 # Git `commit`
 
-```
+```tbd
 $ vim README.md
 $ git commit -a -m 'made a change'
 ```
@@ -187,14 +187,14 @@ $ git commit -a -m 'made a change'
 
 # Go back to `master`
 
-```
+```tbd
 $ git checkout master
 ```
 <center>![](./pix/git-checkout-2.png)</center>
 
 # Make a commit to `master`
 
-```
+```tbd
 $ vim main.cpp
 $ git commit -a -m 'made other changes'
 ```
