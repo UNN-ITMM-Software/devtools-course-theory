@@ -10,6 +10,8 @@ class Triangle {
  public :
     Triangle(PointXY a, PointXY b, PointXY c);
     Triangle();
+    Triangle(const Triangle& t);
+    Triangle& operator =(const Triangle &t);
     virtual ~Triangle(void);
 
     float Length(NameOfVertex nameOfStartVertex, NameOfVertex nameOfEndVertex);

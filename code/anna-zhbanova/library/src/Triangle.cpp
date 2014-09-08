@@ -12,6 +12,20 @@ Triangle::Triangle(): a(PointXY()), b(PointXY()), c(PointXY()) {
 Triangle::~Triangle(void) {
 }
 
+Triangle::Triangle(const Triangle& other)
+    : a(PointXY()), b(PointXY()), c(PointXY()) {
+    *this = other;
+}
+Triangle& Triangle::operator=(const Triangle &other) {
+    if (this != &other) {  // protect against invalid self-assignment
+        a = other.a;
+        b = other.b;
+        c = other.c;
+    }
+    // by convention, always return *this
+    return *this;
+}
+
 float Triangle::Length(NameOfVertex nameOfStartVertex,
                        NameOfVertex nameOfEndVertex) {
     PointXY StartVertex = Get(nameOfStartVertex);

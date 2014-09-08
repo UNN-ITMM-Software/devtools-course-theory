@@ -84,7 +84,7 @@ std::string DichotomySearchApplication::operator()(int argc,
     if (expression.size < SIZE_FOR_PRINT) {
         stream << "Generated array: ";
         for (int i = 0; i < expression.size; i++)
-            stream << array[i];
+            stream << array[i] << " ";
         stream << "\n";
     } else if (expression.size > 0) {
         stream << "Array was generated automatically!\n";

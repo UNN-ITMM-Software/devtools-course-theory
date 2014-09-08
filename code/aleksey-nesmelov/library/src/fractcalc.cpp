@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
+
 Fraction::Fraction(int _numenator,
                    int _denominator): numenator(_numenator),
                                       denominator(_denominator) {
@@ -15,8 +16,15 @@ Fraction::Fraction(int _numenator,
         }
     }
 }
+
+Fraction::Fraction(const Fraction& other)
+    : numenator(), denominator() {
+    *this = other;
+}
+
 Fraction::Fraction(): numenator(), denominator() {
 }
+
 Fraction::~Fraction() {}
 int Fraction::NOD() {
     int a = abs(numenator);
@@ -61,6 +69,16 @@ void Fraction::SetDenominator(int value) {
     denominator = value;
     }
 }
+
+Fraction& Fraction::operator=(const Fraction& a) {
+    if (this != &a) {  // protect against invalid self-assignment
+        numenator = a.numenator;
+        denominator = a.denominator;
+    }
+    // by convention, always return *this
+    return *this;
+}
+
 bool Fraction::operator==(const Fraction& a) const {
     if (numenator == a.numenator &&
         denominator == a.denominator) {

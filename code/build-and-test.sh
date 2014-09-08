@@ -1,7 +1,9 @@
+set -e
+
 cmake_build_dir="../build_cmake"
 
 function try {
-# This function executes command and stops 
+# This function executes command and stops
 # exectution if return status wasn't 0
     "$@"
     status=$?
@@ -84,7 +86,7 @@ function BuildCMakeProject {
     Header "Build common CMake project"
 
     dir=$cmake_build_dir
-    mkdir $cmake_build_dir
+    mkdir -p $cmake_build_dir
     cd $cmake_build_dir
     try cmake ../code
     try make

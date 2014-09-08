@@ -4,49 +4,49 @@
 
 enable_testing()
 
-add_test( 
-    NAME can_Run 
+add_test(
+    NAME can_Run
     COMMAND ${appname}
 )
 
-add_test( 
+add_test(
     NAME can_Print_Help_Without_Arguments
     COMMAND ${appname}
 )
-set_tests_properties (can_Print_Help_Without_Arguments 
+set_tests_properties (can_Print_Help_Without_Arguments
   PROPERTIES PASS_REGULAR_EXPRESSION "This is a dichotomy search.")
 
 add_test(
     NAME can_Check_Number_Of_Arguments
-    COMMAND ${appname} 10 
+    COMMAND ${appname} 10
 )
-set_tests_properties (can_Check_Number_Of_Arguments 
+set_tests_properties (can_Check_Number_Of_Arguments
   PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be 2 arguments!")
 
 add_test(
     NAME can_Detect_Wrong_Number_Format
     COMMAND ${appname} 10 exa
 )
-set_tests_properties (can_Detect_Wrong_Number_Format 
+set_tests_properties (can_Detect_Wrong_Number_Format
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong arguments format!")
 
 add_test(
     NAME can_Detect_Incorrect_First_Argument
     COMMAND ${appname} -1 5
 )
-set_tests_properties (can_Detect_Incorrect_First_Argument 
+set_tests_properties (can_Detect_Incorrect_First_Argument
   PROPERTIES PASS_REGULAR_EXPRESSION "Size of array must be more than zero!")
 
 add_test(
     NAME can_Detect_Not_Found_Element
     COMMAND ${appname} 10 -5
 )
-set_tests_properties (can_Detect_Not_Found_Element 
+set_tests_properties (can_Detect_Not_Found_Element
   PROPERTIES PASS_REGULAR_EXPRESSION "Element not found!")
 
 add_test(
     NAME can_Detect_Element
     COMMAND ${appname} 20 19
 )
-set_tests_properties (can_Detect_Element 
+set_tests_properties (can_Detect_Element
   PROPERTIES PASS_REGULAR_EXPRESSION "Index of search element: 4")

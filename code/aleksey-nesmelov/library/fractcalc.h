@@ -1,10 +1,12 @@
 /* Copyright 2013 Nesmelov Aleksey */
 #ifndef CODE_ALEKSEY_NESMELOV_LIBRARY_FRACTCALC_H_
 #define CODE_ALEKSEY_NESMELOV_LIBRARY_FRACTCALC_H_
+
 class Fraction {
  public:
     Fraction(int numenator, int denominator);
     Fraction();
+    Fraction(const Fraction& fraction);
     ~Fraction(void);
 
     int GetNumenator();
@@ -17,8 +19,10 @@ class Fraction {
     Fraction operator*(const Fraction& a) const;
     Fraction operator/(const Fraction& a) const;
 
+    Fraction& operator=(const Fraction& a);
     bool operator==(const Fraction& a) const;
- private :
+
+ private:
     int numenator;
     int denominator;
 
@@ -27,4 +31,3 @@ class Fraction {
 };
 
 #endif  // CODE_ALEKSEY_NESMELOV_LIBRARY_FRACTCALC_H_
-

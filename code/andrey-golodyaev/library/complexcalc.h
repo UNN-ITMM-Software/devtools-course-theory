@@ -6,6 +6,8 @@ class ComplexNumber {
  public :
     ComplexNumber();
     ComplexNumber(double real, double imaginary);
+    ComplexNumber(const ComplexNumber& z);
+    ComplexNumber& operator =(const ComplexNumber &z);
     ~ComplexNumber();
 
     double GetReal() const;
@@ -14,10 +16,12 @@ class ComplexNumber {
     void SetImaginary(double imaginary);
     bool Input(const char *str);
     void Output(char* str);
+
     ComplexNumber operator +(const ComplexNumber &second) const;
     ComplexNumber operator -(const ComplexNumber &second) const;
     ComplexNumber operator *(const ComplexNumber &second) const;
     ComplexNumber operator /(const ComplexNumber &second) const;
+
     bool operator ==(const ComplexNumber &second) const;
  private :
     double real;
