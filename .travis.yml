@@ -1,0 +1,9 @@
+language: cpp
+before_script:
+  - sudo apt-get install pandoc
+  - sudo apt-get install python3
+script:
+ - ./slides/check.py # check lectures
+ - ./slides/gen_slides.sh # render HTML slides using Pandoc
+notifications:
+  email: false
