@@ -12,7 +12,7 @@ cd $rawDir
 outDir="../../../../devtools-course-html"
 
 # Generating HTML
-for dir in $(ls -d [0-9]*/); 
+for dir in $(ls -d [0-9]*/);
 do
     echo "dir = $dir"
     cd $dir
