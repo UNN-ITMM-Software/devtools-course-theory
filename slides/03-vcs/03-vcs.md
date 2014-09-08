@@ -2,7 +2,7 @@
 
 ![](./pix/linux-report.png)
 
-Кирилл Корняков (Itseez, ННГУ)  
+Кирилл Корняков (Itseez, ННГУ)\
 1 Октября 2013
 
 <!-- TODO
@@ -89,7 +89,7 @@ Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/his
 # Патчи
 
 **Патч** (англ. patch — заплатка) — информация, предназначенная для
- автоматизированного внесения определённых изменений в компьютерные файлы. 
+ автоматизированного внесения определённых изменений в компьютерные файлы.
 
 **Unified diff format**:
 
@@ -110,7 +110,7 @@ Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/his
      - Получение среза (snapshot) всего проекта
 
 # Базовые принципы
-  
+
   1. Приложение строится только на на основе известного состояния репозитория:
      - Не только релизы, но и экспериментальные и тестовые сборки (builds).
      - В идеале приложение умеет сообщать свою ревизию и параметры сборки.
@@ -159,7 +159,7 @@ Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/his
 
 # Git `branch`
 
-```
+```tbd
 $ git branch testing
 ```
 
@@ -171,7 +171,7 @@ $ git branch testing
 
 # Git `checkout`
 
-```
+```tbd
 $ git checkout testing
 ```
 
@@ -179,7 +179,7 @@ $ git checkout testing
 
 # Git `commit`
 
-```
+```tbd
 $ vim README.md
 $ git commit -a -m 'made a change'
 ```
@@ -187,14 +187,14 @@ $ git commit -a -m 'made a change'
 
 # Go back to `master`
 
-```
+```tbd
 $ git checkout master
 ```
 <center>![](./pix/git-checkout-2.png)</center>
 
 # Make a commit to `master`
 
-```
+```tbd
 $ vim main.cpp
 $ git commit -a -m 'made other changes'
 ```
@@ -214,11 +214,11 @@ $ git commit -a -m 'made other changes'
 
 # Нестандартные применения Git
 
-  1. Хранилище для веб-контента ([GitHub pages](http://pages.github.com), 
+  1. Хранилище для веб-контента ([GitHub pages](http://pages.github.com),
      draft devtools [page](http://unn-vmk-software.github.io/devtools-course/)).
-  1. Легковесная база данных.  
-![](./pix/info-manager.png)  
-  1. Git можно использовать программно при помощи [libgit2](https://github.com/libgit2/libgit2),  
+  1. Легковесная база данных.
+![](./pix/info-manager.png)
+  1. Git можно использовать программно при помощи [libgit2](https://github.com/libgit2/libgit2),
      практически из любого популярного языка.
 
 # Рабочие процессы
@@ -274,12 +274,12 @@ A successful Git branching model ([link](http://nvie.com/posts/a-successful-git-
   1. Системы контроля версий - незаменимый инструмент разработки
      - Централизованный доступ (при полностью распределенной разработке)
      - Навигация по истории изменений
-  1. Необходимо следовать общепринятым правилам и практикам,  
+  1. Необходимо следовать общепринятым правилам и практикам,
      в особенности относительно публичных репозиториев и релизов.
-  1. Git не самая простая в освоении СКВ, однако очень функциональная,  
+  1. Git не самая простая в освоении СКВ, однако очень функциональная,
      к тому же дает максимальную свободу по организации процесса разработки.
   1. Каждому проекту следует выработать свой рабочий процесс и правила именования
-     веток.  
+     веток.
      При этом желательно основываться на популярных подходах.
 
 # Контрольные вопросы
