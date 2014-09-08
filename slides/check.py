@@ -178,7 +178,7 @@ def main():
     print("Starting validation process:")
     err = False
 
-    err = err or check_use_highlighting()
+    # err = err or check_use_highlighting()
     err = err or check_no_trailing_spaces()
     err = err or check_no_tabs()
     err = err or check_empty_line_before_eof()

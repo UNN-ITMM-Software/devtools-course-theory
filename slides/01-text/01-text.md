@@ -2,7 +2,7 @@
 
 ![](./pix/Image_carpenters_1.jpg)
 
-Кирилл Корняков (Itseez, ННГУ)  
+Кирилл Корняков (Itseez, ННГУ)\
 Сентябрь 2013
 
 # Содержание
@@ -29,12 +29,12 @@
 
 # Форматы
 
-**Текстовый файл** — компьютерный файл, содержащий текстовые данные,  
+**Текстовый файл** — компьютерный файл, содержащий текстовые данные,\
 как правило, организованные в виде строк.
 
 Пример CSV-файла:
 
-```
+```tbd
 1997,Ford,E350,"ac, abs, moon",3000.00
 1999,Chevy,"Venture ""Extended Edition""","",4900.00
 1996,Jeep,Grand Cherokee,"MUST SELL!
@@ -46,7 +46,7 @@ air, moon roof, loaded",4799.00
 **Двоичный (бинарный) файл** — в широком смысле: последовательность произвольных
 байтов. В узком смысле слова двоичные файлы противопоставляются текстовым файлам.
 
-```
+```tbd
 00000000  89 50 4e 47 0d 0a 1a 0a  00 00 00 0d 49 48 44 52  |.PNG........IHDR|
 00000010  00 00 00 87 00 00 00 a0  08 03 00 00 00 11 90 8f  |................|
 00000020  b6 00 00 00 04 67 41 4d  41 00 00 d6 d8 d4 4f 58  |.....gAMA.....OX|
@@ -72,8 +72,8 @@ air, moon roof, loaded",4799.00
 
 # Преимущества текстового формата
 
-  1. **Воспринимаемость человеком** — просто понять структуру и содержание, часто 
-     без документации и специальных инструментальных средств.
+  1. **Воспринимаемость человеком** — просто понять структуру и содержание,\
+     часто без документации и специальных инструментальных средств.
 
   1. **Простота** — формат крайне удобен и его можно редактировать огромным
      количеством инструментов. И в первую очередь простым текстовым редактором.
@@ -82,9 +82,9 @@ air, moon roof, loaded",4799.00
 
   1. **Переносимость** — текстовый файл может быть прочитан на любой системе или ОС.
 
-  1. **Устойчивость** — каждое слово и символ в таком файле самодостаточны и, если 
-     случится повреждение байтов в таком файле, то обычно можно восстановить 
-     данные или продолжить обработку остального содержимого.
+  1. **Устойчивость** — каждое слово и символ в таком файле самодостаточны и,
+     если случится повреждение байтов в таком файле, то обычно можно
+     восстановить данные или продолжить обработку остального содержимого.
 
 В эпоху быстрых компьютеров и дешевой памяти эти преимущества побеждают.
 
@@ -100,18 +100,18 @@ air, moon roof, loaded",4799.00
 
 _BSD 3-Clause License_
 
-```
+```tbd
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
 met:
 
     (1) Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer. 
+    notice, this list of conditions and the following disclaimer.
 
     (2) Redistributions in binary form must reproduce the above copyright
     notice, this list of conditions and the following disclaimer in
     the documentation and/or other materials provided with the
-    distribution.  
+    distribution.
 ```
 
 Примеры использования:
@@ -124,7 +124,7 @@ met:
 
 _GoogleTest_ output
 
-```
+```tbd
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites tests="1682" failures="0" disabled="0" errors="0" timestamp="2013-09-09T09:42:14" time="19.139" cv_version="2.4.6.1" cv_vcs_version="2.4.6.1-389-g6ebfa87" cv_parallel_framework="gcd" cv_cpu_features="sse sse2 sse3 ssse3" cv_module_name="core" cv_implementation="plain" cv_num_threads="-1" name="AllTests">
   <testsuite name="Size_MatType_abs" tests="16" failures="0" disabled="0" errors="0" time="3.522">
@@ -149,7 +149,7 @@ _GoogleTest_ output
 
 Конфигурационный файл _TravisCI_
 
-```
+```tbd
 language: cpp
 compiler:
   - gcc
@@ -176,7 +176,7 @@ rvm:
 
 # Популярные форматы: JSON
 
-```
+```tbd
 {
    "firstName": "Иван",
    "lastName": "Иванов",
@@ -206,7 +206,7 @@ rvm:
 
 # Текст как исходник
 
- 1. Все языки программирования используют текстовый формат как исходный.  
+ 1. Все языки программирования используют текстовый формат как исходный.
     В том числе и ассемблер. Но исключая машинные коды.
  1. А некоторые языки, и как конечный формат распространения:
     - Скриптовые языки: bash, CMD
@@ -222,7 +222,7 @@ rvm:
 # Doxygen
 
 +--------------------------------------------------------+----------------------------+
-|```                                                     |![](./pix/Doxygen_ouput.png)|
+|```cpp                                                  |![](./pix/Doxygen_ouput.png)|
 |/**                                                     |                            |
 | * @file                                                |                            |
 | * @author  John Doe <jdoe@example.com>                 |                            |
@@ -254,7 +254,7 @@ rvm:
 # PlantUML
 
 +------------------------------------+---------------------------+
-|```                                 |                           |
+|```cpp                              |                           |
 |@startuml                           | ![](./pix/classes_012.png)|
 |                                    |                           |
 |abstract class AbstractList         |                           |
@@ -289,7 +289,7 @@ rvm:
 # Graphviz
 
 +-------------------------------------+-----------------------+
-|```                                  |![](./pix/cluster.png) |
+|```tbd                               |![](./pix/cluster.png) |
 |digraph G {                          |                       |
 |                                     |                       |
 |  subgraph cluster_0 {               |                       |
@@ -323,7 +323,7 @@ rvm:
 # LaTeX
 
 +-----------------------------------------------+--------------------------------+
-|```                                            |![](./pix/LaTeX_Output.svg.png) |
+|```tbd                                         |![](./pix/LaTeX_Output.svg.png) |
 |\documentclass[12pt]{article}                  |                                |
 |\usepackage{amsmath}                           |                                |
 |\title{\LaTeX}                                 |                                |
@@ -370,7 +370,7 @@ rvm:
 
   - Wiki страницы
   - Документация
-  - Веб-публикации (блоги, сайты), см. результаты 
+  - Веб-публикации (блоги, сайты), см. результаты
     [голосования](http://habrahabr.ru/post/129212/)
 
 Смотри также [каталог](http://en.wikipedia.org/wiki/Lightweight_markup_language)
@@ -382,7 +382,7 @@ rvm:
 
 # reStructuredText
 
-```
+```tbd
 Body Elements
 =============
 Grid table:
@@ -426,7 +426,7 @@ From the [cheatsheet](http://docutils.sourceforge.net/docs/user/rst/cheatsheet.t
 
 # Textile
 
-Этот синтаксис используется например в Redmine.  
+Этот синтаксис используется например в Redmine.
 GitHub также позволяет использовать его.
 
 ![](./pix/textile.png)
@@ -438,7 +438,7 @@ GitHub также позволяет использовать его.
  - Поддерживается редакторами, оброс большим количеством инструментов.
  - Минус: встречаются расхождения в "толковании".
 
-# AsciiDoc 
+# AsciiDoc
 
 Описание http://www.methods.co.nz/asciidoc/
 
@@ -487,7 +487,7 @@ _Mou_ client for Mac
   1. GitHub: wiki and comments using GFM
 
   2. StackOverflow: questions and answers [editing](http://stackoverflow.com/editing-help)
-  
+
   3. Askbot: the same as StackOverflow
 
 # ProGit book
