@@ -1,12 +1,10 @@
 # Спецкурс "Инструменты разработки"
 
-[![Build Status](https://travis-ci.org/UNN-VMK-Software/devtools-course-theory.svg?branch=master)](https://travis-ci.org/UNN-VMK-Software/devtools-course-theory)
+[![Build Status][travis-badge]][travis]
 
-Нижегородский Государственный Университет им. Н.И. Лобачевского
-
-Факультет ВМК, каф. МО ЭВМ
-
-**License:** Creative Commons Attribution-Share Alike 3.0 ([CC BY-SA 3.0][license])
+ - Нижегородский Государственный Университет им. Н.И. Лобачевского
+ - Факультет ВМК, каф. МО ЭВМ
+ - **License:** Creative Commons Attribution-Share Alike 3.0 ([CC BY-SA 3.0][license])
 
 ## Ресурсы
 
@@ -28,9 +26,11 @@
 
 <!-- LINKS -->
 
+[travis]:             https://travis-ci.org/UNN-VMK-Software/devtools-course-theory
+[travis-badge]:       https://travis-ci.org/UNN-VMK-Software/devtools-course-theory.svg?branch=master
 [license]:            http://creativecommons.org/licenses/by-sa/3.0/
-[control-questions]:  https://github.com/UNN-VMK-Software/devtools-course-theory/blob/master/wiki/control-questions.md
-[labs]:               https://github.com/UNN-VMK-Software/devtools-course-theory/tree/master/wiki
+[control-questions]:  https://github.com/UNN-VMK-Software/devtools-course-theory/blob/master/slides/control-questions.md
+[labs]:               https://github.com/UNN-VMK-Software/devtools-course-theory/tree/master/lab-guide
 
 [book-ford]:          http://www.books.ru/books/produktivnyi-programmist-kak-sdelat-slozhnoe-prostym-a-nevozmozhnoe--vozmozhnym-fail-pdf-646592/?show=1
 [book-goodleaf]:      http://www.books.ru/books/remeslo-programmista-praktika-napisaniya-khoroshego-koda-fail-pdf-646106/?show=1
