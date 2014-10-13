@@ -1,6 +1,12 @@
 # this script is intended to be run by the cron utility for
 # incremental update of the number of views of downloaded videos
 
+# Edit the cron table:
+# $ crontab -e
+
+# Repeat every minute:
+# */1 * * * * echo "hello" >>/tmp/hello-from-cron
+
 # $1 = absolute path to directory with videos, downloaded by add-video.sh
 cd $1
 

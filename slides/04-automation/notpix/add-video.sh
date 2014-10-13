@@ -1,6 +1,10 @@
 # $1 = youtube video ID
 # dependencies: youtube-dl, avconv (ffmpeg), ImageMagick (convert)
 
+set -e # exit on error
+set -u # disallow unset variables usage
+
+mkdir -p cats
 cd cats
 
 # download video with the specified ID
@@ -11,6 +15,7 @@ FILENAME=$(ls -1 $1*)
 # strip extension
 DIR=${FILENAME%.*}
 
+# create directory for video frames
 mkdir $DIR
 
 # transcode the downloaded file to .jpg images with resize
