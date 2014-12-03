@@ -29,6 +29,11 @@
   1. Получите актуальную версию кода
 
     $ git remote update
+    $ git checkout master
+    $ git rebase upstream/master
+
+  1. Создайте новую ветку для работы над лабораторной
+
     $ git checkout -b kornyakov-kirill-lab3 upstream/master
 
 ### Выполнение лабораторной
