@@ -20,10 +20,11 @@
 
 Перед каждым проектом, в особенности коллективным, встают следующие задачи:
 
-  1. Небходимо **центральное** хранилище кода
+  1. Небходимо __центральное__ хранилище кода
      - Официальное, актуальное, защищенное, используемое всеми участниками
-  2. Нужно уметь возвращаться к **прошлым** версиям
-     - Откат дефектных изменений, поиск ошибок сравнением, извлечение кода "из прошлого"
+  2. Нужно уметь возвращаться к __прошлым__ версиям
+     - Откат дефектных изменений, поиск ошибок сравнением, извлечение кода "из
+       прошлого"
 
 Нужны ли специальные инструменты?
 
@@ -59,7 +60,7 @@ Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/his
 
 # Общие сведения
 
-> **Системы контроля версий** - это программные системы, хранящие несколько
+> __Системы контроля версий__ - это программные системы, хранящие несколько
 версий одного документа, и позволяющие вернуться к более ранним версиям. Как
 правило, для каждого изменения запоминается дата модификации и автор.
 
@@ -74,24 +75,24 @@ Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/his
 # Основные термины
 
 +----------------------------+---------------------------+
-| * repository               | * pull/merge request      |
-| * working copy             | * merge, integration      |
-| * revision                 | * conflict                |
-| * head                     | * rebase                  |
-| * check-out, clone         | * shelving, stashing      |
-| * update, sync             | * branch                  |
-| * check-in, commit, submit | * trunk, mainline, master |
-| * commit, changeset, patch | * tag, label              |
+| - repository               | - pull/merge request      |
+| - working copy             | - merge, integration      |
+| - revision                 | - conflict                |
+| - head                     | - rebase                  |
+| - check-out, clone         | - shelving, stashing      |
+| - update, sync             | - branch                  |
+| - check-in, commit, submit | - trunk, mainline, master |
+| - commit, changeset, patch | - tag, label              |
 +----------------------------+---------------------------+
 
 [Глоссарий](http://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8#.D0.A1.D0.BB.D0.BE.D0.B2.D0.B0.D1.80.D1.8C)
 
 # Патчи
 
-**Патч** (англ. patch — заплатка) — информация, предназначенная для
+__Патч__ (англ. patch — заплатка) — информация, предназначенная для
  автоматизированного внесения определённых изменений в компьютерные файлы.
 
-**Unified diff format**:
+__Unified diff format__:
 
 > `@@ -l,s +l,s @@ optional section heading`
 
@@ -251,17 +252,23 @@ $ git commit -a -m 'made other changes'
 
 # GitHub Flow
 
-  - Anything in the `master` branch is deployable.
+Anything in the `master` branch is deployable.
+
   1. Create branch
-     - To work on something new, create a descriptively named branch off of `master` (ie: `new-oauth2-scopes`).
+     - To work on something new, create a descriptively named branch off of
+       `master` (ie: `new-oauth2-scopes`).
   1. Develop in branch
-     - Commit to that branch locally and regularly push your work to the same named branch on the server.
+     - Commit to that branch locally and regularly push your work to the same
+       named branch on the server.
   1. Open a pull request (ask for review)
-     - When you need feedback or help, or you think the branch is ready for merging, open a pull request.
+     - When you need feedback or help, or you think the branch is ready for
+       merging, open a pull request.
   1. Merge after review
-     - After someone else has reviewed and signed off on the feature, you can merge it into `master`.
+     - After someone else has reviewed and signed off on the feature, you can
+       merge it into `master`.
   1. Deploy
-     - Once it is merged and pushed to `master`, you can and _should_ deploy immediately.
+     - Once it is merged and pushed to `master`, you can and _should_ deploy
+       immediately.
 
 # Git Flow
 
