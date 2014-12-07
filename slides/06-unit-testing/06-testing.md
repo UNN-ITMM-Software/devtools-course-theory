@@ -67,10 +67,10 @@ TEST(MathTest, TwoPlusTwoEqualsFour) {
     - Приемочные (acceptance)
     - Функциональные (functional)
   - Нефункциональные требования
-     - На производительность (performance)
-     - Стресс (stress)
-     - Нагрузочные (load)
-     - Качество кода (code quality)
+    - На производительность (performance)
+    - Стресс (stress)
+    - Нагрузочные (load)
+    - Качество кода (code quality)
 
 # Необходимость автоматических тестов
 
