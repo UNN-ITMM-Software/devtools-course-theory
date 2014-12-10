@@ -182,6 +182,40 @@ void DoLastThing();
   1. Автогенерация кода, метапрограммирование
   1. <font color=red>Билд-системы</font>
 
+# Цель
+
+После написания кода приложения необходимо уметь:
+ 
+  - компилировать файлы с исходным кодом
+  - линковать их с библиотеками
+  - распространять их как (source/binary) 
+  - запускать тесты
+
+# Компиляция
+
+Как компилировать?
+
+ - gcc ­c a.out main.cpp
+
+# Компиляция
+
+А теперь представим:
+
+ - проект содержит несколько тысяч файлов
+ - некоторые файлы должны компилироваться только на некоторых ОС
+ - для разных заказчиков вы должны собирать проект:
+     - с разными define (DEBUG/RELEASE, LOG)
+     - для разных ОС
+     - для разных компиляторов
+     - ...
+
+# Линковка и другие аспекты
+
+ - Линковка
+ - Распространение приложений
+     - .rpm, .msi, .dmg, .exe, InstallShield, .tar.gz, .zip, .7z, ...
+ - Тестирование
+
 # История
 
  - shell скрипты
@@ -209,12 +243,14 @@ $(OBJ): defines.h
 # Autotools
 
 Makefile.am:
+
 ```tbd
 bin_PROGRAMS = hello
 hello_SOURCES = main.c lib.c
 ```
 
 configure.ac:
+
 ```tbd
 AC_INIT([program], [1.0], [sample@mail.org])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
@@ -227,15 +263,58 @@ AC_OUTPUT
 ```
 
 Для запуска:
+
 ```tbd
 autoreconf --install
 ./configure
 make
 ```
 
+# Autotools
+
+Было де-факто стандартом и до сих пор используется, но:
+
+ - слишком сложно
+ - только Unix
+ - sh, m4
+ - зависимости
+
 # CMake
 
 <center>![](./pix/cmake.png)</center>
+
+- Cmake
+- CPack
+- CTest + BullsEye/gcov
+- CDash
+
+# CMake
+
+CMakeLists.txt 
+
+cmake / CMakeSetup / CMakeGui
+
+=> .vcproj / Makefile / etc
+
+Visual Studio, Eclipse, KDevelop, XCode, ...
+
+=> .obj / .o
+
+linker (link.exe, ld, ...)
+
+=> .exe / .dll / .lib / .a / .so / .dylib
+
+# Где хранятся объектные и бинарные файлы
+
+В директории с исходным кодом:
+
+ - src/hello.cpp
+ - build/hello.exe
+
+Вне ее:
+
+ - src/hello.cpp
+ - ­build/hello.exe
 
 # Пример сборки
 
@@ -258,6 +337,17 @@ cmake ../code/
 make
 ```
 
+# Debug/Release
+
+ - SET(CMAKE_BUILD_TYPE Debug)
+ - cmake ­DCMAKE_BUILD_TYPE=Release ../src
+
+Для библиотек:
+
+  - TARGET_LINK_LIBRARIES(lib RELEASE ${lib_SRCS})
+  - TARGET_LINK_LIBRARIES(libd DEBUG ${lib_SRCS})
+￼
+
 # Пример сборки библиотеки
 
 CMakeLists.txt:
@@ -277,6 +367,7 @@ target_link_libraries(main library)
 # Добавление подпроекта
 
 Содержимое каталога:
+
 ```tbd
   - main.c
   - library
@@ -287,6 +378,7 @@ target_link_libraries(main library)
 ```
 
 CMakeLists.txt:
+
 ```tbd
 cmake_minimum_required(VERSION 2.8)
 project(third_sample)
@@ -299,7 +391,10 @@ add_subdirectory(library)
 target_link_libraries(main library)
 ```
 
+# Добавление подпроекта
+
 library/CMakeLists.txt:
+
 ```tbd
 cmake_minimum_required(VERSION 2.8)
 project(library)
@@ -310,7 +405,12 @@ add_library(library STATIC ${SOURCE_LIB})
 
 # Поиск библиотек
 
+![](./pix/opencv.png)
+
+# Поиск библиотек
+
 CMakeLists.txt:
+
 ```tbd
 cmake_minimum_required(VERSION 2.8)
 project(sample)
