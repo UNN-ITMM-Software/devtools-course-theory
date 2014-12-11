@@ -309,7 +309,7 @@ linker (link.exe, ld, ...)
 В директории с исходным кодом:
 
  - src/hello.cpp
- - build/hello.exe
+ - src/hello.exe
 
 Вне ее:
 
