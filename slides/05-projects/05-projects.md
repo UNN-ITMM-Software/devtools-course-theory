@@ -432,11 +432,11 @@ target_link_libraries(sample ${OPENCV_LIBRARIES})
 Популярные билд-системы:
 
    - [SCons](http://www.scons.org)
-      - [Waf](http://freehackers.org/~tnagy/waf.html)
-   - [Rake](http://rake.rubyforge.org/)
-   - [Makeit](http://www.dscpl.com.au/projects/makeit/)
+      - [Waf](https://code.google.com/p/waf/)
+   - [Rake](https://github.com/ruby/rake)
+   - [Makeit](https://bitbucket.org/grahamdumpleton/makeit)
    - [Jam](http://www.perforce.com/resources/documentation/jam)
-   - [qmake](http://doc.trolltech.com/3.0/qmake.html)
+   - [qmake](http://en.wikipedia.org/wiki/Qmake)
    - [Maven](http://maven.apache.org/)
 
 # Резюме
