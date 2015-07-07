@@ -11,6 +11,11 @@
   - Стоит показать примеры юнит-тестов на разных языках
   - Нужно рассмотреть наивную реализацию юнит-тестов,
     когда функции руками добавляются в main
+
+"Regression testing"? What's that? If it compiles, it is good; if it boots up, it is perfect.
+
+    Torvalds, Linus (1998-04-08). Message. linux-kernel mailing list. IU. Retrieved on 2006-08-28.
+
 -->
 
 # Содержание
