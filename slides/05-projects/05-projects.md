@@ -339,20 +339,19 @@ make
 
 # Debug/Release
 
- - SET(CMAKE_BUILD_TYPE Debug)
- - cmake ­DCMAKE_BUILD_TYPE=Release ../src
+ - `SET(CMAKE_BUILD_TYPE Debug)`
+ - `$ cmake ­DCMAKE_BUILD_TYPE=Release ../src`
 
 Для библиотек:
 
-  - TARGET_LINK_LIBRARIES(lib RELEASE ${lib_SRCS})
-  - TARGET_LINK_LIBRARIES(libd DEBUG ${lib_SRCS})
-￼
+  - `TARGET_LINK_LIBRARIES(lib RELEASE ${lib_SRCS})`
+  - `TARGET_LINK_LIBRARIES(libd DEBUG ${lib_SRCS})`
 
 # Пример сборки библиотеки
 
 CMakeLists.txt:
 
-```tbd
+```cmake
 cmake_minimum_required(VERSION 2.8)
 project(second_sample)
 
@@ -368,7 +367,7 @@ target_link_libraries(main library)
 
 Содержимое каталога:
 
-```tbd
+```txt
   - main.c
   - library
     - lib.c
@@ -379,7 +378,7 @@ target_link_libraries(main library)
 
 CMakeLists.txt:
 
-```tbd
+```cmake
 cmake_minimum_required(VERSION 2.8)
 project(third_sample)
 
@@ -395,7 +394,7 @@ target_link_libraries(main library)
 
 library/CMakeLists.txt:
 
-```tbd
+```cmake
 cmake_minimum_required(VERSION 2.8)
 project(library)
 
@@ -411,7 +410,7 @@ add_library(library STATIC ${SOURCE_LIB})
 
 CMakeLists.txt:
 
-```tbd
+```cmake
 cmake_minimum_required(VERSION 2.8)
 project(sample)
 
