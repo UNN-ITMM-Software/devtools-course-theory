@@ -3,7 +3,7 @@
 # Detailed description is here: http://blog.gockelhut.com/2014/09/automatic-documentation-publishing-with.html
 
 # Settings
-REPO_PATH=git@github.com:UNN-VMK-Software/devtools-course-theory.git
+REPO_PATH=https://github.com/UNN-VMK-Software/devtools-course-theory.git
 WORKING_DIR=../devtools-course-theory
 GHPAGES_PATH=devtools-course-ghpages
 HTML_PATH=slides
