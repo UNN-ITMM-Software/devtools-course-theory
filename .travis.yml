@@ -5,8 +5,8 @@ notifications:
 # Download SSH key, so we can commit HTML slides to gh-pages branch
 before_install:
 - openssl aes-256-cbc
-  -K $encrypted_753ebdfe5ffa_key
-  -iv $encrypted_753ebdfe5ffa_iv
+  -K $encrypted_b985f7637263_key
+  -iv $encrypted_b985f7637263_iv
   -in config/travisci_rsa.enc
   -out config/travisci_rsa
   -d
