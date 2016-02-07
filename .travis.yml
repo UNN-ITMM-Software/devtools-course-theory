@@ -12,6 +12,7 @@ before_install:
   -d
 - chmod 0600 config/travisci_rsa
 - cp config/travisci_rsa ~/.ssh/id_rsa
+- eval `ssh-agent -s`
 - ssh-add ~/.ssh/id_rsa
 
 # We can't use Docker infrastructure because we need to install fonts
