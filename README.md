@@ -4,7 +4,7 @@
 
  - Нижегородский Государственный Университет им. Н.И. Лобачевского
  - Факультет ВМК, каф. МО ЭВМ
- - **License:** Creative Commons Attribution-Share Alike 3.0 ([CC BY-SA 3.0][license])
+ - __License:__ Creative Commons Attribution-Share Alike 3.0 ([CC BY-SA 3.0][license])
 
 ## Ресурсы
 
