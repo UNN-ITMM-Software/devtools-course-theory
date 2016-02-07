@@ -1,0 +1,33 @@
+#!/bin/bash -e
+# Borrowed from here: https://github.com/tgockel/nginxconfig/blob/e78775850b9094cbea294d084408664d9ef2ae80/config/publish-doxygen
+# Detailed description is here: http://blog.gockelhut.com/2014/09/automatic-documentation-publishing-with.html
+
+# Settings
+REPO_PATH=git@github.com:UNN-VMK-Software/devtools-course-theory.git
+WORKING_DIR=../devtools-course-theory
+GHPAGES_PATH=devtools-course-ghpages
+HTML_PATH=slides
+COMMIT_USER="Slides Generator"
+COMMIT_EMAIL="kirill.kornyakov+travis-ci@gmail.com"
+CHANGESET=$(git rev-parse --verify HEAD)
+
+# Get a clean version of the HTML documentation repo.
+cd ..
+git clone -b gh-pages "${REPO_PATH}" --single-branch ${GHPAGES_PATH}
+
+# rm all the files through git to prevent stale files.
+# Generate the HTML documentation.
+cd ${GHPAGES_PATH}
+git rm -rf ${HTML_PATH}
+mkdir ${HTML_PATH}
+cp ${WORKING_DIR}/slides-rendered/* ${HTML_PATH}
+
+# Commit the documentation repo.
+cd ${HTML_PATH}
+git add .
+git config user.name "${COMMIT_USER}"
+git config user.email "${COMMIT_EMAIL}"
+git commit -m "Automated slides build for changeset ${CHANGESET}."
+git push origin gh-pages
+
+cd ${WORKING_DIR}

@@ -1,0 +1,3 @@
+[submodule "slides/slidy-scripts"]
+	path = slides/slidy-scripts
+	url = git@github.com:kirill-kornyakov/slidy-scripts.git
