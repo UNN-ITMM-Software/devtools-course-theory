@@ -20,17 +20,36 @@
 <p>Кирилл Корняков<br />
 Февраль 2016</p>
 </div>
+<div id="разнообразие-технологий" class="slide section level1">
+<h1>Разнообразие технологий</h1>
+<p>Опыт типичного разработчика сегодня</p>
+<ul>
+<li><strong>Host OS</strong>: Windows, Linux, Mac OS X</li>
+<li><strong>Target OS</strong>: Embedded Win/Lin, Android, iOS</li>
+<li><strong>Target HW</strong>: x86, ARM, GPU, а также MIPS, DSP</li>
+<li><strong>Языки</strong>:
+<ul>
+<li>Native: С, С++, Objective-C</li>
+<li>Bytecode: C#, Java</li>
+<li>Dynamic: Python, Ruby</li>
+<li>GPU: GLSL, CUDA, OpenCL</li>
+</ul></li>
+<li><strong>IDE</strong>: Borland Builder, MSVS, Eclipse, Qt Creator, Xcode</li>
+</ul>
+</div>
+<div id="важность-инструментов" class="slide section level1">
+<h1>Важность инструментов</h1>
+<p>Инструменты пока не могут создавать ПО вместо вас, однако</p>
+<ul>
+<li>Значительно усиливают ваши способности</li>
+<li>Работают пока вы спите</li>
+</ul>
+</div>
 <div id="цели-курса" class="slide section level1">
 <h1>Цели курса</h1>
-<blockquote>
 <p>Познакомить с некоторыми <strong>классами инструментов и подходами</strong>,<br />
 которые будут полезны при работе <strong>в любом проекте и на любой платформе</strong>.</p>
-</blockquote>
-</div>
-<div id="хороший-инструмент" class="slide section level1">
-<h1>Хороший инструмент</h1>
-<p>Мы постараемся сосредоточиться на &quot;хороших&quot; инструментах.<br />
-И очень часто это будут консольные и веб-приложения.</p>
+<p><strong>Хороший инструмент</strong></p>
 <ol style="list-style-type: decimal">
 <li>Проверен временем</li>
 <li>Кросс-платформенный</li>
@@ -38,6 +57,8 @@
 <li>Быстрый</li>
 <li>Имеет открытый исходный код</li>
 </ol>
+<p>Мы постараемся сосредоточиться на &quot;хороших&quot; инструментах.<br />
+И очень часто это будут консольные и веб-приложения.</p>
 </div>
 <div id="программа-курса-жизненный-цикл-разработки-по" class="slide section level1">
 <h1>Программа курса: Жизненный цикл разработки ПО</h1>
@@ -73,6 +94,46 @@
 </ul></li>
 </ol>
 </div>
+<div id="базовые-принципы" class="slide section level1">
+<h1>Базовые принципы</h1>
+<ol style="list-style-type: decimal">
+<li>Предпочитайте plain-text формат в качестве исходного
+<ul>
+<li>Храните исходники в VCS</li>
+<li>Овладейте техникой обработки текста в совершенстве</li>
+</ul></li>
+<li>Освойте командную строку, используйте ее по максимуму
+<ul>
+<li>Обработка текста</li>
+<li>Автоматизация рутинных операций</li>
+</ul></li>
+<li>Изучите Python и его популярные модули
+<ul>
+<li>NumPy, Matplotlib</li>
+<li>XML, Excel, pdf, email</li>
+</ul></li>
+</ol>
+</div>
+<div id="базовые-принципы-2" class="slide section level1">
+<h1>Базовые принципы (2)</h1>
+<ol style="list-style-type: decimal">
+<li>В деталях изучите устройство бинарных модулей
+<ul>
+<li>Последовательность шагов построения приложений (компиляция и линковка)</li>
+<li>Инструменты анализа готовых файлов</li>
+</ul></li>
+<li>Разрабатывайте так, чтобы вам не приходилось заниматься отладкой
+<ul>
+<li>Непрерывная интеграция (автоматическое тестирование)</li>
+<li>Контроль качества кода (автоматический анализ и peer review)</li>
+</ul></li>
+<li>Переиспользуйте стороннее ПО, преимущественно open-source
+<ul>
+<li>Стремительное развитие проекта (Android)</li>
+<li>Полная свобода настройки и переделки</li>
+</ul></li>
+</ol>
+</div>
 <div id="структура-лекций" class="slide section level1">
 <h1>Структура лекций</h1>
 <ol style="list-style-type: decimal">
@@ -84,7 +145,11 @@
 <ul>
 <li>Рекомендуется вести конспект</li>
 </ul></li>
-<li>Иногда постараемся немного программировать</li>
+<li>Последние 5 минут объявление контрольных вопросов
+<ul>
+<li>Рекомендуется убедиться, что вопросы были разобраны</li>
+</ul></li>
+<li>Еще иногда будем немного программировать</li>
 </ol>
 </div>
 <div id="практические-занятия" class="slide section level1">
@@ -109,17 +174,17 @@
 </div>
 <div id="ресурсы" class="slide section level1">
 <h1>Ресурсы</h1>
-<p><strong>Ссылки</strong></p>
-<ul>
-<li>Репозиторий: &lt;bit.ly/unn-devtools&gt;</li>
-<li><a href="http://unn-vmk-software.github.io/devtools-course-theory/">Слайды</a></li>
-</ul>
 <p><strong>Книги</strong></p>
 <ul>
 <li>Дейв Томас, Энди Хант &quot;Программист-прагматик&quot;</li>
 <li>Нил Форд &quot;Продуктивный программист&quot;</li>
 <li>Kernighan &amp; Pike &quot;The Practice of Programming&quot;</li>
 <li>Стив Макконнелл &quot;Совершенный код&quot;</li>
+</ul>
+<p><strong>Ссылки</strong></p>
+<ul>
+<li><a href="https://help.github.com" class="uri">https://help.github.com</a></li>
+<li><a href="https://github.com/UNN-VMK-Software/devtools-course" class="uri">https://github.com/UNN-VMK-Software/devtools-course</a></li>
 </ul>
 </div>
 <div id="спасибо-за-внимание" class="slide section level1">
