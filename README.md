@@ -1,22 +1,24 @@
 # Спецкурс "Инструменты разработки"
 
+[![HTML][html-badge]][html]
+[![Join the chat at https://gitter.im/UNN-VMK-Software/devtools-course-practice](https://badges.gitter.im/UNN-VMK-Software/devtools-course-practice.svg)](https://gitter.im/UNN-VMK-Software/devtools-course-practice?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status][travis-badge]][travis]
 
  - Нижегородский Государственный Университет им. Н.И. Лобачевского
- - Факультет ВМК, каф. МО ЭВМ
+ - Институт ИТММ, каф. МОСТ
  - __License:__ Creative Commons Attribution-Share Alike 3.0 ([CC BY-SA 3.0][license])
 
 ## Ресурсы
 
- - [Лабораторные работы][labs]
+ - [Репозиторий с практикой][practice]
  - [Контрольные вопросы][control-questions]
 
 ## Литература
 
+  - Стив Макконнелл "Совершенный код"
   - Дейв Томас, Энди Хант "Программист-прагматик"
   - Нил Форд "Продуктивный программист" ([pdf][book-ford])
   - Питер Гудлиф "Ремесло программиста" ([pdf][book-goodleaf])
-  - Стив Макконнелл "Совершенный код"
   - Kernighan, Pike "The Practice of Programming"
 
 Дополнительная литература:
@@ -26,11 +28,13 @@
 
 <!-- LINKS -->
 
+[html]:               http://unn-vmk-software.github.io/devtools-course-theory
+[html-badge]:         https://img.shields.io/badge/slides-html-blue.svg
 [travis]:             https://travis-ci.org/UNN-VMK-Software/devtools-course-theory
 [travis-badge]:       https://travis-ci.org/UNN-VMK-Software/devtools-course-theory.svg?branch=master
 [license]:            http://creativecommons.org/licenses/by-sa/3.0/
 [control-questions]:  https://github.com/UNN-VMK-Software/devtools-course-theory/blob/master/slides/control-questions.md
-[labs]:               https://github.com/UNN-VMK-Software/devtools-course-theory/tree/master/lab-guide
+[practice]:           https://github.com/UNN-VMK-Software/devtools-course-practice
 
 [book-ford]:          http://www.books.ru/books/produktivnyi-programmist-kak-sdelat-slozhnoe-prostym-a-nevozmozhnoe--vozmozhnym-fail-pdf-646592/?show=1
 [book-goodleaf]:      http://www.books.ru/books/remeslo-programmista-praktika-napisaniya-khoroshego-koda-fail-pdf-646106/?show=1
