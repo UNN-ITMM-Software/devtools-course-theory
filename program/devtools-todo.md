@@ -1,5 +1,8 @@
 # TODO
 
+  - introduce global links
+  - introduce global pictures (may be just use a single folder)
+
   - organizational
     - перенести занятия (_позвонить Жидкову_)
     - запросить списки групп

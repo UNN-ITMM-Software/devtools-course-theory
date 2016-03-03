@@ -3,7 +3,7 @@
 ![](./pix/linux-report.png)
 
 Кирилл Корняков (Itseez, ННГУ)\
-1 Октября 2013
+3 Марта 2016
 
 <!-- TODO
   - переделать таблицу, которая сейчас в html
@@ -14,190 +14,334 @@
 
   1. Введение
   1. Git
-  1. Командная работа
+  1. Модели рабочего процесса (командная работа)
 
-# Введение
+# Тест Джоэла
 
-Перед каждым проектом, в особенности коллективным, встают следующие задачи:
+![](./gpix/joel-test.png)
 
-  1. Небходимо __центральное__ хранилище кода
-     - Официальное, актуальное, защищенное, используемое всеми участниками
-  2. Нужно уметь возвращаться к __прошлым__ версиям
-     - Откат дефектных изменений, поиск ошибок сравнением, извлечение кода "из
-       прошлого"
+Joel Spolsky, August 09, 2000
 
-Нужны ли специальные инструменты?
+# Коллективная работа с кодом
 
-# Три поколения VCS
+  1. __История изменений__
+     - Откат дефектных изменений
+     - Извлечение кода "из прошлого" (как оно раньше работало?)
+     - Поиск ошибок сравнением (кто это сделал?)
+  1. __Централизованное хранение__
+     - Актуальное и используемое всеми участниками (где последняя версия?!)
+     - Защищенное, с разграничением прав доступа
 
-Локальные
+\
+__Машина времени__ и __сетевое хранилище__ в одном флаконе!\
+Нужны ли специальные инструменты? Вспоминаем Sharepoint, tarballs.
 
-<center>![](./pix/local-vcs.png)</center>>
+# Системы контроля версий
 
-# Три поколения VCS
-
-Централизованные
-
-<center>![](./pix/centralized-vcs.png)</center>>
-
-# Три поколения VCS
-
-Распределенные
-
-<center>![](./pix/distributed-vcs.png)</center>>
-
-# Три поколения VCS
-
-<table summary="Three Generations of Version Control" border="1">
-  <colgroup><col align="center" class="col1"><col align="center" class="col2"><col align="center" class="col3"><col align="center" class="col4"><col align="center" class="col5">
-  </colgroup>
-  <thead valign="middle"><tr><th align="center" valign="middle">Generation</th><th align="center" valign="middle">Networking</th><th align="center" valign="middle">Operations</th><th align="center" valign="middle">Concurrency</th><th align="center" valign="middle">Examples</th></tr></thead>
-  <tbody valign="middle"><tr><td align="center" valign="middle">First </td><td align="center" valign="middle">None</td><td align="center" valign="middle">One file at a time</td><td align="center" valign="middle">Locks</td><td align="center" valign="middle">RCS<a class="indexterm" name="idp112576"></a>, SCCS<a class="indexterm" name="idp113264"></a></td></tr><tr><td align="center" valign="middle">Second </td><td align="center" valign="middle">Centralized</td><td align="center" valign="middle">Multi-file</td><td align="center" valign="middle">Merge <br xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions">before <br xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions">commit</td><td align="center" valign="middle">CVS<a class="indexterm" name="idp116736"></a>, SourceSafe<a class="indexterm" name="idp117328"></a>, <br xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions">Subversion<a class="indexterm" name="idp118176"></a>, <br xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions">Team Foundation Server<a class="indexterm" name="idp118944"></a><a class="indexterm" name="idp119408"></a></td></tr><tr><td align="center" valign="middle">Third </td><td align="center" valign="middle">Distributed</td><td align="center" valign="middle">Changesets</td><td align="center" valign="middle">Commit <br xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions">before <br xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions">merge</td><td align="center" valign="middle">Bazaar<a class="indexterm" name="idp122608"></a>, <br xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions">Git<a class="indexterm" name="idp123552"></a>, <br xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions">Mercurial<a class="indexterm" name="idp124400"></a></td></tr>
-  </tbody>
-</table>
-
-Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/history_of_version_control.html)
-
-# Общие сведения
-
-> __Системы контроля версий__ - это программные системы, хранящие несколько
+> __Системы контроля версий__ — это программные системы, хранящие несколько
 версий одного документа, и позволяющие вернуться к более ранним версиям. Как
 правило, для каждого изменения запоминается дата модификации и автор.
 
-  - Как правило используются для хранения исходного кода (source control), но
-    имеются и другие применения: конфигурации, документация, компьютерная
-    анимация, САПР и др.
-  - На сегодняшний момент являются одним из ключевых инструментов разработки,
-    появляется все больше примеров использования в других отраслях
-    ([книгоиздание](https://github.com/certik/theoretical-physics),
-    [государственные документы](http://www.youtube.com/watch?v=CEN4XNth61o)).
-
-# Основные термины
-
-+----------------------------+---------------------------+
-| - repository               | - pull/merge request      |
-| - working copy             | - merge, integration      |
-| - revision                 | - conflict                |
-| - head                     | - rebase                  |
-| - check-out, clone         | - shelving, stashing      |
-| - update, sync             | - branch                  |
-| - check-in, commit, submit | - trunk, mainline, master |
-| - commit, changeset, patch | - tag, label              |
-+----------------------------+---------------------------+
-
-[Глоссарий](http://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8#.D0.A1.D0.BB.D0.BE.D0.B2.D0.B0.D1.80.D1.8C)
-
 # Патчи
 
-__Патч__ (англ. patch — заплатка) — информация, предназначенная для
- автоматизированного внесения определённых изменений в компьютерные файлы.
+> __Патч__ (англ. patch — заплатка) — информация, предназначенная для
+автоматизированного внесения определённых изменений в компьютерные файлы.
 
-__Unified diff format__:
+__Unified diff format__: `@@ -l,s +l,s @@ optional section heading`
 
-> `@@ -l,s +l,s @@ optional section heading`
+![](./pix/patch-readme-subl.png)
 
-<center> ![](./pix/diff.png) </center>
+# Отображение на GitHub
 
-# Типичные функции
+![](./pix/patch-readme.png)
 
-  1. Централизованное хранение исходного кода
-     - Актуальное "официальное" состояние проекта
-     - Удаленный доступ к проекту
-     - Разграничение прав доступа
-     - Использование в качестве запасного (backup) хранилища экспериментальных
-       веток
-  1. Возможность получения более ранних версий файлов
-     - Получение истории индивидуального файла
-     - Получение среза (snapshot) всего проекта
+# Отображение в командной строке
 
-# Базовые принципы
+![](./pix/patch-readme-shell.png)
 
-  1. Приложение строится только на на основе известного состояния репозитория:
-     - Не только релизы, но и экспериментальные и тестовые сборки (builds).
-     - В идеале приложение умеет сообщать свою ревизию и параметры сборки.
-  1. Стабильность общих (публичных) веток:
-     - Они обязаны компилироваться и проходить все тесты в любой момент времени.
-     - Изменения тестируются до попадания в репозиторий.
-     - Если дефектные изменения прошли, они исправляются в срочном порядке.
-  1. Абсолютно вся разработка фиксируется в истории:
-     - Это делается в виде отдельных веток локального или глобального репозитория.
-     - "Удачные" изменения добавляются в основную ветвь.
-  1. Публичная история проекта не "переписывается":
-     - Однажды помеченные тэгами и выпущенные релизы модификации не подлежат.
-     - Промежуточная история не переписывается, потому что будут конфликты.
+# Терминология
 
-# Текущий статус
+__Патчи__
 
-![](./pix/vcs-status.png)
+ - Патч — это простой текстовый файл, его можно наложить при помощи инструментов (`patch`).
+ - Один патч может содержать изменения сразу нескольких файлов в разных директориях.
+ - Люди могут обмениваться изменениями, посылая друг другу патчи.
+ - Патч — это __атомарное изменение__ проекта!
 
-[DevProd Report Revisited: Version Control Systems in 2013](http://zeroturnaround.com/rebellabs/devprod-report-revisited-version-control-systems-in-2013/#!/)
+__Патчи и СКВ__
+
+ - СКВ — это своего рода БД патчей, ее называют __репозиторием__.
+ - Патчи, помещенные в СКВ называются __commit__.
+ - Последовательности __commit__ называются __changeset__.
+
+![](./pix/commits-with-files.png)
+
+# История изменений
+
++----------------------------------------------+--------------------------------+
+| `ddc4a1d` — __Readme bug fixes.__            | ![](./pix/github-commits-2.png)|
+| ```                                          |                                |
+|  - README.md                                 | Последовательность патчей — это|
+| ```                                          | полная история проекта.        |
+| `f9e76e6` — __Remove dummy implementation__  |                                |
+| ```                                          |                                |
+|  - include/filters.hpp                       |                                |
+|  - samples/matrix_sample.cpp                 |                                |
+|  - src/filters_dummy.cpp                     |                                |
+|  - src/filters_fabrics.cpp                   |                                |
+|  - test/filters_test.cpp                     |                                |
+| ```                                          |                                |
+| `aa1611b` — __Switch from strings to enums__ |                                |
+| ```                                          |                                |
+|  - include/filters.hpp                       |                                |
+|  - samples/matrix_sample.cpp                 |                                |
+|  - src/filters_fabrics.cpp                   |                                |
+|  - test/filters_test.cpp                     |                                |
+| ```                                          |                                |
+| `8e8b21b` — __Add some error checking__      |                                |
+| ```                                          |                                |
+|  - include/filters.hpp                       |                                |
+|  - src/filters_fabrics.cpp                   |                                |
+|  - test/filters_test.cpp                     |                                |
+| ```                                          |                                |
++----------------------------------------------+--------------------------------+
+
+# Визуализация истории изменений
+
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/ToD91PYaQOU" frameborder="0" allowfullscreen></iframe>
+
+ - <http://www.youtube.com/watch?v=ToD91PYaQOU>
+ - Сделано при помощи [gource](http://gource.io)
+
+# Три поколения СКВ
+
++------------+-------------+--------------------+---------------------+-----------------------------------------------------+
+| Generation | Networking  | Operations         | Concurrency         | Examples                                            |
++============+=============+====================+=====================+=====================================================+
+| First      | None        | One file at a time | Locks               | RCS, SCCS                                           |
++------------+-------------+--------------------+---------------------+-----------------------------------------------------+
+| Second     | Centralized | Multi-file         | Merge before commit | CVS, Subversion, SourceSafe, Team Foundation Server |
++------------+-------------+--------------------+---------------------+-----------------------------------------------------+
+| Third      | Distributed | Changesets         | Commit before merge | Git, Mercurial, Bazaar                              |
++------------+-------------+--------------------+---------------------+-----------------------------------------------------+
+
+Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/history_of_version_control.html)
+
+# Три поколения СКВ: Локальные
+
+<center>![](./pix/local-vcs.png)</center>
+
+Примеры: RCS, SCCS
+
+# Три поколения СКВ: Централизованные
+
+<center>![](./pix/centralized-vcs.png)</center>
+
+Примеры: Subversion, CVS
+
+# Три поколения СКВ: Распределенные
+
+<center>![](./pix/distributed-vcs.png)</center>
+
+  - Примеры: Git, Mercurial
+  - Фактически стали стандартом де-факто
+  - Сильные стороны:
+    - Допускают локальную работу (коммиты без наличия интернет)
+    - Упрощают слияние (а значит параллельную разработку)
+    - Дают максимальную свободу по организации рабочего процесса (workflow)
+
+# Популярные СКВ
+
+![](./pix/vcs-stats.png)
+
+[Stack Overflow Developer Survey 2015](http://stackoverflow.com/research/developer-survey-2015)
+
+  - Использование в ИТ-проектах:
+    - Фундаментальный инструмент разработки
+    - Также используется для: файлы конфигурации, документация, тестовые данные и пр.
+
+# Пользователи Git
+
+<!-- Image credit: http://git-scm.com/ -->
+![](./pix/git-users.png)
 
 # Git
 
 +-----------------------+-------------------------------------------------------------------------+
-|![](./pix/git-logo.png)| - Изначально разработан Линусом Торвальдсом для работы над ядром Linux. |
+|![](./pix/git-logo.png)| - Разработан Линусом Торвальдсом для работы над ядром Linux в 2005 году.|
 |                       | - В настоящее время поддерживается Джунио Хамано, сотрудником Google.   |
 |                       | - Не очень прост в освоении, однако очень быстрый и функциональный.     |
 |                       | - Имеет наиболее "сильное" сообщество, инструментальную поддержку.      |
+|                       | - Огромное количество информации в интернет: инструкции, уроки, статьи  |
 |                       | - Официальный сайт проекта: <http://www.git-scm.org>.                   |
 +-----------------------+-------------------------------------------------------------------------+
 
-# Три состояния файлов
+# Pro Git
 
-<center>![](./pix/local-ops.png)</center>
++----------------------+-----------------------------------------------------------------------------+
+|![](./pix/pro-git.jpg)| - Лучшая книга про Git                                                      |
+|                      | - Доступна бесплатно                                                        |
+|                      | - Переведена на [русский язык](https://git-scm.com/book/ru/v1)              |
+|                      | - Единственный способ по-настоящему понять Git — это узнать как он работает |
+|                      | - __Нужно прочесть хотя бы первые 100 страниц__                             |
++----------------------+-----------------------------------------------------------------------------+
 
-# Git Objects
+Как сказал Евклид египетскому царю Птолемею:
+
+> «Царской дороги в геометрии нет!»
+
+# Atlassian SourceTree
+
+![](./pix/sourcetree_hero_win_full_interface_windows.png)
+
+# Tortoise Git
+
+![](./pix/tortoisegit12.png)
+
+# GitHub Desktop
+
+![](./pix/github-for-windows-2-0-gif.gif)
+
+# Command Line Interface!
+
+![](./pix/git-in-shell.png)
+
+# Git objects
 
 <center>![](./pix/git-objects.png)</center>
 
-# Git Commits
+  - По сути это _внутреннее_ представление патча
+  - Пользователю приходится работать только с коммитами (слава богу!)
+
+Показать содержимое коммита:
+
+```txt
+$ git show --raw dc2ca9d95c
+
+commit dc2ca9d95cbd5586e9e5ef0fe1ce7db91ea7d3d1
+Author: Daniil Osokin <daniil.osokin@itseez.com>
+Date:   Sun Aug 16 14:35:44 2015 +0300
+
+    Switched to factory
+
+:100644 100644 afadff2... bde857e... M  README.md
+:100644 000000 c977bf3... 0000000... D  src/filters_fabrics.cpp
+:000000 100644 0000000... c977bf3... A  src/filters_factory.cpp
+```
+
+# Git commits
 
 <center>![](./pix/git-commits.png)</center>
 
-# Master
+Вывести историю изменений:
+
+```txt
+$ git log
+
+commit aaa321be9191da60ad52c2bc41bd749ed546b409
+Merge: 98fce98 3c1d15a
+Author: Valentina <valentina-kustikova@users.noreply.github.com>
+Date:   Thu Aug 13 10:14:47 2015 +0300
+
+    Merge pull request #11 from valentina-kustikova/master
+
+    Practice description (bug fixes).
+
+commit 3c1d15a1bf366864593f2320fa9a0e6cf3586f52
+Author: valentina-kustikova <valentina.kustikova@gmail.com>
+Date:   Thu Aug 13 10:08:59 2015 +0300
+
+    Practice description (bug fixes).
+```
+
+# Понятие ветки (branch)
+
+  - Ветка в Git'е — это просто __указатель__ на один из коммитов.
+  - Есть соглашение, что имя __`master`__ используется для ветки,\
+    указывающей на последнее актуальное состояние проекта.
 
 <center>![](./pix/git-master.png)</center>
 
-# Git `branch`
+Вывести список существующих веток:
 
-```tbd
-$ git branch testing
+```txt
+$ git branch
+* master
 ```
 
+# Git `branch`
+
+Создать новую ветку с именем `testing` (указатель на коммит!):
+
+```txt
+$ git branch testing
+```
 <center>![](./pix/git-branch-testing.png)</center>
 
+Текущий список веток:
+
+```txt
+$ git branch
+* master
+  testing
+```
+
 # HEAD
+
+  - `HEAD` — специальный указатель, ссылающийся на локальную ветку, на которой
+    вы находитесь.
+  - Это просто алиас для текущей ветки, введенный для удобства.
 
 <center>![](./pix/git-head.png)</center>
 
 # Git `checkout`
 
-```tbd
+Извлечь состояние репозитория, соответствующее ветке `testing`:
+
+```txt
 $ git checkout testing
 ```
-
 <center>![](./pix/git-checkout.png)</center>
+
+Вывести список существующих веток:
+
+```txt
+$ git branch
+  master
+* testing
+```
+
+# Три состояния файлов
+
+<center>![](./pix/local-ops.png)</center>
 
 # Git `commit`
 
-```tbd
+```bash
 $ vim README.md
-$ git commit -a -m 'made a change'
+$ git add README.md
+$ git commit -m 'Made a change'
 ```
 <center>![](./pix/git-commit.png)</center>
 
 # Go back to `master`
 
-```tbd
+```bash
 $ git checkout master
 ```
 <center>![](./pix/git-checkout-2.png)</center>
 
 # Make a commit to `master`
 
-```tbd
+```bash
 $ vim main.cpp
-$ git commit -a -m 'made other changes'
+
+$ git add main.cpp
+$ git commit -m 'Made other changes'
+
+# Или можно сделать так
+$ git status
+$ git commit -a -m 'Made other changes'
 ```
 <center>![](./pix/git-commit-2.png)</center>
 
@@ -209,18 +353,43 @@ $ git commit -a -m 'made other changes'
 
 <center>![](./pix/git-merge-after.png)</center>
 
+  - `С6` — это так называемый _merge commit_
+  - Он основан не на каком-то патче, он указывает на состояние проекта,\
+    в котором наложены патчи обоих ветвей (`master` и `testing`).
+
+# Merge Conflicts
+
+![](./pix/merge-conflict.png)
+
+  - Возникают когда несколько участников отредактировали одинаковые строки,\
+    или когда это произошло в разных ветках.
+  - Разрешаются человеком при помощи инструментов (`git mergetool`).
+  - В реальности довольно редкая ситуация, если соблюдать практики:
+    - Грамотное распределение задач
+    - Частые коммиты, много маленьких веток, частая интеграция
+
 # Multiple branches
 
 <center>![](./pix/git-multiple-branches.png)</center>
 
+  - Даже у одного разработчика может быть несколько активных веток.
+  - Правильно создавать отдельную ветку на каждую логически независимую задачу.
+  - Долгоживущие ветки — это неправильно, они быстро устаревают.
+
 # Нестандартные применения Git
 
-  1. Хранилище для веб-контента ([GitHub pages](http://pages.github.com),
-     draft devtools [page](http://unn-vmk-software.github.io/devtools-course/)).
-  1. Легковесная база данных.
-![](./pix/info-manager.png)
-  1. Git можно использовать программно при помощи [libgit2](https://github.com/libgit2/libgit2),
-     практически из любого популярного языка.
+  1. Хранилище для веб-контента: [GitHub pages](http://pages.github.com),
+     devtools [page][devtools-html].
+  1. Легковесная база данных. ![](./pix/info-manager.png)
+  1. Git можно использовать программно при помощи
+     [libgit2](https://github.com/libgit2/libgit2), практически из любого
+     популярного языка.
+
+<!-- TOC -->
+
+# Распределенная работа
+
+![](./pix/distributed-git.png)
 
 # Рабочие процессы
 
@@ -236,13 +405,36 @@ $ git commit -a -m 'made other changes'
 
 <center> ![](./pix/centralized-workflow.png) </center>
 
+Плюсы и минусы данного подхода?
+
 # Integration Manager Workflow
 
 <center> ![](./pix/integration-manager-workflow.png) </center>
 
+Плюсы и минусы данного подхода?
+
 # Dictator and Lieutenants Workflow
 
 <center> ![](./pix/dictator-and-lieutenants-orkflow.png) </center>
+
+# Git Flow
+
+<center> ![](./pix/git-flow.png) </center>
+
+A successful Git branching model ([link](http://nvie.com/posts/a-successful-git-branching-model/))
+
+# Triangular Workflow (GitHub)
+
+<center> ![](./pix/triangular-git-workflow-bitfield.png) </center>
+
+```bash
+$ cd mp2-lab1-bitfield
+$ git remote -v
+origin  https://github.com/kirill-kornyakov/mp2-lab1-bitfield.git (fetch)
+origin  https://github.com/kirill-kornyakov/mp2-lab1-bitfield.git (push)
+upstream  https://github.com/UNN-VMK-Software/mp2-lab1-bitfield.git (fetch)
+upstream  https://github.com/UNN-VMK-Software/mp2-lab1-bitfield.git (push)
+```
 
 # GitHub Flow
 
@@ -270,24 +462,68 @@ Anything in the `master` branch is deployable.
      - Once it is merged and pushed to `master`, you can and _should_ deploy
        immediately.
 
-# Git Flow
+# GitHub Flow
 
-<center> ![](./pix/git-flow.png) </center>
+```bash
+# Check that origin and upstream repositories are correctly defined
+$ git remote -v
 
-A successful Git branching model ([link](http://nvie.com/posts/a-successful-git-branching-model/))
+# Get the latest sources from the upstream repository
+$ git remote update
 
-# Резюме
+# Checkout a new topic branch for development
+$ git checkout -b adding-new-feature upstream/master
 
-  1. Системы контроля версий - незаменимый инструмент разработки
-     - Централизованный доступ (при полностью распределенной разработке)
+#
+# Do some development...
+#
+
+# Check your changes
+$ git status
+
+# Commit your changes
+$ git commit -a -m "Added a new feature"
+
+# Push your changes to the origin
+$ git push origin HEAD
+```
+
+# Базовые принципы
+
+  1. Приложение строится только на на основе известного состояния репозитория:
+     - Не только релизы, но и экспериментальные и тестовые сборки (builds).
+     - В идеале приложение умеет сообщать свою ревизию и параметры сборки.
+  1. Стабильность общих (публичных) веток:
+     - Они обязаны компилироваться и проходить все тесты в любой момент времени.
+     - Изменения тестируются до попадания в репозиторий.
+     - Если дефектные изменения прошли, они исправляются в срочном порядке.
+  1. Абсолютно вся разработка фиксируется в истории:
+     - Это делается в виде отдельных веток локального или глобального репозитория.
+     - "Удачные" изменения добавляются в основную ветвь.
+  1. Публичная история проекта не "переписывается":
+     - Однажды помеченные тэгами и выпущенные релизы модификации не подлежат.
+     - Промежуточная история не переписывается, потому что будут конфликты.
+
+# VCS: Резюме
+
+  1. Системы контроля версий — центральный инструмент разработки
      - Навигация по истории изменений
+     - Централизованный доступ
+  1. Имеются и другие применения:
+     - Конфигурации, документация, компьютерная анимация, САПР и др.
+     - Появляется все больше примеров использования в других отраслях
+       ([книгоиздание](https://github.com/certik/theoretical-physics),
+       [государственные документы](http://www.youtube.com/watch?v=CEN4XNth61o)).
+  1. Распределенные СКВ фактически стали стандартом. Их сильные стороны:
+     - Допускают локальные коммиты (без наличия интернет или доступа к серверу)
+     - Упрощают слияние (а значит параллельную разработку)
+     - Дают максимальную свободу по организации рабочего процесса (workflow)
+  1. Git не самая простая в освоении СКВ, однако очень функциональная,\
+     к тому же дает максимальную свободу по организации процесса разработки.
   1. Необходимо следовать общепринятым правилам и практикам,
      в особенности относительно публичных репозиториев и релизов.
-  1. Git не самая простая в освоении СКВ, однако очень функциональная,
-     к тому же дает максимальную свободу по организации процесса разработки.
-  1. Каждому проекту следует выработать свой рабочий процесс и правила именования
-     веток.
-     При этом желательно основываться на популярных подходах.
+  1. Каждому проекту следует выработать свой рабочий процесс и правила
+     именования веток. При этом желательно основываться на популярных подходах.
 
 # Контрольные вопросы
 
@@ -298,10 +534,35 @@ A successful Git branching model ([link](http://nvie.com/posts/a-successful-git-
 
 # Ссылки
 
-  1. Wikipedia ["Системы контроля версий"](http://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8#.D0.91.D0.B0.D0.B7.D0.BE.D0.B2.D1.8B.D0.B5_.D0.BF.D1.80.D0.B8.D0.BD.D1.86.D0.B8.D0.BF.D1.8B_.D1.80.D0.B0.D0.B7.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D0.BA.D0.B8_.D0.9F.D0.9E_.D0.B2_VCS).
-  1. [Pro Git](http://git-scm.com) by Scott Chacon.
+  1. Wikipedia ["Системы контроля версий"][wiki-vcs].
+  1. [Pro Git][git] by Scott Chacon.
   1. ["Mercurial tutorial"](http://hginit.com) by Joel Spolsky.
 
 # Спасибо!
 
 Вопросы?
+
+<!-- LINKS -->
+
+[wiki-vcs]: http://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8#.D0.91.D0.B0.D0.B7.D0.BE.D0.B2.D1.8B.D0.B5_.D0.BF.D1.80.D0.B8.D0.BD.D1.86.D0.B8.D0.BF.D1.8B_.D1.80.D0.B0.D0.B7.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D0.BA.D0.B8_.D0.9F.D0.9E_.D0.B2_VCS
+[git]: http://git-scm.com
+[devtools-html]: http://unn-vmk-software.github.io/devtools-course-theory
+
+<!-- BACKUP
+
+# Основные термины
+
++----------------------------+---------------------------+
+| - repository               | - pull/merge request      |
+| - working copy             | - merge, integration      |
+| - revision                 | - conflict                |
+| - head                     | - rebase                  |
+| - check-out, clone         | - shelving, stashing      |
+| - update, sync             | - branch                  |
+| - check-in, commit, submit | - trunk, mainline, master |
+| - commit, changeset, patch | - tag, label              |
++----------------------------+---------------------------+
+
+[Глоссарий](http://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8#.D0.A1.D0.BB.D0.BE.D0.B2.D0.B0.D1.80.D1.8C)
+
+-->
