@@ -2,6 +2,7 @@
 
   - introduce global links
   - introduce global pictures (may be just use a single folder)
+  - detect unused links
 
   - organizational
     - перенести занятия (_позвонить Жидкову_)
