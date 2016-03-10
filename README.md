@@ -1,7 +1,7 @@
 # Спецкурс "Инструменты разработки"
 
-[![HTML][html-badge]][html]
 [![Join the chat at https://gitter.im/UNN-VMK-Software/devtools-course-practice](https://badges.gitter.im/UNN-VMK-Software/devtools-course-practice.svg)](https://gitter.im/UNN-VMK-Software/devtools-course-practice?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![HTML][html-badge]][html]
 [![Build Status][travis-badge]][travis]
 
  - Нижегородский Государственный Университет им. Н.И. Лобачевского
