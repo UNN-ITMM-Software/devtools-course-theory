@@ -32,12 +32,11 @@ before_script:
   - sudo mkfontdir
 
   # We don't build pandoc from sources, because it takes too much time
+  # We download prebuilt relocatible binary instead (from a personal Google Drive folder)
   # - sudo apt-get install haskell-platform
   # - cabal update
   # - cabal install pandoc
   # - export PATH=~/.cabal/bin:$PATH
-
-  # We download prebuilt relocatible binary instead (from a personal Google Drive folder)
   - wget --no-check-certificate https://googledrive.com/host/0B8BBkrQIoSbjc0YtODdQN3VJaDg -O ~/pandoc
   - chmod +x ~/pandoc
   - export PATH=~:$PATH
@@ -45,7 +44,7 @@ before_script:
 
 # Check Markdown and generate HTML slides
 script:
-- ./slides/slidy-scripts/slides-py/check.py
+- ./slides/slidy-scripts/slides-py/test_slides.py -v
 - ./slides/slidy-scripts/gen_slides.sh
 
 # Publish generated HTML to gh-pages
