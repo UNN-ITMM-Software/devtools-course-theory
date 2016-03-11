@@ -5,16 +5,18 @@
 Кирилл Корняков (Itseez, ННГУ)
 
 <!-- TODO
+  - В реальности можно посветить всю лекцию моделям рабочего процесса
+    и моделям ветвления (подготовка релиза). Учет задач можно вынести.
+  - Нужно изображение про подготовку релизов (частично есть в GitFlow)
   - Вставить заглавную картинку
   - Демо?
 -->
 
 # Содержание
 
-  1. Модели рабочего процесса
-  1. Инспекция кода
+  1. Модели распределенного рабочего процесса
+  1. Модели ветвления
   1. Учет задач и планирование (issue tracking)
-  1. Заключение
 
 # Тест Джоэла
 
@@ -52,11 +54,13 @@ Joel Spolsky, August 09, 2000
 
 <center> ![](./pix/dictator-and-lieutenants-orkflow.png) </center>
 
+<!-- TOC -->
+
 # Git Flow
 
 <center> ![](./pix/git-flow.png) </center>
 
-A successful Git branching model ([link](http://nvie.com/posts/a-successful-git-branching-model/))
+A successful Git branching model ([link][gitflow])
 
 # Triangular Workflow (GitHub)
 
@@ -75,7 +79,7 @@ upstream  https://github.com/UNN-VMK-Software/mp2-lab1-bitfield.git (push)
 
 <center> ![](./pix/github-flow.png) </center>
 
-[GitHub Flow](http://scottchacon.com/2011/08/31/github-flow.html)
+[GitHub Flow][github-flow]
 
 # GitHub Flow
 
@@ -125,6 +129,8 @@ $ git push origin HEAD
 
 # Базовые принципы
 
+  1. Каждому проекту следует выработать свой рабочий процесс и правила
+     именования веток. При этом желательно основываться на популярных подходах.
   1. Приложение строится только на на основе известного состояния репозитория:
      - Не только релизы, но и экспериментальные и тестовые сборки (builds).
      - В идеале приложение умеет сообщать свою ревизию и параметры сборки.
@@ -139,16 +145,9 @@ $ git push origin HEAD
      - Однажды помеченные тэгами и выпущенные релизы модификации не подлежат.
      - Промежуточная история не переписывается, потому что будут конфликты.
 
-<!--
-  1. Необходимо следовать общепринятым правилам и практикам,
-     в особенности относительно публичных репозиториев и релизов.
-  1. Каждому проекту следует выработать свой рабочий процесс и правила
-     именования веток. При этом желательно основываться на популярных подходах.
- -->
-
 <!-- TOC -->
 
-# GitHub
+# GitHub Issues
 
 ![](./pix/github-issues.png)
 
@@ -156,11 +155,11 @@ $ git push origin HEAD
 
 ![](./pix/sprint-lifecycle.png)
 
-# GitHub
+# GitHub Milestones
 
 ![](./pix/github-roadmap.png)
 
-# Redmine
+# Redmine Roadmap
 
 ![](./pix/redmine-roadmap.png)
 
@@ -193,6 +192,10 @@ $ git push origin HEAD
 
 # Контрольные вопросы
 
+  1. Centralized Workflow (диаграмма, достоинства и недостатки)
+  1. Integration Manager Workflow (диаграмма, достоинства и недостатки)
+  1. Dictator and Lieutenants Workflow (диаграмма, достоинства и недостатки)
+  1. Модель ветвления GitFlow
   1. Рабочий процесс (модель ветвления), используемый в компании GitHub
   1. Базовые принципы корректной работы с СКВ
   1. Простые истины планирования
@@ -203,3 +206,6 @@ $ git push origin HEAD
 Вопросы?
 
 <!-- LINKS -->
+
+[github-flow]: http://scottchacon.com/2011/08/31/github-flow.html
+[gitflow]: http://nvie.com/posts/a-successful-git-branching-model
