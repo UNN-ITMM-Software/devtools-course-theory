@@ -16,13 +16,13 @@
 # Содержание
 
   1. IDE
-  1. Автогенерация кода, метапрограммирование
   1. Билд-системы
+  1. CMake
 
 # IDE
 
-> **Интегрированная среда разработки, ИСР** (англ. **IDE, Integrated development
-> environment** или **integrated debugging environment**) — система программных
+> __Интегрированная среда разработки, ИСР__ (англ. __IDE, Integrated development
+> environment__ или __integrated debugging environment__) — система программных
 > средств, используемая программистами для разработки программного обеспечения.
 
 В чем отличие IDE от редакторов исходного кода?
@@ -78,109 +78,8 @@ JetBrains [Resharper](http://www.jetbrains.com/resharper/features/index.html)
 # Содержание
 
   1. IDE
-  1. <font color=red>Автогенерация кода, метапрограммирование</font>
-  1. Билд-системы
-
-# Метапрограммирование
-
->> **Метапрограммирование** — вид программирования, связанный с созданием
->> программ, которые порождают другие программы как результат своей работы.
-
-<center>![](./pix/meta.jpg)</center>
-
-# Шаблоны в С++
-
-```cpp
-#include <iostream>
-
-template<int N>
-struct Factorial
-{
-    enum { value = N * Factorial\<N-1\>::value };
-};
-
-template<>
-struct Factorial<1>{ enum { value = 1 }; };
-
-int main()
-{
-    const int fact5 = Factorial<5>::value;
-    std::cout << fact5;
-    return 0;
-}
-```
-
-David Abrahams and Aleksey Gurtovoy
-["C++ Template Metaprogramming"](http://www.boostpro.com/mplbook/)
-
-# cog
-
-```tbd
-...
-/*[[[cog
-import cog
-fnames = ['DoSomething', 'DoAnotherThing', 'DoLastThing']
-for fn in fnames:
-    cog.outl("void %s();" % fn)
-]]]*/
-//[[[end]]]
-...
-```
-
-```tbd
-...
-/*[[[cog
-import cog
-fnames = ['DoSomething', 'DoAnotherThing', 'DoLastThing']
-for fn in fnames:
-    cog.outl("void %s();" % fn)
-]]]*/
-void DoSomething();
-void DoAnotherThing();
-void DoLastThing();
-//[[[end]]]
-...
-```
-
-# lex & yacc
-
-- Lex - лексический анализатор, позволяет осуществлять разбор входной
-  последовательности символов с целью получения на выходе последовательности
-  символов, называемых **токенами**.
-- Yacc - синтаксический анализатор, который позволяет сопоставить линейной
-  последовательности токенов языка его формальную грамматику.
-
-<center>![](./pix/lex.jpg)</center>
-
-# Визуальное программирование
-
->> **Визуальное программирование** — способ создания программы для ЭВМ путём
->> манипулирования графическими объектами вместо написания её текста.
-
-# Языки визульного программирования
-
-Языки на основе объектов, когда визуальная среда программирования предоставляет
-графические или символьные элементы, которыми можно манипулировать интерактивным
-образом в соответствии с некоторыми правилами
-
-  - Lego Mindstorms
-
-<center>![](./pix/nxt_g.jpg)</center>
-
-# Языки визульного программирования
-
-Языки, в интегрированной среде разработки которых на этапе проектирования
-интерфейса применяются формы, с возможностью настройкой их свойств
-
-  - Borland C++ Builder
-
-<center>![](./pix/builder.gif)</center>
-
-# Содержание
-
-  1. IDE
-  1. Автогенерация кода, метапрограммирование
   1. <font color=red>Билд-системы</font>
+  1. CMake
 
 # Цель
 
@@ -278,6 +177,12 @@ make
  - только Unix
  - sh, m4
  - зависимости
+
+# Содержание
+
+  1. IDE
+  1. Билд-системы
+  1. <font color=red>CMake</font>
 
 # CMake
 
@@ -465,3 +370,104 @@ target_link_libraries(sample ${OPENCV_LIBRARIES})
 # Спасибо!
 
 Вопросы?
+
+<!-- LINKS -->
+
+<!-- BACKUP
+
+# Метапрограммирование
+
+>> __Метапрограммирование__ — вид программирования, связанный с созданием
+>> программ, которые порождают другие программы как результат своей работы.
+
+<center>![](./pix/meta.jpg)</center>
+
+# Шаблоны в С++
+
+```cpp
+#include <iostream>
+
+template<int N>
+struct Factorial
+{
+    enum { value = N * Factorial\<N-1\>::value };
+};
+
+template<>
+struct Factorial<1>{ enum { value = 1 }; };
+
+int main()
+{
+    const int fact5 = Factorial<5>::value;
+    std::cout << fact5;
+    return 0;
+}
+```
+
+David Abrahams and Aleksey Gurtovoy
+["C++ Template Metaprogramming"](http://www.boostpro.com/mplbook/)
+
+# cog
+
+```python
+...
+/*[[[cog
+import cog
+fnames = ['DoSomething', 'DoAnotherThing', 'DoLastThing']
+for fn in fnames:
+    cog.outl("void %s();" % fn)
+]]]*/
+//[[[end]]]
+...
+```
+
+```python
+...
+/*[[[cog
+import cog
+fnames = ['DoSomething', 'DoAnotherThing', 'DoLastThing']
+for fn in fnames:
+    cog.outl("void %s();" % fn)
+]]]*/
+void DoSomething();
+void DoAnotherThing();
+void DoLastThing();
+//[[[end]]]
+...
+```
+
+# lex & yacc
+
+- Lex - лексический анализатор, позволяет осуществлять разбор входной
+  последовательности символов с целью получения на выходе последовательности
+  символов, называемых __токенами__.
+- Yacc - синтаксический анализатор, который позволяет сопоставить линейной
+  последовательности токенов языка его формальную грамматику.
+
+<center>![](./pix/lex.jpg)</center>
+
+# Визуальное программирование
+
+>> __Визуальное программирование__ — способ создания программы для ЭВМ путём
+>> манипулирования графическими объектами вместо написания её текста.
+
+# Языки визульного программирования
+
+Языки на основе объектов, когда визуальная среда программирования предоставляет
+графические или символьные элементы, которыми можно манипулировать интерактивным
+образом в соответствии с некоторыми правилами
+
+  - Lego Mindstorms
+
+<center>![](./pix/nxt_g.jpg)</center>
+
+# Языки визульного программирования
+
+Языки, в интегрированной среде разработки которых на этапе проектирования
+интерфейса применяются формы, с возможностью настройкой их свойств
+
+  - Borland C++ Builder
+
+<center>![](./pix/builder.gif)</center>
+
+-->
