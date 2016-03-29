@@ -6,6 +6,7 @@
 15 октября 2013
 
 <!-- TODO
+  - Заменить старые CMake слайды новыми (в самом конце)
   - Убрать отсюда метапрограммирование
     - Подумать не стоит ли и IDE в отдельную лекцию (собственно разработка)
   - Вставить слайд с системами сборки для разных языков
@@ -373,7 +374,7 @@ target_link_libraries(sample ${OPENCV_LIBRARIES})
 
 <!-- LINKS -->
 
-<!-- BACKUP
+# BACKUP
 
 # Метапрограммирование
 
@@ -470,4 +471,201 @@ void DoLastThing();
 
 <center>![](./pix/builder.gif)</center>
 
--->
+#
+
+![](./pix/CMake-logo.png)
+
+# CMake
+
+<center>![](./pix/cmake.png)</center>
+
+  - Широкая поддержка разнообразных целевых платформ и IDE
+  - Максимальная свобода в выборе окружения разработки (в рамках одной команды!)
+  - В настоящий момент является стандартом де-факто для С++ проектов
+
+# CMake Workflow
+
+`CMakeLists.txt` — файл, описывающий порядок сборки приложения
+
++-----------------------------+-----------------------------------------------------------------------------------+
+|![](./pix/cmake_workflow.png)| - __Шаг 0__. Генерация _проектных файлов_ при помощи `cmake` или `CMakeGui`       |
+|                             |     - `.vcproj, Makefile, etc`                                                    |
+|                             | - __Шаг 1__. Компиляция исходников при помощи компиляторов из Visual Studio,      |
+|                             |          Qt Creator, Eclipse, XCode...                                            |
+|                             |     - `.obj, .o`                                                                  |
+|                             | - __Шаг 2__. Линковка финальных бинарных файлов компоновщиком (link.exe, ld, ...) |
+|                             |     - `.exe, .dll, .lib, .a, .so, .dylib`                                         |
++-----------------------------+-----------------------------------------------------------------------------------+
+
+# CMake GUI
+
+![](./pix/cmake-gui.png)
+
+# Пример сборки приложения (`add_executable`)
+
+Содержимое каталога:
+
+```txt
+code
+├── CMakeLists.txt
+├── lib.h
+├── lib.c
+└── main.c
+```
+
+`CMakeLists.txt`
+
+```cmake
+cmake_minimum_required(VERSION 2.8)
+project(first_sample)
+
+set(SOURCES main.c lib.c)
+add_executable(sample_app ${SOURCES}) # Объявляет исполняемый модуль с именем sample_app
+```
+
+# Out of source build
+
+__Плохо__: в директории с исходным кодом
+
+```txt
+code
+├── hello.hpp
+├── hello.cpp
+└── hello.exe # Этот файл может случайно попасть в историю Git
+```
+
+__Хорошо__: вне директории (чистый репозиторий, несколько build-директорий)
+
+```txt
+code
+├── hello.hpp
+└── hello.cpp
+build
+└── hello.exe
+```
+
+Соответствующие команды:
+
+```bash
+$ cd <code>
+$ mkdir ../build
+$ cd ../build
+$ cmake ../code
+$ make
+```
+
+# Пример сборки библиотеки (`add_library`)
+
+Содержимое каталога:
+
+```txt
+code
+├── CMakeLists.txt
+├── lib.h
+├── lib.c
+└── main.c
+```
+
+`CMakeLists.txt`
+
+```cmake
+cmake_minimum_required(VERSION 2.8)
+project(second_sample)
+
+set(SOURCE_LIB lib.c)
+add_library(library STATIC ${SOURCE_LIB}) # Объявляет библиотеку с именем library
+
+set(SOURCES main.c)
+add_executable(main ${SOURCES}) # Объявляет исполняемый модуль с именем sample_app
+target_link_libraries(sample_app library) # Указывает зависимость от библиотеки
+```
+
+# Добавление подпроекта
+
+Содержимое каталога:
+
+```txt
+code
+├── CMakeLists.txt
+├── library
+│   ├── CMakeLists.txt
+│   ├── lib.c
+│   └── lib.h
+└── main.c
+```
+
+Корневой `CMakeLists.txt`:
+
+```cmake
+cmake_minimum_required(VERSION 2.8)
+project(third_sample)
+
+add_subdirectory(library) # Указывает, что в директории library есть свой CMakeLists.txt
+
+include_directories(library)
+set(SOURCES main.c)
+add_executable(sample_app ${SOURCES})
+
+target_link_libraries(sample_app library)
+```
+
+`library/CMakeLists.txt`
+
+```cmake
+cmake_minimum_required(VERSION 2.8)
+project(library)
+
+set(SOURCE_LIB lib.c)
+add_library(library STATIC ${SOURCE_LIB})
+```
+
+# Поиск зависимостей
+
+`CMakeLists.txt`
+
+```cmake
+cmake_minimum_required(VERSION 2.8)
+project(sample)
+
+# Поиск OpenCV
+find_package(OPENCV REQUIRED)
+if(NOT OPENCV_FOUND)
+    message(SEND_ERROR "Failed to find OpenCV")
+    return()
+else()
+    include_directories(${OPENCV_INCLUDE_DIR})
+endif()
+
+add_executable(sample_app main.c)
+target_link_libraries(sample_app ${OPENCV_LIBRARIES})
+```
+
+# Debug / Release
+
+В `CMakeLists.txt`:
+
+```cmake
+SET(CMAKE_BUILD_TYPE Debug)
+```
+
+В командной строке:
+
+```bash
+$ cmake -­DCMAKE_BUILD_TYPE=Debug ../code # Запомните эту команду!
+```
+
+Для библиотек:
+
+```cmake
+TARGET_LINK_LIBRARIES(lib RELEASE ${lib_SRCS})
+TARGET_LINK_LIBRARIES(libd DEBUG ${lib_SRCS})
+```
+
+# CMake: Резюме
+
+  - Основной "недостаток" — собственный язык
+  - Поначалу инструмент кажется нетривиальным, но очень удобен впоследствии
+  - Дает членам команды максимальную свободу в выборе инструментов\
+    (OC, IDE или простой текстовый редактор)
+  - Обеспечивает переносимость и является стандартом де-факто\
+    для кросс-платформенных С++ проектов
