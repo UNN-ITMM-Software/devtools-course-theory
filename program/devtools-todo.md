@@ -1,23 +1,18 @@
 # TODO
 
-  - introduce global links
-  - introduce global pictures (may be just use a single folder)
-  - detect unused links
-
-  - organizational
-    - перенести занятия (_позвонить Жидкову_)
-    - запросить списки групп
-
   - practice
-    - включить все предупреждения компилятора (-Wall)
-    - Поговорить с Владом про возможную организацию практики
-    - Определиться с порядком лаб
     - Подготовить задание для первой лабы
+    - Отвергать пулл-реквесты, оформленные не по правилам на Travis
+    - Подготовить инфраструктуру для лабы по документации
     - Ask Ilya
       - Поднять AppVeyor билд
       - Rewrite testing bash script to Python and test in on windows
-    - приготовиться к первому живому демо
-      - создать проект-шаблон для использования студентами
+    - Поговорить с Владом про возможную организацию практики
+    - Продумать живые демонстрации
+  - проект-шаблон
+    - реализовать оператор сравнения
+    - вынести функцию `parseArguments`
+    - добавить методы вычисления модуля и аргумента
 
 # Theory
 
@@ -71,47 +66,43 @@
 # Practice
 
   - Лабы
-    - использовать чистый cmake
-    - Try MkDocs at the Read the docs
     - Try doxygen at gh-pages
-
-  - Имена всех CTest-тестов сливаются, вероятно нужно добавить префикс в виде
-    фамилии
-  - Можно организовать работу как написание своей С++ библиотеки (boost, dlib)
-  - Build and publish Debian packages
-
-  - QA
-    - Update `cpplint.py` script
-      - Allow CXX extension
-      - Git submodule as in Atom ?
-    - Check interesting stuff
-      - <https://github.com/atom/atom-shell/blob/master/.travis.yml>
-      - Enable testing on OSX
+    - Try MkDocs at the Read the docs
 
   - Code coverage
     - _Reach 100% code coverage_
     - Disable spam from coveralls (?)
 
-  - Docs
-    - Change license to something more sane
-
-  - Переориентировать курс на QtCreator или CLion
-  - Сделать так, чтобы тестирующий скрипт работал на Windows (переписать на Python)
-  - Потребовать более качественной документации на выходе
-  - Doxygen
-    - Поднять построение Doxygen документации
-    - Можно ли проверять консистентность?
-    - Можно ли автоматически публиковать ее куда-нибудь?
+  - Общая организация
+    - Потребовать более качественной документации на выходе
+    - Можно организовать работу как написание общей С++ библиотеки (boost, dlib)
+    - Build and publish Debian packages (использование CPack)
+    - Переориентировать курс на QtCreator или CLion
 
   - Запускать статические анализаторы
     - cppcheck, <https://scan.coverity.com>, <http://en.wikipedia.org/wiki/SonarQube>
     - Add other linters: `cppcheck`, `oclint`
 
+  - QA
+    - Enable testing on OSX
+    - Update `cpplint.py` script
+      - Allow CXX extension
+      - Git submodule as in Atom ?
+    - Check interesting stuff
+      - <https://github.com/atom/atom-shell/blob/master/.travis.yml>
+
+  - Doxygen
+    - Поднять построение Doxygen документации
+    - Можно ли проверять консистентность?
+    - Можно ли автоматически публиковать ее куда-нибудь?
+
+  - Docs
+    - Change license to something more sane
+
   - Возможное развитие практики
-    - Экранировать точки и скобки в CTest (?)
-    - Использование CPack (сколько и какие пакеты?)
     - Создание Python интерфейса (потом тесты и массовые эксперименты)
     - Собрать это все на Android, и запустить тесты
+    - Экранировать точки и скобки в CTest (?)
     - Нужно ли искать копипасту?
     - Нужно продумать план практики, если считается покрытие, то нужно его
       сразу требовать. Но может все будет нормально если первый проект
