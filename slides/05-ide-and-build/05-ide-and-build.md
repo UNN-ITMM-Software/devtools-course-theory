@@ -3,9 +3,10 @@
 ![](./pix/ide_screen.jpg)
 
 Александр Шишков (Itseez, ННГУ)\
-15 октября 2013
+Март 2016
 
 <!-- TODO
+  - Заменить старые CMake слайды новыми (в самом конце)
   - Убрать отсюда метапрограммирование
     - Подумать не стоит ли и IDE в отдельную лекцию (собственно разработка)
   - Вставить слайд с системами сборки для разных языков
@@ -16,13 +17,13 @@
 # Содержание
 
   1. IDE
-  1. Автогенерация кода, метапрограммирование
   1. Билд-системы
+  1. CMake
 
 # IDE
 
-> **Интегрированная среда разработки, ИСР** (англ. **IDE, Integrated development
-> environment** или **integrated debugging environment**) — система программных
+> __Интегрированная среда разработки, ИСР__ (англ. __IDE, Integrated development
+> environment__ или __integrated debugging environment__) — система программных
 > средств, используемая программистами для разработки программного обеспечения.
 
 В чем отличие IDE от редакторов исходного кода?
@@ -78,109 +79,8 @@ JetBrains [Resharper](http://www.jetbrains.com/resharper/features/index.html)
 # Содержание
 
   1. IDE
-  1. <font color=red>Автогенерация кода, метапрограммирование</font>
-  1. Билд-системы
-
-# Метапрограммирование
-
->> **Метапрограммирование** — вид программирования, связанный с созданием
->> программ, которые порождают другие программы как результат своей работы.
-
-<center>![](./pix/meta.jpg)</center>
-
-# Шаблоны в С++
-
-```cpp
-#include <iostream>
-
-template<int N>
-struct Factorial
-{
-    enum { value = N * Factorial\<N-1\>::value };
-};
-
-template<>
-struct Factorial<1>{ enum { value = 1 }; };
-
-int main()
-{
-    const int fact5 = Factorial<5>::value;
-    std::cout << fact5;
-    return 0;
-}
-```
-
-David Abrahams and Aleksey Gurtovoy
-["C++ Template Metaprogramming"](http://www.boostpro.com/mplbook/)
-
-# cog
-
-```tbd
-...
-/*[[[cog
-import cog
-fnames = ['DoSomething', 'DoAnotherThing', 'DoLastThing']
-for fn in fnames:
-    cog.outl("void %s();" % fn)
-]]]*/
-//[[[end]]]
-...
-```
-
-```tbd
-...
-/*[[[cog
-import cog
-fnames = ['DoSomething', 'DoAnotherThing', 'DoLastThing']
-for fn in fnames:
-    cog.outl("void %s();" % fn)
-]]]*/
-void DoSomething();
-void DoAnotherThing();
-void DoLastThing();
-//[[[end]]]
-...
-```
-
-# lex & yacc
-
-- Lex - лексический анализатор, позволяет осуществлять разбор входной
-  последовательности символов с целью получения на выходе последовательности
-  символов, называемых **токенами**.
-- Yacc - синтаксический анализатор, который позволяет сопоставить линейной
-  последовательности токенов языка его формальную грамматику.
-
-<center>![](./pix/lex.jpg)</center>
-
-# Визуальное программирование
-
->> **Визуальное программирование** — способ создания программы для ЭВМ путём
->> манипулирования графическими объектами вместо написания её текста.
-
-# Языки визульного программирования
-
-Языки на основе объектов, когда визуальная среда программирования предоставляет
-графические или символьные элементы, которыми можно манипулировать интерактивным
-образом в соответствии с некоторыми правилами
-
-  - Lego Mindstorms
-
-<center>![](./pix/nxt_g.jpg)</center>
-
-# Языки визульного программирования
-
-Языки, в интегрированной среде разработки которых на этапе проектирования
-интерфейса применяются формы, с возможностью настройкой их свойств
-
-  - Borland C++ Builder
-
-<center>![](./pix/builder.gif)</center>
-
-# Содержание
-
-  1. IDE
-  1. Автогенерация кода, метапрограммирование
   1. <font color=red>Билд-системы</font>
+  1. CMake
 
 # Цель
 
@@ -279,88 +179,133 @@ make
  - sh, m4
  - зависимости
 
+# Содержание
+
+  1. IDE
+  1. Билд-системы
+  1. <font color=red>CMake</font>
+
+![](./pix/CMake-logo.png)
+
 # CMake
 
 <center>![](./pix/cmake.png)</center>
 
-- Cmake
-- CPack
-- CTest + BullsEye/gcov
-- CDash
+  - Широкая поддержка разнообразных целевых платформ и IDE
+  - Максимальная свобода в выборе окружения разработки (в рамках одной команды!)
+  - В настоящий момент является стандартом де-факто для С++ проектов
 
-# CMake
+# CMake Workflow
 
-CMakeLists.txt
+`CMakeLists.txt` — файл, описывающий порядок сборки приложения
 
-cmake / CMakeSetup / CMakeGui
++-----------------------------------------------------------------------------------+-----------------------------+
+| - __Шаг 0__. Генерация _проектных файлов_ при помощи `cmake` или `CMakeGui`       |![](./pix/cmake_workflow.png)|
+|     - `.vcproj, Makefile, etc`                                                    |                             |
+| - __Шаг 1__. Компиляция исходников при помощи компиляторов из Visual Studio,      |                             |
+|          Qt Creator, Eclipse, XCode...                                            |                             |
+|     - `.obj, .o`                                                                  |                             |
+| - __Шаг 2__. Линковка финальных бинарных файлов компоновщиком (link.exe, ld, ...) |                             |
+|     - `.exe, .dll, .lib, .a, .so, .dylib`                                         |                             |
++-----------------------------------------------------------------------------------+-----------------------------+
 
-=> .vcproj / Makefile / etc
+# CMake GUI
 
-Visual Studio, Eclipse, KDevelop, XCode, ...
+![](./pix/cmake-gui.png)
 
-=> .obj / .o
+# Out of source build
 
-linker (link.exe, ld, ...)
+__Плохо__: в директории с исходным кодом
 
-=> .exe / .dll / .lib / .a / .so / .dylib
+```txt
+code
+├── hello.cpp
+└── hello.exe # Этот файл может случайно попасть в историю Git
+```
 
-# Где хранятся объектные и бинарные файлы
+__Хорошо__: вне директории (чистый репозиторий, несколько build-директорий)
 
-В директории с исходным кодом:
+```txt
+code
+└── hello.cpp
+build
+└── hello.exe
+```
 
- - src/hello.cpp
- - src/hello.exe
+Соответствующие команды:
+```bash
+$ cd <code>
+$ mkdir ../build && cd ../build
+$ cmake ../<code>
+```
 
-Вне ее:
+# Пример сборки приложения (`add_executable`)
 
- - src/hello.cpp
- - ­build/hello.exe
+Содержимое каталога:
 
-# Пример сборки
+```txt
+code
+├── CMakeLists.txt
+├── lib.h
+├── lib.c
+└── main.c
+```
 
-CMakeLists.txt:
+`CMakeLists.txt`
 
-```tbd
+```cmake
 cmake_minimum_required(VERSION 2.8)
 project(first_sample)
 
 set(SOURCES main.c lib.c)
-add_executable(main ${SOURCES})
+add_executable(sample_app ${SOURCES}) # Объявляет исполняемый модуль с именем sample_app
 ```
 
-Для запуска:
+# Пример сборки библиотеки (`add_library`)
 
-```tbd
-mkdir ../build
-cd ../build
-cmake ../code/
-make
+Содержимое каталога:
+
+```txt
+code
+├── CMakeLists.txt
+├── lib.h
+├── lib.c
+└── main.c
 ```
 
-# Debug/Release
-
- - `SET(CMAKE_BUILD_TYPE Debug)`
- - `$ cmake ­DCMAKE_BUILD_TYPE=Release ../src`
-
-Для библиотек:
-
-  - `TARGET_LINK_LIBRARIES(lib RELEASE ${lib_SRCS})`
-  - `TARGET_LINK_LIBRARIES(libd DEBUG ${lib_SRCS})`
-
-# Пример сборки библиотеки
-
-CMakeLists.txt:
+`CMakeLists.txt`
 
 ```cmake
 cmake_minimum_required(VERSION 2.8)
 project(second_sample)
 
 set(SOURCE_LIB lib.c)
-add_library(library STATIC ${SOURCE_LIB})
+add_library(library STATIC ${SOURCE_LIB}) # Объявляет библиотеку с именем library
 
 set(SOURCES main.c)
-add_executable(main ${SOURCES})
-target_link_libraries(main library)
+add_executable(main ${SOURCES}) # Объявляет исполняемый модуль с именем sample_app
+target_link_libraries(sample_app library) # Указывает зависимость от библиотеки
+```
+
+# Debug / Release
+
+В `CMakeLists.txt`:
+
+```cmake
+SET(CMAKE_BUILD_TYPE Debug)
+```
+
+В командной строке:
+
+```bash
+$ cmake -­DCMAKE_BUILD_TYPE=Debug ../code # Запомните эту команду!
+```
+
+Для библиотек:
+
+```cmake
+TARGET_LINK_LIBRARIES(lib RELEASE ${lib_SRCS})
+TARGET_LINK_LIBRARIES(libd DEBUG ${lib_SRCS})
 ```
 
 # Добавление подпроекта
@@ -368,31 +313,33 @@ target_link_libraries(main library)
 Содержимое каталога:
 
 ```txt
-  - main.c
-  - library
-    - lib.c
-    - lib.h
-    - CMakeLists.txt
-  - CMakeLists.txt
+code
+├── CMakeLists.txt
+├── library
+│   ├── CMakeLists.txt
+│   ├── lib.c
+│   └── lib.h
+└── main.c
 ```
 
-CMakeLists.txt:
+Корневой `CMakeLists.txt`:
 
 ```cmake
 cmake_minimum_required(VERSION 2.8)
 project(third_sample)
 
-set(SOURCES main.c)
-include_directories(library)
-add_executable(main ${SOURCES})
+add_subdirectory(library) # Указывает, что в директории library есть свой CMakeLists.txt
 
-add_subdirectory(library)
-target_link_libraries(main library)
+include_directories(library)
+set(SOURCES main.c)
+add_executable(sample_app ${SOURCES})
+
+target_link_libraries(sample_app library)
 ```
 
-# Добавление подпроекта
+# Добавление подпроекта (#2)
 
-library/CMakeLists.txt:
+`library/CMakeLists.txt`
 
 ```cmake
 cmake_minimum_required(VERSION 2.8)
@@ -406,14 +353,15 @@ add_library(library STATIC ${SOURCE_LIB})
 
 ![](./pix/opencv.png)
 
-# Поиск библиотек
+# Поиск зависимостей
 
-CMakeLists.txt:
+`CMakeLists.txt`
 
 ```cmake
 cmake_minimum_required(VERSION 2.8)
 project(sample)
 
+# Поиск OpenCV
 find_package(OPENCV REQUIRED)
 if(NOT OPENCV_FOUND)
     message(SEND_ERROR "Failed to find OpenCV")
@@ -422,9 +370,18 @@ else()
     include_directories(${OPENCV_INCLUDE_DIR})
 endif()
 
-add_executable(sample main.c)
-target_link_libraries(sample ${OPENCV_LIBRARIES})
+add_executable(sample_app main.c)
+target_link_libraries(sample_app ${OPENCV_LIBRARIES})
 ```
+
+# CMake: Резюме
+
+  - Основной "недостаток" — собственный язык
+  - Поначалу инструмент кажется нетривиальным, но очень удобен впоследствии
+  - Дает членам команды максимальную свободу в выборе инструментов\
+    (OC, IDE или простой текстовый редактор)
+  - Обеспечивает переносимость и является стандартом де-факто\
+    для кросс-платформенных С++ проектов
 
 # Билд-системы
 
@@ -451,7 +408,6 @@ target_link_libraries(sample ${OPENCV_LIBRARIES})
   1. Определение ИСР
   1. Отличия ИСР от редакторов исходного кода
   1. Основные функции/возможности современных ИСР
-  1. Определение метапрограммирования и его примеры
   1. Иcтория развития билд-систем
   1. Плюсы и минусы Makefile
   1. Плюсы и минусы CMake
@@ -465,3 +421,5 @@ target_link_libraries(sample ${OPENCV_LIBRARIES})
 # Спасибо!
 
 Вопросы?
+
+<!-- LINKS -->
