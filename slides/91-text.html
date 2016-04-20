@@ -55,7 +55,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 </div>
 <p>Кирилл Корняков (Itseez, ННГУ)<br />
-Апрель 2016</p>
+Сентябрь 2014</p>
+<!-- 01. Обработка текста / Текстовые редакторы
+  - Преимущества plain-text формата (diff)
+  - Также недостатки и сравнение с бинарным форматом
+  - GraphVis, PlantUML, latex, Документация (reference manual), scripts
+  - Современные языки разметки: Markdown, Textile, MediaWiki
+  - Wiki, книги, Slides, Web-publishing (блоггинг с Jekyll?)
+-->
 <!-- TODO
   - Свести все ссылки в конец файла
   - Возможно стоит переименовать картинки
@@ -72,8 +79,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Примеры использования Markdown</li>
 </ol>
 </div>
-<div id="форматы-текстовый" class="slide section level1">
-<h1>Форматы: текстовый</h1>
+<div id="форматы" class="slide section level1">
+<h1>Форматы</h1>
 <p><strong>Текстовый файл</strong> — компьютерный файл, содержащий текстовые данные,<br />
 как правило, организованные в виде строк.</p>
 <p>Пример CSV-файла:</p>
@@ -81,11 +88,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 1999, Chevy, &quot;Venture &quot;&quot;Extended Edition&quot;&quot;&quot;, &quot;&quot;, 4900.00
 1996, Jeep, Grand Cherokee, &quot;MUST SELL! air, moon roof, loaded&quot;, 4799.00</code></pre>
 </div>
-<div id="форматы-бинарный" class="slide section level1">
-<h1>Форматы: бинарный</h1>
+<div id="форматы-1" class="slide section level1">
+<h1>Форматы</h1>
 <p><strong>Двоичный (бинарный) файл</strong> — в широком смысле: последовательность произвольных байтов.</p>
 <p>В узком смысле слова двоичные файлы противопоставляются текстовым файлам.</p>
-<pre class="hex"><code>00000000  89 50 4e 47 0d 0a 1a 0a  00 00 00 0d 49 48 44 52  |.PNG........IHDR|
+<pre class="tbd"><code>00000000  89 50 4e 47 0d 0a 1a 0a  00 00 00 0d 49 48 44 52  |.PNG........IHDR|
 00000010  00 00 00 87 00 00 00 a0  08 03 00 00 00 11 90 8f  |................|
 00000020  b6 00 00 00 04 67 41 4d  41 00 00 d6 d8 d4 4f 58  |.....gAMA.....OX|
 00000030  32 00 00 00 19 74 45 58  74 53 6f 66 74 77 61 72  |2....tEXtSoftwar|
@@ -109,19 +116,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="преимущества-текстового-формата" class="slide section level1">
 <h1>Преимущества текстового формата</h1>
 <ol style="list-style-type: decimal">
-<li><strong>Воспринимаемость человеком</strong> — просто понять структуру и содержание, часто без документации и специальных инструментальных средств.</li>
+<li><strong>Воспринимаемость человеком</strong> — просто понять структуру и содержание,<br />
+ часто без документации и специальных инструментальных средств.</li>
 <li><strong>Простота</strong> — формат крайне удобен и его можно редактировать огромным количеством инструментов. И в первую очередь простым текстовым редактором.</li>
 <li><strong>Версионируемость</strong> — файлы легко сравнивать, находить изменения.</li>
 <li><strong>Переносимость</strong> — текстовый файл может быть прочитан на любой системе или ОС.</li>
 <li><strong>Устойчивость</strong> — каждое слово и символ в таком файле самодостаточны и, если случится повреждение байтов в таком файле, то обычно можно восстановить данные или продолжить обработку остального содержимого.</li>
 </ol>
 <p>В эпоху быстрых компьютеров и дешевой памяти эти преимущества побеждают.</p>
-<!-- TOC -->
+</div>
+<div id="содержание-1" class="slide section level1">
+<h1>Содержание</h1>
+<ol style="list-style-type: decimal">
+<li>Сравнение бинарного и текстового форматов</li>
+<li><font color="red">Популярные форматы на основе текстового</font></li>
+<li>Текстовые файлы как исходники</li>
+<li>Легковесные языки разметки</li>
+<li>Примеры использования Markdown</li>
+</ol>
 </div>
 <div id="популярные-форматы-txt" class="slide section level1">
 <h1>Популярные форматы: TXT</h1>
 <p><em>BSD 3-Clause License</em></p>
-<pre class="txt"><code>Redistribution and use in source and binary forms, with or without
+<pre class="tbd"><code>Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
 met:
 
@@ -153,7 +170,7 @@ met:
     <span class="kw">&lt;testcase</span><span class="ot"> name=</span><span class="st">&quot;abs/5&quot;</span><span class="ot"> value_param=</span><span class="st">&quot;(1280x720, 8SC4)&quot;</span><span class="ot"> status=</span><span class="st">&quot;run&quot;</span><span class="ot"> time=</span><span class="st">&quot;0.728&quot;</span><span class="ot"> classname=</span><span class="st">&quot;Size_MatType_abs&quot;</span><span class="ot"> bytesIn=</span><span class="st">&quot;3686400&quot;</span><span class="ot"> bytesOut=</span><span class="st">&quot;3686400&quot;</span><span class="ot"> term=</span><span class="st">&quot;0&quot;</span><span class="ot"> samples=</span><span class="st">&quot;100&quot;</span><span class="ot"> outliers=</span><span class="st">&quot;0&quot;</span><span class="ot"> frequency=</span><span class="st">&quot;1000000000&quot;</span><span class="ot"> min=</span><span class="st">&quot;5582443&quot;</span><span class="ot"> median=</span><span class="st">&quot;6556922&quot;</span><span class="ot"> gmean=</span><span class="st">&quot;7039714&quot;</span><span class="ot"> gstddev=</span><span class="st">&quot;0.205895&quot;</span><span class="ot"> mean=</span><span class="st">&quot;7193720&quot;</span><span class="ot"> stddev=</span><span class="st">&quot;1551553&quot;</span> <span class="kw">/&gt;</span>
     <span class="kw">&lt;testcase</span><span class="ot"> name=</span><span class="st">&quot;abs/6&quot;</span><span class="ot"> value_param=</span><span class="st">&quot;(1280x720, 32SC1)&quot;</span><span class="ot"> status=</span><span class="st">&quot;run&quot;</span><span class="ot"> time=</span><span class="st">&quot;0.078&quot;</span><span class="ot"> classname=</span><span class="st">&quot;Size_MatType_abs&quot;</span><span class="ot"> bytesIn=</span><span class="st">&quot;3686400&quot;</span><span class="ot"> bytesOut=</span><span class="st">&quot;3686400&quot;</span><span class="ot"> term=</span><span class="st">&quot;0&quot;</span><span class="ot"> samples=</span><span class="st">&quot;100&quot;</span><span class="ot"> outliers=</span><span class="st">&quot;1&quot;</span><span class="ot"> frequency=</span><span class="st">&quot;1000000000&quot;</span><span class="ot"> min=</span><span class="st">&quot;589331&quot;</span><span class="ot"> median=</span><span class="st">&quot;666260&quot;</span><span class="ot"> gmean=</span><span class="st">&quot;684319&quot;</span><span class="ot"> gstddev=</span><span class="st">&quot;0.110956&quot;</span><span class="ot"> mean=</span><span class="st">&quot;688650&quot;</span><span class="ot"> stddev=</span><span class="st">&quot;80689&quot;</span> <span class="kw">/&gt;</span>
     <span class="kw">&lt;testcase</span><span class="ot"> name=</span><span class="st">&quot;abs/7&quot;</span><span class="ot"> value_param=</span><span class="st">&quot;(1280x720, 32FC1)&quot;</span><span class="ot"> status=</span><span class="st">&quot;run&quot;</span><span class="ot"> time=</span><span class="st">&quot;0.07&quot;</span><span class="ot"> classname=</span><span class="st">&quot;Size_MatType_abs&quot;</span><span class="ot"> bytesIn=</span><span class="st">&quot;3686400&quot;</span>
-    <span class="er">...</span><span class="kw">&gt;</span></code></pre></div>
+    <span class="er">...</span></code></pre></div>
 <p>Примеры использования:</p>
 <ul>
 <li>Отчеты различных утилит (результаты тестирования)</li>
@@ -204,14 +221,23 @@ met:
        <span class="st">&quot;916 123-4567&quot;</span>
    <span class="ot">]</span>
 <span class="fu">}</span></code></pre></div>
-<p>Основное использование — сериализация структур, часто в веб-приложениях.</p>
+<p>Основное использование — сериализация структур, чаще всего в веб-приложениях.</p>
 <p>Функционально и синтаксически является подмножеством YAML.</p>
-<!-- TOC -->
+</div>
+<div id="содержание-2" class="slide section level1">
+<h1>Содержание</h1>
+<ol style="list-style-type: decimal">
+<li>Сравнение бинарного и текстового форматов</li>
+<li>Популярные форматы на основе текстового</li>
+<li><font color="red">Текстовые файлы как исходники</font></li>
+<li>Легковесные языки разметки</li>
+<li>Примеры использования Markdown</li>
+</ol>
 </div>
 <div id="текст-как-исходник" class="slide section level1">
 <h1>Текст как исходник</h1>
 <ol style="list-style-type: decimal">
-<li>Все языки программирования используют текстовый формат как исходный. В том числе и ассемблер.</li>
+<li>Все языки программирования используют текстовый формат как исходный. В том числе и ассемблер. Но исключая машинные коды.</li>
 <li>А некоторые языки, и как конечный формат распространения:
 <ul>
 <li>Скриптовые языки: bash, CMD</li>
@@ -382,7 +408,16 @@ annotation SuppressWarnings
 </tbody>
 </table>
 <p>Идеален для больших научных текстов (статей, книг).</p>
-<!-- TOC -->
+</div>
+<div id="содержание-3" class="slide section level1">
+<h1>Содержание</h1>
+<ol style="list-style-type: decimal">
+<li>Сравнение бинарного и текстового форматов</li>
+<li>Популярные форматы на основе текстового</li>
+<li>Текстовые файлы как исходники</li>
+<li><font color="red">Легковесные языки разметки</font></li>
+<li>Примеры использования Markdown</li>
+</ol>
 </div>
 <div id="легковесные-языки-разметки" class="slide section level1">
 <h1>Легковесные языки разметки</h1>
@@ -390,7 +425,7 @@ annotation SuppressWarnings
 <ul>
 <li>Это языки разметки текстовой информации</li>
 <li>Имеют упрощенный синтаксис</li>
-<li>Ориентированы для редактирования из простого текстового редактора</li>
+<li>Спроектированы для редактирования из простого текстового редактора</li>
 <li>Понятны человеку в своем исходном виде</li>
 </ul>
 <p><strong>Приложения</strong></p>
@@ -410,7 +445,7 @@ annotation SuppressWarnings
 </div>
 <div id="restructuredtext" class="slide section level1">
 <h1>reStructuredText</h1>
-<pre class="rst"><code>Body Elements
+<pre class="tbd"><code>Body Elements
 =============
 Grid table:
 
@@ -459,23 +494,22 @@ Option list       -o  at least 2 spaces between option &amp; description
 
 </div>
 </div>
-<div id="asciidoc" class="slide section level1">
-<h1>AsciiDoc</h1>
-<p>Описание <a href="http://www.methods.co.nz/asciidoc/" class="uri">http://www.methods.co.nz/asciidoc/</a></p>
-</div>
 <div id="markdown" class="slide section level1">
 <h1>Markdown</h1>
 <ul>
 <li>Вероятно, самый популярный из легковесных языков разметки на сегодняшний день.</li>
 <li>Используется на StackOverflow и GitHub в качестве языка для wiki и комментариев.</li>
 <li>Поддерживается редакторами, оброс большим количеством инструментов.</li>
-<li>Минус: встречаются расхождения в &quot;толковании&quot;. Но уже есть <a href="http://commonmark.org/">CommonMark</a>!</li>
+<li>Минус: встречаются расхождения в &quot;толковании&quot;.</li>
 </ul>
 </div>
-<div id="полезные-markdown-ссылки" class="slide section level1">
-<h1>Полезные Markdown ссылки</h1>
+<div id="asciidoc" class="slide section level1">
+<h1>AsciiDoc</h1>
+<p>Описание http://www.methods.co.nz/asciidoc/</p>
+</div>
+<div id="полезные-ссылки" class="slide section level1">
+<h1>Полезные ссылки:</h1>
 <ol style="list-style-type: decimal">
-<li><a href="http://commonmark.org/">CommonMark</a></li>
 <li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Шпаргалка</a></li>
 <li><a href="https://help.github.com/articles/github-flavored-markdown">GitHub Flavored Markdown</a></li>
 <li><a href="http://daringfireball.net/projects/markdown/syntax">Оригинальная страница</a></li>
@@ -501,20 +535,29 @@ Option list       -o  at least 2 spaces between option &amp; description
 <div id="pandoc" class="slide section level1">
 <h1>Pandoc</h1>
 <ul>
-<li><a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> - это инструмент для конвертации различных языков разметки друг в друга.</li>
-<li>В том числе и для экспорта в форматы для публикации (html, docx, pdf).</li>
-<li>Разрабатывается на языке Haskell профессором философии из Беркли.</li>
-<li>Проект разрабатывается на <a href="https://github.com/jgm/pandoc">GitHub</a>.</li>
+<li><p><a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> - это инструмент для конвертации различных языков разметки друг в друга</p></li>
+<li><p>В том числе и для экспорта в форматы для публикации (html, docx, pdf)</p></li>
+<li><p>Разрабатывается на языке Haskell профессором философии из Беркли</p></li>
+<li><p>Проект разрабатывается на <a href="https://github.com/jgm/pandoc">GitHub</a></p></li>
 </ul>
 <p>Эти слайды созданы путем генерации HTML из Markdown при помощи Pandoc.</p>
-<!-- TOC -->
+</div>
+<div id="содержание-4" class="slide section level1">
+<h1>Содержание</h1>
+<ol style="list-style-type: decimal">
+<li>Сравнение бинарного и текстового форматов</li>
+<li>Популярные форматы на основе текстового</li>
+<li>Текстовые файлы как исходники</li>
+<li>Легковесные языки разметки</li>
+<li><font color="red">Примеры использования Markdown</font></li>
+</ol>
 </div>
 <div id="примеры-использования-markdown" class="slide section level1">
 <h1>Примеры использования Markdown</h1>
 <ol style="list-style-type: decimal">
-<li>GitHub: wiki and comments using GFM.</li>
-<li>StackOverflow: questions and answers <a href="http://stackoverflow.com/editing-help">editing</a>.</li>
-<li>Askbot: the same as StackOverflow.</li>
+<li><p>GitHub: wiki and comments using GFM</p></li>
+<li><p>StackOverflow: questions and answers <a href="http://stackoverflow.com/editing-help">editing</a></p></li>
+<li><p>Askbot: the same as StackOverflow</p></li>
 </ol>
 </div>
 <div id="progit-book" class="slide section level1">
@@ -527,7 +570,7 @@ Option list       -o  at least 2 spaces between option &amp; description
 <tbody>
 <tr class="odd">
 <td align="left"><ul>
-<li><p>Одна из лучших книг про Git</p></li>
+<li><p>Это одна из лучших книг про Git</p></li>
 <li><p>Книга свободно <a href="http://git-scm.com/book">доступна</a> в различных форматах (html, pdf, epub, mobi)</p></li>
 <li><p>Markdown-исходник размещен на <a href="https://github.com/progit/progit">GitHub</a></p></li>
 <li><p>Переведена и улучшена энтузиастами со всего мира (9 полных переводов, 12 частичных)</p></li>
@@ -547,14 +590,14 @@ Option list       -o  at least 2 spaces between option &amp; description
 <p>Если возможностей покажется мало, то стоит обратить внимание на</p>
 <ul>
 <li>HTML Presentation Framework <a href="http://lab.hakim.se/reveal-js/#/">Reveal.js</a></li>
-<li>Presentation tool <a href="http://impress.github.io/impress.js">Impress.js</a></li>
+<li>Presentation tool <a href="http://bartaz.github.io/impress.js">Impress.js</a></li>
 </ul>
 </div>
 <div id="статические-сайты-с-jekyll" class="slide section level1">
 <h1>Статические сайты с Jekyll</h1>
 <ul>
-<li><a href="http://jekyllrb.com/">Jekyll</a> - это генератор статических сайтов на основе Markdown или Textile.</li>
-<li>Позволяет отделить содержание от оформления, что дает гибкость.</li>
+<li><a href="http://jekyllrb.com/">Jekyll</a> - это генератор статических сайтов на основе Markdown (или Textile)</li>
+<li>Позволяет отделить содержание от оформления, что дает гибкость</li>
 <li>Примеры
 <ul>
 <li><a href="http://rsms.me/archive/">Rasmus Andersson</a> (<a href="https://github.com/rsms/rsms.github.com">source</a>)</li>
@@ -567,18 +610,16 @@ Option list       -o  at least 2 spaces between option &amp; description
 <div id="контрольные-вопросы" class="slide section level1">
 <h1>Контрольные вопросы</h1>
 <ol style="list-style-type: decimal">
-<li>Преимущества и недостатки простого текста.</li>
-<li>Преимущества и недостатки бинарного формата.</li>
-<li>Примеры ситуаций, когда удобно использовать TXT, XML, YAML, JSON.</li>
-<li>Легковесные языки разметки. Примеры, назначение, преимущества и недостатки.</li>
-<li>Синтаксис Markdown (заголовки, стили, списки, ссылки).</li>
-<li>Примеры использования Markdown, в том числе нестандартные. В чем преимущество использования Markdown в каждой из этих ситуаций.</li>
+<li>Преимущества простого текста</li>
+<li>Преимущества бинарного формата</li>
+<li>Примеры ситуаций, когда удобно использовать TXT, XML, YAML, JSON</li>
+<li>Синтаксис Markdown (заголовки, стили, списки, ссылки)</li>
+<li>Примеры использования Markdown, в том числе нестандартные. В чем конкретно преимущество использования Markdown.</li>
 </ol>
 </div>
 <div id="спасибо" class="slide section level1">
 <h1>Спасибо!</h1>
 <p>Вопросы?</p>
-<!-- LINKS -->
 </div>
 </body>
 </html>
