@@ -115,9 +115,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="способы-создания-документации" class="slide section level1">
 <h1>Способы создания документации</h1>
-<blockquote>
-<p>Единственная на 100% актуальная документация к вашей системе — это ее исходный код.</p>
-</blockquote>
 <ol style="list-style-type: decimal">
 <li>Вручную
 <ul>
@@ -127,9 +124,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>Относительно дорогой старт, но дешевая поддержка</li>
 <li>Примеры: API reference</li>
-<li>Инструменты: Doxygen</li>
+<li>Инструменты: Doxygen, <a href="https://en.wikipedia.org/wiki/Comparison_of_documentation_generators">каталог инструментов</a></li>
 </ul></li>
 </ol>
+<blockquote>
+<p>Единственная на 100% актуальная документация к вашей системе — это ее исходный код.</p>
+</blockquote>
 </div>
 <div id="doxygen" class="slide section level1">
 <h1>Doxygen</h1>
@@ -178,6 +178,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Проверка доступности гиперссылок</li>
 <li>Проверка языковой грамматики</li>
 </ul>
+<!-- TOC -->
 </div>
 <div id="примеры-внутренних-документов" class="slide section level1">
 <h1>Примеры внутренних документов</h1>
@@ -198,26 +199,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Общепроектные документы
 <ul>
 <li>Процедура подготовки и выпуска релизов</li>
-<li>Описание используемы</li>
+<li>Описание общего процесса разработки и используемых практик</li>
 </ul></li>
-</ul>
-</div>
-<div id="форматы-внутренних-документов" class="slide section level1">
-<h1>Форматы внутренних документов</h1>
-<ul>
-<li><code>README</code> файлы</li>
-<li>Wiki для проекта</li>
-<li>Rich-format документы</li>
 </ul>
 </div>
 <div id="эволюция-форматов-документации-разработчика" class="slide section level1">
 <h1>Эволюция форматов документации разработчика</h1>
 <ul>
-<li>Технические писатели и бумажные документы</li>
+<li>Технические писатели, plain text и бумажные документы</li>
 <li>Rich-format документы (PDF, DOC) в VCS</li>
-<li>На сегодняшний день популярны следующие подходы
+<li>На сегодняшний день популярны следующие подходы:
 <ul>
-<li>Rich-format документы на Sharepoint</li>
+<li>Rich-format документы на сетевом хранилище (Sharepoint)</li>
 <li>Документы в облаке с совместным редактированием (Google Docs)</li>
 <li>Wiki</li>
 <li>README (plain-text документы в репозитории)</li>
@@ -249,19 +242,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>A changelog (usually for programmers)</li>
 <li>A news section (usually for users)</li>
 </ul>
-<p>[Wikipedia][wiki-readme]</p>
+<p><a href="https://en.wikipedia.org/wiki/README">Wikipedia</a></p>
 </div>
-<div id="эволюция-readme-файлов" class="slide section level1">
-<h1>Эволюция <code>README</code> файлов</h1>
+<div id="подразбиение-readme-файлов" class="slide section level1">
+<h1>Подразбиение <code>README</code> файлов</h1>
 <table>
 <colgroup>
-<col width="29%"></col>
-<col width="70%"></col>
+<col width="30%"></col>
+<col width="69%"></col>
 </colgroup>
 <tbody>
 <tr class="odd">
-<td align="left"><p><code>README</code> <code>AUTHORS</code> <code>THANKS</code> <code>CHANGELOG</code> <code>NEWS</code> <code>INSTALL</code> <code>COPYING / LICENSE</code> <code>BUGS</code></p></td>
-<td align="left"><p>General information Credits Acknowledgments A detailed changelog, intended for programmers A basic changelog, intended for users Installation instructions Copyright and licensing information Known bugs and instructions on reporting new ones</p></td>
+<td align="left"><ul>
+<li><code>README</code></li>
+<li><code>AUTHORS</code></li>
+<li><code>THANKS</code></li>
+<li><code>CHANGELOG</code></li>
+<li><code>NEWS</code></li>
+<li><code>INSTALL</code></li>
+<li><code>COPYING / LICENSE</code></li>
+<li><code>BUGS</code></li>
+</ul></td>
+<td align="left"><ul>
+<li>General information</li>
+<li>Credits</li>
+<li>Acknowledgments</li>
+<li>A detailed changelog, intended for programmers</li>
+<li>A basic changelog, intended for users</li>
+<li>Installation instructions</li>
+<li>Copyright and licensing information</li>
+<li>Known bugs and instructions on reporting new ones</li>
+</ul></td>
 </tr>
 </tbody>
 </table>
@@ -270,11 +281,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1>Wiki для проекта</h1>
 <ul>
 <li>С распространением Internet документацию стало принято публиковать онлайн</li>
-</ul>
-</div>
-<div id="преимущества-wiki" class="slide section level1">
-<h1>Преимущества wiki</h1>
-<ul>
+<li>Как правило входят в стандартный комплект инструментов проекта наряду с VCS и Issue Tracking</li>
 <li>Совместили в себе &quot;легковесный&quot; и &quot;полновесный&quot; подходы</li>
 <li>Позволили иметь богатую документацию, при простоте работы с ней</li>
 <li>Исходники представляют собой plain-text формат в некой легковесной разметке</li>
