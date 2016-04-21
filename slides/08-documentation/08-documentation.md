@@ -47,15 +47,14 @@
 
 # Способы создания документации
 
-> Единственная на 100% актуальная документация к вашей системе — это ее исходный
-код.
-
   1. Вручную
      - Очень просто вначале, но крайне дорогая поддержка
   1. Автоматически: генерация на основе исходных кодов
      - Относительно дорогой старт, но дешевая поддержка
      - Примеры: API reference
-     - Инструменты: Doxygen
+     - Инструменты: Doxygen, [каталог инструментов][doc-generators]
+
+> Единственная на 100% актуальная документация к вашей системе — это ее исходный код.
 
 # Doxygen
 
@@ -96,6 +95,8 @@
   - Проверка доступности гиперссылок
   - Проверка языковой грамматики
 
+<!-- TOC -->
+
 # Примеры внутренних документов
 
   - Документация разработчика
@@ -109,20 +110,14 @@
     - План ручного тестирования
   - Общепроектные документы
     - Процедура подготовки и выпуска релизов
-    - Описание используемы
-
-# Форматы внутренних документов
-
-  - `README` файлы
-  - Wiki для проекта
-  - Rich-format документы
+    - Описание общего процесса разработки и используемых практик
 
 # Эволюция форматов документации разработчика
 
-  - Технические писатели и бумажные документы
+  - Технические писатели, plain text и бумажные документы
   - Rich-format документы (PDF, DOC) в VCS
-  - На сегодняшний день популярны следующие подходы
-    - Rich-format документы на Sharepoint
+  - На сегодняшний день популярны следующие подходы:
+    - Rich-format документы на сетевом хранилище (Sharepoint)
     - Документы в облаке с совместным редактированием (Google Docs)
     - Wiki
     - README (plain-text документы в репозитории)
@@ -151,25 +146,24 @@
 
 [Wikipedia][wiki-readme]
 
-# Эволюция `README` файлов
+# Подразбиение `README` файлов
 
-+---------------------+----------------------------------------------------+
-| `README`            | General information                                |
-| `AUTHORS`           | Credits                                            |
-| `THANKS`            | Acknowledgments                                    |
-| `CHANGELOG`         | A detailed changelog, intended for programmers     |
-| `NEWS`              | A basic changelog, intended for users              |
-| `INSTALL`           | Installation instructions                          |
-| `COPYING / LICENSE` | Copyright and licensing information                |
-| `BUGS`              | Known bugs and instructions on reporting new ones  |
-+---------------------+----------------------------------------------------+
++-----------------------+------------------------------------------------------+
+| - `README`            | - General information                                |
+| - `AUTHORS`           | - Credits                                            |
+| - `THANKS`            | - Acknowledgments                                    |
+| - `CHANGELOG`         | - A detailed changelog, intended for programmers     |
+| - `NEWS`              | - A basic changelog, intended for users              |
+| - `INSTALL`           | - Installation instructions                          |
+| - `COPYING / LICENSE` | - Copyright and licensing information                |
+| - `BUGS`              | - Known bugs and instructions on reporting new ones  |
++-----------------------+------------------------------------------------------+
 
 # Wiki для проекта
 
   - С распространением Internet документацию стало принято публиковать онлайн
-
-# Преимущества wiki
-
+  - Как правило входят в стандартный комплект инструментов проекта наряду с VCS
+    и Issue Tracking
   - Совместили в себе "легковесный" и "полновесный" подходы
   - Позволили иметь богатую документацию, при простоте работы с ней
   - Исходники представляют собой plain-text формат в некой легковесной разметке
@@ -195,3 +189,6 @@
 Вопросы?
 
 <!-- LINKS -->
+
+[doc-generators]: https://en.wikipedia.org/wiki/Comparison_of_documentation_generators
+[wiki-readme]: https://en.wikipedia.org/wiki/README

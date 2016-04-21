@@ -512,6 +512,5 @@ _Mou_ client for Mac
 
 <!-- LINKS -->
 
-[wiki-readme]: https://en.wikipedia.org/wiki/README
-[commonmark]: http://commonmark.org/
+[commonmark]: http://commonmark.org
 [impress]: http://impress.github.io/impress.js
