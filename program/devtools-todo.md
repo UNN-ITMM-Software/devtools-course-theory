@@ -1,18 +1,16 @@
 # TODO
 
-  - practice
-    - Подготовить задание для первой лабы
-    - Отвергать пулл-реквесты, оформленные не по правилам на Travis
-    - Подготовить инфраструктуру для лабы по документации
-    - Ask Ilya
-      - Поднять AppVeyor билд
-      - Rewrite testing bash script to Python and test in on windows
-    - Поговорить с Владом про возможную организацию практики
-    - Продумать живые демонстрации
+  - select must-know questions
+  - Подготовить инфраструктуру для лабы по документации
+
   - проект-шаблон
     - реализовать оператор сравнения
     - вынести функцию `parseArguments`
     - добавить методы вычисления модуля и аргумента
+
+  - practice
+    - Rewrite testing bash script to Python and test in on windows
+    - Поговорить с Владом про возможную организацию практики (CTest)
 
 # Theory
 
@@ -64,6 +62,8 @@
     - <https://www.coursera.org/course/startup>
 
 # Practice
+
+  - Отладить проверку, отвергающую пулл-реквесты по именам
 
   - Лабы
     - Try doxygen at gh-pages
