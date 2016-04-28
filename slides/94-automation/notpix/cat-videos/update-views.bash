@@ -19,10 +19,10 @@ do
     date -u +%c >>$ID.views
 
     # dump the number of views
-    curl "https://gdata.youtube.com/feeds/api/videos/$ID?v=2&alt=json" | \
-        # retrieved data is in JSON, but we use a simple regex to get
-        # the number of views
-        sed 's/\(.*\)"viewCount":"\([^"]*\)"\(.*\)/\2/' >>$ID.views
+    curl "https://www.youtube.com/watch?v=$ID" 2>/dev/null | \
+        # retrieved data is in HTML/JSON, but we use a simple regex to get the
+        # number of views
+        sed -n 's/\(.*\)"view_count":"\([^"]*\)"\(.*\)/\2/p' >>$ID.views
 
     # dump newline
     echo -e "\n" >>$ID.views

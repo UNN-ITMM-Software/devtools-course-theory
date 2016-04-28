@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import sys, datetime, csv
 
-if len(sys.argv) <= 0:
+if len(sys.argv) <= 1:
     print "Not enough parameters"
     exit(1)
 
