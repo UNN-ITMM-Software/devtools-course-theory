@@ -51,7 +51,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="автоматизация" class="slide section level1">
 <h1>Автоматизация</h1>
 <p>Сергей Носов (Itseez)</p>
-<p>28 апреля 2016</p>
+<p>11 Октября 2014</p>
 <!-- TODO
   - Вставить картинку-эпиграф
   - Примеры
@@ -122,7 +122,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Код</li>
 <li>Статьи, документы</li>
 </ul></li>
-<li>Позволяет работать со &quot;скоростью мысли&quot; (при использовании правильного текстового редактора)</li>
 </ul>
 </div>
 <div id="автоматизация-в-деятельности-программиста" class="slide section level1">
@@ -178,8 +177,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Удаление пробелов в конце строки и замена tab'ов на 4 пробела:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> main.cpp main.cpp.bak <span class="kw">&amp;&amp;</span> <span class="kw">cat</span> main.cpp.bak <span class="kw">|</span> <span class="kw">sed</span> <span class="st">'s/\t/    /g'</span> <span class="kw">|</span> <span class="kw">sed</span> <span class="st">'s/\s*$//'</span> <span class="kw">&gt;</span> main.cpp</code></pre></div>
 <p>Количество просмотров видео на YouTube:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> <span class="st">&quot;https://www.youtube.com/watch?v=M9ycFnR_V4I&quot;</span> <span class="kw">2&gt;</span>/dev/null <span class="kw">|</span> <span class="kw">\</span>
-    <span class="kw">sed</span> -n <span class="st">'s/\(.*\)&quot;view_count&quot;:&quot;\([^&quot;]*\)&quot;\(.*\)/\2/p'</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> <span class="st">&quot;https://gdata.youtube.com/feeds/api/videos/M9ycFnR_V4I?v=2&amp;alt=json&quot;</span> <span class="kw">|</span> <span class="kw">\</span>
+    <span class="kw">sed</span> <span class="st">'s/\(.*\)&quot;viewCount&quot;:&quot;\([^&quot;]*\)&quot;\(.*\)/\2/'</span></code></pre></div>
 </div>
 <div id="пример-bash" class="slide section level1">
 <h1>Пример: bash</h1>
