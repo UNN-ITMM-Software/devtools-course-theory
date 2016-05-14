@@ -1,7 +1,14 @@
 # TODO
 
-  - select must-know questions
-  - Подготовить инфраструктуру для лабы по документации
+  - control questions
+    - update
+    - select must-know questions
+    - setup automated check that validates correctness
+      (or better adds another commit like with HTML pages)
+
+  - подготовить инфраструктуру для лабы по документации
+  - строить курс вокруг (1) инструментов и (2) практик разработки
+  - посвящать основное время демонстрации, слайды оставлять на домашнее изучение
 
   - проект-шаблон
     - реализовать оператор сравнения
