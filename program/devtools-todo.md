@@ -1,12 +1,18 @@
 # TODO
 
-  - control questions
+- devtools course todo
+    - strange waterfall (replace it with something)
+    - DVCS: implicit backup copying
+    - pre-commit or pre-merge?
+    - select and send books
+    - semver
+
+- control questions
     - update
     - select must-know questions
     - setup automated check that validates correctness
       (or better adds another commit like with HTML pages)
 
-  - подготовить инфраструктуру для лабы по документации
   - строить курс вокруг (1) инструментов и (2) практик разработки
   - посвящать основное время демонстрации, слайды оставлять на домашнее изучение
 
@@ -15,7 +21,9 @@
     - вынести функцию `parseArguments`
     - добавить методы вычисления модуля и аргумента
 
-  - practice
+- practice
+    - подготовить инфраструктуру для лабы по документации
+    - implement a simple package manager with students, or use a real one
     - Rewrite testing bash script to Python and test in on windows
     - Поговорить с Владом про возможную организацию практики (CTest)
 
