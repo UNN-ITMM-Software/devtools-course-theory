@@ -1,6 +1,14 @@
 # TODO
 
-- devtools course todo
+- 2017
+    - fix code coverage
+    - questions to Vlad
+        - can we fail after cpplint failure?
+    - python script that updates hall-of-fame colours based on pull-requests
+    - check clion
+
+- slides devtools course todo
+    - _начинать с демонстрации, слайды оставлять на домашнее изучение_
     - strange waterfall (replace it with something)
     - DVCS: implicit backup copying
     - pre-commit or pre-merge?
@@ -8,13 +16,12 @@
     - semver
 
 - control questions
-    - update
+    - update, automate coherency check
     - select must-know questions
     - setup automated check that validates correctness
       (or better adds another commit like with HTML pages)
 
   - строить курс вокруг (1) инструментов и (2) практик разработки
-  - посвящать основное время демонстрации, слайды оставлять на домашнее изучение
 
   - проект-шаблон
     - реализовать оператор сравнения
@@ -24,7 +31,6 @@
 - practice
     - подготовить инфраструктуру для лабы по документации
     - implement a simple package manager with students, or use a real one
-    - Rewrite testing bash script to Python and test in on windows
     - Поговорить с Владом про возможную организацию практики (CTest)
 
 # Theory
