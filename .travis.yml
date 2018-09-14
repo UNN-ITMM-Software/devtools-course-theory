@@ -37,7 +37,7 @@ before_script:
   # - cabal update
   # - cabal install pandoc
   # - export PATH=~/.cabal/bin:$PATH
-  - wget --no-check-certificate https://googledrive.com/host/0B8BBkrQIoSbjc0YtODdQN3VJaDg -O ~/pandoc
+  - wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=0B8BBkrQIoSbjc0YtODdQN3VJaDg' -O ~/pandoc
   - chmod +x ~/pandoc
   - export PATH=~:$PATH
   - pandoc -v
