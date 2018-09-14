@@ -32,7 +32,7 @@ Joel Spolsky, August 09, 2000
   1. __История изменений__
      - Откат дефектных изменений
      - Извлечение кода "из прошлого" (как оно раньше работало?)
-     - Поиск ошибок сравнением (кто это сделал?)
+     - Поиск ошибок сравнением (кто виноват?)
   1. __Централизованное хранение__
      - Актуальное и используемое всеми участниками (где последняя версия?!)
      - Защищенное, с разграничением прав доступа
@@ -212,6 +212,42 @@ Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/his
 # Command Line Interface!
 
 ![](./pix/git-in-shell.png)
+
+# Triangular Workflow (GitHub)
+
+<center> ![](./pix/triangular-git-workflow-bitfield.png) </center>
+
+```bash
+$ cd mp2-lab1-bitfield
+$ git remote -v
+origin  https://github.com/kirill-kornyakov/mp2-lab1-bitfield.git (fetch)
+origin  https://github.com/kirill-kornyakov/mp2-lab1-bitfield.git (push)
+upstream  https://github.com/UNN-VMK-Software/mp2-lab1-bitfield.git (fetch)
+upstream  https://github.com/UNN-VMK-Software/mp2-lab1-bitfield.git (push)
+```
+
+# Инструкция по работе с Git / GitHub
+
+ 1. Предварительные действия
+    1. Инсталляция клиента Git (`git help`)
+    1. Конфигурация Git (`git config`)
+ 1. Первичное получение исходных кодов
+    1. Регистрация на GitHub
+    1. Создание форка центрального репозитория
+    1. Клонирование форка к себе на локальную машину (`git clone`)
+    1. Конфигурация удаленного репозитория (`git remote -v`)
+    1. Просмотр истории (`git log`, `git show`)
+ 1. Рабочий цикл (многократно)
+    1. Опциональное получение обновлений из удаленного сервера (`git pull`)
+    1. Создание новой ветки (`git branch`,  `git checkout -b`)
+    1. Модификация файлов
+    1. Анализ изменений (`git status`, `git diff`)
+    1. Регистрация изменений (`git add`, `git commit`)
+    1. Отправка изменений на удаленный сервер (`git push`)
+
+# Демонстрация
+
+<center>![](./pix/showtime.png)</center>
 
 # Git objects
 
@@ -402,38 +438,6 @@ $ git commit -a -m 'Made other changes'
 # Dictator and Lieutenants Workflow
 
 <center> ![](./pix/dictator-and-lieutenants-orkflow.png) </center>
-
-# Triangular Workflow (GitHub)
-
-<center> ![](./pix/triangular-git-workflow-bitfield.png) </center>
-
-```bash
-$ cd mp2-lab1-bitfield
-$ git remote -v
-origin  https://github.com/kirill-kornyakov/mp2-lab1-bitfield.git (fetch)
-origin  https://github.com/kirill-kornyakov/mp2-lab1-bitfield.git (push)
-upstream  https://github.com/UNN-VMK-Software/mp2-lab1-bitfield.git (fetch)
-upstream  https://github.com/UNN-VMK-Software/mp2-lab1-bitfield.git (push)
-```
-
-# Инструкция по работе с Git / GitHub
-
- 1. Предварительные действия
-    1. Инсталляция клиента Git (`git help`)
-    1. Конфигурация Git (`git config`)
- 1. Первичное получение исходных кодов
-    1. Регистрация на GitHub
-    1. Создание форка центрального репозитория
-    1. Клонирование форка к себе на локальную машину (`git clone`)
-    1. Конфигурация удаленного репозитория (`git remote -v`)
-    1. Просмотр истории (`git log`, `git show`)
- 1. Рабочий цикл (многократно)
-    1. Опциональное получение обновлений из удаленного сервера (`git pull`)
-    1. Создание новой ветки (`git branch`,  `git checkout -b`)
-    1. Модификация файлов
-    1. Анализ изменений (`git status`, `git diff`)
-    1. Регистрация изменений (`git add`, `git commit`)
-    1. Отправка изменений на удаленный сервер (`git push`)
 
 # Современное состояние
 
