@@ -2,8 +2,8 @@
 
 ![](./pix/linux-report.png)
 
-Кирилл Корняков (Intel, ННГУ)
-<!-- DATE -->
+Кирилл Корняков (Intel, ННГУ)\
+Февраль 2018
 
 <!-- TODO
   - переделать эту лекцию в vcs-teamwork, убрать материал про задачи
@@ -20,9 +20,25 @@
   1. Модели ветвления
   1. Модели распределенного рабочего процесса
 
-# Учет и планирование задач
+# Каскадная модель ЖЦ
+
+![](./pix/developmentprocess.gif)
+
+# Итеративная модель ЖЦ
 
 ![](./pix/sprint-lifecycle.png)
+
+# Виды задач
+
+Задачи можно делить на две простые категории:
+
+- Дефекты (bugs)
+    - Дефекты нужно сортировать по их критичности.
+    - Критических ошибок не должно быть вообще! Их исправляем в первую очередь.
+    - В наличии некритических нет ничего критического.
+- Новые возможности (features)
+    - Возможности стоит реализовывать в порядке приоритета.
+    - Редко когда имеет смысл откладывать релиз из-за того, что не все новые функции добавлены.
 
 # Планирование задач в Google Docs
 
@@ -40,31 +56,20 @@
 
 ![](./pix/redmine-roadmap.png)
 
-# Практические рекомендации
+# Итеративная и инкрементальная разработка
 
-Задачи можно делить на две простые категории:
+Выигрывает тот, кто сумеет организовать быструю, но контролируемую эволюцию своего приложения (адаптация к изменяющимся условиям).
 
-- Дефекты (bugs)
-    - Дефекты нужно делить на критические и некритические.
-    - Критических ошибок быть не должно вообще! Их исправляем в первую очередь.
-    - В наличии некритических нет ничего критического.
-- Новые возможности (features)
-    - Функции стоит реализовывать в порядке приоритета.
-    - Редко когда имеет смысл откладывать релиз из-за того, что не все новые
-      функции добавлены.
+![](./pix/kanban_10.jpg)
 
-# Простые истины
-
-- Идеальных приложений не бывает, бывают только "мертвые"
-    - Про приложение полезно думать не про что-то жесткое, а как про растущий
-      организм, постоянно изменяющий свой облик
-    - Про задачи полезно думать как про молекулы "жидкости" (вспоминаем коммиты)
-- Времени никогда не хватает, его нужно тратить на наиболее приоритетные задачи
-    - Приложений без ошибок не существует, вопрос в их количестве и критичности
-    - Пожеланий (feature request) всегда будет слишком много
-
-Выигрывает тот, кто сумеет организовать постоянную и быструю эволюцию своего
-приложения (адаптация к изменяющимся условиям).
+- Идеальных/завершенных приложений не бывает, бывают только "мертвые"
+    - Про ПО полезно думать как про живой растущий организм, постоянно изменяющий свой облик.
+    - Про задачи стоит думать как про непрерывный поток (молекулы = коммиты).
+- Времени всегда не хватает
+    - Пожеланий (feature request) всегда будет больше, чем рабочего времени.\
+      Просто его нужно тратить на наиболее приоритетные задачи.
+    - Лучше всего выпускать небольшие релизы, но как можно чаще (каждые 2-4 недели).
+    - Приложений без ошибок не существует, вопрос в их количестве и критичности.
 
 <!-- TOC -->
 
@@ -73,20 +78,74 @@
 +-------------------------------+-----------------------------------------------+
 |                               |  1. Модели ветвления (branching model)        |
 |                               |     - Feature Branch                          |
-|                               |     - GitFlow                                 |
 |                               |     - GitHub Flow                             |
+|                               |     - GitFlow                                 |
 | ![](./pix/distributed-git.png)|  1. Распределенные рабочие процессы (workflow)|
 |                               |     - Centralized                             |
 |                               |     - Integration Manager                     |
 |                               |     - Dictator and Lieutenants                |
 +-------------------------------+-----------------------------------------------+
 
-# Topic Branches (Feature Branches)
+# Topic/Features Branches
 
 <center> ![](./pix/topic-branches-1.png) </center>
-<!-- <center> ![](./pix/github-flow.png) </center>
 
-[GitHub Flow][github-flow] -->
+# Topic/Features Branches
+
+<center> ![](./pix/github-flow.png) </center>
+
+[GitHub Flow][github-flow]
+
+# GitHub Flow
+
+Anything in the `master` branch is deployable.
+
+  1. Create a topic branch
+     - To work on something new, create a descriptively named branch off of
+       `master` (ie: `new-oauth2-scopes`).
+  1. Develop in the topic branch
+     - Commit to that branch locally and regularly push your work to the same
+       named branch on the server.
+  1. Open a pull request to master branch (ask for review)
+     - When you need feedback or help, or you think the branch is ready for
+       merging, open a pull request.
+  1. Merge into master after review
+     - After someone else has reviewed and signed off on the feature, you can
+       merge it into `master`.
+  1. Deploy
+     - Once it is merged and pushed to `master`, you can and _should_ deploy
+       immediately.
+  1. Repeat
+
+# GitHub Flow в командах Git
+
+```bash
+# Check that origin and upstream repositories are correctly defined
+$ git remote -v
+
+# Get the latest sources from the upstream repository
+$ git remote update
+
+# Checkout a new topic branch for development
+$ git checkout -b adding-new-feature upstream/master
+
+#
+# Do some development...
+#
+
+# Check your changes
+$ git status
+
+# Commit your changes
+$ git commit -a -m "Added a new feature"
+
+# Push your changes to the origin
+$ git push origin HEAD
+```
+
+# Long Running Branches
+
+<center> ![](./pix/lr-branches-2.png) </center>
 
 # Git Flow
 
@@ -123,52 +182,6 @@ origin  https://github.com/kirill-kornyakov/mp2-lab1-bitfield.git (fetch)
 origin  https://github.com/kirill-kornyakov/mp2-lab1-bitfield.git (push)
 upstream  https://github.com/UNN-VMK-Software/mp2-lab1-bitfield.git (fetch)
 upstream  https://github.com/UNN-VMK-Software/mp2-lab1-bitfield.git (push)
-```
-
-# GitHub Flow
-
-Anything in the `master` branch is deployable.
-
-  1. Create branch
-     - To work on something new, create a descriptively named branch off of
-       `master` (ie: `new-oauth2-scopes`).
-  1. Develop in branch
-     - Commit to that branch locally and regularly push your work to the same
-       named branch on the server.
-  1. Open a pull request (ask for review)
-     - When you need feedback or help, or you think the branch is ready for
-       merging, open a pull request.
-  1. Merge after review
-     - After someone else has reviewed and signed off on the feature, you can
-       merge it into `master`.
-  1. Deploy
-     - Once it is merged and pushed to `master`, you can and _should_ deploy
-       immediately.
-
-# GitHub Flow в командах Git
-
-```bash
-# Check that origin and upstream repositories are correctly defined
-$ git remote -v
-
-# Get the latest sources from the upstream repository
-$ git remote update
-
-# Checkout a new topic branch for development
-$ git checkout -b adding-new-feature upstream/master
-
-#
-# Do some development...
-#
-
-# Check your changes
-$ git status
-
-# Commit your changes
-$ git commit -a -m "Added a new feature"
-
-# Push your changes to the origin
-$ git push origin HEAD
 ```
 
 # Базовые принципы
