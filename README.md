@@ -28,13 +28,13 @@
 
 <!-- LINKS -->
 
-[html]:               http://unn-vmk-software.github.io/devtools-course-theory
+[html]:               http://unn-itmm-software.github.io/devtools-course-theory
 [html-badge]:         https://img.shields.io/badge/slides-html-blue.svg
-[travis]:             https://travis-ci.org/UNN-VMK-Software/devtools-course-theory
-[travis-badge]:       https://travis-ci.org/UNN-VMK-Software/devtools-course-theory.svg?branch=master
+[travis]:             https://travis-ci.org/UNN-ITMM-Software/devtools-course-theory
+[travis-badge]:       https://travis-ci.org/UNN-ITMM-Software/devtools-course-theory.svg?branch=master
 [license]:            http://creativecommons.org/licenses/by-sa/3.0/
-[control-questions]:  https://github.com/UNN-VMK-Software/devtools-course-theory/blob/master/slides/control-questions.md
-[practice]:           https://github.com/UNN-VMK-Software/devtools-course-practice
+[control-questions]:  https://github.com/UNN-ITMM-Software/devtools-course-theory/blob/master/slides/control-questions.md
+[practice]:           https://github.com/UNN-ITMM-Software/devtools-course-practice
 
 [book-ford]:          http://www.books.ru/books/produktivnyi-programmist-kak-sdelat-slozhnoe-prostym-a-nevozmozhnoe--vozmozhnym-fail-pdf-646592/?show=1
 [book-goodleaf]:      http://www.books.ru/books/remeslo-programmista-praktika-napisaniya-khoroshego-koda-fail-pdf-646106/?show=1
