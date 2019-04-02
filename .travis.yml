@@ -42,7 +42,7 @@ before_script:
   - export PATH=~:$PATH
   - pandoc -v
 
-# Check Markdown and generate HTML slides
+# Validate Markdown and generate HTML slides
 script:
 - ./slides/slidy-scripts/slides-py/test_slides.py -v
 - ./slides/slidy-scripts/gen_slides.sh
