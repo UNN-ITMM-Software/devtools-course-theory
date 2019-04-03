@@ -1,12 +1,11 @@
-# Спецкурс "Инструменты разработки"
+# Спецкурс "Инструменты разработки ПО"
 
-[![Join the chat at https://gitter.im/UNN-VMK-Software/devtools-course-practice](https://badges.gitter.im/UNN-VMK-Software/devtools-course-practice.svg)](https://gitter.im/UNN-VMK-Software/devtools-course-practice?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![HTML][html-badge]][html]
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Build Status][travis-badge]][travis]
 
  - Нижегородский Государственный Университет им. Н.И. Лобачевского
  - Институт ИТММ, каф. МОСТ
- - __License:__ Creative Commons Attribution-Share Alike 3.0 ([CC BY-SA 3.0][license])
 
 ## Ресурсы
 
