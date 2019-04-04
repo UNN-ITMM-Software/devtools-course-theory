@@ -1,19 +1,18 @@
-# TODO
-
-- 2017
-    - fix code coverage
-    - questions to Vlad
-        - can we fail after cpplint failure?
-    - python script that updates hall-of-fame colours based on pull-requests
-    - check clion
+# DevTools TODO
 
 - slides devtools course todo
-    - _начинать с демонстрации, слайды оставлять на домашнее изучение_
+    - _продумать и проводить демонстрации, слайды оставлять на домашнее изучение_
     - strange waterfall (replace it with something)
     - DVCS: implicit backup copying
     - pre-commit or pre-merge?
     - select and send books
     - semver
+
+- 2017
+    - python script that updates hall-of-fame colours based on pull-requests
+    - fix code coverage
+    - questions to Vlad
+        - can we fail after cpplint failure?
 
 - control questions
     - update, automate coherency check
