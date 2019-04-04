@@ -60,9 +60,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="содержание" class="slide section level1">
 <h1>Содержание</h1>
 <ol style="list-style-type: decimal">
+<li>Базовое окружение</li>
 <li>UNIX</li>
 <li>Инструменты командной строки</li>
-<li>Краткое упоминание про скриптовые языки</li>
 </ol>
 </div>
 <div id="основные-инструменты-программиста" class="slide section level1">
@@ -74,6 +74,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><strong>Браузер</strong></li>
 <li>Почтовый клиент</li>
 <li>Мессенджеры</li>
+</ol>
+</div>
+<div id="полезные-инструменты" class="slide section level1">
+<h1>Полезные инструменты</h1>
+<ol style="list-style-type: decimal">
+<li>Глубокие буферы обмена (Clipy)</li>
+<li>Синхронизация файлов (Google Drive, Dropbox)</li>
+<li>Лаунчеры (Spotlight)</li>
+<li>PuntoSwitcher (в пассивном режиме!!)</li>
 </ol>
 </div>
 <div id="вредные-советы" class="slide section level1">
@@ -88,7 +97,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>Огромное количество утилит на любой случай жизни
 <ul>
-<li>find, cron, tar, sed, etc.</li>
+<li>find, cron, tar, sed, wget, curl, etc.</li>
 </ul></li>
 <li>Вместе со скриптовыми языками (Bash, Perl, Python, etc)<br />
  предоставляет широчайшие возможности для автоматизации</li>
@@ -117,11 +126,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">    $ <span class="kw">curl</span> <span class="st">&quot;https://www.youtube.com/watch?v=M9ycFnR_V4I&quot;</span> <span class="kw">2&gt;</span>/dev/null <span class="kw">|</span> <span class="kw">\</span>
     <span class="kw">sed</span> -n <span class="st">'s/\(.*\)&quot;view_count&quot;:&quot;\([^&quot;]*\)&quot;\(.*\)/\2/p'</span></code></pre></div>
 </div>
-<div id="базовая-работа-с-командной-строкой" class="slide section level1">
-<h1>Базовая работа с командной строкой</h1>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">    $ <span class="kw">cd</span>
-    $ <span class="kw">cd</span> --
-    $ <span class="kw">autojump</span></code></pre></div>
+<div id="конфигурация" class="slide section level1">
+<h1>Конфигурация</h1>
+<ul>
+<li>Настройка приглашения</li>
+<li>Концепция dotfiles <a href="https://dotfiles.github.io" class="uri">https://dotfiles.github.io</a></li>
+</ul>
+</div>
+<div id="навигация" class="slide section level1">
+<h1>Навигация</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">    $ <span class="kw">cd</span> <span class="co"># enter Home directory</span>
+    $ <span class="kw">pwd</span>
+    $ <span class="kw">history</span>
+    $ <span class="kw">ls</span>
+    $ <span class="kw">ls</span> -l
+    $ <span class="kw">ls</span> -1</code></pre></div>
+</div>
+<div id="навигация-1" class="slide section level1">
+<h1>Навигация++</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">    $ <span class="kw">cd</span> --
+    $ <span class="kw">j</span> <span class="co"># autojump</span></code></pre></div>
 </div>
 <div id="инструменты-командной-строки" class="slide section level1">
 <h1>Инструменты командной строки</h1>
@@ -198,6 +222,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="скриптовые-языки" class="slide section level1">
 <h1>Скриптовые языки</h1>
 <ul>
+<li>Bash</li>
 <li>Perl
 <ul>
 <li>Practical Extraction and Report Language</li>
@@ -211,10 +236,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul>
 </div>
-<div id="dotfiles" class="slide section level1">
-<h1>dotfiles</h1>
-<p><a href="https://dotfiles.github.io" class="uri">https://dotfiles.github.io</a></p>
-<p>Хранение привычного окружения.</p>
+<div id="httpsbash.imquote436725-18" class="slide section level1">
+<h1>https://bash.im/quote/436725 (18+)</h1>
+<p>xxx: У нас тут YYY (билд инженера) сманили. Чел принципиально жил только в консоли и vim, диаграммы рисовал скриптами в dot, доки писал в wiki маркдауном, если что-либо требовало больше чем 1.5 минуты писал скрипт. Сидим разбираем его наследие.</p>
+<p>xxx: Из прекрасного</p>
+<p>xxx: smack-my-bitch-up.sh - шлет видимо его жене &quot;Задержался на работе&quot; и генерит отмазки из списка. Поставлено в cron, стреляет после 9 вечера если на рабочей станции висят интерактивные сессии по ssh с его логином.</p>
+<p>xxx: kumar-mudak.sh - сканит почту, ищет письма от Кумара (заграничный ДБА с говорящей фамилией) с ключевыми словами (sorry, help и т.д.) откатывает упомянутую базу стейджинга на последний бэкап и отписывается типа не вопрос будь аккуратнее в следующий раз. Зело заколебал его Кумар вестимо.</p>
+<p>xxx: badun.sh - поставлен на cron на определенные даты, шлет письма &quot;плохо себя чувствую, поработаю из дома&quot; опять же если к 8-45 утра не обнаружилось интерактивных сессий на рабочей станции.</p>
+<p>xxx: И наконец первый приз: coffe-blyat.sh - ждет 17 сек (!!!) логинится по ssh в кофе-машину (епрст, мы и понятия не имели что она в сетке да и еще что на ней sshd поднят) и засылает туда какую-то абракадабру. Экспериментальным путем выяснили что ЭТО запускает процесс варения half-caf chai latte среднего размера, которое начинает выливаться в чашку как раз к тому моменту когда неспеша идущий человек добирается от его офиса до автомата.</p>
+<p><a href="https://github.com/NARKOZ/hacker-scripts" class="uri">https://github.com/NARKOZ/hacker-scripts</a></p>
 </div>
 <div id="ключевые-моменты" class="slide section level1">
 <h1>Ключевые моменты</h1>
