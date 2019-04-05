@@ -132,16 +132,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Удаление всех ветвей, влитых в <code>master</code></p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">alias</span> git_delete_merged=<span class="st">&quot;git branch --merged | grep -v </span><span class="dt">\&quot;</span><span class="st">*</span><span class="dt">\&quot;</span><span class="st"> | xargs -n 1 git branch -d&quot;</span></code></pre></div>
 </div>
-<div id="конфигурация-ос" class="slide section level1">
-<h1>Конфигурация ОС</h1>
-<ul>
-<li>Настройка приглашения</li>
-<li>Концепция dotfiles <a href="https://dotfiles.github.io" class="uri">https://dotfiles.github.io</a>
-<ul>
-<li>Это крайне важно!!</li>
-</ul></li>
-</ul>
-</div>
 <div id="навигация" class="slide section level1">
 <h1>Навигация</h1>
 <p>Базовая</p>
@@ -195,6 +185,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="co"># !-n works backwards, from last command</span>
     <span class="co"># !str – last command that starts w/str</span>
     <span class="co"># ^src^targ^ substitute targ for src in last command</span></code></pre></div>
+</div>
+<div id="конфигурация-ос" class="slide section level1">
+<h1>Конфигурация ОС</h1>
+<ul>
+<li>Концепция dotfiles <a href="https://dotfiles.github.io" class="uri">https://dotfiles.github.io</a>
+<ul>
+<li>Это крайне важно!!</li>
+</ul></li>
+<li>Что полезно сделать
+<ul>
+<li>Настройка приглашения</li>
+<li>Создать алиасы под себя</li>
+<li>Сохранить конфигурации bash, git, vim, emacs, etc</li>
+</ul></li>
+</ul>
 </div>
 <div id="обработка-текста" class="slide section level1">
 <h1>Обработка текста</h1>
