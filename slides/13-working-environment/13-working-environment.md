@@ -93,12 +93,6 @@ UNIX появился в 70е годы. Создавался и разрабат
 alias git_delete_merged="git branch --merged | grep -v \"*\" | xargs -n 1 git branch -d"
 ```
 
-# Конфигурация ОС
-
-- Настройка приглашения
-- Концепция dotfiles <https://dotfiles.github.io>
-    - Это крайне важно!!
-
 # Навигация
 
 Базовая
@@ -166,6 +160,15 @@ alias git_delete_merged="git branch --merged | grep -v \"*\" | xargs -n 1 git br
     # !str – last command that starts w/str
     # ^src^targ^ substitute targ for src in last command
 ```
+
+# Конфигурация ОС
+
+- Концепция dotfiles <https://dotfiles.github.io>
+    - Это крайне важно!!
+- Что полезно сделать
+    - Настройка приглашения
+    - Создать алиасы под себя
+    - Сохранить конфигурации bash, git, vim, emacs, etc
 
 # Обработка текста
 
