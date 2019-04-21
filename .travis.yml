@@ -2,51 +2,29 @@ language: python
 notifications:
   email: false
 
+sudo: false
+addons:
+  apt:
+    packages:
+    - pandoc
+    - ttf-mscorefonts-installer
+
 # Download SSH key, so we can commit HTML slides to gh-pages branch
 before_install:
-- openssl aes-256-cbc
-  -K $encrypted_b985f7637263_key
-  -iv $encrypted_b985f7637263_iv
-  -in config/travisci_rsa.enc
-  -out config/travisci_rsa
-  -d
-- chmod 0600 config/travisci_rsa
-- cp config/travisci_rsa ~/.ssh/id_rsa
+  - openssl aes-256-cbc
+    -K $encrypted_b985f7637263_key
+    -iv $encrypted_b985f7637263_iv
+    -in config/travisci_rsa.enc
+    -out config/travisci_rsa
+    -d
+  - chmod 0600 config/travisci_rsa
+  - cp config/travisci_rsa ~/.ssh/id_rsa
 
-# We can't use Docker infrastructure because we need to install fonts
-# sudo: false
-# addons:
-#   apt:
-#     packages:
-#     - pandoc
-#     - python3
-#     - ttf-mscorefonts-installer
-
-# Install fonts and pandoc
-before_script:
-  - sudo apt-get update
-
-  # Install fonts
-  - echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-  - sudo apt-get install ttf-mscorefonts-installer
-  - sudo mkfontdir
-
-  # We don't build pandoc from sources, because it takes too much time
-  # We download prebuilt relocatible binary instead (from a personal Google Drive folder)
-  # - sudo apt-get install haskell-platform
-  # - cabal update
-  # - cabal install pandoc
-  # - export PATH=~/.cabal/bin:$PATH
-  - wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=0B8BBkrQIoSbjc0YtODdQN3VJaDg' -O ~/pandoc
-  - chmod +x ~/pandoc
-  - export PATH=~:$PATH
-  - pandoc -v
-
-# Validate Markdown and generate HTML slides
+# Validate control questions, slides and generate HTML
 script:
-- ./slides/slidy-scripts/slides-py/test_slides.py -v
-- ./slides/slidy-scripts/gen_slides.sh
+  - ./slides/slidy-scripts/gen_slides.sh
+  - ./slides/slidy-scripts/test_control_questions.sh
 
 # Publish generated HTML to gh-pages
 after_success:
-- ./config/publish-html
+  - ./config/publish-html
