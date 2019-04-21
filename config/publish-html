@@ -6,6 +6,7 @@
 REPO_PATH=git@github.com:UNN-ITMM-Software/devtools-course-theory.git
 WORKING_DIR=../devtools-course-theory
 GHPAGES_PATH=devtools-course-ghpages
+
 HTML_PATH=slides
 COMMIT_USER="Slides Generator"
 COMMIT_EMAIL="kirill.kornyakov+travis-ci@gmail.com"
