@@ -42,7 +42,7 @@ script:
 - ./slides/slidy-scripts/slides-py/test_slides.py -v
 - python3 ./slides/slidy-scripts/slides-py/extract-control-questions.py
 - if [ $(git diff | wc -l) -ge 1 ] ; then
-        echo "Error: control questions are not updated!" ;
+        echo "Error, control questions are not updated!" ;
         git --no-pager diff ;
         exit 1 ;
   fi
