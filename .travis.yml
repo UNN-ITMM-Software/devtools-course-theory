@@ -22,7 +22,7 @@ before_install:
 
 # Validate control questions, slides and generate HTML
 script:
-  - ./slides/slidy-scripts/test_control_questions.sh # Make it part of python unit-tests
+  - ./slides/slidy-scripts/test_control_questions.sh
   - ./slides/slidy-scripts/gen_slides.sh
 
 # Publish generated HTML to gh-pages

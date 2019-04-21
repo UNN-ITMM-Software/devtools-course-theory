@@ -2,7 +2,8 @@
 
 - infrastructure
     - python script that updates hall-of-fame colours based on pull-requests (move it to the slidy repo)
-    - automate coherency check using travis-ci
+    - add python test for control questions comparison (gen_slides)
+    - move publish-html to slidy
 
 - template project
     - fix code coverage (achieve 100%)
