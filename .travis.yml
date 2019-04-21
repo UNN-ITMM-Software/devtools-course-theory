@@ -14,30 +14,30 @@ before_install:
   - cp config/travisci_rsa ~/.ssh/id_rsa
 
 # We can't use Docker because we need to install fonts
-# sudo: false
-# addons:
-#   apt:
-#     packages:
-#     - pandoc
-#     - ttf-mscorefonts-installer
+sudo: false
+addons:
+  apt:
+    packages:
+    - pandoc
+    - ttf-mscorefonts-installer
 
 # Install fonts and pandoc
-before_script:
-  - sudo apt-get update
+# before_script:
+#   - sudo apt-get update
 
-  # Install fonts
-  - echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-  - sudo apt-get install ttf-mscorefonts-installer
-  - sudo mkfontdir
+#   # Install fonts
+#   - echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+#   - sudo apt-get install ttf-mscorefonts-installer
+#   - sudo mkfontdir
 
-  # We don't build pandoc from sources, because it takes too much time
-  # We download prebuilt relocatible binary instead (from a personal Google Drive folder)
-  - wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=0B8BBkrQIoSbjc0YtODdQN3VJaDg' -O ~/pandoc
-  - chmod +x ~/pandoc
-  - export PATH=~:$PATH
-  - pandoc -v
+#   # We don't build pandoc from sources, because it takes too much time
+#   # We download prebuilt relocatible binary instead (from a personal Google Drive folder)
+#   - wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=0B8BBkrQIoSbjc0YtODdQN3VJaDg' -O ~/pandoc
+#   - chmod +x ~/pandoc
+#   - export PATH=~:$PATH
+#   - pandoc -v
 
-# Validate Markdown, control questions and generate HTML slides
+# Validate control questions and generate HTML slides with validation
 script:
   - ./slides/slidy-scripts/test_control_questions.sh # Make it part of python unit-tests
   - ./slides/slidy-scripts/gen_slides.sh
