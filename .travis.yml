@@ -4,14 +4,14 @@ notifications:
 
 # Download SSH key, so we can commit HTML slides to gh-pages branch
 before_install:
-- openssl aes-256-cbc
-  -K $encrypted_b985f7637263_key
-  -iv $encrypted_b985f7637263_iv
-  -in config/travisci_rsa.enc
-  -out config/travisci_rsa
-  -d
-- chmod 0600 config/travisci_rsa
-- cp config/travisci_rsa ~/.ssh/id_rsa
+  - openssl aes-256-cbc
+    -K $encrypted_b985f7637263_key
+    -iv $encrypted_b985f7637263_iv
+    -in config/travisci_rsa.enc
+    -out config/travisci_rsa
+    -d
+  - chmod 0600 config/travisci_rsa
+  - cp config/travisci_rsa ~/.ssh/id_rsa
 
 # We can't use Docker because we need to install fonts
 # sudo: false
@@ -39,15 +39,10 @@ before_script:
 
 # Validate Markdown, control questions and generate HTML slides
 script:
-- ./slides/slidy-scripts/slides-py/test_slides.py -v
-- python3 ./slides/slidy-scripts/slides-py/extract-control-questions.py
-- if [ $(git diff | wc -l) -ge 1 ] ; then
-        echo "Error, control questions are not updated!" ;
-        git --no-pager diff ;
-        exit 1 ;
-  fi
-- ./slides/slidy-scripts/gen_slides.sh
+  - ./slides/slidy-scripts/slides-py/test_slides.py -v
+  - ./slides/slidy-scripts/slides-py/test_control_questions.sh # Make it part of python unit-tests
+  - ./slides/slidy-scripts/gen_slides.sh
 
 # Publish generated HTML to gh-pages
 after_success:
-- ./config/publish-html
+  - ./config/publish-html
