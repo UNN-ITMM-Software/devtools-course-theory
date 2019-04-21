@@ -22,8 +22,8 @@ before_install:
 
 # Validate control questions, slides and generate HTML
 script:
-  - ./slides/slidy-scripts/test_control_questions.sh
   - ./slides/slidy-scripts/gen_slides.sh
+  - ./slides/slidy-scripts/test_control_questions.sh
 
 # Publish generated HTML to gh-pages
 after_success:
