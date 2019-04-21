@@ -1,56 +1,43 @@
 # DevTools TODO
 
-- slides devtools course todo
-    - _продумать и проводить демонстрации, слайды оставлять на домашнее изучение_
-    - strange waterfall (replace it with something)
-    - DVCS: implicit backup copying
-    - pre-commit or pre-merge?
-    - select and send books
-    - semver
+- infrastructure
+    - python script that updates hall-of-fame colours based on pull-requests (move it to the slidy repo)
+    - automate coherency check using travis-ci
 
-- 2017
-    - python script that updates hall-of-fame colours based on pull-requests
-    - fix code coverage
+- template project
+    - fix code coverage (achieve 100%)
     - questions to Vlad
         - can we fail after cpplint failure?
-
-- control questions
-    - update, automate coherency check
-    - select must-know questions
-    - setup automated check that validates correctness
-      (or better adds another commit like with HTML pages)
-
-  - строить курс вокруг (1) инструментов и (2) практик разработки
-
-  - проект-шаблон
     - реализовать оператор сравнения
     - вынести функцию `parseArguments`
     - добавить методы вычисления модуля и аргумента
+  - practice
+      - подготовить инфраструктуру для лабы по документации
+      - add continuous deployment step (with semver!!)
+      - implement a simple package manager with students, or use a real one
 
-- practice
-    - подготовить инфраструктуру для лабы по документации
-    - implement a simple package manager with students, or use a real one
-    - Поговорить с Владом про возможную организацию практики (CTest)
+- theory
+    - _продумать и проводить демонстрации, слайды оставлять на домашнее изучение_
+    - replace waterfall picture
+    - DVCS: implicit backup copying
+    - pre-commit or pre-merge - find the right term?
+    - books: add section to every lecture
+    - строить курс вокруг (0) навыков, (1) инструментов и (2) практик разработки
+    - introduce semver somewhere
+      - binary
+      - release/configuration management
 
 # Theory
 
   - Infrastructure
-    - Add `COPYRIGHT` file, может все-таки назвать его `AUTHORS`
-    - Собирать обратную связь в виде Google Form
+    - Add `COPYRIGHT` file, можно назвать его `AUTHORS`
+    - Собирать обратную связь в виде Google Form (освобождая от контрольной)
 
   - Нужно подумать над живыми демо
     - Их хочется делать много, вероятно нужно выделить время на лекциях.
       Например через лекцию по 15-30 минут.
     - Или вообще отдельные пары посвящать практике.
     - Видеозапись демо (микрофон)
-
-  - Материалы лекций
-    - Вынести программирование и метапрограммирование из лекции про проекты
-    - Вероятно нужна отдельная лекция про UNIX и shell,
-      подобно тому как сделано в курсе
-    - Нужна отдельная лекция про скриптовые языки
-    - Лекцию про автоматизацию построить на основе книг
-    - Все про текст унести в текст
 
   - Разработать программу курса, явно выписать цели и задачи курса
     - Представить курс в различных разрезах:
@@ -94,10 +81,10 @@
     - Disable spam from coveralls (?)
 
   - Общая организация
-    - Потребовать более качественной документации на выходе
     - Можно организовать работу как написание общей С++ библиотеки (boost, dlib)
     - Build and publish Debian packages (использование CPack)
-    - Переориентировать курс на QtCreator или CLion
+    - Потребовать более качественной документации на выходе
+    - Переориентировать курс на Visual Studio Code (QtCreator или CLion)
 
   - Запускать статические анализаторы
     - cppcheck, <https://scan.coverity.com>, <http://en.wikipedia.org/wiki/SonarQube>
@@ -115,9 +102,6 @@
     - Поднять построение Doxygen документации
     - Можно ли проверять консистентность?
     - Можно ли автоматически публиковать ее куда-нибудь?
-
-  - Docs
-    - Change license to something more sane
 
   - Возможное развитие практики
     - Создание Python интерфейса (потом тесты и массовые эксперименты)
