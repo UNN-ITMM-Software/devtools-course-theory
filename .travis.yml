@@ -14,13 +14,13 @@ before_install:
 - cp config/travisci_rsa ~/.ssh/id_rsa
 
 # We can't use Docker infrastructure because we need to install fonts
-# sudo: false
-# addons:
-#   apt:
-#     packages:
-#     - pandoc
-#     - python3
-#     - ttf-mscorefonts-installer
+sudo: false
+addons:
+  apt:
+    packages:
+    - pandoc
+    - python3
+    - ttf-mscorefonts-installer
 
 # Install fonts and pandoc
 before_script:
@@ -33,10 +33,6 @@ before_script:
 
   # We don't build pandoc from sources, because it takes too much time
   # We download prebuilt relocatible binary instead (from a personal Google Drive folder)
-  # - sudo apt-get install haskell-platform
-  # - cabal update
-  # - cabal install pandoc
-  # - export PATH=~/.cabal/bin:$PATH
   - wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=0B8BBkrQIoSbjc0YtODdQN3VJaDg' -O ~/pandoc
   - chmod +x ~/pandoc
   - export PATH=~:$PATH
@@ -46,6 +42,12 @@ before_script:
 script:
 - ./slides/slidy-scripts/slides-py/test_slides.py -v
 - ./slides/slidy-scripts/gen_slides.sh
+- python3 ./slides/slidy-scripts/extract-control-questions.py
+- if [ $(git diff | wc -l) -ge 1 ] ; then
+        echo "Control questions are not updated:" ;
+        git --no-pager diff ;
+        exit 1 ;
+  fi
 
 # Publish generated HTML to gh-pages
 after_success:
