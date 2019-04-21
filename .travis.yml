@@ -20,7 +20,7 @@ before_install:
   - chmod 0600 config/travisci_rsa
   - cp config/travisci_rsa ~/.ssh/id_rsa
 
-# Validate control questions and generate HTML slides with validation
+# Validate control questions, slides and generate HTML
 script:
   - ./slides/slidy-scripts/test_control_questions.sh # Make it part of python unit-tests
   - ./slides/slidy-scripts/gen_slides.sh
