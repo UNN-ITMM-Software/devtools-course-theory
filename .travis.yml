@@ -14,13 +14,13 @@ before_install:
 - cp config/travisci_rsa ~/.ssh/id_rsa
 
 # We can't use Docker infrastructure because we need to install fonts
-sudo: false
-addons:
-  apt:
-    packages:
-    - pandoc
-    - python3
-    - ttf-mscorefonts-installer
+# sudo: false
+# addons:
+#   apt:
+#     packages:
+#     - pandoc
+#     - python3
+#     - ttf-mscorefonts-installer
 
 # Install fonts and pandoc
 before_script:
