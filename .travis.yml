@@ -13,13 +13,12 @@ before_install:
 - chmod 0600 config/travisci_rsa
 - cp config/travisci_rsa ~/.ssh/id_rsa
 
-# We can't use Docker infrastructure because we need to install fonts
+# We can't use Docker because we need to install fonts
 # sudo: false
 # addons:
 #   apt:
 #     packages:
 #     - pandoc
-#     - python3
 #     - ttf-mscorefonts-installer
 
 # Install fonts and pandoc
@@ -38,16 +37,16 @@ before_script:
   - export PATH=~:$PATH
   - pandoc -v
 
-# Validate Markdown and generate HTML slides
+# Validate Markdown, control questions and generate HTML slides
 script:
 - ./slides/slidy-scripts/slides-py/test_slides.py -v
-- ./slides/slidy-scripts/gen_slides.sh
-- python3 ./slides/slidy-scripts/extract-control-questions.py
+- python3 ./slides/slidy-scripts/slides-py/extract-control-questions.py
 - if [ $(git diff | wc -l) -ge 1 ] ; then
         echo "Control questions are not updated:" ;
         git --no-pager diff ;
         exit 1 ;
   fi
+- ./slides/slidy-scripts/gen_slides.sh
 
 # Publish generated HTML to gh-pages
 after_success:
