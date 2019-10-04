@@ -1,9 +1,46 @@
 # DevTools TODO
 
+devtools
+    - AAA
+    - лишние файлы
+    - введение новых требований через написание теста
+
 - infrastructure
     - python script that updates hall-of-fame colours based on pull-requests (move it to the slidy repo)
     - add python test for control questions comparison (gen_slides)
     - move publish-html to slidy
+
+~> cat ~/Work/unn/devtools/devtools-useful.md | uniq -c | sort -r
+  41 Построение проектов
+  40 Модульное тестирование
+  39 Системы контроля версий
+  39 Отладка
+  39 Командная работа
+  35 Непрерывная интеграция
+  34 Обработка текста
+  27 Рабочее окружение
+  27 Автоматизация
+  22 CI/CD на практике
+  17 Введение в инструменты программирования
+  10 Текстовые форматы
+   9 Анализ бинарных модулей
+   1 но как ее прочитали - не понравилось
+   1 Автоматизация хорошая тема
+~> cat ~/Work/unn/devtools/devtools-useful.md | uniq -c | sort -r
+  41 Построение проектов
+  40 Модульное тестирование
+  39 Системы контроля версий
+  39 Отладка
+  39 Командная работа
+  35 Непрерывная интеграция
+  34 Обработка текста
+  28 Автоматизация
+  27 Рабочее окружение
+  22 CI/CD на практике
+  17 Введение в инструменты программирования
+  10 Текстовые форматы
+   9 Анализ бинарных модулей
+
 
 - template project
     - fix code coverage (achieve 100%)
