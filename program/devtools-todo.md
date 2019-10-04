@@ -1,5 +1,10 @@
 # DevTools TODO
 
+devtools
+    - AAA
+    - лишние файлы
+    - введение новых требований через написание теста
+
 - infrastructure
     - python script that updates hall-of-fame colours based on pull-requests (move it to the slidy repo)
     - add python test for control questions comparison (gen_slides)
