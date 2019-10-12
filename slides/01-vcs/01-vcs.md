@@ -3,7 +3,7 @@
 ![](./pix/linux-report.png)
 
 Кирилл Корняков (Intel, ННГУ)\
-14 Сентября 2018
+4 Октябрь 2019
 
 <!-- TODO
   - переделать таблицу, которая сейчас в html
@@ -40,6 +40,12 @@ Joel Spolsky, August 09, 2000
 \
 __Машина времени__ и __сетевое хранилище__ в одном флаконе!\
 А нужны ли специальные инструменты? Вспоминаем Sharepoint, tarballs.
+
+# StackOverflow Survey 2015
+
+![](./pix/vcs-stats.png)
+
+[Stack Overflow Developer Survey 2015](http://stackoverflow.com/research/developer-survey-2015)
 
 # StackOverflow Survey 2018
 
@@ -159,12 +165,6 @@ Eric Sink ["A History of Version Control"](http://www.ericsink.com/vcbe/html/his
 
 Благодаря этому, они фактически стали стандартом де-факто.
 
-# Популярные СКВ
-
-![](./pix/vcs-stats.png)
-
-[Stack Overflow Developer Survey 2015](http://stackoverflow.com/research/developer-survey-2015)
-
 # Компании и проекты, использующие Git
 
 <!-- Image credit: http://git-scm.com/ -->
@@ -248,6 +248,20 @@ upstream  https://github.com/UNN-VMK-Software/mp2-lab1-bitfield.git (push)
 # Демонстрация
 
 <center>![](./pix/showtime.png)</center>
+
+# План демонстрации
+
+  1. Клонирование
+  2. Просмотр истории
+    - `git log --graph`
+    - `git show HASH`
+  3. Рабочий цикл
+    - Создание новой ветки `git checkout -b`
+    - Добавление коммитов в нее `git commit`
+    - Сравнение с `master`: `git diff`
+    - Публикация на GitHub (`git push`)
+    - Вливание в `master`, удаление ветки
+
 
 # Git objects
 
@@ -491,15 +505,6 @@ $ git commit -a -m 'Made other changes'
 [wiki-vcs]: http://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8#.D0.91.D0.B0.D0.B7.D0.BE.D0.B2.D1.8B.D0.B5_.D0.BF.D1.80.D0.B8.D0.BD.D1.86.D0.B8.D0.BF.D1.8B_.D1.80.D0.B0.D0.B7.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D0.BA.D0.B8_.D0.9F.D0.9E_.D0.B2_VCS
 [git]: http://git-scm.com
 [devtools-html]: http://unn-vmk-software.github.io/devtools-course-theory
-
-# Демонстрация (если хватает времени)
-
-  - Создание новой ветки `git checkout -b`
-  - Добавление коммитов в нее `git commit`
-  - Сравнение с `master`: `git diff`
-  - Публикация на GitHub (`git push`)
-  - Вливание в `master`, удаление ветки
-  - `git log --graph`
 
 _Подумать_
 
