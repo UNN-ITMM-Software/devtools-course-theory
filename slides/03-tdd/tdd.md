@@ -97,7 +97,7 @@ TDD — "**Т**ише е**Д**ешь, **Д**альше будешь" (С) KK
 
 # Расширенная диаграмма работы
 
-![](./images/tdd-ci-2.png)
+![](./images/tdd-ci.png)
 
 # Uncle Bob on Debugging
 
