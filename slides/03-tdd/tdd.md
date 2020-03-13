@@ -284,6 +284,15 @@ More [Test Patterns](https://wiki.c2.com/?TestingPatterns)
   1. Подменяет абсолютно всё, что можно подменить.
   1. Начинает писать эффективные модульные тесты.
 
+# Дополнительная информация
+
+  1. Kent Beck "Test-Driven Development: By Example" [book](https://www.amazon.com/Driven-Development-Embedded-Pragmatic-Programmers/dp/193435662X)
+  1. James W. Grenning "TDD for Embedded C" [book](https://www.amazon.com/Driven-Development-Embedded-Pragmatic-Programmers/dp/193435662X)
+  1. [TDD doesn't work?](https://blog.cleancoder.com/uncle-bob/2016/11/10/TDD-Doesnt-work.html)
+  1. Демонстрации от Антона Бевзюка
+      - TDD на языке Java, [видео](https://www.youtube.com/watch?v=e3wcDos9gAI)
+      - Разработка GUI согласно TDD (паттерн MVVM), [видео](https://www.youtube.com/watch?v=-IIXlqF94WA)
+
 # Контрольные вопросы
 
   1. Что такое TDD, его назначение
@@ -299,3 +308,34 @@ More [Test Patterns](https://wiki.c2.com/?TestingPatterns)
 ![](./images/tdd_9.jpg)
 
 Вопросы?
+
+# Где TDD работает хорошо
+
+Без него нельзя:
+
+  - Python и другие языки с динамической типизацией
+  - Legacy code
+
+Где работает хорошо:
+
+  - Enterprise
+  - Domain-Driven Design
+
+# Где работает не очень хорошо
+
+Не умеют готовить (на самом деле работает):
+
+  - Embedded (см. книгу)
+  - GUI (MVVM)
+
+Где не нужно:
+
+  - Исследования
+  - Прототипирование
+  - Оптимизация производительности
+
+Где плохо работает:
+
+  - Компьютерное зрение (работа с изображениями)
+  - Нет быстрого цикла обратной связи
+  - Антон?
