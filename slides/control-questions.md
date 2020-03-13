@@ -66,8 +66,11 @@
 
   1. Что такое TDD, его назначение
   1. Мифы о TDD
-  1. Цикл разработки по TDD (в виде рисунка и с максимумом деталей)
+  1. Цикл разработки по TDD
   1. Атрибуты хорошего unit-теста (включая AAA)
+  1. Плохие unit-тесты
+  1. Green Test Patterns
+  1. Red Test Patterns
 
 <a name="continuous-integration"/>
 
