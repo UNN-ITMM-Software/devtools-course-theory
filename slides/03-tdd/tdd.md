@@ -2,7 +2,7 @@
 
 Кирилл Корняков (Intel, ННГУ)\
 Антон Бевзюк (Dodo Pizza)\
-Март 2020
+Октябрь 2020
 
 <!-- TODO:
   -
@@ -16,6 +16,10 @@
   - Мифы о TDD
   - Полезные советы
   - Паттерны TDD
+
+# Диаграмма работы программиста над задачей
+
+![](./images/development-cycle.png)
 
 # Контуры обратной связи
 
@@ -131,10 +135,6 @@ I consider debuggers to be a drug -- an addiction. Programmers can get into the 
 ```
 
 [Source](https://www.artima.com/weblogs/viewpost.jsp?thread=23476)
-
-# Общая диаграмма работы разработчика над задачей
-
-![](./images/tdd-ci.png)
 
 # Мифы о TDD
 
