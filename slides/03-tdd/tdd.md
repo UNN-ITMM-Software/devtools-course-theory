@@ -339,3 +339,7 @@ More [Test Patterns](https://wiki.c2.com/?TestingPatterns)
   - Компьютерное зрение (работа с изображениями)
   - Нет быстрого цикла обратной связи
   - Антон?
+
+# cawemo
+
+<iframe src="https://cawemo.com/embed/035019b0-142d-4721-b91f-a7e5754a07b0" style="width:1000px;height:600px;border:1px solid #ccc" allowfullscreen></iframe>
