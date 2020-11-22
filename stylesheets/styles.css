@@ -421,3 +421,18 @@ footer {
     color:#444;
   }
 }
+
+#pull_requests_table {
+  border-collapse: collapse;
+}
+#pull_requests_table table, th, td {
+  border: 1px solid black;
+  text-align: center;
+  background-color: #FBFAF7;
+}
+#pull_requests_table img {
+  padding: 0px !important;
+  margin: 0px !important;
+  vertical-align: middle !important;
+  border: 0px;
+}
